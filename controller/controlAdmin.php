@@ -15,6 +15,9 @@
             case 'posts':
                 include_once("./layouts/posts/index.php");
                 break;
+            case 'editPosts':
+                include_once("./layouts/posts/index.php");
+                break;
 
             //* COMMENT
             case 'comment':
