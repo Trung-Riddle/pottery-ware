@@ -1,0 +1,78 @@
+.App {
+  width: 100%;
+  display: flex;
+}
+/* ------------- HEADER ------------  */
+.Sidebar {
+  flex: 1;
+  background: #1b2430;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 100vh;
+}
+/* ---------------- CONTAINER -----------  */
+.Container {
+  flex: 4;
+  background: #30334c;
+  display: flex;
+  flex-direction: column;
+  border-left: 0.1rem solid rgb(0, 0, 0);
+}
+.Container--Tools {
+  height: 5rem;
+  display: flex;
+}
+.Container--Tools--TaskBar {
+  flex: 3;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+  filter: blur(0.5px);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background: #ffffff4b;
+}
+.Container--Tools--Person {
+  flex: 1;
+  filter: blur(0.5px);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background: #ffffff4b;
+  border-radius: 0.3rem;
+  margin: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  transition: 0.5s;
+}
+.Container--Tools--Person a {
+  background: rgb(255, 255, 255);
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.5rem;
+  transition: 0.5s;
+  border: 0.1rem solid #fff;
+}
+.Container--Tools--Person a:hover {
+  transform: scale(1.1);
+  background: transparent;
+}
+.Container--Tools--Person a:hover ion-icon {
+  color: #fff;
+}
+.Container--Tools--Person ion-icon {
+  color: #000;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+.Container--Contents {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background: #ffffff4b;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.3rem;
+  margin-top: 0.5rem;
+  color: #fff;
+  height: max-content;
+}

@@ -1,0 +1,29 @@
+.table {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: inherit;
+}
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+table {
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  color: white;
+  box-shadow: 0 20px 50px gray;
+}
+thead {
+  height: 3rem;
+  background-color: #1b2430;
+}
+tbody {
+  background-color: #30334c;
+}
+tbody tr {
+  height: 2rem;
+}

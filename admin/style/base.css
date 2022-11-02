@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Play&display=swap");
+:root {
+  /* ------------ COLOR TEXT ------------  */
+  --color-text: #2f4858;
+  --color-text-detail: #687881;
+  /* ----------------- COLOR BUTTON --------------  */
+  --color-button: #ffe9e2;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Play", sans-serif;
+  list-style: none;
+}
+body {
+  line-height: 1.5;
+  background: #1b2430;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
