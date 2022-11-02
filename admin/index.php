@@ -15,9 +15,7 @@
     <link rel="shortcut icon" href="../asset/image/Logo.jpg" />
 </head>
 <?php
-    include_once("../model/pdo_model/connect_db.php");
-    include_once("../model/pdo_model/category.php");
-    $cate = getAllCate();
+    include_once("../model/pdo_model/index.php");
 ?>
 
 <body>
