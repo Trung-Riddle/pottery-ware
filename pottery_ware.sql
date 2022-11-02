@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 09:43 AM
+-- Generation Time: Nov 02, 2022 at 11:22 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -57,7 +57,8 @@ INSERT INTO `category` (`id`, `name_cate`, `status`) VALUES
 (1, 'vi', 1),
 (2, 'hoa', 1),
 (3, 'quả', 1),
-(4, 'xoài', 1);
+(4, 'xoài', 1),
+(5, 'xczxc', 0);
 
 -- --------------------------------------------------------
 
@@ -72,8 +73,19 @@ CREATE TABLE `comment` (
   `user_name` varchar(50) NOT NULL COMMENT 'tên_user',
   `name_pro` varchar(100) NOT NULL COMMENT 'tên_sản_phẩm',
   `content` varchar(500) NOT NULL COMMENT 'nội_dung',
-  `date_add` date NOT NULL COMMENT 'ngày_post'
+  `date_add` date NOT NULL COMMENT 'ngày_post',
+  `status_cmt` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `id_user`, `id_pro`, `user_name`, `name_pro`, `content`, `date_add`, `status_cmt`) VALUES
+(1, NULL, NULL, 'chungdi', 'bình hoa', 'hello', '2022-11-02', 0),
+(2, NULL, NULL, 'trung', 'bình den', 'hello', '2022-11-02', 1),
+(3, NULL, NULL, 'kien', 'hoa tuoi', 'hello', '2022-11-02', 1),
+(5, NULL, NULL, 'duyen', 'bình hoa', 'hello', '2022-11-02', 1);
 
 -- --------------------------------------------------------
 
@@ -205,13 +217,13 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_danh_mục', AUTO_INCREMENT=5;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_danh_mục', AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_comment';
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_comment', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order`
