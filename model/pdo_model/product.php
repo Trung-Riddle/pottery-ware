@@ -18,9 +18,9 @@
     return $pro;
   }
   //* Add new product to database
-  function addProduct($name_pro, $price, $name_cate, $img){
+  function addProduct($name_pro, $price_pro, $name_cate, $newImgPro, $date_add){
       $conn = connect_db();
-      $sql = "INSERT INTO product (name_pro, price_pro, name_cate, img_pro) VALUES ('$name_pro', '$price', '$name_cate', '$img')";
+      $sql = "INSERT INTO product (name_pro, price_pro, name_cate, img_pro, date_add) VALUES ('$name_pro', '$price_pro', '$name_cate', '$newImgPro', '$date_add')";
       $conn->exec($sql);
   }
   //* Delect product by id
@@ -30,9 +30,9 @@
     $conn->exec($sql);
   }
   //* Update product by id
-  function editProduct($name_pro, $price, $del, $name_cate, $img, $id_pro){
+  function editProduct($id_pro, $name_pro, $price_pro, $del, $name_cate, $newImgPro, $status_pro, $date_add){
     $conn = connect_db();
-    $sql = "UPDATE product SET name_pro ='".$name_pro."', price_pro = '".$price."', del = '".$del."', name_cate ='".$name_cate."', img_pro = '".$img."' WHERE id = ".$id_pro;
+    $sql = "UPDATE product SET name_pro ='".$name_pro."', price_pro = '".$price_pro."', del = '".$del."', name_cate ='".$name_cate."', img_pro = '".$newImgPro."', status_pro = '".$status_pro."', date_add = '".$date_add."' WHERE id = ".$id_pro;
     $stmt = $conn->prepare($sql);
     $stmt->execute();
   }

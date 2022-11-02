@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../asset/image/Logo.jpg" />
 </head>
 <?php
-    include_once("../model/pdo_model/index.php");
+    include_once("../model/index.php");
 ?>
 
 <body>
