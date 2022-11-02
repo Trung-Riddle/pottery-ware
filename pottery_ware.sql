@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 11:22 AM
+-- Generation Time: Nov 02, 2022 at 03:34 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -109,6 +109,19 @@ CREATE TABLE `order` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` int(9) NOT NULL COMMENT 'id_bài_viết',
+  `title_post` varchar(200) NOT NULL COMMENT 'tiêu_đề_bài_viết',
+  `content_post` varchar(1000) NOT NULL COMMENT 'nội_dung_bài_viết',
+  `img_post` varchar(100) NOT NULL COMMENT 'ảnh_bài_viết'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -132,7 +145,11 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `id_cate`, `name_cate`, `name_pro`, `price_pro`, `img_pro`, `detail`, `del`, `status_pro`, `top_view`, `date_add`) VALUES
 (4, NULL, 'vi', 'makima', 25000, 'pottery-ware-makima.jpg', NULL, 20000, 0, NULL, '2022-11-02'),
-(5, NULL, 'vi', 'vi', 30000, 'pottery-ware-vi.jpg', NULL, NULL, 1, NULL, '2022-11-02');
+(5, NULL, 'vi', 'vi', 30000, 'pottery-ware-vi.jpg', NULL, NULL, 1, NULL, '2022-11-02'),
+(6, NULL, 'hoa', 'cvcvxcv', 24324, 'pottery-ware-cvcvxcv.jpg', NULL, NULL, 1, NULL, '2022-11-02'),
+(7, NULL, 'quả', 'sdfasdf', 13233, 'pottery-ware-sdfasdf.jpg', NULL, NULL, 1, NULL, '2022-11-02'),
+(8, NULL, 'xoài', 'ádasdas', 123333, 'pottery-ware-ádasdas.jpg', NULL, NULL, 1, NULL, '2022-11-02'),
+(9, NULL, 'xczxc', 'zxczxczxc', 123445, 'pottery-ware-zxczxczxc.jpg', NULL, NULL, 1, NULL, '2022-11-02');
 
 -- --------------------------------------------------------
 
@@ -186,6 +203,12 @@ ALTER TABLE `order`
   ADD KEY `id_user` (`id_user`);
 
 --
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -232,10 +255,16 @@ ALTER TABLE `order`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_đơn_hàng';
 
 --
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_bài_viết';
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_sản_phẩm', AUTO_INCREMENT=6;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT COMMENT 'id_sản_phẩm', AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
