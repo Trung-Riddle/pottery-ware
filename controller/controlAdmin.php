@@ -18,7 +18,41 @@
 
             //* COMMENT
             case 'comment':
+                $groupByNameProCmt = groupByNameProCmt();
+                $cmt = showCmtUser();
                 include_once("./layouts/comment/index.php");
+                break;
+            case 'searchCmt':
+                $user_name = $_POST['userName'];
+                $check_name_pro = $_POST['namePro'];
+                if($check_name_pro != null){
+                    $name_pro = "and name_pro = '$check_name_pro'";
+                }
+                else{
+                    $name_pro = "";
+                }
+                $cmt = searchCmt($user_name, $name_pro);
+                $groupByNameProCmt = groupByNameProCmt();
+                include_once("./layouts/comment/index.php");
+            break;
+            case 'delCmt':
+                if(isset($_GET['idCmt'])){
+                    $id_cmt = $_GET['idCmt'];
+                    deleteCmt($id_cmt);
+                    header("location: {$_SERVER['PHP_SELF']}?act=comment");
+                }
+                break;
+            case 'showStatusCmt-0':
+                $cmt = showCmtUserByStatus0();
+                include_once("./layouts/comment/index.php");
+                break;
+            case 'updateStatusCmt':
+                if(isset($_GET['status'])){
+                    $id_cmt = $_GET['idCmt'];
+                    $status_cmt = $_GET['status'];
+                    updateStatusCmt($id_cmt, $status_cmt);
+                    header("location: {$_SERVER['PHP_SELF']}?act=comment");
+                }
                 break;
 
             //* CATEGORY
