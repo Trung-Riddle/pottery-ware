@@ -47,12 +47,6 @@
             </a>
         </li>
         <li>
-            <ion-icon name="notifications-outline"></ion-icon>
-            <a href="<?= $_SERVER["PHP_SELF"] ?>?act=notification">
-                <span>Thông báo</span>
-            </a>
-        </li>
-        <li>
             <ion-icon name="send-outline"></ion-icon>
             <a href="<?= $_SERVER["PHP_SELF"] ?>?act=sendmail">
                 <span>Gửi thư</span>
