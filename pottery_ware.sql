@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 03:34 PM
+-- Generation Time: Nov 03, 2022 at 07:30 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -116,7 +116,8 @@ CREATE TABLE `posts` (
   `id` int(9) NOT NULL COMMENT 'id_bài_viết',
   `title_post` varchar(200) NOT NULL COMMENT 'tiêu_đề_bài_viết',
   `content_post` varchar(1000) NOT NULL COMMENT 'nội_dung_bài_viết',
-  `img_post` varchar(100) NOT NULL COMMENT 'ảnh_bài_viết'
+  `img_post` varchar(100) NOT NULL COMMENT 'ảnh_bài_viết',
+  `date_add` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
