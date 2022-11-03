@@ -58,6 +58,20 @@
  	}
  }
 
+const qtyInput = document.querySelector('#qty');
+function stepper(btn) {
+   let id = btn.getAttribute("id");
+   let min = qtyInput.getAttribute("min");
+   let max = qtyInput.getAttribute("max");
+   let step =  qtyInput.getAttribute("step");
+   let value = qtyInput.getAttribute("value");
+   let calcStep = (id == "increment") ? (step*1) : (step* -1);
+   let newValue = parseInt(value) + calcStep;
+   if (newValue >= min && newValue <= max) {
+      qtyInput.setAttribute("value", newValue);
+   }  
+}
+
 
  
  

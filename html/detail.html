@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    <!-- header start -->
-    <header class="header shadow-01">
+     <!-- header start -->
+     <header class="header shadow-01">
         <div class="container">
             <div class="row-2 v-center">
                 <div class="header-item item-left">
@@ -161,47 +161,37 @@
         </div>
     </header>
     <!-- header end -->
-
-   <section class="section-banner">
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="4000">
-            <img src="https://cdn.shopify.com/s/files/1/0576/1299/2557/files/videoV1-bg.jpg?v=1650534672" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-md-block gl-content">
-                <h5>bát đĩa bát tràng</h5>
-                <p>bát đĩa bát tràng nghệ thuật.</p>
-              </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="https://cdn.shopify.com/s/files/1/0576/1299/2557/files/bg_page.jpg?v=1651396203" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-md-block gl-content">
-                <h5>Bát đĩa lúa mạch</h5>
-                <p> Bát đĩa bằng nhựa lúa mạch an toàn tuyệt đối.</p>
-              </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="4000">
-            <img src="https://cdn.shopify.com/s/files/1/0576/1299/2557/files/about4.1.jpg?v=1651396124" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-md-block gl-content">
-                <h5>Bình đất nung</h5>
-                <p>Bình đất nung đa dạng kiểu dáng độc đáo.</p>
-              </div>
-          </div>
+    <section class="detail-main">
+        <div class="product-page-container">
+            <!-- router -->
+            <span class="link-route">
+                <a href="#">Trang Chủ</a> <i class="fa-light fa-chevron-right"></i> <a href="#">Tên Sản Phẩm</a>
+            </span>
+            <div id="product-page">
+                <div class="product-page-img">
+                    <img src="https://cdn.shopify.com/s/files/1/0420/9242/9468/products/11.1.jpg?v=1593683051" alt="">
+                </div>
+                <div class="product-page-detail">
+                        <h3>Echo Tên Sản Phẩm abcxyz</h3>
+                        <span class="product-category">Tên danh mục</span>
+                        <p class="price">120.000 <sup>đ</sup> <span class="del">155.000</span> <sup style="text-decoration: line-through;" class="color-desc">đ</sup></p>
+                        <p class="small-desc color-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eaque voluptatem eius necessitatibus minima, cupiditate ut corrupti eveniet amet! Doloremque dolore quibusdam praesentium, sequi consequuntur necessitatibus tenetur aliquid aspernatur non!</p>
+                        <div class="qty-btn">
+                            <button id="decrement" onclick="stepper(this)"> - </button>
+                            <input type="number" min="0" max="100" step="1" value="1" id="qty" readonly>
+                            <button id="increment" onclick="stepper(this)"> + 
+                            </button>
+                        </div>
+                        <div class="cart-btns">
+                            <button class="add-cart">Thêm vào giỏ</button>
+                            <button class="now-cart">Mua ngay</button>
+                        </div>
+                </div>
+            </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-   </section>
+    </section>
 
-   <!-- main -->
-
-   
-   <!-- Footer -->
+       <!-- Footer -->
 <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
