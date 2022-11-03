@@ -31,6 +31,8 @@ tbody {
 tbody tr {
   /* height: 8rem; */
   border-bottom: 2px solid #1b2430;
+<<<<<<< HEAD
+=======
 }
 tbody tr td {
   padding: 1rem 0;
@@ -61,4 +63,64 @@ td img {
 .btnEdit:hover {
   background-color: white;
   color: green;
+>>>>>>> main
+}
+tbody tr td {
+  padding: 1rem 0;
+}
+td img {
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+.btnDelete,.btnDetail,.btnEdit,.btnInsert {
+    padding: 0.3rem 1rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    transition: 0.5s;
+    border: 0.1rem solid transparent;
+}
+.btnDelete
+{
+  background: red;
+    color: #fff;
+}
+.btnDelete:hover {
+  background: transparent;
+  color: red;
+  border: 0.1rem solid red;
+}
+.btnEdit {
+  background: yellow;
+  color: rgb(0, 0, 0);
+}
+.btnEdit:hover {
+  background: transparent;
+  border: 0.1rem solid yellow;
+  color: yellow;
+}
+.btnDetail {
+  background: greenyellow;
+    color: #fff;
+}
+.btnDetail:hover {
+  background: transparent;
+  border: 0.1rem solid greenyellow;
+  color: greenyellow;
+}
+.toolBar
+{
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.btnInsert
+{
+  background: aqua;
+    color: #fff;
+}
+.btnInsert:hover {
+  background: transparent;
+  color: aqua;
+  border: 0.1rem solid aqua;
 }
