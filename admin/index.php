@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMIN</title>
+    <title>Admin Pottery Ware</title>
     <!-- -------------- CSS -----------------  -->
     <link rel="stylesheet" href="./style/index.css">
     <!-- ------------------- ICON --------------------  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- ------------------ SHORTCUT ICON -------------------  -->
+<<<<<<< HEAD
     <link rel="shortcut icon" href="../asset/image/Logo.jpg" />
     <!-- -------------------- JAVASCRIPT --------------------  -->
     <script src="js/index.php"></script>
@@ -20,6 +21,12 @@
 include_once("../model/pdo_model/connect_db.php");
 include_once("../model/pdo_model/category.php");
 $cate = getAllCate();
+=======
+    <link rel="shortcut icon" href="../asset/image/amphora_icons.png" />
+</head>
+<?php
+    include_once("../model/index.php");
+>>>>>>> main
 ?>
 
 <body>

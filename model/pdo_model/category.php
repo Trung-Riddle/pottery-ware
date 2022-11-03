@@ -18,10 +18,10 @@
     return $cate;
   }
   //* Add new category to database
-  function addCate($name_cate, $status){
+  function addCate($name_cate, $status_cate){
       $conn = connect_db();
       $sql = "INSERT INTO category (name_cate, status)
-    VALUES ('$name_cate', '$status')";
+    VALUES ('$name_cate', '$status_cate')";
     $conn->exec($sql);
   }
   //* Delect category by id
@@ -31,9 +31,9 @@
     $conn->exec($sql);
   }
   //* Update category by id
-  function editCate($name_cate, $id_cate, $status){
+  function editCate($name_cate, $id_cate, $status_cate){
     $conn = connect_db();
-    $sql = "UPDATE category SET name_cate ='".$name_cate."', status='".$status."' WHERE id = ".$id_cate;
+    $sql = "UPDATE category SET name_cate ='".$name_cate."', status='".$status_cate."' WHERE id = ".$id_cate;
     $stmt = $conn->prepare($sql);
     $stmt->execute();
   }
