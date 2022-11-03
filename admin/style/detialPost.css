@@ -1,0 +1,10 @@
+.detailPosts
+{
+    height: 100vh;
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
