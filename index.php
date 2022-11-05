@@ -16,7 +16,6 @@
     <?php
         include_once("./view/layouts/Header/index.php");
         include_once("./view/layouts/Banner/index.php");
-        echo '<div class="container" style="height: 100vh;"></div>';
         include_once("./view/layouts/Footer/index.php");
     ?>
 
