@@ -56,7 +56,47 @@ function showSubMenu(hasChildren) {
 
  	}
  }
+const qtyInput = document.querySelector("#qty");
+function stepper(btn) {
+    let id = btn.getAttribute("id");
+    let min = qtyInput.getAttribute("min");
+    let max = qtyInput.getAttribute("max");
+    let step = qtyInput.getAttribute("step");
+    let value = qtyInput.getAttribute("value");
+    let calcDesc = (id == "increment") ?  (step * 1) : (step * -1);
+    let newValue = parseInt(value) + calcDesc;
+    if (newValue >= min && newValue <= max) {
+      qtyInput.setAttribute("value", newValue);
+    }
+}
 
+// tabs
+
+var tabLinks = document.querySelectorAll(".tablinks");
+var tabContent = document.querySelectorAll(".tabcontent");
+
+
+tabLinks.forEach(function(el) {
+   el.addEventListener("click", openTabs);
+});
+
+
+function openTabs(el) {
+   var btnTarget = el.currentTarget;
+   var country = btnTarget.dataset.country;
+
+   tabContent.forEach(function(el) {
+      el.classList.remove("active");
+   });
+
+   tabLinks.forEach(function(el) {
+      el.classList.remove("active");
+   });
+
+   document.querySelector("#" + country).classList.add("active");
+   
+   btnTarget.classList.add("active");
+}
 
  
  
