@@ -50,7 +50,7 @@ td img {
 .btnDelete
 {
   background: red;
-    color: #fff;
+  color: #fff;
 }
 .btnDelete:hover {
   background: transparent;
@@ -68,23 +68,21 @@ td img {
 }
 .btnDetail {
   background: greenyellow;
-    color: #fff;
+  color: #fff;
 }
 .btnDetail:hover {
   background: transparent;
   border: 0.1rem solid greenyellow;
   color: greenyellow;
 }
-.toolBar
-{
+.toolBar {
   display: flex;
   gap: 1rem;
   margin-top: 2rem;
 }
-.btnInsert
-{
+.btnInsert {
   background: aqua;
-    color: #fff;
+  color: #fff;
 }
 .btnInsert:hover {
   background: transparent;

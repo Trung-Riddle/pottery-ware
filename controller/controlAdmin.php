@@ -156,7 +156,7 @@ if (isset($_GET["act"])) {
                     $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
                     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                     move_uploaded_file($_FILES['imgPro']['tmp_name'], $target_file);
-                    $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".jpg";
+                    $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }
                 editProduct($id_pro, $name_pro, $price_pro, $del, $name_cate, $newImgPro, $status_pro, $date_add);

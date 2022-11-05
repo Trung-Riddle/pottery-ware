@@ -9,7 +9,7 @@
     <div class="formSearchCmt">
         <form action="<?= $_SERVER['PHP_SELF'] ?>?act=searchCmt" method="post">
             <label for="userName">Tên khách hàng</label>
-            <input type="text" name="userName" id="userName" required>
+            <input type="search" name="userName" id="userName" required>
             <label for="namePro">Tìm theo sản phẩm</label>
             <select name="namePro" id="namePro">
                 <option value="">Tất cả bình luận theo sản phẩm</option>

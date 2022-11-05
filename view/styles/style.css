@@ -1,0 +1,55 @@
+
+.shadow-01{
+    box-shadow: 0 8px 48px 8px rgba(47, 91, 234, 0.175);
+}
+
+.logo{
+    height: 60px;
+}
+.logo a{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    height: 50px;
+}
+.logo a span{
+    font-family: 'Poiret One', cursive;
+    font-size: 21px;
+    text-indent: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-text);
+    font-weight: bold;
+    white-space: nowrap;
+}
+@media only screen and (max-width: 768px){
+    .logo a span{
+        font-size: 19px;
+        text-indent: 8px;
+    }
+}
+.carousel-item img{
+    object-fit: cover;
+    height: 100%;
+    object-position: center center;
+}
+.carousel-item {
+    height: 100%;
+}
+#carouselExampleInterval{
+    height: 100%;
+}
+.carousel-inner{
+    height: 100%;
+}
+.gl-content{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
