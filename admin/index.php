@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Pottery Ware</title>
     <!-- -------------- CSS -----------------  -->
-    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/Index.css">
     <!-- ------------------- ICON --------------------  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../asset/image/amphora_icons.png" />
 </head>
 <?php
-    include_once("../model/index.php");
+include_once("../model/index.php");
 ?>
 
 <body>

@@ -476,7 +476,7 @@
 .wrapper_tabcontent {
   background-color: white;
   margin-top: 0px;
-  z-index: -3;
+  z-index: 10;
   position: relative;
   opacity: 1;
   padding: 40px 60px;
@@ -512,7 +512,7 @@
   background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   left: 0;
   bottom: 0;
-  z-index: -2;
+  z-index: 11;
   transition: all 1s ease;
 }
 

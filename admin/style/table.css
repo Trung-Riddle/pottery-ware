@@ -40,17 +40,15 @@ td img {
   margin: 0 auto;
   object-fit: cover;
 }
-.btnDelete,
-.btnDetail,
-.btnEdit,
-.btnInsert {
-  padding: 0.3rem 1rem;
-  text-align: center;
-  border-radius: 0.3rem;
-  transition: 0.5s;
-  border: 0.1rem solid transparent;
+.btnDelete,.btnDetail,.btnEdit,.btnInsert {
+    padding: 0.3rem 1rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    transition: 0.5s;
+    border: 0.1rem solid transparent;
 }
-.btnDelete {
+.btnDelete
+{
   background: red;
   color: #fff;
 }
