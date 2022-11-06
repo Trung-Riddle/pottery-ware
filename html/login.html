@@ -9,66 +9,89 @@
   </head>
   <body>
     <div class="container">
-        <div class="app front">
-            <div class="header">
-                <span class="info">Đăng Nhập</span>
-                <div class="prompt">
-                    <!-- <span class="ask">Bạn Chưa Có Tài Khoản?</span> -->
-                    <button class="btn signup">Đăng Ký</button>
-                </div>
-            </div>
-            <div class="main">
-                <div class="user_field field-2">
-                    <form class="_details details-login">
-                        <div class="textbox">
-                            <input type="text">
-                            <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
-                        </div>
-                        <div class="textbox">
-                            <input type="password">
-                            <span class="input_detail">Mật Khẩu</span>
-                        </div>
-                    </form>
-                </div>
-                <button class="btn login">Đăng Nhập</button>
-            </div>
+      <div class="app front">
+        <div class="header">
+          <span class="info">Đăng Nhập</span>
+          <div class="prompt">
+            <!-- <span class="ask">Bạn Chưa Có Tài Khoản?</span> -->
+            <button class="btn signup">Đăng Ký</button>
+          </div>
         </div>
-    
-    
-        <div class="app back">
-            <div class="header">
-                <span class="info">Đăng Ký</span>
-                <div class="prompt">
-                    <!-- <span class="ask">Bạn đã có tài khoản?</span> -->
-                    <button class="btn login">Đăng Nhập</button>
-                </div>
-            </div>
-            <div class="main">
-                <div class="user_field rel">
-                        <div class="avt">
-                            <img class="camera-icon" src="../asset/image/camera.png" alt="camera">
-                            <img class="avt-img" src="../asset/image/avatar-user.png" alt="avatar">
-                            <input type="file" id="up_file">
-                            <small>Chọn Ảnh</small>
-                        </div>
-                    <form class="_details">
-                        <div class="textbox">
-                            <input type="text">
-                            <span class="input_detail">Tên Tài Khoản</span>
-                        </div>
-                        <div class="textbox">
-                            <input type="email">
-                            <span class="input_detail">Email</span>
-                        </div>
-                        <div class="textbox">
-                            <input type="password">
-                            <span class="input_detail">Mật Khẩu</span>
-                        </div>
-                    </form>
-                </div>
-                <button class="btn login">Đăng Ký</button>
-            </div>
+        <div class="main">
+          <div class="user_field field-2">
+            <form id="formLogin" class="_details details-login" method="post">
+              <div class="textbox">
+                <input type="text" required />
+                <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
+              </div>
+              <div class="textbox">
+                <input type="password" required />
+                <span class="input_detail">Mật Khẩu</span>
+              </div>
+            </form>
+          </div>
+          <button
+            form="formLogin"
+            class="btn login"
+            type="submit"
+            name="submitLogin"
+            value="submitLogin"
+          >
+            Đăng Nhập
+          </button>
         </div>
+      </div>
+
+      <div class="app back">
+        <div class="header">
+          <span class="info">Đăng Ký</span>
+          <div class="prompt">
+            <!-- <span class="ask">Bạn đã có tài khoản?</span> -->
+            <button class="btn login">Đăng Nhập</button>
+          </div>
+        </div>
+        <div class="main">
+          <div class="user_field rel">
+            <div class="avt">
+              <img
+                class="camera-icon"
+                src="../asset/image/camera.png"
+                alt="camera"
+              />
+              <img
+                class="avt-img"
+                src="../asset/image/avatar-user.png"
+                alt="avatar"
+              />
+              <input type="file" id="up_file" />
+              <small>Chọn Ảnh</small>
+            </div>
+            <form id="formSignup" class="_details">
+              <div class="textbox">
+                <input type="text" required />
+                <span class="input_detail">Tên Tài Khoản</span>
+              </div>
+              <div class="textbox">
+                <input type="text" required />
+                <span class="input_detail">Email</span>
+              </div>
+              <div class="textbox">
+                <input type="password" required />
+                <span class="input_detail">Mật Khẩu</span>
+              </div>
+            </form>
+          </div>
+          <button
+            form="formSignup"
+            class="btn login"
+            type="submit"
+            name="submitSignup"
+            value="submitSignup"
+          >
+            Đăng Ký
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="./login.js"></script>
