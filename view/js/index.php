@@ -7,4 +7,3 @@
 
 
 <script src="./view/js/main.js"></script>
-<script src="./view/js/detailSameProduct.js"></script>

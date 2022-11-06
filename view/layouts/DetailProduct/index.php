@@ -92,9 +92,10 @@
                         <div id="hehe" class="tabcontent">
                             <h3>Cùng Loại</h3>
                             <div class="detailSameCate">
-                                <div class="listSameCate">
+                                <div id="listSameCate" class="listSameCate">
                                     <?php foreach($pro as $value) { extract($value)?>
-                                    <div class="itemSameCate">
+                                    <div class="itemSameCate"
+                                        onclick="javascript:window.location.href='<?= $_SERVER['PHP_SELF'] ?>'">
                                         <div class="imgSameCate">
                                             <img src="./upload/imgProduct/<?= $img_pro ?>" alt="Pottery Ware">
                                         </div>
@@ -109,10 +110,57 @@
                                     </div>
                                     <?php } ?>
                                 </div>
+                                <?php if(5 > 4) { ?>
                                 <div class="prevAndNextSameProduct">
-                                    <div class="prev">Prev</div>
-                                    <div class="next">Next</div>
+                                    <div id="prevSameDetailProduct" class="prev">Prev</div>
+                                    <div id="nextSameDetailProduct" class="next">Next</div>
                                 </div>
+                                <?php } ?>
+                                <script>
+                                if (screen.width >= 768) {
+                                    document.getElementById("nextSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .append(
+                                                listSameProduct[0],
+                                                listSameProduct[1],
+                                                listSameProduct[2],
+                                                listSameProduct[3]
+                                            );
+                                    };
+                                    document.getElementById("prevSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .prepend(
+                                                listSameProduct[listSameProduct.length - 4],
+                                                listSameProduct[listSameProduct.length - 3],
+                                                listSameProduct[listSameProduct.length - 2],
+                                                listSameProduct[listSameProduct.length - 1]
+                                            );
+                                    };
+                                } else {
+                                    document.getElementById("nextSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .append(
+                                                listSameProduct[0],
+                                                listSameProduct[1]
+                                            );
+                                    };
+                                    document.getElementById("prevSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .prepend(
+                                                listSameProduct[listSameProduct.length - 2],
+                                                listSameProduct[listSameProduct.length - 1]
+                                            );
+                                    };
+                                }
+                                </script>
                             </div>
                         </div>
 

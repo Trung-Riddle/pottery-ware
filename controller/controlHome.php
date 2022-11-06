@@ -6,7 +6,11 @@
                 echo "about";
                 break;
             case 'detailProduct':
-                $pro = selectAllDataDB("SELECT * FROM product");
+                // $id_pro = $_POST['idPro'];
+                // $name_pro = $_POST['namePro'];
+                $pro = selectOneDataDB("SELECT * FROM product");  //WHERE id = $id_pro
+                // $sql = "SELECT count(*) FROM product WHERE name_pro =".$name_pro;
+                // $checkCountSameDetailProduct = countDataDB($sql);
                 include_once("./view/layouts/DetailProduct/index.php");
                 break;
             case 'news':
