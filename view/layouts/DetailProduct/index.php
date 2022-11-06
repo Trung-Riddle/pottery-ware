@@ -95,7 +95,7 @@
                                 <div id="listSameCate" class="listSameCate">
                                     <?php foreach($pro as $value) { extract($value)?>
                                     <div class="itemSameCate"
-                                        onclick="javascript:window.location.href='<?= $_SERVER['PHP_SELF'] ?>'">
+                                        onclick="window.location.href='<?= $_SERVER['PHP_SELF'] ?>'">
                                         <div class="imgSameCate">
                                             <img src="./upload/imgProduct/<?= $img_pro ?>" alt="Pottery Ware">
                                         </div>

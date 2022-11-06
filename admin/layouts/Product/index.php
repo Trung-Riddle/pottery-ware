@@ -88,7 +88,7 @@
             <input type="number" name="pricePro" id="pricePro" min="999" max="9999999"
                 value="<?= $pro[0]['price_pro'] ?>" required>
             <label for="delPro">Giảm giá</label>
-            <input type="number" name="delPro" id="delPro" max="9999999" value="<?= $pro[0]['del'] ?>" required>
+            <input type="number" name="delPro" id="delPro" max="9999999" value="<?= $pro[0]['del'] ?>">
             <label for="nameCate">Danh mục sản phẩm</label>
             <select name="nameCate" id="nameCate">
                 <?php
@@ -124,6 +124,8 @@
             <label for="imgPro">Ảnh sản phẩm</label>
             <input type="file" name="imgPro" id="imgPro" accept="image/*">
             <input type="hidden" name="nameImgPro" id="nameImgPro" value="<?= $pro[0]['img_pro'] ?>">
+            <label for="detailPro">Chi tiết sản phẩm</label>
+            <textarea name="detailPro" id="detailPro" cols="30" rows="10"><?= $pro[0]['detail'] ?></textarea>
             <button type="submit" name="editPro" value="editPro">Sửa sản phẩm</button>
         </form>
     </div>

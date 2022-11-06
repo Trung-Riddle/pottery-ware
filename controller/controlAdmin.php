@@ -153,6 +153,7 @@ if (isset($_GET["act"])) {
                 $name_cate = $_POST['nameCate'];
                 $status_pro = $_POST['statusPro'];
                 $date_add = date("Y-m-d");
+                $detail_pro = $_POST['detailPro'];
                 $img_pro = $_FILES['imgPro']['name'];
                 if ($_FILES['imgPro']['name'] == null) {
                     $newImgPro = $_POST['nameImgPro'];
@@ -168,7 +169,7 @@ if (isset($_GET["act"])) {
                     $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }
-                $sqlEditPro = "UPDATE product SET name_pro ='".$name_pro."', price_pro = '".$price_pro."', del = '".$del."', name_cate ='".$name_cate."', img_pro = '".$newImgPro."', status_pro = '".$status_pro."', date_add = '".$date_add."' WHERE id = ".$id_pro;
+                $sqlEditPro = "UPDATE product SET name_pro ='$name_pro', price_pro = '$price_pro', del = '$del', name_cate ='$name_cate', img_pro = '$newImgPro', status_pro = '$status_pro', date_add = '$date_add', detail = '$detail_pro' WHERE id = ".$id_pro;
                 editDataDB($sqlEditPro);
                 $sql = "SELECT * FROM product WHERE id=".$id_pro;
                 $pro = selectOneDataDB($sql);
