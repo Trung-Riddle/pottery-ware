@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tài Khoản pottery-ware</title>
-    <link rel="stylesheet" href="../asset/styles/login.css" />
+    <link rel="stylesheet" href="../../styles/login.css" />
+    <link rel="stylesheet" href="../../styles/base.css" />
 </head>
 
 <body>
@@ -49,8 +50,8 @@
             <div class="main">
                 <div class="user_field rel">
                     <div class="avt">
-                        <img class="camera-icon" src="../asset/image/camera.png" alt="camera" />
-                        <img class="avt-img" src="../asset/image/user.png" alt="avatar" />
+                        <img class="camera-icon" src="../../image/camera.png" alt="camera" />
+                        <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />
                         <input type="file" id="up_file" />
                         <small>Chọn Ảnh</small>
                     </div>
@@ -76,7 +77,7 @@
         </div>
     </div>
 
-    <script src="./login.js"></script>
+    <script src="../../js/login.js"></script>
 </body>
 
 </html>
