@@ -4,4 +4,5 @@
 @import "./banner.css";
 @import "./detail.css";
 /* @import "./login.css"; not import */
-@import "./product.css";
+@import "./products.css";
+@import "./listProduct.css";

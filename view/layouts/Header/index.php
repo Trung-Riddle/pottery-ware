@@ -24,7 +24,7 @@
                             <a href="<?= $_SERVER['PHP_SELF'] ?>">trang chủ</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=aboutPage">Giới Thiệu <i
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Giới Thiệu <i
                                     class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item text-center">
@@ -58,7 +58,7 @@
                             </div>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct">Sản Phẩm <i
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i
                                     class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item">
@@ -123,6 +123,9 @@
                                     <li><a href="#">Nghệ Thuật làm gốm</a></li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Liên hệ</a>
                         </li>
                         <li class="menu-item-has-children">
                             <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>

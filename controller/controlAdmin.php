@@ -194,6 +194,11 @@ if (isset($_GET["act"])) {
             include_once("./layouts/charts/index.php");
             break;
 
+            //* CONTACTS
+        case 'contacts':
+            include_once("./layouts/Contacts/index.php");
+            break;
+
             //* SENDMAIL
         case 'sendmail':
             include_once("./layouts/sendmail/index.php");
