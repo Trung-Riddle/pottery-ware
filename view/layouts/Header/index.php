@@ -21,10 +21,11 @@
                     </div>
                     <ul class="menu-main">
                         <li>
-                            <a href="index.html">trang chủ</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>">trang chủ</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="#">Giới Thiệu <i class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=aboutPage">Giới Thiệu <i
+                                    class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item text-center">
                                     <a href="#">
@@ -53,7 +54,8 @@
                             </div>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="#">Sản Phẩm <i class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct">Sản Phẩm <i
+                                    class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item">
                                     <h4 class="title">Bát đĩa</h4>
@@ -107,7 +109,8 @@
                             </div>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="#">Tin Tức <i class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i
+                                    class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
                                     <li><a href="#">Tin Mới Nhất</a></li>
@@ -117,12 +120,19 @@
                             </div>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="#">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
+                            <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
+<<<<<<< HEAD
                                     <li><a href="view/layouts/Home/index.php"> <i class="fa-light fa-user"></i>&nbsp; Đăng Nhập</a></li>
                                     <li><a href="<?= $_SERVER["PHP_SELF"] ?>?act=signup"><i class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
 
+=======
+                                    <li><a href="./view/layouts/Login/index.php"> <i class="fa-light fa-user"></i>&nbsp;
+                                            Đăng Nhập</a></li>
+                                    <li><a href="./view/layouts/Login/index.php"><i
+                                                class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
+>>>>>>> refs/remotes/origin/main
                                 </ul>
                             </div>
                         </li>
