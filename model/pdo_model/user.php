@@ -23,11 +23,11 @@ function getOneUser($id)
 }
 
 // Insert user
-function addUser($user_name, $password, $avatar, $email, $phone_number, $status_user)
+function addUser($user_name, $password, $avatar, $email, $phone_number)
 {
     $conn = connect_db();
-    $sql = "INSERT INTO user (user_name, password,avatar,email,phone_number,status_user)
-  VALUES ('$user_name', '$password', '$avatar', '$email', '$phone_number', '$status_user')";
+    $sql = "INSERT INTO user (user_name, password,avatar,email,phone_number)
+  VALUES ('$user_name', '$password', '$avatar', '$email', '$phone_number')";
     $conn->exec($sql);
 }
 

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tài Khoản pottery-ware</title>
-    <link rel="stylesheet" href="../asset/styles/login.css" />
+    <link rel="stylesheet" href="../../../asset/styles/login.css" />
 </head>
 
 <body>
@@ -21,18 +21,18 @@
             </div>
             <div class="main">
                 <div class="user_field field-2">
-                    <form id="formLogin" class="_details details-login" method="post">
+                    <form action="../../../model/handleLogin.php?act=dangnhap" id="formLogin" class="_details details-login" method="post">
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" required name="user_name" />
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" required />
+                            <input type="password" required name="password" />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                     </form>
                 </div>
-                <button form="formLogin" class="btn login" type="submit" name="submitLogin" value="submitLogin">
+                <button form="formLogin" class="btn login" type="submit" name="dangnhap" value="dangnhap">
                     Đăng Nhập
                 </button>
             </div>
@@ -47,29 +47,33 @@
                 </div>
             </div>
             <div class="main">
-                <div class="user_field rel">
+                <form id="formSignup" class="user_field rel" action="../../../model/handleLogin.php?act=dangky" method="post" enctype="multipart/form-data">
                     <div class="avt">
-                        <img class="camera-icon" src="../asset/image/camera.png" alt="camera" />
-                        <img class="avt-img" src="../asset/image/user.png" alt="avatar" />
-                        <input type="file" id="up_file" />
+                        <img class="camera-icon" src="../../../asset/image/camera.png" alt="camera" />
+                        <img class="avt-img" src="../../../asset/image/user.png" alt="avatar" />
+                        <input type="file" id="up_file" name="avatar" accept="image/*" />
                         <small>Chọn Ảnh</small>
                     </div>
-                    <form id="formSignup" class="_details">
+                    <div class="_details">
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" name="user_name" required />
                             <span class="input_detail">Tên Tài Khoản</span>
                         </div>
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" name="email" required />
                             <span class="input_detail">Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" required />
+                            <input type="text" name="phone_number" required />
+                            <span class="input_detail">Số điện thoại</span>
+                        </div>
+                        <div class="textbox">
+                            <input type="password" name="password" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
-                    </form>
-                </div>
-                <button form="formSignup" class="btn login" type="submit" name="submitSignup" value="submitSignup">
+                    </div>
+                </form>
+                <button form="formSignup" class="btn login" type="submit" name="dangky" value="dangky">
                     Đăng Ký
                 </button>
             </div>

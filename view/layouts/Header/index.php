@@ -28,29 +28,25 @@
                             <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop04.2.jpg?v=1657181639"
-                                            alt="new Product">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop04.2.jpg?v=1657181639" alt="new Product">
                                         <h4 class="title">Bình Hoa Antic</h4>
                                     </a>
                                 </div>
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.jpg?v=1657276071">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.jpg?v=1657276071">
                                         <h4 class="title">Bình đất sét</h4>
                                     </a>
                                 </div>
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.1.jpg?v=1657276071"
-                                            alt="new Product">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.1.jpg?v=1657276071" alt="new Product">
                                         <h4 class="title">Bình Đất sét</h4>
                                     </a>
                                 </div>
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.2.jpg?v=1657276071"
-                                            alt="new Product">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.2.jpg?v=1657276071" alt="new Product">
                                         <h4 class="title">Bình Đất Sét</h4>
                                     </a>
                                 </div>
@@ -106,8 +102,7 @@
                                     </ul>
                                 </div>
                                 <div class="list-item">
-                                    <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/files/grid02_d0e5bce2-d241-4460-b467-dad5af99786e.jpg?v=1657170207"
-                                        alt="shop">
+                                    <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/files/grid02_d0e5bce2-d241-4460-b467-dad5af99786e.jpg?v=1657170207" alt="shop">
                                 </div>
                             </div>
                         </li>
@@ -125,8 +120,8 @@
                             <a href="#">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
-                                    <li><a href="#"> <i class="fa-light fa-user"></i>&nbsp; Đăng Nhập</a></li>
-                                    <li><a href="#"><i class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
+                                    <li><a href="view/layouts/Home/index.php"> <i class="fa-light fa-user"></i>&nbsp; Đăng Nhập</a></li>
+                                    <li><a href="<?= $_SERVER["PHP_SELF"] ?>?act=signup"><i class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
 
                                 </ul>
                             </div>
