@@ -1,0 +1,47 @@
+
+.ui-w-50 {
+    width: 50px !important;
+    height: auto;
+}
+
+.card{
+    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);    
+}
+
+.ui-product-color {
+    display: inline-block;
+    overflow: hidden;
+    margin: .144em;
+    width: .875rem;
+    height: .875rem;
+    border-radius: 10rem;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+    vertical-align: middle;
+}
+.table-cart{
+    margin-top: 150px;
+}
+.back-buy{
+    font-size: 21px;
+    color: var(--color-secondary);
+    transition: color 0.3s ease-in;
+}
+.back-buy:hover{
+    color: var(--color-tertiary);
+}
+.payment-btn{
+    padding: 10px 25px;
+    background-color: var(--color-secondary);
+    color: white;
+    transition: all .3s ease-in;
+}
+.payment-btn:hover{
+    background-color: var(--color-tertiary);
+    color: white;
+}
+.media img{
+    object-fit: cover;
+    height: 60px;
+    border-radius: 4px;
+}
