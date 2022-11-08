@@ -21,7 +21,7 @@
     //* Get count table name_cate(database) follow name category
     function getCount(){
         $conn = connect_db();
-        $stmt = $conn->prepare("SELECT name_cate, COUNT(name_cate) as 'countNameCate' FROM `product` GROUP BY name_cate;");
+        $stmt = $conn->prepare("SELECT prd_id_cate, cate_id, cate_name, COUNT(prd_id_cate) as 'countNameCate' FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id GROUP BY prd_id_cate;");
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $pro = $stmt -> fetchAll();
@@ -30,7 +30,8 @@
     $pro = getCount();
     //* fetch data product
     foreach($pro as $value){
-        $cate[] = $value['name_cate'];
+        $value['prd_id_cate'] = $value['cate_id'] ? $cate[] = $value['cate_name'] : "";
+        // $cate[] = $value['prd_id_cate'];
         $data[] = $value['countNameCate'];
     }
 ?>

@@ -1,14 +1,3 @@
-<?php
-    if (isset($_GET['page']) && ($_GET['page'] == "detailProduct")) {
-        $id_pro = $_GET['idPro'];
-        $pro = getOneProduct($id_pro);
-        if (isset($_GET['idPro'])) {
-            $top_view = $pro[0]['top_view'];
-            $top_view += 1;
-            addDataDB("UPDATE product SET top_view = '$top_view' WHERE id = '$id_pro'");
-        }
-    }
-?>
 <section class="detail-main">
     <div class="product-page-container">
         <!-- router -->
@@ -16,26 +5,26 @@
             <a href="<?= $_SERVER['PHP_SELF'] ?>">Trang Chủ</a> <i class="fa-light fa-chevron-right"></i>
             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản phẩm</a> <i class="fa-light fa-chevron-right"></i>
             <a
-                href="<?= $_SERVER['PHP_SELF'] ?>?page=searchProByCate&nameCate=<?= $pro[0]['name_cate'] ?>"><?= $pro[0]['name_cate'] ?></a>
+                href="<?= $_SERVER['PHP_SELF'] ?>?page=searchProByCate&nameCate=<?= $pro[0]['prd_id_cate'] ?>"><?= $pro[0]['cate_name'] ?></a>
             <i class="fa-light fa-chevron-right"></i>
-            <a href="#"><?= $pro[0]['name_pro'] ?></a>
+            <a href="#"><?= $pro[0]['prd_name'] ?></a>
         </span>
         <div id="product-page">
             <div class="product-page-img">
-                <img src="./upload/imgProduct/<?= $pro[0]['img_pro'] ?>" alt="" />
+                <img src="./upload/imgProduct/<?= $pro[0]['prd_img'] ?>" alt="" />
             </div>
             <div class="product-page-detail">
-                <h3><?= $pro[0]['name_pro'] ?></h3>
-                <span class="product-category"><?= $pro[0]['name_cate'] ?></span>
+                <h3><?= $pro[0]['prd_name'] ?></h3>
+                <span class="product-category"><?= $pro[0]['cate_name'] ?></span>
                 <span class="product-category"><i class="fa-regular fa-eye"
-                        style="margin-right: 10px;"></i><?= $pro[0]['top_view'] ?></span>
+                        style="margin-right: 10px;"></i><?= $pro[0]['prd_view'] ?></span>
                 <p class="price">
-                    <?php if($pro[0]['del'] != 0) { ?>
-                    <?= $pro[0]['del'] ?> <sup>đ</sup>
-                    <span class="del"><?= $pro[0]['price_pro'] ?></span><sup style="text-decoration: line-through"
+                    <?php if($pro[0]['prd_del'] != 0) { ?>
+                    <?= $pro[0]['prd_del'] ?> <sup>đ</sup>
+                    <span class="prd_del"><?= $pro[0]['price_pro'] ?></span><sup style="text-decoration: line-through"
                         class="color-desc">đ</sup>
                     <?php } else { ?>
-                    <?= $pro[0]['price_pro'] ?> <sup>đ</sup>
+                    <?= $pro[0]['prd_price'] ?> <sup>đ</sup>
                     <?php } ?>
                 </p>
                 <p class="small-desc color-desc">
@@ -118,27 +107,27 @@
                             <div class="detailSameCate">
                                 <div id="listSameCate" class="listSameCate">
                                     <?php 
-                                    $sameCateProduct = selectAllDataDB("SELECT * FROM product WHERE name_cate = '{$pro[0]['name_cate']}'");
+                                    $sameCateProduct = selectAllDataDB("SELECT * FROM product WHERE prd_id_cate = '{$pro[0]['prd_id_cate']}'");
                                     foreach($sameCateProduct as $value) { extract($value) ?>
-                                    <?php if($name_pro != $pro[0]['name_pro']) { ?>
+                                    <?php if($prd_name != $pro[0]['prd_name']) { ?>
                                     <div class="itemSameCate"
-                                        onclick="window.location.href='<?= $_SERVER['PHP_SELF'] ?>'">
+                                        onclick="window.location.href='<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>'">
                                         <div class="imgSameCate">
-                                            <img src="./upload/imgProduct/<?= $img_pro ?>" alt="Pottery Ware">
+                                            <img src="./upload/imgProduct/<?= $prd_img ?>" alt="Pottery Ware">
                                         </div>
                                         <div class="contentSameCate">
                                             <div class="nameContentSameCate">
-                                                <?= $name_pro ?>
+                                                <?= $prd_name ?>
                                             </div>
                                             <div class="priceContentSameCate">
-                                                <?= $price_pro ?><span> VND</span>
+                                                <?= $prd_price ?><span> VND</span>
                                             </div>
                                         </div>
                                     </div>
                                     <?php } ?>
                                     <?php } ?>
                                 </div>
-                                <?php if(countDataDB("SELECT count(*) FROM product WHERE name_cate = '{$pro[0]['name_cate']}'") > 5) { ?>
+                                <?php if(countDataDB("SELECT count(*) FROM product WHERE prd_id_cate = '{$pro[0]['prd_id_cate']}'") > 5) { ?>
                                 <div class="prevAndNextSameProduct">
                                     <div id="prevSameDetailProduct" class="prev">Prev</div>
                                     <div id="nextSameDetailProduct" class="next">Next</div>

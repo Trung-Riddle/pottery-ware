@@ -33,7 +33,7 @@ if (isset($_GET["act"])) {
             break;
             //* COMMENT
         case 'comment':
-            $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment GROUP BY name_pro ORDER BY id DESC");
+            $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment INNER JOIN  GROUP BY name_pro ORDER BY id DESC");
             $cmt = selectAllDataDB("SELECT * FROM comment WHERE status_cmt = 1 ORDER BY id DESC LIMIT 0,10");
             include_once("./layouts/comment/index.php");
             break;
@@ -115,9 +115,7 @@ if (isset($_GET["act"])) {
 
             //* PRODUCT
         case 'product':
-            $cate = selectAllDataDB("SELECT cate_name FROM category");
-            $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id = category.cate_id ORDER BY prd_id DESC");
-            var_dump($pro);
+            $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id ORDER BY prd_id DESC");
             include_once("./layouts/product/index.php");
             break;
         case 'addPro':
@@ -134,9 +132,9 @@ if (isset($_GET["act"])) {
                 $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                 move_uploaded_file($_FILES['imgPro']['tmp_name'], $target_file);
-                $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".jpg";
+                $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                 rename($target_file, $imgPath . $newImgPro);
-                $sql = "INSERT INTO product (cate_id, prd_name, prd_price, prd_img, prd_day_at) VALUES ('$id_cate', '$name_pro', '$price_pro', '$newImgPro', '$date_add')";
+                $sql = "INSERT INTO product (prd_id_cate, prd_name, prd_price, prd_img, prd_day_at) VALUES ('$id_cate', '$name_pro', '$price_pro', '$newImgPro', '$date_add')";
                 addDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=product");
             }
@@ -144,13 +142,10 @@ if (isset($_GET["act"])) {
         case 'editPro':
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
-                $cate = selectAllDataDB("SELECT * FROM category ORDER BY id DESC");
-                $sql = "SELECT * FROM product WHERE id=".$id_pro;
-                $pro = selectOneDataDB($sql);
+                $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
                 include_once("./layouts/product/index.php");
             }
             if (isset($_POST['editPro']) && ($_POST['editPro'])) {
-                $cate = selectAllDataDB("SELECT * FROM category ORDER BY id DESC");
                 $id_pro = $_POST['idPro'];
                 $name_pro = $_POST['namePro'];
                 $price_pro = $_POST['pricePro'];
@@ -174,10 +169,9 @@ if (isset($_GET["act"])) {
                     $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }
-                $sqlEditPro = "UPDATE product SET name_pro ='$name_pro', price_pro = '$price_pro', del = '$del', name_cate ='$name_cate', img_pro = '$newImgPro', status_pro = '$status_pro', date_add = '$date_add', detail = '$detail_pro' WHERE id = ".$id_pro;
+                $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_day_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = ".$id_pro;
                 editDataDB($sqlEditPro);
-                $sql = "SELECT * FROM product WHERE id=".$id_pro;
-                $pro = selectOneDataDB($sql);
+                $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
                 include_once("./layouts/product/index.php");
             }
             break;
@@ -185,7 +179,7 @@ if (isset($_GET["act"])) {
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
                 $imgPathPro = "../upload/imgProduct/" . $_GET['imgPro'];
-                $sql = "DELETE FROM product WHERE id =".$id_pro;
+                $sql = "DELETE FROM product WHERE prd_id =".$id_pro;
                 deleteDataDB($sql);
                 if (file_exists($imgPathPro)) {
                     unlink($imgPathPro);

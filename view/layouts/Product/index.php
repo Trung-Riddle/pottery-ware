@@ -21,12 +21,12 @@
                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Tất cả
                             sản phẩm</a><span><?= countDataDB("SELECT count(*) FROM product") ?></span>
                     </li>
-                    <?php $cate = selectAllDataDB("SELECT * FROM category WHERE status = 1 ORDER BY id DESC"); foreach($cate as $value) { extract($value)?>
+                    <?php $cate = selectAllDataDB("SELECT * FROM category INNER JOIN product ON category.cate_id = product.prd_id_cate WHERE cate_status = 1 GROUP BY cate_name ORDER BY cate_id DESC"); foreach($cate as $value) { extract($value)?>
                     <?php
-                        $amountPro = countDataDB("SELECT count(*) FROM product WHERE name_cate = '$name_cate' GROUP BY '$name_cate'");
+                        $amountPro = countDataDB("SELECT count(*) FROM product WHERE prd_id_cate = '$cate_id' GROUP BY '$cate_id'");
                     ?>
                     <li><a
-                            href="<?= $_SERVER['PHP_SELF'] ?>?page=searchProByCate&nameCate=<?= $name_cate ?>"><?= $name_cate ?></a><span><?= $amountPro > 0 ? $amountPro : "0"; ?></span>
+                            href="<?= $_SERVER['PHP_SELF'] ?>?page=searchProByCate&nameCate=<?= $cate_id ?>"><?= $cate_name ?></a><span><?= $amountPro > 0 ? $amountPro : "0"; ?></span>
                     </li>
                     <?php } ?>
                 </ul>
@@ -38,9 +38,9 @@
                     </div>
                 </summary>
                 <ul class="categoryNavPro">
-                    <?php $topView = selectAllDataDB("SELECT id, name_pro, top_view, status_pro FROM product WHERE status_pro = 1 AND top_view > 0 ORDER BY top_view DESC LIMIT 0, 10"); foreach($topView as $value) { extract($value)?>
+                    <?php $topView = selectAllDataDB("SELECT prd_id, prd_name, prd_view, prd_status FROM product WHERE prd_status = 1 AND prd_view > 0 ORDER BY prd_view DESC LIMIT 0, 10"); foreach($topView as $value) { extract($value)?>
                     <li><a
-                            href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $id ?>"><?= $name_pro ?></a><span><?= $top_view ?></span>
+                            href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>"><?= $prd_name ?></a><span><?= $prd_view ?></span>
                     </li>
                     <?php } ?>
                 </ul>
@@ -50,13 +50,13 @@
             <div class="listPro">
                 <?php foreach ($pro as $value) { extract($value)?>
                 <div class="itemPro"
-                    onclick="window.location.href = '<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $id ?>'">
+                    onclick="window.location.href = '<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>'">
                     <div class="imgPro">
-                        <img src="./upload/imgProduct/<?= $img_pro ?>" alt="Pottery Ware">
+                        <img src="./upload/imgProduct/<?= $prd_img ?>" alt="Pottery Ware">
                     </div>
                     <div class="contentPro">
-                        <div class="namePro"><?= $name_pro ?></div>
-                        <div class="pricePro"><?= $price_pro ?> VND</div>
+                        <div class="namePro"><?= $prd_name ?></div>
+                        <div class="pricePro"><?= $prd_price ?> VND</div>
                     </div>
                 </div>
                 <?php } ?>

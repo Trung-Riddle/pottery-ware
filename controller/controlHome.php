@@ -8,13 +8,13 @@
             
             //* Handle Product
             case 'product':
-                $pro = selectAllDataDB("SELECT * FROM product WHERE status_pro = 1");
+                $pro = selectAllDataDB("SELECT * FROM product WHERE prd_status = 1");
                 include_once("./view/layouts/Product/index.php");
                 break;
             case 'searchProByCate':
                 if(isset($_GET['nameCate'])){                   
                     $name_cate = $_GET['nameCate'];
-                    $pro = selectAllDataDB("SELECT * FROM product WHERE name_cate = '$name_cate'");
+                    $pro = selectAllDataDB("SELECT * FROM product WHERE prd_id_cate = '$name_cate'");
                     include_once("./view/layouts/Product/index.php");
                 }
                 break;
@@ -34,9 +34,16 @@
                 }
                 break;
             case 'detailProduct':
+                $id_pro = $_GET['idPro'];
+                $pro = selectOneDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro'");
+                if (isset($_GET['idPro'])) {
+                    $top_view = $pro[0]['prd_view'];
+                    $top_view += 1;
+                    addDataDB("UPDATE product SET prd_view = '$top_view' WHERE prd_id = '$id_pro'");
+                }
                 // $id_pro = $_POST['idPro'];
                 // $name_pro = $_POST['namePro'];
-                $pro = selectOneDataDB("SELECT * FROM product");  //WHERE id = $id_pro
+                // $pro = selectOneDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id");  //WHERE id = $id_pro
                 // $sql = "SELECT count(*) FROM product WHERE name_pro =".$name_pro;
                 // $checkCountSameDetailProduct = countDataDB($sql);
                 include_once("./view/layouts/DetailProduct/index.php");
