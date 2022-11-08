@@ -482,7 +482,7 @@
 .wrapper_tabcontent {
   background-color: white;
   margin-top: 0px;
-  z-index: -3;
+  z-index: 10;
   position: relative;
   opacity: 1;
   padding: 40px 60px;
@@ -522,7 +522,7 @@
   );
   left: 0;
   bottom: 0;
-  z-index: -2;
+  z-index: 11;
   transition: all 1s ease;
 }
 
@@ -586,14 +586,14 @@
     margin-left: 0;
   }
 }
-.detailSameCate {
+.detailSameCate,
+.contentDetail {
   height: max-content;
-  position: relative;
-  z-index: -10;
+  width: 100%;
 }
 .listSameCate {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 25% 25% 25% 25%;
   gap: 2rem 1rem;
   overflow: hidden;
   height: calc(300px + 1.5rem);
@@ -608,14 +608,49 @@
   height: 300px;
   text-align: center;
   cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.itemSameCate:hover img {
+  transform: scale(1.1);
+}
+.itemSameCate:hover .contentSameCate div {
+  margin-top: 10px;
+}
+@keyframes slideItemSameDetailProduct {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.itemSameCate:nth-child(1) {
+  animation: slideItemSameDetailProduct 0.5s ease-in-out 0s 1 backwards;
+}
+.itemSameCate:nth-child(2) {
+  animation: slideItemSameDetailProduct 0.5s ease-in-out 0.2s 1 backwards;
+}
+.itemSameCate:nth-child(3) {
+  animation: slideItemSameDetailProduct 0.5s ease-in-out 0.4s 1 backwards;
+}
+.itemSameCate:nth-child(4) {
+  animation: slideItemSameDetailProduct 0.5s ease-in-out 0.6s 1 backwards;
+}
+.imgSameCate {
+  overflow: hidden;
 }
 .imgSameCate img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  transition: all 0.3s;
 }
 .contentSameCate div {
-  margin: 5px 0;
+  margin-top: 30px;
+  transition: all 0.3s;
 }
 .prevAndNextSameProduct {
   margin: 0 auto;
@@ -629,12 +664,23 @@
   display: inline-block;
   color: white;
   background-color: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
   padding: 10px 20px;
   border-radius: 8px;
   margin: 1rem;
   cursor: pointer;
   user-select: none;
+  transition: 0.25s;
 }
 .prevAndNextSameProduct div:hover {
   background-color: white;
+  color: var(--color-secondary);
+}
+@media screen and (max-width: 769px) {
+  .listSameCate {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 2rem 10px;
+    height: calc(300px + 1.5rem);
+  }
 }

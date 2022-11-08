@@ -8,8 +8,8 @@
             <input type="number" name="pricePro" id="pricePro" min="999" max="9999999" required>
             <label for="nameCate">Danh mục sản phẩm</label>
             <select name="nameCate" id="nameCate">
-                <?php foreach($cate as $value) { ?>
-                <option value="<?= $value['name_cate'] ?>"><?= $value['name_cate'] ?></option>
+                <?php $cate = selectAllDataDB("SELECT cate_name FROM category"); foreach($cate as $value) { ?>
+                <option value="<?= $value['cate_name'] ?>"><?= $value['cate_name'] ?></option>
                 <?php } ?>
             </select>
             <label for="imgPro">Ảnh sản phẩm</label>
@@ -38,26 +38,26 @@
                 <tr>
                     <th><?= $index ?></th>
                     <td>
-                        <img src="../upload/imgProduct/<?= $value['img_pro'] ?>" alt="pottery ware" width="50"
+                        <img src="../upload/imgProduct/<?= $value['prd_img'] ?>" alt="pottery ware" width="50"
                             height="50">
                     </td>
-                    <td><?= $value['name_pro'] ?></td>
-                    <td><?= $value['price_pro'] ?></td>
-                    <td><?= $value['del'] ?></td>
+                    <td><?= $value['prd_name'] ?></td>
+                    <td><?= $value['prd_price'] ?></td>
+                    <td><?= $value['prd_del'] ?></td>
                     <td>
-                        <b>Danh mục: </b><?= $value['name_cate'] ?><br>
+                        <b>Danh mục: </b><?= $value['cate_name'] ?><br>
                         <b>Trạng thái: </b>
                         <?php
-                            if ($value['status_pro'] == 0) {
-                                echo "<span style='color: red;'>Không hoạt động</span>";
+                            if ($value['prd_status'] == 0) {
+                                echo "<span class='unAction'>Không hoạt động</span>";
                             }
                             else{
-                                echo "<span style='color: green;'>Hoạt động</span>";
+                                echo "<span class='action'>Hoạt động</span>";
                             }
                         ?>
                         <br>
-                        <b>Số lượt xem: </b><?= $value['top_view'] ?><br>
-                        <b>Ngày thêm: </b><?= $value['date_add'] ?><br>
+                        <b>Số lượt xem: </b><?= $value['prd_view'] ?><br>
+                        <b>Ngày thêm: </b><?= $value['prd_day_at'] ?><br>
                     </td>
                     <?php
                         if (isset($_GET['act']) && ($_GET['act'] == "editPro")) {
@@ -67,9 +67,9 @@
                         }
                         else{
                             echo "<td>
-                                    <a href='{$_SERVER['PHP_SELF']}?act=editPro&idPro={$value['id']}'
+                                    <a href='{$_SERVER['PHP_SELF']}?act=editPro&idPro={$value['prd_id']}'
                                         class='btnEdit'>Sửa</a>
-                                    <a href='{$_SERVER['PHP_SELF']}?act=deletePro&idPro={$value['id']}&imgPro={$value['img_pro']}' class='btnDelete'>Xóa</a>
+                                    <a href='{$_SERVER['PHP_SELF']}?act=deletePro&idPro={$value['prd_id']}&imgPro={$value['prd_name']}' class='btnDelete'>Xóa</a>
                                 </td>";
                         }
                     ?>
@@ -81,19 +81,19 @@
     <?php if (isset($_GET['act']) && ($_GET['act']) == "editPro") { ?>
     <div class="formEditPro">
         <form action="<?= $_SERVER['PHP_SELF'] ?>?act=editPro" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="idPro" id="idPro" value="<?= $pro[0]['id'] ?>">
+            <input type="hidden" name="idPro" id="idPro" value="<?= $pro[0]['prd_id'] ?>">
             <label for="namePro">Tên sản phẩm</label>
-            <input type="text" name="namePro" id="namePro" maxlength="100" value="<?= $pro[0]['name_pro'] ?>" required>
+            <input type="text" name="namePro" id="namePro" maxlength="100" value="<?= $pro[0]['prd_name'] ?>" required>
             <label for="pricePro">Giá sản phẩm</label>
             <input type="number" name="pricePro" id="pricePro" min="999" max="9999999"
-                value="<?= $pro[0]['price_pro'] ?>" required>
+                value="<?= $pro[0]['prd_price'] ?>" required>
             <label for="delPro">Giảm giá</label>
-            <input type="number" name="delPro" id="delPro" max="9999999" value="<?= $pro[0]['del'] ?>" required>
+            <input type="number" name="delPro" id="delPro" max="9999999" value="<?= $pro[0]['prd_del'] ?>">
             <label for="nameCate">Danh mục sản phẩm</label>
             <select name="nameCate" id="nameCate">
                 <?php
                     function checkNameCate($value, $pro){
-                        if ($value['name_cate'] == $pro[0]['name_cate']) {
+                        if ($value['cate_id'] == $pro[0]['prd_id_cate']) {
                             $selected = "selected";
                         }else{
                             $selected = "";
@@ -101,14 +101,15 @@
                         return $selected;
                     }
                 ?>
-                <?php foreach($cate as $value) { ?>
-                <option value="<?= $value['name_cate'] ?>" <?= checkNameCate($value, $pro) ?>><?= $value['name_cate'] ?>
+                <?php $cate = selectAllDataDB("SELECT * FROM category"); foreach($cate as $value) { ?>
+                <option value="<?= $value['cate_id'] ?>" <?= checkNameCate($value, $pro) ?>>
+                    <?= $value['cate_name'] ?>
                 </option>
                 <?php } ?>
             </select>
             <label for="">Trạng thái</label>
             <?php 
-                if ($pro[0]['status_pro'] != 0) {
+                if ($pro[0]['prd_status'] != 0) {
                     $selectedActive = "selected";
                     $selectedUnactive = null;
                 }
@@ -123,7 +124,9 @@
             </select>
             <label for="imgPro">Ảnh sản phẩm</label>
             <input type="file" name="imgPro" id="imgPro" accept="image/*">
-            <input type="hidden" name="nameImgPro" id="nameImgPro" value="<?= $pro[0]['img_pro'] ?>">
+            <input type="hidden" name="nameImgPro" id="nameImgPro" value="<?= $pro[0]['prd_img'] ?>">
+            <label for="detailPro">Chi tiết sản phẩm</label>
+            <textarea name="detailPro" id="detailPro" cols="30" rows="10"><?= $pro[0]['prd_description'] ?></textarea>
             <button type="submit" name="editPro" value="editPro">Sửa sản phẩm</button>
         </form>
     </div>
