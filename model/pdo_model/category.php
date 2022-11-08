@@ -8,6 +8,8 @@
       $cate = $stmt -> fetchAll();
       return $cate;
   }
+  selectAllDataDB("SELECT * FROM category");
+
   //* Get and show one category by id
   function getOneCate($id_cate){
     $conn = connect_db();
@@ -17,6 +19,7 @@
     $cate = $stmt -> fetchAll();
     return $cate;
   }
+
   //* Add new category to database
   function addCate($name_cate, $status_cate){
       $conn = connect_db();
@@ -24,12 +27,14 @@
     VALUES ('$name_cate', '$status_cate')";
     $conn->exec($sql);
   }
+
   //* Delect category by id
   function deleteCate($id_cate){
     $conn = connect_db();
     $sql = "DELETE FROM category WHERE id =".$id_cate;
     $conn->exec($sql);
   }
+
   //* Update category by id
   function editCate($name_cate, $id_cate, $status_cate){
     $conn = connect_db();

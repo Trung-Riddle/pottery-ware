@@ -33,8 +33,8 @@ if (isset($_GET["act"])) {
             break;
             //* COMMENT
         case 'comment':
-            $groupByNameProCmt = groupByNameProCmt();
-            $cmt = showCmtUser();
+            $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment GROUP BY name_pro ORDER BY id DESC");
+            $cmt = selectAllDataDB("SELECT * FROM comment WHERE status_cmt = 1 ORDER BY id DESC LIMIT 0,10");
             include_once("./layouts/comment/index.php");
             break;
         case 'searchCmt':
@@ -45,70 +45,77 @@ if (isset($_GET["act"])) {
             } else {
                 $name_pro = "";
             }
-            $cmt = searchCmt($user_name, $name_pro);
-            $groupByNameProCmt = groupByNameProCmt();
+            $sql = "SELECT * FROM comment WHERE user_name = '$user_name' $name_pro ORDER BY id DESC";
+            $cmt = selectAllDataDB($sql);
+            $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment GROUP BY name_pro ORDER BY id DESC");
             include_once("./layouts/comment/index.php");
             break;
         case 'delCmt':
             if (isset($_GET['idCmt'])) {
                 $id_cmt = $_GET['idCmt'];
-                deleteCmt($id_cmt);
+                $sql = "DELETE FROM comment WHERE id =".$id_cmt;
+                deleteDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=comment");
             }
             break;
         case 'showStatusCmt-0':
-            $cmt = showCmtUserByStatus0();
+            $cmt = selectAllDataDB("SELECT * FROM comment WHERE status_cmt = 0 ORDER BY id DESC LIMIT 0,10");
             include_once("./layouts/comment/index.php");
             break;
         case 'updateStatusCmt':
             if (isset($_GET['status'])) {
                 $id_cmt = $_GET['idCmt'];
                 $status_cmt = $_GET['status'];
-                updateStatusCmt($id_cmt, $status_cmt);
+                $sql = "UPDATE comment SET status_cmt = '".$status_cmt."' WHERE id = ".$id_cmt;
+                editDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=comment");
             }
             break;
 
             //* CATEGORY
         case 'category':
-            $cate = getAllCate();
+            $cate = selectAllDataDB("SELECT * FROM category ORDER BY id DESC");
             include_once("./layouts/category/index.php");
             break;
         case 'addCate':
             if (isset($_POST['addCate']) && ($_POST['addCate'])) {
                 $name_cate = $_POST['nameCate'];
                 $status_cate = $_POST['statusCate'];
-                addCate($name_cate, $status_cate);
+                $sql = "INSERT INTO category (name_cate, status) VALUES ('$name_cate', '$status_cate')";
+                addDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=category");
             }
             break;
         case 'deleteCate':
             if (isset($_GET['idCate'])) {
                 $id_cate = $_GET['idCate'];
-                deleteCate($id_cate);
+                $sql = "DELETE FROM category WHERE id =".$id_cate;
+                deleteDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=category");
             }
             break;
         case 'editCate':
             if (isset($_GET['idCate'])) {
                 $id_cate = $_GET['idCate'];
-                $cate = getOneCate($id_cate);
+                $sql = "SELECT * FROM category WHERE id=".$id_cate;
+                $cate = selectOneDataDB($sql);
                 include_once("./layouts/Category/index.php");
             }
             if (isset($_POST['editCate']) && ($_POST['editCate'])) {
                 $name_cate = $_POST['nameCate'];
                 $status_cate = $_POST['statusCate'];
                 $id_cate = $_POST['idCate'];
-                editCate($name_cate, $id_cate, $status_cate);
-                $cate = getOneCate($id_cate);
+                $sql = "UPDATE category SET name_cate ='".$name_cate."', status='".$status_cate."' WHERE id = ".$id_cate;
+                editDataDB($sql);
+                $cate = selectOneDataDB("SELECT * FROM category WHERE id=".$id_cate);
                 include_once("./layouts/Category/index.php");
             }
             break;
 
             //* PRODUCT
         case 'product':
-            $cate = getAllCate();
-            $pro = getAllProduct();
+            $cate = selectAllDataDB("SELECT * FROM category ORDER BY id DESC");
+            $pro = selectAllDataDB("SELECT * FROM product ORDER BY id DESC");
             include_once("./layouts/product/index.php");
             break;
         case 'addPro':
@@ -124,19 +131,21 @@ if (isset($_GET["act"])) {
                 move_uploaded_file($_FILES['imgPro']['tmp_name'], $target_file);
                 $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".jpg";
                 rename($target_file, $imgPath . $newImgPro);
-                addProduct($name_pro, $price_pro, $name_cate, $newImgPro, $date_add);
+                $sql = "INSERT INTO product (name_pro, price_pro, name_cate, img_pro, date_add) VALUES ('$name_pro', '$price_pro', '$name_cate', '$newImgPro', '$date_add')";
+                addDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=product");
             }
             break;
         case 'editPro':
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
-                $cate = getAllCate();
-                $pro = getOneProduct($id_pro);
+                $cate = selectAllDataDB("SELECT * FROM category ORDER BY id DESC");
+                $sql = "SELECT * FROM product WHERE id=".$id_pro;
+                $pro = selectOneDataDB($sql);
                 include_once("./layouts/product/index.php");
             }
             if (isset($_POST['editPro']) && ($_POST['editPro'])) {
-                $cate = getAllCate();
+                $cate = selectAllDataDB("SELECT * FROM category ORDER BY id DESC");
                 $id_pro = $_POST['idPro'];
                 $name_pro = $_POST['namePro'];
                 $price_pro = $_POST['pricePro'];
@@ -159,8 +168,10 @@ if (isset($_GET["act"])) {
                     $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }
-                editProduct($id_pro, $name_pro, $price_pro, $del, $name_cate, $newImgPro, $status_pro, $date_add);
-                $pro = getOneProduct($id_pro);
+                $sqlEditPro = "UPDATE product SET name_pro ='".$name_pro."', price_pro = '".$price_pro."', del = '".$del."', name_cate ='".$name_cate."', img_pro = '".$newImgPro."', status_pro = '".$status_pro."', date_add = '".$date_add."' WHERE id = ".$id_pro;
+                editDataDB($sqlEditPro);
+                $sql = "SELECT * FROM product WHERE id=".$id_pro;
+                $pro = selectOneDataDB($sql);
                 include_once("./layouts/product/index.php");
             }
             break;
@@ -168,7 +179,8 @@ if (isset($_GET["act"])) {
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
                 $imgPathPro = "../upload/imgProduct/" . $_GET['imgPro'];
-                deleteProduct($id_pro);
+                $sql = "DELETE FROM product WHERE id =".$id_pro;
+                deleteDataDB($sql);
                 if (file_exists($imgPathPro)) {
                     unlink($imgPathPro);
                 }
