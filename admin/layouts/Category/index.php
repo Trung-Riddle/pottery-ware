@@ -1,12 +1,3 @@
-<style>
-.activeStatusCate {
-    color: green;
-}
-
-.unactiveStatusCate {
-    color: red;
-}
-</style>
 <div class="container">
     <?php if (isset($_GET['act']) && ($_GET['act'] == "category")) {?>
     <div class="formAddCate">
@@ -38,21 +29,21 @@
                 <?php $index++ ?>
                 <tr>
                     <th><?= $index ?></th>
-                    <td><?= $value['name_cate'] ?></td>
+                    <td><?= $value['cate_name'] ?></td>
                     <?php
-                            if ($value['status'] == 1) {
-                                echo "<td class='activeStatusCate'>Hoạt động</td>";
+                            if ($value['cate_status'] == 1) {
+                                echo "<td class='action'>Hoạt động</td>";
                             }
                             else{
-                                echo "<td class='unactiveStatusCate'>Không hoạt động</td>";
+                                echo "<td class='unAction'>Không hoạt động</td>";
                             }
                             if (isset($_GET['act']) && ($_GET['act']  == "editCate")) {
                                 echo "<td><a href='{$_SERVER['PHP_SELF']}?act=category' class='btnEdit'>xong</a></td>";
                             }
                             else{
                                 echo "<td>
-                                    <a href='{$_SERVER['PHP_SELF']}?act=editCate&idCate={$value['id']}' class='btnEdit'>Sửa</a>
-                                    <a href='{$_SERVER['PHP_SELF']}?act=deleteCate&idCate={$value['id']}' class='btnDelete'>Xóa</a>
+                                    <a href='{$_SERVER['PHP_SELF']}?act=editCate&idCate={$value['cate_id']}' class='btnEdit'>Sửa</a>
+                                    <a href='{$_SERVER['PHP_SELF']}?act=deleteCate&idCate={$value['cate_id']}' class='btnDelete'>Xóa</a>
                                 </td>";
                             }
                         ?>
@@ -62,7 +53,7 @@
         </table>
     </div>
     <?php 
-        if ($cate[0]['status'] != 0) {
+        if ($cate[0]['cate_status'] != 0) {
             $selectedActive = "selected";
             $selectedUnactive = null;
         }
@@ -74,9 +65,9 @@
     <?php if (isset($_GET['act']) && ($_GET['act'] == "editCate")) {?>
     <div class="formEditCate">
         <form action="<?= $_SERVER['PHP_SELF'] ?>?act=editCate" method="post">
-            <input type="hidden" name="idCate" value="<?= $cate[0]['id'] ?>">
+            <input type="hidden" name="idCate" value="<?= $cate[0]['cate_id'] ?>">
             <label for="nameCate">Tên danh mục</label>
-            <input type="text" id="nameCate" name="nameCate" maxlength="100" value="<?= $cate[0]['name_cate'] ?>"
+            <input type="text" id="nameCate" name="nameCate" maxlength="100" value="<?= $cate[0]['cate_name'] ?>"
                 required>
             <label for="statusCate">Trạng thái</label>
             <select name="statusCate" id="statusCate">

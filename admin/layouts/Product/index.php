@@ -9,7 +9,7 @@
             <label for="nameCate">Danh mục sản phẩm</label>
             <select name="nameCate" id="nameCate">
                 <?php foreach($cate as $value) { ?>
-                <option value="<?= $value['name_cate'] ?>"><?= $value['name_cate'] ?></option>
+                <option value="<?= $value['cate_name'] ?>"><?= $value['cate_name'] ?></option>
                 <?php } ?>
             </select>
             <label for="imgPro">Ảnh sản phẩm</label>
@@ -49,10 +49,10 @@
                         <b>Trạng thái: </b>
                         <?php
                             if ($value['status_pro'] == 0) {
-                                echo "<span style='color: red;'>Không hoạt động</span>";
+                                echo "<span class='unAction'>Không hoạt động</span>";
                             }
                             else{
-                                echo "<span style='color: green;'>Hoạt động</span>";
+                                echo "<span class='action'>Hoạt động</span>";
                             }
                         ?>
                         <br>

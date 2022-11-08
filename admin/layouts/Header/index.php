@@ -1,7 +1,13 @@
 <link rel="stylesheet" href="./style/Header.css">
 <header>
     <div class="Logo">
-        <h2>Pottery ware</h2>
+        <div class="avatarLogo">
+            <img src="../asset/image/amphora.png" alt="Pottery Ware">
+        </div>
+        <div class="contentLogo">
+            <h2>Pottery ware</h2>
+            <p>Admin</p>
+        </div>
     </div>
     <div class="Menu">
         <li>

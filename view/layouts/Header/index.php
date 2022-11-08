@@ -3,7 +3,7 @@
         <div class="row-2 v-center">
             <div class="header-item item-left">
                 <div class="logo">
-                    <a href="#">
+                    <a href="<?= $_SERVER['PHP_SELF'] ?>">
                         <img src="./view/image/amphora.png" alt="pottery ware">
                         <span>Pottery ware</span>
                     </a>

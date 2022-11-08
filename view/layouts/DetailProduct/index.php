@@ -1,20 +1,42 @@
+<?php
+    if (isset($_GET['page']) && ($_GET['page'] == "detailProduct")) {
+        $id_pro = $_GET['idPro'];
+        $pro = getOneProduct($id_pro);
+        if (isset($_GET['idPro'])) {
+            $top_view = $pro[0]['top_view'];
+            $top_view += 1;
+            addDataDB("UPDATE product SET top_view = '$top_view' WHERE id = '$id_pro'");
+        }
+    }
+?>
 <section class="detail-main">
     <div class="product-page-container">
         <!-- router -->
         <span class="link-route">
-            <a href="#">Trang Chủ</a> <i class="fa-light fa-chevron-right"></i>
-            <a href="#">Tên Sản Phẩm</a>
+            <a href="<?= $_SERVER['PHP_SELF'] ?>">Trang Chủ</a> <i class="fa-light fa-chevron-right"></i>
+            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản phẩm</a> <i class="fa-light fa-chevron-right"></i>
+            <a
+                href="<?= $_SERVER['PHP_SELF'] ?>?page=searchProByCate&nameCate=<?= $pro[0]['name_cate'] ?>"><?= $pro[0]['name_cate'] ?></a>
+            <i class="fa-light fa-chevron-right"></i>
+            <a href="#"><?= $pro[0]['name_pro'] ?></a>
         </span>
         <div id="product-page">
             <div class="product-page-img">
-                <img src="https://cdn.shopify.com/s/files/1/0420/9242/9468/products/11.1.jpg?v=1593683051" alt="" />
+                <img src="./upload/imgProduct/<?= $pro[0]['img_pro'] ?>" alt="" />
             </div>
             <div class="product-page-detail">
-                <h3>Echo Tên Sản Phẩm abcxyz</h3>
-                <span class="product-category">Tên danh mục</span>
+                <h3><?= $pro[0]['name_pro'] ?></h3>
+                <span class="product-category"><?= $pro[0]['name_cate'] ?></span>
+                <span class="product-category"><i class="fa-regular fa-eye"
+                        style="margin-right: 10px;"></i><?= $pro[0]['top_view'] ?></span>
                 <p class="price">
-                    120.000 <sup>đ</sup> <span class="del">155.000</span>
-                    <sup style="text-decoration: line-through" class="color-desc">đ</sup>
+                    <?php if($pro[0]['del'] != 0) { ?>
+                    <?= $pro[0]['del'] ?> <sup>đ</sup>
+                    <span class="del"><?= $pro[0]['price_pro'] ?></span><sup style="text-decoration: line-through"
+                        class="color-desc">đ</sup>
+                    <?php } else { ?>
+                    <?= $pro[0]['price_pro'] ?> <sup>đ</sup>
+                    <?php } ?>
                 </p>
                 <p class="small-desc color-desc">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
@@ -71,12 +93,14 @@
                     <div class="wrapper_tabcontent">
                         <div id="haha" class="tabcontent active">
                             <h3>Bình Luận</h3>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                Repudiandae officiis tempore odio nam quae quas impedit,
-                                enim dolore commodi pariatur vero asperiores quibusdam ipsum
-                                saepe sunt iusto soluta corrupti fugiat!
-                            </p>
+                            <div class="contentDetail">
+                                <div class="headCmt">
+                                    <div class="amountCmt"></div>
+                                </div>
+                                <div class="formCmt">
+
+                                </div>
+                            </div>
                         </div>
 
                         <div id="hihi" class="tabcontent">
@@ -93,7 +117,10 @@
                             <h3>Cùng Loại</h3>
                             <div class="detailSameCate">
                                 <div id="listSameCate" class="listSameCate">
-                                    <?php foreach($pro as $value) { extract($value)?>
+                                    <?php 
+                                    $sameCateProduct = selectAllDataDB("SELECT * FROM product WHERE name_cate = '{$pro[0]['name_cate']}'");
+                                    foreach($sameCateProduct as $value) { extract($value) ?>
+                                    <?php if($name_pro != $pro[0]['name_pro']) { ?>
                                     <div class="itemSameCate"
                                         onclick="window.location.href='<?= $_SERVER['PHP_SELF'] ?>'">
                                         <div class="imgSameCate">
@@ -109,8 +136,9 @@
                                         </div>
                                     </div>
                                     <?php } ?>
+                                    <?php } ?>
                                 </div>
-                                <?php if(5 > 4) { ?>
+                                <?php if(countDataDB("SELECT count(*) FROM product WHERE name_cate = '{$pro[0]['name_cate']}'") > 5) { ?>
                                 <div class="prevAndNextSameProduct">
                                     <div id="prevSameDetailProduct" class="prev">Prev</div>
                                     <div id="nextSameDetailProduct" class="next">Next</div>
