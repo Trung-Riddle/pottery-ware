@@ -56,7 +56,12 @@ function showSubMenu(hasChildren) {
 
  	}
  }
-const qtyInput = document.querySelector("#qty");
+const qtyInput = document.querySelectorAll(".qty");
+const aabc = document.querySelector('.text-right');
+
+qtyInput.forEach(function(btn) {
+
+})
 function stepper(btn) {
     let id = btn.getAttribute("id");
     let min = qtyInput.getAttribute("min");
