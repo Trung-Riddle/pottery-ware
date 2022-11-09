@@ -22,18 +22,18 @@
             </div>
             <div class="main">
                 <div class="user_field field-2">
-                    <form id="formLogin" class="_details details-login" method="post">
+                    <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login" method="post">
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" name="user_name" required />
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" required />
+                            <input type="password" name="password" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                     </form>
                 </div>
-                <button form="formLogin" class="btn login" type="submit" name="submitLogin" value="submitLogin">
+                <button form="formLogin" class="btn login" type="submit" name="dangnhap" value="dangnhap">
                     Đăng Nhập
                 </button>
             </div>
@@ -48,36 +48,46 @@
                 </div>
             </div>
             <div class="main">
-                <div class="user_field rel">
+                <form id="formSignup" class="user_field rel" action="../../../model/handleSignup/index.php" method="post" enctype="multipart/form-data">
                     <div class="avt">
                         <img class="camera-icon" src="../../image/camera.png" alt="camera" />
                         <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />
-                        <input type="file" id="up_file" />
+                        <input type="file" id="up_file" name="avatar" accept="image/*" />
                         <small>Chọn Ảnh</small>
                     </div>
-                    <form id="formSignup" class="_details">
+                    <div class="_details">
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" name="user_name" required />
                             <span class="input_detail">Tên Tài Khoản</span>
                         </div>
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" name="email" required />
                             <span class="input_detail">Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" required />
+                            <input type="text" name="phone_number" required />
+                            <span class="input_detail">Số điện thoại</span>
+                        </div>
+                        <div class="textbox">
+                            <input type="password" name="password" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
-                    </form>
-                </div>
-                <button form="formSignup" class="btn login" type="submit" name="submitSignup" value="submitSignup">
+                    </div>
+                </form>
+                <button form="formSignup" class="btn login" type="submit" name="dangky" value="dangky">
                     Đăng Ký
                 </button>
             </div>
         </div>
     </div>
-
-    <script src="../../js/login.js"></script>
 </body>
+<script src="../../js/login.js"></script>
+<?php
+if (isset($_GET['error']) && ($_GET['error'] == "faildSignup")) {
+    echo "<script type='text/javascript'>alert('Tài khoản đã tồn tại');</script>";
+} else if (isset($_GET['login']) && ($_GET['login'] == "FaildLogin")) {
+    echo "<script type='text/javascript'>alert('Tài khoản không chính xác');</script>";
+}
+?>
 
 </html>

@@ -31,6 +31,29 @@ if (isset($_GET["act"])) {
                 include_once("./layouts/posts/detailPosts.php");
             }
             break;
+        case 'addPosts':
+            if (isset($_POST['addPosts']) && ($_POST['addPosts'])) {
+                $title_post = $_POST['title_post'];
+                $content_post = $_POST['content_post'];
+                $contentSecond_post = $_POST['contentSecond_post'];
+                $img_post = $_FILES['img_post']['name'];
+                $imgSecond_post = $_FILES['imgSecond_post']['name'];
+                $imgPath = "../upload/imgPosts/";
+                $target_file = $imgPath . str_replace(" ", "-", basename($title_post));
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                move_uploaded_file($_FILES['img_post']['tmp_name'], $target_file);
+                $newPost1 = "pottery-ware1-" . str_replace(" ", "-", $title_post) . ".png";
+                rename($target_file, $imgPath . $newPost1);
+                move_uploaded_file($_FILES['imgSecond_post']['tmp_name'], $target_file);
+                $newPost2 = "pottery-ware2-" . str_replace(" ", "-", $title_post) . ".png";
+                rename($target_file, $imgPath . $newPost2);
+                $sql = "INSERT INTO posts (title_post, content_post,contentSecond_post,img_post,imgSecond_post,date_add) 
+                VALUES ('$title_post', '$content_post', '$contentSecond_post', '$newPost1', '$newPost2',now())";
+                addDataDB($sql);
+                header("location: {$_SERVER['PHP_SELF']}?act=posts");
+                echo 'HI';
+            }
+            break;
             //* COMMENT
         case 'comment':
             $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment GROUP BY name_pro ORDER BY id DESC");
@@ -53,7 +76,7 @@ if (isset($_GET["act"])) {
         case 'delCmt':
             if (isset($_GET['idCmt'])) {
                 $id_cmt = $_GET['idCmt'];
-                $sql = "DELETE FROM comment WHERE id =".$id_cmt;
+                $sql = "DELETE FROM comment WHERE id =" . $id_cmt;
                 deleteDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=comment");
             }
@@ -66,7 +89,7 @@ if (isset($_GET["act"])) {
             if (isset($_GET['status'])) {
                 $id_cmt = $_GET['idCmt'];
                 $status_cmt = $_GET['status'];
-                $sql = "UPDATE comment SET status_cmt = '".$status_cmt."' WHERE id = ".$id_cmt;
+                $sql = "UPDATE comment SET status_cmt = '" . $status_cmt . "' WHERE id = " . $id_cmt;
                 editDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=comment");
             }
@@ -89,7 +112,7 @@ if (isset($_GET["act"])) {
         case 'deleteCate':
             if (isset($_GET['idCate'])) {
                 $id_cate = $_GET['idCate'];
-                $sql = "DELETE FROM category WHERE id =".$id_cate;
+                $sql = "DELETE FROM category WHERE id =" . $id_cate;
                 deleteDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=category");
             }
@@ -97,7 +120,7 @@ if (isset($_GET["act"])) {
         case 'editCate':
             if (isset($_GET['idCate'])) {
                 $id_cate = $_GET['idCate'];
-                $sql = "SELECT * FROM category WHERE id=".$id_cate;
+                $sql = "SELECT * FROM category WHERE id=" . $id_cate;
                 $cate = selectOneDataDB($sql);
                 include_once("./layouts/Category/index.php");
             }
@@ -105,9 +128,9 @@ if (isset($_GET["act"])) {
                 $name_cate = $_POST['nameCate'];
                 $status_cate = $_POST['statusCate'];
                 $id_cate = $_POST['idCate'];
-                $sql = "UPDATE category SET name_cate ='".$name_cate."', status='".$status_cate."' WHERE id = ".$id_cate;
+                $sql = "UPDATE category SET name_cate ='" . $name_cate . "', status='" . $status_cate . "' WHERE id = " . $id_cate;
                 editDataDB($sql);
-                $cate = selectOneDataDB("SELECT * FROM category WHERE id=".$id_cate);
+                $cate = selectOneDataDB("SELECT * FROM category WHERE id=" . $id_cate);
                 include_once("./layouts/Category/index.php");
             }
             break;
@@ -140,7 +163,7 @@ if (isset($_GET["act"])) {
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
                 $cate = selectAllDataDB("SELECT * FROM category ORDER BY id DESC");
-                $sql = "SELECT * FROM product WHERE id=".$id_pro;
+                $sql = "SELECT * FROM product WHERE id=" . $id_pro;
                 $pro = selectOneDataDB($sql);
                 include_once("./layouts/product/index.php");
             }
@@ -168,9 +191,9 @@ if (isset($_GET["act"])) {
                     $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }
-                $sqlEditPro = "UPDATE product SET name_pro ='".$name_pro."', price_pro = '".$price_pro."', del = '".$del."', name_cate ='".$name_cate."', img_pro = '".$newImgPro."', status_pro = '".$status_pro."', date_add = '".$date_add."' WHERE id = ".$id_pro;
+                $sqlEditPro = "UPDATE product SET name_pro ='" . $name_pro . "', price_pro = '" . $price_pro . "', del = '" . $del . "', name_cate ='" . $name_cate . "', img_pro = '" . $newImgPro . "', status_pro = '" . $status_pro . "', date_add = '" . $date_add . "' WHERE id = " . $id_pro;
                 editDataDB($sqlEditPro);
-                $sql = "SELECT * FROM product WHERE id=".$id_pro;
+                $sql = "SELECT * FROM product WHERE id=" . $id_pro;
                 $pro = selectOneDataDB($sql);
                 include_once("./layouts/product/index.php");
             }
@@ -179,7 +202,7 @@ if (isset($_GET["act"])) {
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
                 $imgPathPro = "../upload/imgProduct/" . $_GET['imgPro'];
-                $sql = "DELETE FROM product WHERE id =".$id_pro;
+                $sql = "DELETE FROM product WHERE id =" . $id_pro;
                 deleteDataDB($sql);
                 if (file_exists($imgPathPro)) {
                     unlink($imgPathPro);
