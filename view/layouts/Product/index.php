@@ -12,9 +12,9 @@
                 </form>
             </div>
             <details open>
-                <summary>
+                <summary style="user-select: none;">
                     <div class="titleSideBarPro">
-                        Danh mục<i class="fa-regular fa-square-p"></i>
+                        <i class="fa-duotone fa-arrow-down-arrow-up"></i>Danh mục<i class="fa-regular fa-square-p"></i>
                     </div>
                 </summary>
                 <ul class="categoryNavPro">
@@ -32,9 +32,9 @@
                 </ul>
             </details>
             <details open>
-                <summary>
-                    <div class="titleSideBarPro">
-                        Xem nhiều nhất<i class="fa-regular fa-eye"></i>
+                <summary style="user-select: none;">
+                    <div class=" titleSideBarPro">
+                        <i class="fa-duotone fa-arrow-down-arrow-up"></i>Xem nhiều nhất<i class="fa-regular fa-eye"></i>
                     </div>
                 </summary>
                 <ul class="categoryNavPro">
