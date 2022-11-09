@@ -3,6 +3,7 @@
 @import "./header.css";
 @import "./banner.css";
 @import "./detail.css";
-/* @import "./login.css"; not import */
 @import "./products.css";
+@import "./blog-home.css";
+@import "./cart.css";
 @import "./listProduct.css";

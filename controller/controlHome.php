@@ -20,9 +20,9 @@
                 break;
             case 'searchPro':
                 $search = $_POST['nameProAndCate'];
-                $checkSearch = countDataDB("SELECT count(*) FROM product WHERE name_pro = '$search' OR name_cate = '$search'");
+                $checkSearch = countDataDB("SELECT count(*) FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_name = '$search' OR cate_name = '$search'");
                 if ($checkSearch != 0) {
-                    $pro = selectAllDataDB("SELECT * FROM product WHERE name_pro = '$search' OR name_cate = '$search'");
+                    $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_name = '$search' OR cate_name = '$search'");
                     include_once("./view/layouts/Product/index.php");
                 }else{
                     echo "
@@ -41,11 +41,6 @@
                     $top_view += 1;
                     addDataDB("UPDATE product SET prd_view = '$top_view' WHERE prd_id = '$id_pro'");
                 }
-                // $id_pro = $_POST['idPro'];
-                // $name_pro = $_POST['namePro'];
-                // $pro = selectOneDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id");  //WHERE id = $id_pro
-                // $sql = "SELECT count(*) FROM product WHERE name_pro =".$name_pro;
-                // $checkCountSameDetailProduct = countDataDB($sql);
                 include_once("./view/layouts/DetailProduct/index.php");
                 break;
 

@@ -35,15 +35,10 @@
 .itemPro {
   height: 370px;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
   transition: all 0.25s ease-in-out;
 }
-
-/* .itemPro:hover {
-  height: 370px;
-  box-shadow: 0 0 10px gray;
-} */
 
 .imgPro {
   height: 300px;
@@ -182,6 +177,9 @@ details {
   margin-bottom: 3rem;
   border-bottom: 2px solid rgb(210, 210, 210);
 }
+summary:hover .titleSideBarPro {
+  color: var(--color-secondary);
+}
 details summary .titleSideBarPro {
   font-weight: bold;
   font-size: 20px;
@@ -190,4 +188,5 @@ details summary .titleSideBarPro {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  transition: all 0.3s ease-in-out;
 }
