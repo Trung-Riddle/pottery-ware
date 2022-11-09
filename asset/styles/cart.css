@@ -254,9 +254,9 @@
       margin-left: 20px;
     }
   
-    .product-quantity:before {
+    /* .product-quantity:before {
       content: 'x';
-    }
+    } */
   
     .product-removal {
       width: auto;
@@ -272,7 +272,6 @@
     .product-removal {
       float: right;
     }
-  
     .product-line-price {
       float: right;
       clear: left;
@@ -281,7 +280,7 @@
     }
   
     .product .product-line-price:before {
-      content: 'Item Total: $';
+      content: '';
     }
   
     .totals .totals-item label {
