@@ -83,11 +83,44 @@
                         <div id="haha" class="tabcontent active">
                             <h3>Bình Luận</h3>
                             <div class="contentDetail">
-                                <div class="headCmt">
-                                    <div class="amountCmt"></div>
+                                <div class="headCmt flex w-[200px] justify-content-between ml-[2rem]">
+                                    <div class="amountCmt">10 Comments</div>
+                                    <div class="filterCmt w-[75px] flex align-items-center justify-content-between"><i
+                                            class="fa-regular fa-sliders"></i>
+                                        <div>Sort by</div>
+                                    </div>
                                 </div>
-                                <div class="formCmt">
-
+                                <div
+                                    class="formCmt w-100 mh-[50px] my-[2rem] shadow-xl p-[1rem] pr-[5rem] text-justify rounded-lg">
+                                    <form action="" class="flex h-100 w-100 gap-2">
+                                        <img src="./upload/avatar/kien.jpg" alt="pottery ware"
+                                            class="h-100 w-[50px] rounded-full">
+                                        <div name="" id="" class="w-100 pl-[10px]">
+                                            <div class="nameUser fw-bold text-base text-[#edb2a0]">
+                                                Chung Nhựt vi
+                                            </div>
+                                            <div class="cmtUser">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est velit
+                                                recusandae maxime vero magnam ducimus necessitatibus cupiditate
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div
+                                    class="formCmt rounded-lg w-100 mh-[50px] mt-[20px] shadow-2xl p-[1rem] pr-[5rem] relative">
+                                    <form action="<?= $_SERVER['PHP_SELF'] ?>?page=product"
+                                        class="flex h-100 w-100 gap-2" method="post">
+                                        <img src="./upload/avatar/kien.jpg" alt="pottery ware"
+                                            class="h-100 w-[50px] rounded-full">
+                                        <input type="text" name="" id=""
+                                            class="w-100 outline-0 border-b-2 border-gray-400 pl-[10px]"
+                                            placeholder="Để lại bình luận...">
+                                        <button type="submit"
+                                            class=" absolute top-[50%] transform translate-y-[-50%] right-[2rem]">
+                                            <i
+                                                class="fa-solid fa-paper-plane-top text-[28px] text-blue-500 hover:text-[#edb2a0] transition duration-200"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -196,3 +229,4 @@
         </div>
     </div>
 </section>
+<script src="https://cdn.tailwindcss.com"></script>

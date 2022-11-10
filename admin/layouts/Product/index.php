@@ -57,7 +57,7 @@
                         ?>
                         <br>
                         <b>Số lượt xem: </b><?= $value['prd_view'] ?><br>
-                        <b>Ngày thêm: </b><?= $value['prd_day_at'] ?><br>
+                        <b>Ngày thêm: </b><?= $value['prd_created_at'] ?><br>
                     </td>
                     <?php
                         if (isset($_GET['act']) && ($_GET['act'] == "editPro")) {

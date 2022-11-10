@@ -81,8 +81,8 @@ if (isset($_GET["act"])) {
             if (isset($_POST['addCate']) && ($_POST['addCate'])) {
                 $name_cate = $_POST['nameCate'];
                 $status_cate = $_POST['statusCate'];
-                $day_at = date("Y-m-d");
-                $sql = "INSERT INTO category (cate_name, cate_status, cate_day_at) VALUES ('$name_cate', '$status_cate', '$day_at')";
+                $day_add = date("Y-m-d");
+                $sql = "INSERT INTO category (cate_name, cate_status, cate_created_at) VALUES ('$name_cate', '$status_cate', '$day_add')";
                 addDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=category");
             }
@@ -134,7 +134,7 @@ if (isset($_GET["act"])) {
                 move_uploaded_file($_FILES['imgPro']['tmp_name'], $target_file);
                 $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                 rename($target_file, $imgPath . $newImgPro);
-                $sql = "INSERT INTO product (prd_id_cate, prd_name, prd_price, prd_img, prd_day_at) VALUES ('$id_cate', '$name_pro', '$price_pro', '$newImgPro', '$date_add')";
+                $sql = "INSERT INTO product (prd_id_cate, prd_name, prd_price, prd_img, prd_created_at) VALUES ('$id_cate', '$name_pro', '$price_pro', '$newImgPro', '$date_add')";
                 addDataDB($sql);
                 header("location: {$_SERVER['PHP_SELF']}?act=product");
             }
@@ -152,7 +152,6 @@ if (isset($_GET["act"])) {
                 $del = $_POST['delPro'];
                 $name_cate = $_POST['nameCate'];
                 $status_pro = $_POST['statusPro'];
-                $date_add = date("Y-m-d");
                 $detail_pro = $_POST['detailPro'];
                 $img_pro = $_FILES['imgPro']['name'];
                 if ($_FILES['imgPro']['name'] == null) {
@@ -169,7 +168,7 @@ if (isset($_GET["act"])) {
                     $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }
-                $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_day_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = ".$id_pro;
+                $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_description = '$detail_pro' WHERE prd_id = ".$id_pro;
                 editDataDB($sqlEditPro);
                 $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
                 include_once("./layouts/product/index.php");

@@ -6,8 +6,8 @@
             <input type="text" id="nameCate" name="nameCate" maxlength="100" required>
             <label for="statusCate">Trạng thái</label>
             <select name="statusCate" id="statusCate">
-                <option value="0">Không hoạt động</option>
                 <option value="1">Hoạt động</option>
+                <option value="0">Không hoạt động</option>
             </select>
             <button type="submit" name="addCate" value="addCate">Thêm danh mục</button>
         </form>
