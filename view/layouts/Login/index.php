@@ -48,14 +48,14 @@
                 </div>
             </div>
             <div class="main">
-                <div class="user_field rel">
+                <form id="formSignup" class="user_field rel">
                     <div class="avt">
                         <img class="camera-icon" src="../../image/camera.png" alt="camera" />
                         <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />
                         <input type="file" id="up_file" />
                         <small>Chọn Ảnh</small>
                     </div>
-                    <form id="formSignup" class="_details">
+                    <div class="_details">
                         <div class="textbox">
                             <input type="text" required />
                             <span class="input_detail">Tên Tài Khoản</span>
@@ -68,8 +68,8 @@
                             <input type="password" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
                 <button form="formSignup" class="btn login" type="submit" name="submitSignup" value="submitSignup">
                     Đăng Ký
                 </button>

@@ -258,7 +258,7 @@
     }
   
     .product-quantity:before {
-      content: '';
+      content: 'x';
     }
   
     .product-removal {
@@ -275,7 +275,6 @@
     .product-removal {
       float: right;
     }
-  
     .product-line-price {
       float: right;
       clear: left;
@@ -284,7 +283,7 @@
     }
   
     .product .product-line-price:before {
-      content: 'Item Total: $';
+      content: '';
     }
   
     .totals .totals-item label {

@@ -1,0 +1,26 @@
+.product-blog{
+    margin: 50px 0;
+}
+.blog-single{
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.blog-single-img{
+    width: 100%;
+    height: 70%;
+}
+.blog-single-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.blog-contents p{
+    white-space: nowrap; 
+    text-align: center; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+      display: block;
+}
