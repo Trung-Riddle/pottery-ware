@@ -1,9 +1,11 @@
 
 .table-cart-pot{
+    max-width: 1200px;
     width: 100%;
     padding: 10px;
     border-bottom: 2px solid var(--color-secondary);
     padding-bottom: 30px;
+    margin: 0 auto;
 }
 .table-cart-pot h1{
     font-size: 28px;
@@ -31,6 +33,7 @@
     height: 110px;
     object-fit: cover;
     border-radius: 4px;
+    width: 100%;
   }
   
   .product-details {
@@ -112,7 +115,7 @@
     text-align: center;
   }
   .product .product-image img {
-    width: 100px;
+    width: 100%;
   }
   .product .product-details .product-title {
     margin-right: 20px;
@@ -254,9 +257,9 @@
       margin-left: 20px;
     }
   
-    /* .product-quantity:before {
+    .product-quantity:before {
       content: 'x';
-    } */
+    }
   
     .product-removal {
       width: auto;
