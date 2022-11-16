@@ -12,10 +12,10 @@ function getAllUser()
 }
 
 //* Get and show one user by id
-function getOneUser($id)
+function getOneUser($ur_id)
 {
     $conn = connect_db();
-    $stmt = $conn->prepare("SELECT * FROM user WHERE id=" . $id);
+    $stmt = $conn->prepare("SELECT * FROM user WHERE ur_id=" . $ur_id);
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $user = $stmt->fetchAll();
@@ -23,19 +23,19 @@ function getOneUser($id)
 }
 
 // Insert user
-function addUser($user_name, $password, $avatar, $email, $phone_number)
+function addUser($ur_name, $ur_pass, $ur_avatar)
 {
     $conn = connect_db();
-    $sql = "INSERT INTO user (user_name, password,avatar,email,phone_number)
-  VALUES ('$user_name', '$password', '$avatar', '$email', '$phone_number')";
+    $sql = "INSERT INTO user (ur_name, ur_pass,ur_avatar)
+  VALUES ('$ur_name', '$ur_pass', '$ur_avatar')";
     $conn->exec($sql);
 }
 
 // Delete user
-function deleteUser($id)
+function deleteUser($ur_id)
 {
     $conn = connect_db();
-    $sql = "DELETE FROM user WHERE id =" . $id;
+    $sql = "DELETE FROM user WHERE ur_id =" . $ur_id;
     $conn->exec($sql);
 }
 
@@ -60,9 +60,9 @@ function countCustomer()
 }
 
 // Check user
-function checkuser($user_name, $password)
+function checkuser($ur_name, $ur_pass)
 {
-    $sql = "SELECT * FROM user WHERE user_name='" . $user_name . "' AND password='" . $password . "'";
+    $sql = "SELECT * FROM user WHERE ur_name='" . $ur_name . "' AND ur_pass='" . $ur_pass . "'";
     $conn = connect_db();
     $stmt = $conn->prepare($sql);
     $stmt->execute();

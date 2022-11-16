@@ -2,19 +2,30 @@
     <div class="product-page-container">
         <!-- router -->
         <span class="link-route">
-            <a href="#">Trang Chủ</a> <i class="fa-light fa-chevron-right"></i>
-            <a href="#">Tên Sản Phẩm</a>
+            <a href="<?= $_SERVER['PHP_SELF'] ?>">Trang Chủ</a> <i class="fa-light fa-chevron-right"></i>
+            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản phẩm</a> <i class="fa-light fa-chevron-right"></i>
+            <a
+                href="<?= $_SERVER['PHP_SELF'] ?>?page=searchProByCate&nameCate=<?= $pro[0]['prd_id_cate'] ?>"><?= $pro[0]['cate_name'] ?></a>
+            <i class="fa-light fa-chevron-right"></i>
+            <a href="#"><?= $pro[0]['prd_name'] ?></a>
         </span>
         <div id="product-page">
             <div class="product-page-img">
-                <img src="https://cdn.shopify.com/s/files/1/0420/9242/9468/products/11.1.jpg?v=1593683051" alt="" />
+                <img src="./upload/imgProduct/<?= $pro[0]['prd_img'] ?>" alt="" />
             </div>
             <div class="product-page-detail">
-                <h3>Echo Tên Sản Phẩm abcxyz</h3>
-                <span class="product-category">Tên danh mục</span>
+                <h3><?= $pro[0]['prd_name'] ?></h3>
+                <span class="product-category"><?= $pro[0]['cate_name'] ?></span>
+                <span class="product-category"><i class="fa-regular fa-eye"
+                        style="margin-right: 10px;"></i><?= $pro[0]['prd_view'] ?></span>
                 <p class="price">
-                    120.000 <sup>đ</sup> <span class="del">155.000</span>
-                    <sup style="text-decoration: line-through" class="color-desc">đ</sup>
+                    <?php if($pro[0]['prd_del'] != 0) { ?>
+                    <?= $pro[0]['prd_del'] ?> <sup>đ</sup>
+                    <span class="prd_del"><?= $pro[0]['price_pro'] ?></span><sup style="text-decoration: line-through"
+                        class="color-desc">đ</sup>
+                    <?php } else { ?>
+                    <?= $pro[0]['prd_price'] ?> <sup>đ</sup>
+                    <?php } ?>
                 </p>
                 <p class="small-desc color-desc">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
@@ -71,12 +82,14 @@
                     <div class="wrapper_tabcontent">
                         <div id="haha" class="tabcontent active">
                             <h3>Bình Luận</h3>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                Repudiandae officiis tempore odio nam quae quas impedit,
-                                enim dolore commodi pariatur vero asperiores quibusdam ipsum
-                                saepe sunt iusto soluta corrupti fugiat!
-                            </p>
+                            <div class="contentDetail">
+                                <div class="headCmt">
+                                    <div class="amountCmt"></div>
+                                </div>
+                                <div class="formCmt">
+
+                                </div>
+                            </div>
                         </div>
 
                         <div id="hihi" class="tabcontent">
@@ -92,27 +105,79 @@
                         <div id="hehe" class="tabcontent">
                             <h3>Cùng Loại</h3>
                             <div class="detailSameCate">
-                                <div class="listSameCate">
-                                    <?php foreach($pro as $value) { extract($value)?>
-                                    <div class="itemSameCate">
+                                <div id="listSameCate" class="listSameCate">
+                                    <?php 
+                                    $sameCateProduct = selectAllDataDB("SELECT * FROM product WHERE prd_id_cate = '{$pro[0]['prd_id_cate']}'");
+                                    foreach($sameCateProduct as $value) { extract($value) ?>
+                                    <?php if($prd_name != $pro[0]['prd_name']) { ?>
+                                    <div class="itemSameCate"
+                                        onclick="window.location.href='<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>'">
                                         <div class="imgSameCate">
-                                            <img src="./upload/imgProduct/<?= $img_pro ?>" alt="Pottery Ware">
+                                            <img src="./upload/imgProduct/<?= $prd_img ?>" alt="Pottery Ware">
                                         </div>
                                         <div class="contentSameCate">
                                             <div class="nameContentSameCate">
-                                                <?= $name_pro ?>
+                                                <?= $prd_name ?>
                                             </div>
                                             <div class="priceContentSameCate">
-                                                <?= $price_pro ?><span> VND</span>
+                                                <?= $prd_price ?><span> VND</span>
                                             </div>
                                         </div>
                                     </div>
                                     <?php } ?>
+                                    <?php } ?>
                                 </div>
+                                <?php if(countDataDB("SELECT count(*) FROM product WHERE prd_id_cate = '{$pro[0]['prd_id_cate']}'") > 5) { ?>
                                 <div class="prevAndNextSameProduct">
-                                    <div class="prev">Prev</div>
-                                    <div class="next">Next</div>
+                                    <div id="prevSameDetailProduct" class="prev">Prev</div>
+                                    <div id="nextSameDetailProduct" class="next">Next</div>
                                 </div>
+                                <?php } ?>
+                                <script>
+                                if (screen.width >= 768) {
+                                    document.getElementById("nextSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .append(
+                                                listSameProduct[0],
+                                                listSameProduct[1],
+                                                listSameProduct[2],
+                                                listSameProduct[3]
+                                            );
+                                    };
+                                    document.getElementById("prevSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .prepend(
+                                                listSameProduct[listSameProduct.length - 4],
+                                                listSameProduct[listSameProduct.length - 3],
+                                                listSameProduct[listSameProduct.length - 2],
+                                                listSameProduct[listSameProduct.length - 1]
+                                            );
+                                    };
+                                } else {
+                                    document.getElementById("nextSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .append(
+                                                listSameProduct[0],
+                                                listSameProduct[1]
+                                            );
+                                    };
+                                    document.getElementById("prevSameDetailProduct").onclick = function next() {
+                                        var listSameProduct = document.querySelectorAll(".itemSameCate");
+                                        document
+                                            .getElementById("listSameCate")
+                                            .prepend(
+                                                listSameProduct[listSameProduct.length - 2],
+                                                listSameProduct[listSameProduct.length - 1]
+                                            );
+                                    };
+                                }
+                                </script>
                             </div>
                         </div>
 

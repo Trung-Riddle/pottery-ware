@@ -42,10 +42,6 @@
                 <input type="file" class="img_post" name="img_post" id="imgPost">
                 <label for="contentPost">Nội dung</label>
                 <textarea class="content_post" name="content_post" id="contentPost" cols="30" rows="10" placeholder="Nhập nội dung" required></textarea>
-                <div class="moreContent" id="moreContent">
-                    <input type="file" name="imgSecond_post" id="imgPost">
-                    <textarea name="contentSecond_post" id="contentSecond_post" cols="30" rows="10" placeholder="Thêm nội dung"></textarea>
-                </div>
             </form>
             <div class="button">
                 <button class="btnInsert" id="btnMoreContent">Thêm nội dung</button>

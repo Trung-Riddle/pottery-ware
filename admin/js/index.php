@@ -10,54 +10,6 @@
             index = true;
         }
     }
-    // ******************* POST ADD ****************** 
-    var moreContent = document.getElementById('moreContent');
-    var btnMoreContent = document.getElementById('btnMoreContent');
-    var i = 0;
-
-    btnMoreContent.onclick = () => {
-        if (i == 0) {
-            moreContent.style = `
-                display: block;
-                margin-top: 2rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                gap: 1rem;
-            `;
-            i++;
-        } else {
-            moreContent.style = `
-                display: none;
-            `;
-            i--;
-        }
-    }
-
-    var formPosts = document.getElementById('formPosts');
-    var CreatePost = document.getElementById('CreatePost');
-    var numCreate_post = 0;
-
-    CreatePost.onclick = () => {
-        if (numCreate_post == 0) {
-            formPosts.style = `
-                display: block;
-                background: #30334c;
-                margin-top: 2rem;
-                border-radius: 0.3rem;
-                box-shadow: 0 10px 30px black;
-                margin-bottom: 2rem;
-            `;
-            numCreate_post++;
-        } else {
-            formPosts.style = `
-                display: none;
-            `;
-            numCreate_post--;
-        }
-    }
 </script>
 
 

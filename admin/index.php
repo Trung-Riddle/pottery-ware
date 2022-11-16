@@ -22,7 +22,7 @@ include_once("../model/index.php");
     <div class="App">
         <!-- ---------------- HEADER --------------------  -->
         <div class="Sidebar">
-            <?php require("layouts/header.php")  ?>
+            <?php require("layouts/Header/index.php")  ?>
         </div>
         <div class="Container">
             <div class="Container--Tools">

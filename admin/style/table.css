@@ -7,14 +7,15 @@
   border-radius: inherit;
 }
 table {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
   border-radius: inherit;
   overflow: hidden;
   border-collapse: collapse;
   border-spacing: 1px;
   color: white;
-  box-shadow: 0 10px 30px black;
+  box-shadow: 0 0 10px gray;
 }
 table a {
   color: white;
@@ -22,15 +23,16 @@ table a {
 }
 thead {
   height: 4rem;
-  background-color: #1b2430;
+  background-color: #fba88f;
   white-space: nowrap;
+  box-shadow: 0 5px 10px gray;
 }
 tbody {
-  background-color: #30334c;
+  background-color: #edb2a080;
 }
 tbody tr {
   /* height: 8rem; */
-  border-bottom: 2px solid #1b2430;
+  border-bottom: 1px solid gray;
 }
 tbody tr td {
   padding: 1rem 0;
@@ -40,15 +42,17 @@ td img {
   margin: 0 auto;
   object-fit: cover;
 }
-.btnDelete,.btnDetail,.btnEdit,.btnInsert {
-    padding: 0.3rem 1rem;
-    text-align: center;
-    border-radius: 0.3rem;
-    transition: 0.5s;
-    border: 0.1rem solid transparent;
+.btnDelete,
+.btnDetail,
+.btnEdit,
+.btnInsert {
+  padding: 0.3rem 1rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  transition: 0.5s;
+  border: 0.1rem solid transparent;
 }
-.btnDelete
-{
+.btnDelete {
   background: red;
   color: #fff;
 }
@@ -88,4 +92,10 @@ td img {
   background: transparent;
   color: aqua;
   border: 0.1rem solid aqua;
+}
+.action {
+  color: var(--color-price);
+}
+.unAction {
+  color: #ff3232;
 }

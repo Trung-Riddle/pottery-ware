@@ -24,11 +24,11 @@
                 <div class="user_field field-2">
                     <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login" method="post">
                         <div class="textbox">
-                            <input type="text" name="user_name" required />
+                            <input type="text" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" name="password" required />
+                            <input type="password" name="ur_pass" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                     </form>
@@ -52,25 +52,21 @@
                     <div class="avt">
                         <img class="camera-icon" src="../../image/camera.png" alt="camera" />
                         <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />
-                        <input type="file" id="up_file" name="avatar" accept="image/*" />
+                        <input type="file" id="up_file" name="ur_avatar" accept="image/*" />
                         <small>Chọn Ảnh</small>
                     </div>
                     <div class="_details">
                         <div class="textbox">
-                            <input type="text" name="user_name" required />
+                            <input type="text" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản</span>
                         </div>
                         <div class="textbox">
-                            <input type="text" name="email" required />
-                            <span class="input_detail">Email</span>
-                        </div>
-                        <div class="textbox">
-                            <input type="text" name="phone_number" required />
-                            <span class="input_detail">Số điện thoại</span>
-                        </div>
-                        <div class="textbox">
-                            <input type="password" name="password" required />
+                            <input type="password" name="ur_pass" required />
                             <span class="input_detail">Mật Khẩu</span>
+                        </div>
+                        <div class="textbox">
+                            <input type="password" name="forgot_pass" required />
+                            <span class="input_detail">Nhập lại mật khẩu</span>
                         </div>
                     </div>
                 </form>
@@ -87,6 +83,10 @@ if (isset($_GET['error']) && ($_GET['error'] == "faildSignup")) {
     echo "<script type='text/javascript'>alert('Tài khoản đã tồn tại');</script>";
 } else if (isset($_GET['login']) && ($_GET['login'] == "FaildLogin")) {
     echo "<script type='text/javascript'>alert('Tài khoản không chính xác');</script>";
+} else if (isset($_GET['error']) && ($_GET['error'] == "faildPass")) {
+    echo "<script type='text/javascript'>alert('Mật khẩu phải trên 8 ký tự');</script>";
+} else if (isset($_GET['error']) && ($_GET['error'] == "faildForgot")) {
+    echo "<script type='text/javascript'>alert('Mật khẩu không trùng khớp');</script>";
 }
 ?>
 

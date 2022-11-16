@@ -2,9 +2,9 @@
 include_once "../pdo_model/user.php";
 include_once "../pdo_model/globle.php";
 if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
-    $user_name = $_POST['user_name'];
-    $password = $_POST['password'];
-    $checkUser = checkuser($user_name, $password);
+    $ur_name = $_POST['ur_name'];
+    $ur_pass = $_POST['ur_pass'];
+    $checkUser = checkuser($ur_name, $ur_pass);
     if ($checkUser != 0) {
         // echo "<script type='text/javascript'>alert('Đăng nhập thành công');</script>";
         header("location: ../../index.php?login=AccessLogin");

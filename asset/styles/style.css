@@ -55,4 +55,39 @@
 .color-desc{
     color: var(--color-text-detail);
 }
+.seemore{
+    color: aliceblue;
+    background-color: var(--color-secondary);
+    padding: 7px 20px;
+    align-items: center;
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    text-align: center;
+    border: 8px;
+    position: relative;
+	cursor: pointer;
+	user-select: none;
+    transition-delay: .4s;
+    transition: all 0.4s linear;
+    z-index: 98;
+    font-size: 18px;
+}
+.seemore::after{
+    position: absolute;
+    transition: all 0.4s linear;
+    content: '';
+    background-color: white;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+}
+.seemore:hover{
+    color: var(--color-secondary);
+}
+.seemore:hover::after{
+    width: 100%;
+}
 
