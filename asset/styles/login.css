@@ -30,6 +30,9 @@ body {
   width: 90%;
   max-width: 550px;
   height: 630px;
+<<<<<<< HEAD
+  background: #fefefe;
+=======
   background: #33333399;
 <<<<<<< HEAD
 =======
@@ -204,7 +207,11 @@ body {
   height: 630px;
   background: #33333399;
   /* background: #fefefe; */
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/main
+=======
 >>>>>>> fb3a0c7ecaa1c1f6aa150e24fb11af85da4188b5
+>>>>>>> refs/remotes/origin/main
   color: #fff;
   font-family: montserrat;
   display: grid;
@@ -241,7 +248,11 @@ body {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 150px 1fr;
+<<<<<<< HEAD
+  background: white;
+=======
   background: #33333355;
+>>>>>>> refs/remotes/origin/main
   padding: 0 20px;
 }
 .header .info {
@@ -252,7 +263,11 @@ body {
   white-space: nowrap;
   align-items: center;
   letter-spacing: 2px;
+<<<<<<< HEAD
+  color: #2f4858;
+=======
   color: #fff;
+>>>>>>> refs/remotes/origin/main
 }
 .details-login {
   padding-top: 90px;
@@ -283,6 +298,13 @@ body {
 .main .user_field {
   width: 92%;
   height: 100%;
+<<<<<<< HEAD
+  background: #2f4858;
+  padding: 10px 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+=======
   padding: 10px 30px;
   border-radius: 8px;
   display: flex;
@@ -291,6 +313,7 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+>>>>>>> refs/remotes/origin/main
 }
 .main .user_field .direct.login {
   padding: 10px 0;
@@ -445,3 +468,10 @@ a:hover {
 .rel {
   padding-top: 30px;
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e73428f472b3fa7e6af6ee562d5de187588fabb6
+>>>>>>> refs/remotes/origin/main
+=======
+>>>>>>> refs/remotes/origin/main
