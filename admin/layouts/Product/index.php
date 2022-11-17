@@ -1,25 +1,6 @@
 <div class="container">
-    <?php if (isset($_GET['act']) && ($_GET['act'] == "product")) { ?>
-    <div class="formAddProduct">
-        <form action="<?= $_SERVER['PHP_SELF'] ?>?act=addPro" method="post" enctype="multipart/form-data">
-            <label for="namePro">Tên sản phẩm</label>
-            <input type="text" name="namePro" id="namePro" maxlength="100" required>
-            <label for="pricePro">Giá sản phẩm</label>
-            <input type="number" name="pricePro" id="pricePro" min="999" max="9999999" required>
-            <label for="nameCate">Danh mục sản phẩm</label>
-            <select name="nameCate" id="nameCate">
-                <?php $cate = selectAllDataDB("SELECT cate_name FROM category"); foreach($cate as $value) { ?>
-                <option value="<?= $value['cate_name'] ?>"><?= $value['cate_name'] ?></option>
-                <?php } ?>
-            </select>
-            <label for="imgPro">Ảnh sản phẩm</label>
-            <input type="file" name="imgPro" id="imgPro" accept="image/*">
-            <button type="submit" name="addPro" value="addPro">Thêm sản phẩm</button>
-        </form>
-    </div>
-    <?php } ?>
     <div class="wrapperTablePro table">
-        <table>
+        <!-- <table>
             <thead>
                 <tr>
                     <th>STT</th>
@@ -76,8 +57,103 @@
                 </tr>
                 <?php } ?>
             </tbody>
+        </table> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <label class="container-c">
+                            <input type="checkbox" />
+                            <span class="checkmark-c"></span>
+                        </label>
+                    </th>
+                    <th class="masp" colspan="1">#</th>
+                    <th colspan="">Hình Ảnh</th>
+                    <th colspan="">Tên Sản Phẩm</th>
+                    <th colspan="">Danh Mục</th>
+                    <th colspan="">Giá</th>
+                    <th colspan="">Số lượt xem</th>
+                    <th colspan="">Trạng Thái</th>
+                    <th colspan="">Điều Chỉnh</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $index = 0 ?>
+                <?php foreach ($pro as $value) { ?>
+                <?php $index++ ?>
+                <tr>
+                    <td>
+                        <label class="container-c">
+                            <input type="checkbox" />
+                            <span class="checkmark-c"></span>
+                        </label>
+                    </td>
+                    <td colspan="1" class="masp"><?= $index ?></td>
+                    <td>
+                        <img style="
+                          width: 56px;
+                          object-fit: cover;
+                          border-radius: 4px;
+                          box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+                            rgba(17, 17, 26, 0.1) 0px 0px 8px;
+                          object-position: center;
+                        " src="../upload/imgProduct/<?= $value['prd_img'] ?>" height="56px" alt="" />
+                    </td>
+                    <td>
+                        <p class="namesp">
+                            <?= $value['prd_name'] ?>
+                        </p>
+                    </td>
+                    <td><?= $value['cate_name'] ?></td>
+                    <td><?= $value['prd_price'] ?>đ</td>
+                    <td><?= $value['prd_view'] ?></td>
+                    <td id="shadow">
+                        <?php
+                        if ($value['prd_status'] == 0) {
+                            echo "<span id=''>hết hàng</span>";
+                        }
+                        else{
+                            echo "<span id=''>Còn Hàng</span>";
+                        }
+                    ?>
+                    </td>
+                    <td>
+                        <?php
+                        if (isset($_GET['act']) && ($_GET['act'] == "editPro")) {
+                            echo "<a href='{$_SERVER['PHP_SELF']}?act=product'>Xong</a>";
+                        }
+                        else{
+                            echo "
+                            <a href='{$_SERVER['PHP_SELF']}?act=deletePro&idPro={$value['prd_id']}&imgPro={$value['prd_name']}'><i class='fa-solid fa-trash-can trash trash-custom-ad'></i></a>&nbsp;
+                            <a href='{$_SERVER['PHP_SELF']}?act=editPro&idPro={$value['prd_id']}'><i class='fa-solid fa-pen-to-square pen-custom-ad'></i></a>
+                            ";
+                        }
+                    ?>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
         </table>
     </div>
+    <?php if (isset($_GET['act']) && ($_GET['act'] == "product")) { ?>
+    <div class="formAddProduct">
+        <form action="<?= $_SERVER['PHP_SELF'] ?>?act=addPro" method="post" enctype="multipart/form-data">
+            <label for="namePro">Tên sản phẩm</label>
+            <input type="text" name="namePro" id="namePro" maxlength="100" required>
+            <label for="pricePro">Giá sản phẩm</label>
+            <input type="number" name="pricePro" id="pricePro" min="999" max="9999999" required>
+            <label for="nameCate">Danh mục sản phẩm</label>
+            <select name="nameCate" id="nameCate">
+                <?php $cate = selectAllDataDB("SELECT cate_name FROM category"); foreach($cate as $value) { ?>
+                <option value="<?= $value['cate_name'] ?>"><?= $value['cate_name'] ?></option>
+                <?php } ?>
+            </select>
+            <label for="imgPro">Ảnh sản phẩm</label>
+            <input type="file" name="imgPro" id="imgPro" accept="image/*">
+            <button type="submit" name="addPro" value="addPro">Thêm sản phẩm</button>
+        </form>
+    </div>
+    <?php } ?>
     <?php if (isset($_GET['act']) && ($_GET['act']) == "editPro") { ?>
     <div class="formEditPro">
         <form action="<?= $_SERVER['PHP_SELF'] ?>?act=editPro" method="post" enctype="multipart/form-data">
