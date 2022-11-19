@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../pdo_model/user.php";
 include_once "../pdo_model/globle.php";
 if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
@@ -6,11 +7,11 @@ if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
     $ur_pass = $_POST['ur_pass'];
     $checkUser = checkuser($ur_name, $ur_pass);
     if ($checkUser != 0) {
-        // echo "<script type='text/javascript'>alert('Đăng nhập thành công');</script>";
-        header("location: ../../index.php?login=AccessLogin");
+        $acount = selectAllDataDB("SELECT * FROM user INNER JOIN customer WHERE ur_name = '$ur_name' AND ur_pass = '$ur_pass'");
+        $idUser = $acount[0]['ur_id'];
+        $_SESSION['userName'] = $acount[0]['ur_name'];
+        header("location: ../../index.php?ur='$idUser'&urN=".$_SESSION['userName']);
     } else {
-        // echo "<script type='text/javascript'>alert('Tài khoản không tồn tại');</script>";
         header("location: ../../view/layouts/Login/index.php?login=FaildLogin");
     }
-    // header("Location: " . $_SERVER['HTTP_REFERER']);
 }

@@ -22,7 +22,8 @@
             </div>
             <div class="main">
                 <div class="user_field field-2">
-                    <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login" method="post">
+                    <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login"
+                        method="post">
                         <div class="textbox">
                             <input type="text" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
@@ -48,7 +49,8 @@
                 </div>
             </div>
             <div class="main">
-                <form id="formSignup" class="user_field rel" action="../../../model/handleSignup/index.php" method="post" enctype="multipart/form-data">
+                <form id="formSignup" class="user_field rel" action="../../../model/handleSignup/index.php"
+                    method="post" enctype="multipart/form-data">
                     <div class="avt">
                         <img class="camera-icon" src="../../image/camera.png" alt="camera" />
                         <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />
@@ -59,6 +61,10 @@
                         <div class="textbox">
                             <input type="text" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản</span>
+                        </div>
+                        <div class="textbox">
+                            <input type="text" name="cus_email" required />
+                            <span class="input_detail">Email</span>
                         </div>
                         <div class="textbox">
                             <input type="password" name="ur_pass" required />
