@@ -4,9 +4,9 @@
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
 
-    require './PHPMailer-master/src/Exception.php';
-    require './PHPMailer-master/src/PHPMailer.php';
-    require './PHPMailer-master/src/SMTP.php';
+    require '../PHPMailer-master/src/Exception.php';
+    require '../PHPMailer-master/src/PHPMailer.php';
+    require '../PHPMailer-master/src/SMTP.php';
     // include "./PHPMailer-master/src/OAuth.php";
     // include "./PHPMailer-master/src/POP3.php";
     //* Send mail to user when sign up successfully
@@ -26,7 +26,7 @@
             $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('nhutvichung@gmail.com', 'VICN');
+            $mail->setFrom('nhutvichung@gmail.com', 'Pettery Ware');
             $mail->addAddress($email, $user_name);     //Add a recipient
             // $mail->addAddress('ellen@example.com');               //Name is optional
             // $mail->addReplyTo('info@example.com', 'Information');
@@ -61,7 +61,7 @@
             $mail->Password   = 'mpkbcccovycwqyqc';
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
-            $mail->setFrom('nhutvichung@gmail.com', 'VICN');
+            $mail->setFrom('nhutvichung@gmail.com', 'Pettery Ware');
             $mail->addAddress($email, $user_name);
             $mail->isHTML(true);
             $mail->Subject = $title;
