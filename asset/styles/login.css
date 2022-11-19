@@ -30,9 +30,8 @@ body {
   width: 90%;
   max-width: 550px;
   height: 630px;
+  background: #fefefe;
   background: #33333399;
-<<<<<<< HEAD
-=======
   color: #fff;
   font-family: montserrat;
   display: grid;
@@ -138,7 +137,6 @@ body {
   transform: rotateY(180deg);
 }
 
-<<<<<<< HEAD
 .avt {
   position: relative;
   width: 10%;
@@ -197,14 +195,13 @@ body {
 .rel {
   padding-top: 30px;
 }
-=======
 .app {
   width: 90%;
   max-width: 550px;
   height: 630px;
   background: #33333399;
   /* background: #fefefe; */
->>>>>>> fb3a0c7ecaa1c1f6aa150e24fb11af85da4188b5
+
   color: #fff;
   font-family: montserrat;
   display: grid;

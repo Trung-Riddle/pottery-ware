@@ -22,18 +22,18 @@
             </div>
             <div class="main">
                 <div class="user_field field-2">
-                    <form id="formLogin" class="_details details-login" method="post">
+                    <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login" method="post">
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" required />
+                            <input type="password" name="ur_pass" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                     </form>
                 </div>
-                <button form="formLogin" class="btn login" type="submit" name="submitLogin" value="submitLogin">
+                <button form="formLogin" class="btn login" type="submit" name="dangnhap" value="dangnhap">
                     Đăng Nhập
                 </button>
             </div>
@@ -48,36 +48,46 @@
                 </div>
             </div>
             <div class="main">
-                <form id="formSignup" class="user_field rel">
+                <form id="formSignup" class="user_field rel" action="../../../model/handleSignup/index.php" method="post" enctype="multipart/form-data">
                     <div class="avt">
                         <img class="camera-icon" src="../../image/camera.png" alt="camera" />
                         <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />
-                        <input type="file" id="up_file" />
+                        <input type="file" id="up_file" name="ur_avatar" accept="image/*" />
                         <small>Chọn Ảnh</small>
                     </div>
                     <div class="_details">
                         <div class="textbox">
-                            <input type="text" required />
+                            <input type="text" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản</span>
                         </div>
                         <div class="textbox">
-                            <input type="text" required />
-                            <span class="input_detail">Email</span>
+                            <input type="password" name="ur_pass" required />
+                            <span class="input_detail">Mật Khẩu</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" required />
-                            <span class="input_detail">Mật Khẩu</span>
+                            <input type="password" name="forgot_pass" required />
+                            <span class="input_detail">Nhập lại mật khẩu</span>
                         </div>
                     </div>
                 </form>
-                <button form="formSignup" class="btn login" type="submit" name="submitSignup" value="submitSignup">
+                <button form="formSignup" class="btn login" type="submit" name="dangky" value="dangky">
                     Đăng Ký
                 </button>
             </div>
         </div>
     </div>
-
-    <script src="../../js/login.js"></script>
 </body>
+<script src="../../js/login.js"></script>
+<?php
+if (isset($_GET['error']) && ($_GET['error'] == "faildSignup")) {
+    echo "<script type='text/javascript'>alert('Tài khoản đã tồn tại');</script>";
+} else if (isset($_GET['login']) && ($_GET['login'] == "FaildLogin")) {
+    echo "<script type='text/javascript'>alert('Tài khoản không chính xác');</script>";
+} else if (isset($_GET['error']) && ($_GET['error'] == "faildPass")) {
+    echo "<script type='text/javascript'>alert('Mật khẩu phải trên 8 ký tự');</script>";
+} else if (isset($_GET['error']) && ($_GET['error'] == "faildForgot")) {
+    echo "<script type='text/javascript'>alert('Mật khẩu không trùng khớp');</script>";
+}
+?>
 
 </html>

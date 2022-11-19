@@ -1,0 +1,56 @@
+.formPosts {
+    display: none;
+}
+
+.formPosts form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+    width: 60%;
+    margin: auto;
+}
+
+.formPosts form .title_post {
+    height: 2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 0.1rem solid #fff;
+    color: #fff;
+    margin: auto;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.formPosts form input:nth-child(1)::placeholder {
+    color: #fff;
+    text-align: center;
+}
+
+.formPosts form .img_post {
+    margin-top: 3rem;
+}
+
+.formPosts form .content_post {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
+
+.moreContent {
+    display: none;
+}
+
+.moreContent textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
+
+.button {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
