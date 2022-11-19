@@ -84,50 +84,61 @@
                             <h3>Bình Luận</h3>
                             <div class="contentDetail">
                                 <div class="headCmt flex w-[200px] justify-content-between ml-[2rem]">
-                                    <div class="amountCmt">10 Comments</div>
+                                    <div class="amountCmt"><?= $countCmt ?> Comments</div>
                                     <div class="filterCmt w-[75px] flex align-items-center justify-content-between"><i
                                             class="fa-regular fa-sliders"></i>
                                         <div>Sort by</div>
                                     </div>
                                 </div>
-                                <?php foreach($cmt as $value) { extract($value)?>
+                                <?php foreach($cmt as $value) { ?>
                                 <div
                                     class="formCmt w-100 mh-[50px] my-[2rem] shadow-xl p-[1rem] pr-[5rem] text-justify rounded-lg">
                                     <div class="flex h-100 w-100 gap-2">
-                                        <img src="./upload/avatar/kien.jpg" alt="pottery ware"
+                                        <img src="./upload/avatar/<?= $value['ur_avatar'] ?>" alt="pottery ware"
                                             class="h-100 w-[50px] rounded-full">
                                         <div name="" id="" class="w-100 pl-[10px]">
                                             <div class="nameUser fw-bold text-base text-[#edb2a0]">
-                                                Chung Nhựt vi
+                                                <?= $value['ur_name'] ?>
                                             </div>
                                             <div class="cmtUser">
-                                                <?= $cmt_content ?>
+                                                <?= $value['cmt_content'] ?>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <?php } ?>
+                                <?php
+                                    if(isset($_COOKIE['ur_id']) && $_COOKIE['ur_id'] != json_encode(null)){                                             
+                                ?>
                                 <div
                                     class="formCmt rounded-lg w-100 mh-[50px] mt-[20px] shadow-2xl p-[1rem] pr-[5rem] relative">
                                     <form action="<?= $_SERVER['PHP_SELF'] ?>?page=comment"
                                         class="flex h-100 w-100 gap-2" method="post">
-                                        <!-- <input type="hidden" name="idUser" id="" value="<?= $_GET["idUser"] ?>"> -->
+                                        <input type="hidden" name="idUser" id="" value="<?= $_COOKIE['ur_id'] ?>">
                                         <input type="hidden" name="idPro" id="" value="<?= $_GET["idPro"] ?>">
                                         <input type="hidden" name="backPage" id=""
                                             value="<?= $_SERVER['REQUEST_URI'] ?>">
-                                        <img src="./upload/avatar/kien.jpg" alt="pottery ware"
+                                        <?php
+                                            if(isset($_COOKIE['ur_id']) && $_COOKIE['ur_id'] != json_encode(null)){                                             
+                                        ?>
+                                        <img src="./upload/avatar/<?= $ur_avatar ?>" alt="pottery ware"
                                             class="h-100 w-[50px] rounded-full">
-                                        <input type="text" name="cmtContent" id=""
+                                        <?php } else { ?>
+                                        <img src="./upload/avatar/avatar-user.png" alt="pottery ware"
+                                            class="h-100 w-[50px] rounded-full">
+                                        <?php } ?>
+                                        <input type="text" name="cmtContent" id="cmtContent"
                                             class="w-100 outline-0 border-b-2 border-gray-400 pl-[10px]"
                                             placeholder="Để lại bình luận...">
-                                        <button type="submit" name="submitCmt" value="submitCmt"
-                                            onclick="setTimeout(() => window.location.reload(), 100)"
-                                            class=" absolute top-[50%] transform translate-y-[-50%] right-[2rem]">
+                                        <button type="submit" name="submitCmt" value="submitCmt" onclick="setTimeout(() => {
+            window.location.reload()
+            }, 100)" class=" absolute top-[50%] transform translate-y-[-50%] right-[2rem]">
                                             <i
                                                 class="fa-solid fa-paper-plane-top text-[28px] text-blue-500 hover:text-[#edb2a0] transition duration-200"></i>
                                         </button>
                                     </form>
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
 

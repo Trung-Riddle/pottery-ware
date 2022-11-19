@@ -16,10 +16,7 @@
 </head>
 <?php
 include_once("./model/index.php");
-if(isset($_SESSION['userName'])){
-    $sql = "SELECT * FROM user INNER JOIN customer WHERE ur_id = ".$_GET['ur'];
-    $user = selectAllDataDB($sql);
-}
+require_once("./model/HandleCompletedLogin/index.php");
 ?>
 
 <body>

@@ -36,7 +36,8 @@ if (isset($_GET["page"])) {
             case 'detailProduct':
                 $id_pro = $_GET['idPro'];
                 $pro = selectOneDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro'");
-                $cmt = selectAllDataDB("SELECT * FROM comment WHERE cmt_id_pro = '$id_pro' LIMIT 0, 10");
+                $cmt = selectAllDataDB("SELECT * FROM comment INNER JOIN user ON comment.cmt_id_user = user.ur_id WHERE cmt_id_pro = '$id_pro' LIMIT 0, 10");
+                $countCmt = countDataDB("SELECT count(*) FROM comment WHERE cmt_id_pro = '$id_pro'");
                 if (isset($_GET['idPro'])) {
                     $top_view = $pro[0]['prd_view'];
                     $top_view += 1;
@@ -51,15 +52,15 @@ if (isset($_GET["page"])) {
             
             case 'comment':
                 if((isset($_POST["submitCmt"])) && ($_POST["submitCmt"])){
-                    // $cmt_id_user = $_POST["idUser"];
+                    $cmt_id_user = $_POST["idUser"];
                     $cmt_id_pro = $_POST["idPro"];
                     $cmt_content = $_POST["cmtContent"];
                     $cmt_created_at = date("Y-m-d");
                     $backPage = $_POST["backPage"];
-                    $sql = "INSERT INTO comment (cmt_id_pro, cmt_content, cmt_created_at) VALUES ('$cmt_id_pro', '$cmt_content', '$cmt_created_at')";
+                    $sql = "INSERT INTO comment (cmt_id_user, cmt_id_pro, cmt_content, cmt_created_at) VALUES ($cmt_id_user, '$cmt_id_pro', '$cmt_content', '$cmt_created_at')";
                     addDataDB($sql);
                     echo"<script>
-                        window.history.go(-1);
+                    window.history.go(-1);
                     </script>";
                 }
                 break;
