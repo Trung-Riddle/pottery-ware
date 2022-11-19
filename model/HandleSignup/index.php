@@ -3,6 +3,7 @@ include_once "../pdo_model/user.php";
 include_once "../pdo_model/globle.php";
 if (isset($_POST['dangky']) && ($_POST['dangky'])) {
     $ur_name = $_POST['ur_name'];
+    $cus_email = $_POST['cus_email'];
     $ur_pass = $_POST['ur_pass'];
     $forgot_pass = $_POST['forgot_pass'];
     $ur_avatar = $_FILES['ur_avatar']['name'];
@@ -25,6 +26,14 @@ if (isset($_POST['dangky']) && ($_POST['dangky'])) {
             header("location: ../../view/layouts/login/index.php?error=faildForgot");
         } else {
             addUser($ur_name, $ur_pass, $newAva);
+            $sql = "SELECT ur_id FROM user WHERE ur_name = '$ur_name' AND ur_pass = '$ur_pass'";
+            $idUser = null;
+            $user = selectAllDataDB($sql);
+            foreach($user as $value){
+                $idUser = $value['ur_id'];
+            }
+            $addIdUser = "INSERT INTO customer (cus_id_user, cus_email) VALUES ('$idUser', '$cus_email')";
+            addDataDB($addIdUser);
             header("location: {$_SERVER['HTTP_REFERER']}");
         }
     }
