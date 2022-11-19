@@ -127,24 +127,25 @@
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Liên hệ</a>
                         </li>
-                        <?php if(isset($_GET['ur'])) { ?>
-                        <li class="menu-item-has-children" style="border: 2px solid #edb2a0; padding: 0 10px">
+                        <?php if(isset($_COOKIE['ur_id']) && ($_COOKIE['ur_id'] != json_encode(null))) { ?>
+                        <li id="isLogin" class="menu-item-has-children"
+                            style="border: 2px solid #edb2a0; padding: 0 10px">
                             <a href="" style="color: #edb2a0; margin-right: 1rem;">
-                                <?= $_GET['urN'] ?>
+                                <?= $ur_name ?>
                             </a>
-                            <img src="./upload/avatar/<?= $user[0]['ur_avatar'] ?>" alt="avatar user" width="30px"
-                                height="30px" style="border-radius: 50%;">
+                            <img src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar user" width="30px" height="30px"
+                                style="border-radius: 50%;">
                             <div class="sub-menu single-column-menu">
                                 <ul>
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>"
-                                            onclick="document.write(`<?php unset($_SESSION['userName']) ?>`)"> <i
-                                                class="fa-light fa-user"></i>&nbsp;
+                                            onclick="document.cookie = 'ur_id=null; path=/pottery-ware/index.php'">
+                                            <i class="fa-light fa-user"></i>&nbsp;
                                             Đăng xuất</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <?php } else { ?>
-                        <li class="menu-item-has-children">
+                        <?php } else {?>
+                        <li id="notLogin" class="menu-item-has-children">
                             <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
