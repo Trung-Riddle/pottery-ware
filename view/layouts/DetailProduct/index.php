@@ -39,7 +39,47 @@
                     <button id="increment" onclick="stepper(this)">+</button>
                 </div>
                 <div class="cart-btns">
-                    <button class="add-cart">Thêm vào giỏ</button>
+                    <button class="add-cart">
+                        Thêm vào giỏ
+                    </button>
+                    <script>
+                    const qtyInput = document.querySelector("#qty");
+                    let prd_amount = 1
+
+                    document
+                        .querySelector(".add-cart")
+                        .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+
+                    function addCarts(prd_id, prd_amount) {
+                        document.cookie = `prd_id=${prd_id}; path='/';`;
+                        document.cookie = `prd_amount=${prd_amount}; path='/';`;
+                        window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
+                    }
+
+                    function stepper(btn) {
+                        let id = btn.getAttribute("id");
+                        let min = qtyInput.getAttribute("min");
+                        let max = qtyInput.getAttribute("max");
+                        let step = qtyInput.getAttribute("step");
+                        let value = qtyInput.getAttribute("value");
+                        let calcDesc = id == "increment" ? step * 1 : step * -1;
+                        let newValue = parseInt(value) + calcDesc;
+                        if (newValue >= min && newValue <= max) {
+                            qtyInput.setAttribute("value", newValue);
+                            prd_amount = qtyInput.value
+                        }
+
+                        document
+                            .querySelector(".add-cart")
+                            .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+
+                        function addCarts(prd_id, prd_amount) {
+                            document.cookie = `prd_id=${prd_id}; path='/';`;
+                            document.cookie = `prd_amount=${prd_amount}; path='/';`;
+                            window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
+                        }
+                    }
+                    </script>
                     <button class="now-cart">Mua ngay</button>
                 </div>
             </div>
@@ -131,8 +171,8 @@
                                             class="w-100 outline-0 border-b-2 border-gray-400 pl-[10px]"
                                             placeholder="Để lại bình luận...">
                                         <button type="submit" name="submitCmt" value="submitCmt" onclick="setTimeout(() => {
-            window.location.reload()
-            }, 100)" class=" absolute top-[50%] transform translate-y-[-50%] right-[2rem]">
+                                            window.location.reload()
+                                        }, 100)" class=" absolute top-[50%] transform translate-y-[-50%] right-[2rem]">
                                             <i
                                                 class="fa-solid fa-paper-plane-top text-[28px] text-blue-500 hover:text-[#edb2a0] transition duration-200"></i>
                                         </button>

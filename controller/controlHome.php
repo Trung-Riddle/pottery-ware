@@ -64,6 +64,65 @@ if (isset($_GET["page"])) {
                     </script>";
                 }
                 break;
+            case 'addCart':
+                // unset($_SESSION['carts']);
+                if(isset($_SESSION['carts']) && isset($_COOKIE['prd_id'])){
+                    $prd_id = $_COOKIE['prd_id'];
+                    $prd_amount = json_decode($_COOKIE['prd_amount']);
+                    $sql = "SELECT * FROM product WHERE prd_id = ".$prd_id;
+                    $prd = selectAllDataDB($sql);
+                    $index = 0;
+                    $checkCart = false;
+
+                    //* lấy tất cả thông tin của sản phẩm đc thêm vào giỏ hàng
+                    foreach($prd as $value){
+
+                        //* Kiểm tra xem trong giỏ hàng có sản phẩm bị trùng với sản phẩm vừa mới thêm không
+                        foreach ($_SESSION['carts'] as $item) {
+                            if($item[0] == $prd_id){
+                                $item[4] += $prd_amount;
+                                $_SESSION['carts'][$index][4] = $item[4];
+                                $checkCart = true;
+                                break;
+                            }
+                            $index++;
+                        }
+
+                        //* Nếu ko có sản phẩm trùng thì thêm mới sản phẩm vào giỏ hàng
+                        if($checkCart == false){
+                            $item = [
+                                $value['prd_id'], 
+                                $value['prd_img'], 
+                                $value['prd_name'], 
+                                $value['prd_price'], 
+                                $prd_amount
+                            ];
+                            $_SESSION['carts'][] = $item;
+                        }
+                    }
+
+                    //* kiểm tra nếu còn tồn tại cookie của sản phẩm thì xóa
+                    echo "
+                    <script>
+                        document.cookie = 'prd_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                        document.cookie = 'prd_amount=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                    </script>";
+                }
+                require_once("./view/layouts/Cart/index.php");
+                break;
+
+            //* Xóa 1 sản phẩm trong giỏ hàng
+            case 'delOneRowCart':
+                if((isset($_GET['c_id']))){
+                    $c_id = $_GET['c_id'];
+                    array_splice($_SESSION['carts'], $c_id, 1);
+                    if(count($_SESSION['carts']) > 0){
+                        echo "<script> window.location = '".$_SERVER['HTTP_REFERER']."' </script>";
+                    }else{
+                        echo "<script> window.location = '".$_SERVER['PHP_SELF']."?page=product' </script>";
+                    }
+                }
+                break;
             default:
                 # code...
                 break;
