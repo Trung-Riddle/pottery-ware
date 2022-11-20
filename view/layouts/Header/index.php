@@ -169,7 +169,23 @@
             <div class="header-item item-right">
                 <a href="#"><i class="fa-light fa-magnifying-glass"></i></a>
                 <a href="#"><i class="fa-light fa-heart"></i></a>
-                <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart"><i class="fa-light fa-cart-plus"></i></a>
+                <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" style="position: relative;">
+                    <i class="fa-light fa-cart-plus"></i>
+                    <?php if(count($_SESSION['carts']) > 0) { ?>
+                    <div class="countCarts" style="
+                            position: absolute; 
+                            top: -10px; 
+                            right: -13px;
+                            background-color: red;
+                            padding: 0 6px;
+                            border-radius: 50%;
+                            color: white;
+                            font-size: 13px;
+                        ">
+                        <?= count($_SESSION['carts']) ?>
+                    </div>
+                    <?php } ?>
+                </a>
                 <!-- mobile menu trigger -->
                 <div class="mobile-menu-trigger">
                     <i class="fa-regular fa-grid"></i>

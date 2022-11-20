@@ -106,6 +106,7 @@ if (isset($_GET["page"])) {
                     <script>
                         document.cookie = 'prd_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                         document.cookie = 'prd_amount=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                        location.reload()
                     </script>";
                 }
                 require_once("./view/layouts/Cart/index.php");
