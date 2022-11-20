@@ -9,14 +9,8 @@ if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
     if ($checkUser != 0) {
         $account = selectAllDataDB("SELECT * FROM user INNER JOIN customer ON user.ur_id = customer.cus_id_user WHERE ur_name = '$ur_name' AND ur_pass = '$ur_pass'");
         $idUser = $account[0]['ur_id'];
-        echo "
-            <script>
-                document.cookie = 'ur_id = $idUser; path=/pottery-ware/index.php'
-                window.location = '../../index.php'
-            </script>
-        ";
-        // $_SESSION['userName'] = $account;
-        // header("location: ../../index.php");
+        setcookie('ur_id',$idUser, time() + 86400, '/pottery-ware');
+        header("location: ../../index.php");
     } else {
         header("location: ../../view/layouts/Login/index.php?login=FaildLogin");
     }

@@ -127,7 +127,7 @@
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Liên hệ</a>
                         </li>
-                        <?php if(isset($_COOKIE['ur_id']) && ($_COOKIE['ur_id'] != json_encode(null))) { ?>
+                        <?php if(isset($_COOKIE['ur_id'])) { ?>
                         <li id="isLogin" class="menu-item-has-children"
                             style="border: 2px solid #edb2a0; padding: 0 10px">
                             <a href="" style="color: #edb2a0; margin-right: 1rem;">
@@ -137,9 +137,12 @@
                                 style="border-radius: 50%;">
                             <div class="sub-menu single-column-menu">
                                 <ul>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>"
-                                            onclick="document.cookie = 'ur_id=null; path=/pottery-ware/index.php'">
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>">
                                             <i class="fa-light fa-user"></i>&nbsp;
+                                            Tài khoản</a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>"
+                                            onclick="document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'">
+                                            <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
                                             Đăng xuất</a></li>
                                 </ul>
                             </div>
