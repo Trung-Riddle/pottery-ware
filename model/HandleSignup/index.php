@@ -41,16 +41,62 @@ if (isset($_POST['dangky']) && ($_POST['dangky'])) {
             $url.= $_SERVER['REQUEST_URI'];    
             
             $title = "Pettery Ware - Create Account Success";
-            $content = "<h2 style='color: #edb2a0;'>Thông tin tài khoản</h2>
-                        <p><b>Tền đăng nhập: </b>$ur_name</p>
-                        <p><b>Email: </b>$cus_email</p>
-                        <p>Cảm ơn bạn đã sử dụng dịch vụ của <b style='color: #edb2a0;'>Pottery Ware</b></p>
-            <a href='$url' style='display: block; margin: 1rem 0;'>PETTERY WARE - LOGIN</a>
-            <img src='https://cdn.dribbble.com/users/844597/screenshots/16352584/media/c10d41aa320460be29c37758c3f8d511.png?compress=1&resize=400x300&vertical=top' alt='Pottery Ware' height='200px'/>
+
+            $content = "
+            <p
+                style='
+                background-color: #edb2a0;
+                color: white;
+                display: block;
+                padding: 30px 0;
+                font-size: 28px;
+                font-weight: bold;
+                text-align: center;
+                '
+            >
+                Pottery Ware
+            </p>
+            <p style='display: block; width: max-content; margin: 0 auto'>
+                Cảm ơn Quý khách đã sử dụng dịch vụ của Pottery Ware. <br />
+                Pottery Ware xin gửi thông tin tài khoản của quý khách như sau:
+                <br /><br />
+                <b>Tài khoản đăng nhập: </b>$ur_name<br />
+                <b>Email đã đăng ký: </b>$cus_email<br />
+                <b>Tình trạng: </b> Thành công <br /><br />
+                <a
+                href='$url'
+                style='
+                    padding: 1rem 2rem;
+                    background-color: #edb2a0;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: bold;
+                    display: block;
+                    width: max-content;
+                '
+                >Đăng nhập</a
+                >
+            </p>
+            <p
+                style='
+                background-color: #edb2a0;
+                color: white;
+                display: block;
+                padding: 30px 0;
+                font-size: 28px;
+                font-weight: bold;
+                text-align: center;
+                '
+            >
+                Xin trân thành cảm ơn.
+            </p>
             ";
+            
             $email = $cus_email;
             $user_name = $ur_name;
-            checkUserSignup($title, $content, $email, $user_name);
+            signUp($title, $content, $email, $user_name);
             addUser($ur_name, $ur_pass, $newAva);
             $sql = "SELECT ur_id FROM user WHERE ur_name = '$ur_name' AND ur_pass = '$ur_pass'";
             $idUser = null;
