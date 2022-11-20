@@ -140,8 +140,10 @@
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>">
                                             <i class="fa-light fa-user"></i>&nbsp;
                                             Tài khoản</a></li>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>"
-                                            onclick="document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'">
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
+                                                document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+                                                sessionStorage.clear()
+                                            ">
                                             <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
                                             Đăng xuất</a></li>
                                 </ul>
@@ -167,7 +169,7 @@
             <div class="header-item item-right">
                 <a href="#"><i class="fa-light fa-magnifying-glass"></i></a>
                 <a href="#"><i class="fa-light fa-heart"></i></a>
-                <a href="#"><i class="fa-light fa-cart-plus"></i></a>
+                <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart"><i class="fa-light fa-cart-plus"></i></a>
                 <!-- mobile menu trigger -->
                 <div class="mobile-menu-trigger">
                     <i class="fa-regular fa-grid"></i>

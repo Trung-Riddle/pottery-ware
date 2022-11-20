@@ -20,8 +20,9 @@
   -webkit-text-fill-color: transparent;
   margin-left: 20%;
 }
-.mtop-150 {
-  margin-top: 150px;
+.mtop-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .product-image {
   float: left;
