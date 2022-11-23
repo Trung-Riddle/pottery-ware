@@ -45,7 +45,7 @@
   width: 100%;
   border-radius: inherit;
   overflow: hidden;
-  box-shadow: 0 5px 5px var(--color-secondary);
+  /* box-shadow: 0 5px 5px var(--color-secondary); */
   transition: all 0.25s;
 }
 

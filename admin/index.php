@@ -7,47 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Pottery Ware</title>
     <!-- -------------- CSS -----------------  -->
-    <link rel="stylesheet" href="./style/Index.css">
+    <link rel="stylesheet" href="./style/index.css">
     <!-- ------------------- ICON --------------------  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- ------------------ SHORTCUT ICON -------------------  -->
     <link rel="shortcut icon" href="../asset/image/amphora_icons.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../font/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
 </head>
 <?php
 include_once("../model/index.php");
-?>
-
-<body>
-    <div class="App">
-        <!-- ---------------- HEADER --------------------  -->
-        <div class="Sidebar">
-            <?php require("layouts/Header/index.php")  ?>
-        </div>
-        <div class="Container">
-            <div class="Container--Tools">
-                <div class="Container--Tools--TaskBar"></div>
-                <div class="Container--Tools--Person">
-                    <a href="#">
-                        <ion-icon name="settings-outline"></ion-icon>
-                    </a>
-                    <a href="<?= $_SERVER["PHP_SELF"] ?>?act=user">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </a>
-                    <a href=".././index.php">
-                        <ion-icon name="log-out-outline"></ion-icon>
-                    </a>
-                </div>
-            </div>
-            <div class="Container--Contents">
-                <?php
-                include_once("../controller/controlAdmin.php");
-                ?>
-            </div>
-        </div>
-    </div>
-</body>
-<?php
+include_once("./layouts/Dashboard/index.php");
 include_once("./js/index.php");
 ?>
 

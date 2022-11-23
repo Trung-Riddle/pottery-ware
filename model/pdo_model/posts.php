@@ -23,11 +23,11 @@ function getOnePost($id)
 }
 
 // Insert posts
-function addPost($id, $title_post, $content_post, $img_post)
+function addPost($id, $title_post, $content_post, $contentSecond_post, $img_post, $imgSecond_post)
 {
     $conn = connect_db();
-    $sql = "INSERT INTO posts (id, title_post,content_post,img_post)
-  VALUES ('$id', '$title_post', '$content_post', '$img_post')";
+    $sql = "INSERT INTO posts (id, title_post,content_post,contentSecond_post,img_post,imgSecond_post,date_add)
+  VALUES ('$id', '$title_post', '$content_post','$contentSecond_post', '$img_post','$imgSecond_post',now()";
     $conn->exec($sql);
 }
 

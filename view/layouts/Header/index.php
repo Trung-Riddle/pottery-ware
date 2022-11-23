@@ -127,7 +127,30 @@
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Liên hệ</a>
                         </li>
-                        <li class="menu-item-has-children">
+                        <?php if(isset($_COOKIE['ur_id'])) { ?>
+                        <li id="isLogin" class="menu-item-has-children"
+                            style="border: 2px solid #edb2a0; padding: 0 10px">
+                            <a href="" style="color: #edb2a0; margin-right: 1rem;">
+                                <?= $ur_name ?>
+                            </a>
+                            <img src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar user" width="30px" height="30px"
+                                style="border-radius: 50%;">
+                            <div class="sub-menu single-column-menu">
+                                <ul>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">
+                                            <i class="fa-light fa-user"></i>&nbsp;
+                                            Tài khoản</a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
+                                                document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+                                                sessionStorage.clear()
+                                            ">
+                                            <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
+                                            Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <?php } else {?>
+                        <li id="notLogin" class="menu-item-has-children">
                             <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
@@ -138,6 +161,7 @@
                                 </ul>
                             </div>
                         </li>
+                        <?php } ?>
                     </ul>
                 </nav>
             </div>
@@ -145,7 +169,23 @@
             <div class="header-item item-right">
                 <a href="#"><i class="fa-light fa-magnifying-glass"></i></a>
                 <a href="#"><i class="fa-light fa-heart"></i></a>
-                <a href="#"><i class="fa-light fa-cart-plus"></i></a>
+                <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" style="position: relative;">
+                    <i class="fa-light fa-cart-plus"></i>
+                    <?php if(count($_SESSION['carts']) > 0) { ?>
+                    <div class="countCarts" style="
+                            position: absolute; 
+                            top: -10px; 
+                            right: -13px;
+                            background-color: red;
+                            padding: 0 6px;
+                            border-radius: 50%;
+                            color: white;
+                            font-size: 13px;
+                        ">
+                        <?= count($_SESSION['carts']) ?>
+                    </div>
+                    <?php } ?>
+                </a>
                 <!-- mobile menu trigger -->
                 <div class="mobile-menu-trigger">
                     <i class="fa-regular fa-grid"></i>
