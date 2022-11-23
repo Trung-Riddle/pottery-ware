@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <INPUT TYPE=TEXT NAME="ACCOUNT" ID="ACCOUNT" VALUE="">
+    <script>
+        function randomNumber(len) {
+            var randomNumber;
+            var n = '';
+
+            for (var count = 0; count < len; count++) {
+                randomNumber = Math.floor(Math.random() * 10);
+                n += randomNumber.toFixed(3);
+            }
+            return n;
+            }
+
+        document.getElementById("ACCOUNT").value = randomNumber(1);
+    </script>
+</body>
+</html>
