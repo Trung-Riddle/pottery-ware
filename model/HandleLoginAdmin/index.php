@@ -6,9 +6,9 @@
         $password = $_POST['password'];
         echo $userName;
         echo $password;
-        $admin = countDataDB("SELECT count(*) FROM user WHERE ur_name = '$userName' and ur_pass = '$password'");
+        $admin = countDataDB("SELECT count(*) FROM user WHERE ur_name = '$userName' and ur_pass = '$password' and ur_role = 2");
         if($admin != 0){
-            setcookie("acc_allow", sha1("allowacc"), time() + 86400, "/");
+            setcookie("acc_allow", sha1("allowacc"), time() + 43200, "/");
             header("location: ../../admin/index.php?act=dashboard");
         }else{
             $backLogin = $_SERVER['HTTP_REFERER'];
