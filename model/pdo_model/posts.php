@@ -12,10 +12,10 @@ function getAllPost()
 }
 
 //* Get and show one posts by id
-function getOnePost($id)
+function getOnePost($pts_id)
 {
     $conn = connect_db();
-    $stmt = $conn->prepare("SELECT * FROM posts WHERE id=" . $id);
+    $stmt = $conn->prepare("SELECT * FROM posts WHERE pts_id=" . $pts_id);
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $post = $stmt->fetchAll();
@@ -23,7 +23,7 @@ function getOnePost($id)
 }
 
 // Insert posts
-function addPost($id, $title_post, $content_post, $contentSecond_post, $img_post, $imgSecond_post)
+function addPost($pts_img, $contentSecond_post, $img_post, $imgSecond_post)
 {
     $conn = connect_db();
     $sql = "INSERT INTO posts (id, title_post,content_post,contentSecond_post,img_post,imgSecond_post,date_add)

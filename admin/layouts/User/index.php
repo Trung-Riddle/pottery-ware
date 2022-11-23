@@ -33,7 +33,7 @@
             <tr>
                 <td><?= $index ?></td>
                 <td><?= $User['ur_name'] ?></td>
-                <td><img src="./.././upload/avatar/<?= $User['ur_avatar'] ?>" alt="avatar" width="10%" style="border-radius: 0.3rem;"></td>
+                <td><img src="./.././upload/avatar/<?= $User['ur_avatar'] ?>" alt="avatar" style="border-radius: 0.3rem;"></td>
                 <td><?= $ur_status ?></td>
                 <td><?= $ur_role ?></td>
                 <td style="display: flex; justify-content: center;">

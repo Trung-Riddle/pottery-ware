@@ -24,42 +24,36 @@
                             <a href="<?= $_SERVER['PHP_SELF'] ?>">trang chủ</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Giới Thiệu <i
-                                    class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Giới Thiệu <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop04.2.jpg?v=1657181639"
-                                            alt="new Product">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop04.2.jpg?v=1657181639" alt="new Product">
                                         <h4 class="title">Bình Hoa Antic</h4>
                                     </a>
                                 </div>
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.jpg?v=1657276071">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.jpg?v=1657276071">
                                         <h4 class="title">Bình đất sét</h4>
                                     </a>
                                 </div>
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.1.jpg?v=1657276071"
-                                            alt="new Product">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.1.jpg?v=1657276071" alt="new Product">
                                         <h4 class="title">Bình Đất sét</h4>
                                     </a>
                                 </div>
                                 <div class="list-item text-center">
                                     <a href="#">
-                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.2.jpg?v=1657276071"
-                                            alt="new Product">
+                                        <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop01.2.jpg?v=1657276071" alt="new Product">
                                         <h4 class="title">Bình Đất Sét</h4>
                                     </a>
                                 </div>
                             </div>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i
-                                    class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item">
                                     <h4 class="title">Bát đĩa</h4>
@@ -108,14 +102,12 @@
                                     </ul>
                                 </div>
                                 <div class="list-item">
-                                    <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/files/grid02_d0e5bce2-d241-4460-b467-dad5af99786e.jpg?v=1657170207"
-                                        alt="shop">
+                                    <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/files/grid02_d0e5bce2-d241-4460-b467-dad5af99786e.jpg?v=1657170207" alt="shop">
                                 </div>
                             </div>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i
-                                    class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
                                     <li><a href="#">Tin Mới Nhất</a></li>
@@ -125,42 +117,39 @@
                             </div>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Liên hệ</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=contacts">Liên hệ</a>
                         </li>
-                        <?php if(isset($_COOKIE['ur_id'])) { ?>
-                        <li id="isLogin" class="menu-item-has-children"
-                            style="border: 2px solid #edb2a0; padding: 0 10px">
-                            <a href="" style="color: #edb2a0; margin-right: 1rem;">
-                                <?= $ur_name ?>
-                            </a>
-                            <img src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar user" width="30px" height="30px"
-                                style="border-radius: 50%;">
-                            <div class="sub-menu single-column-menu">
-                                <ul>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>">
-                                            <i class="fa-light fa-user"></i>&nbsp;
-                                            Tài khoản</a></li>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
+                        <?php if (isset($_COOKIE['ur_id'])) { ?>
+                            <li id="isLogin" class="menu-item-has-children" style="border: 2px solid #edb2a0; padding: 0 10px">
+                                <a href="" style="color: #edb2a0; margin-right: 1rem;">
+                                    <?= $ur_name ?>
+                                </a>
+                                <img src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar user" width="30px" height="30px" style="border-radius: 50%;">
+                                <div class="sub-menu single-column-menu">
+                                    <ul>
+                                        <li><a href="<?= $_SERVER['PHP_SELF'] ?>">
+                                                <i class="fa-light fa-user"></i>&nbsp;
+                                                Tài khoản</a></li>
+                                        <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
                                                 document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
                                                 sessionStorage.clear()
                                             ">
-                                            <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
-                                            Đăng xuất</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <?php } else {?>
-                        <li id="notLogin" class="menu-item-has-children">
-                            <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
-                            <div class="sub-menu single-column-menu">
-                                <ul>
-                                    <li><a href="./view/layouts/Login/index.php"> <i class="fa-light fa-user"></i>&nbsp;
-                                            Đăng Nhập</a></li>
-                                    <li><a href="./view/layouts/Login/index.php"><i
-                                                class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
-                                </ul>
-                            </div>
-                        </li>
+                                                <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
+                                                Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        <?php } else { ?>
+                            <li id="notLogin" class="menu-item-has-children">
+                                <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
+                                <div class="sub-menu single-column-menu">
+                                    <ul>
+                                        <li><a href="./view/layouts/Login/index.php"> <i class="fa-light fa-user"></i>&nbsp;
+                                                Đăng Nhập</a></li>
+                                        <li><a href="./view/layouts/Login/index.php"><i class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                         <?php } ?>
                     </ul>
                 </nav>
@@ -171,8 +160,8 @@
                 <a href="#"><i class="fa-light fa-heart"></i></a>
                 <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" style="position: relative;">
                     <i class="fa-light fa-cart-plus"></i>
-                    <?php if(count($_SESSION['carts']) > 0) { ?>
-                    <div class="countCarts" style="
+                    <?php if (count($_SESSION['carts']) > 0) { ?>
+                        <div class="countCarts" style="
                             position: absolute; 
                             top: -10px; 
                             right: -13px;
@@ -182,8 +171,8 @@
                             color: white;
                             font-size: 13px;
                         ">
-                        <?= count($_SESSION['carts']) ?>
-                    </div>
+                            <?= count($_SESSION['carts']) ?>
+                        </div>
                     <?php } ?>
                 </a>
                 <!-- mobile menu trigger -->
