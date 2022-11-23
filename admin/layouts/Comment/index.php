@@ -40,17 +40,17 @@
                     <th><?= $index ?></th>
                     <th><?= $value['user_name'] ?></th>
                     <td><?= $value['name_pro'] ?></td>
-                    <td><?= $value['content'] ?></td>
-                    <td><?= $value['date_add'] ?></td>
+                    <td><?= $value['cmt_content'] ?></td>
+                    <td><?= $value['cmt_created_at'] ?></td>
                     <td>
                         <?php if(isset($_GET['act']) && ($_GET['act'] == "comment")) { ?>
-                        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=updateStatusCmt&idCmt=<?= $value['id'] ?>&status=0"
+                        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=updateStatusCmt&idCmt=<?= $value['cmt_id'] ?>&status=0"
                             class="btnEdit">Ẩn</a>
                         <?php } else { ?>
-                        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=updateStatusCmt&idCmt=<?= $value['id'] ?>&status=1"
+                        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=updateStatusCmt&idCmt=<?= $value['cmt_id'] ?>&status=1"
                             class="btnEdit">Khôi phục</a>
                         <?php } ?>
-                        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=delCmt&idCmt=<?= $value['id'] ?>"
+                        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=delCmt&idCmt=<?= $value['cmt_id'] ?>"
                             class="btnDelete">Xóa</a>
                     </td>
                 </tr>
