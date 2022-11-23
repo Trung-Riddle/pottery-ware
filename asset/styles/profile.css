@@ -65,7 +65,42 @@
     height: 40px;
     margin: 20px;
 }
-
+.seemore-input{
+    color: aliceblue;
+    background-color: var(--color-secondary);
+    padding: 7px 20px;
+    align-items: center;
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    text-align: center;
+    border: none;
+    position: relative;
+	cursor: pointer;
+	user-select: none;
+    transition-delay: .4s;
+    transition: all 0.4s linear;
+    z-index: 98;
+    font-size: 18px;
+}
+.seemore-input::after{
+    position: absolute;
+    transition: all 0.4s linear;
+    content: '';
+    background-color: white;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+}
+.seemore-input:hover{
+    background-color: white;
+    color: var(--color-secondary);
+}
+.seemore-input:hover::after{
+    width: 100%;
+}
 @media screen and (max-width: 512px) {
     .profile-form{
         display: flex;
