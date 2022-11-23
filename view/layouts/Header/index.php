@@ -137,7 +137,7 @@
                                 style="border-radius: 50%;">
                             <div class="sub-menu single-column-menu">
                                 <ul>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>">
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">
                                             <i class="fa-light fa-user"></i>&nbsp;
                                             Tài khoản</a></li>
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="

@@ -124,6 +124,17 @@ if (isset($_GET["page"])) {
                     }
                 }
                 break;
+            
+            //* Thông tin khách hàng
+            case 'profile':
+                $ur_id = $_COOKIE['ur_id'];
+                $sql = "SELECT * FROM user INNER JOIN customer ON user.ur_id = customer.cus_id_user";
+                $user = selectAllDataDB($sql);
+                foreach ($user as $value) {
+                    extract($value);
+                }
+                require_once("./view/layouts/Profile/index.php");
+                break;
             default:
                 # code...
                 break;
