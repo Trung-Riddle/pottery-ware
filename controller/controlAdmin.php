@@ -136,6 +136,9 @@ if (isset($_GET["act"])) {
             $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id ORDER BY prd_id DESC");
             include_once("./layouts/product/index.php");
             break;
+        case 'formAddProduct':
+            include_once("./layouts/FormAddProduct/index.php");
+            break;
         case 'addPro':
             if (isset($_POST['addPro']) && ($_POST['addPro'])) {
                 $name_pro = $_POST['namePro'];
