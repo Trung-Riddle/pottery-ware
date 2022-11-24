@@ -81,6 +81,15 @@ if(isset($_POST['submitForm']) && ($_POST['submitForm'])){
     ";
 
     signUp($title, $content, $email, $user[0]['cus_name']);
+    header("location: ".$_SERVER['HTTP_REFERER']);
+    }else{
+        $backPage = $_SERVER['HTTP_REFERER'];
+        echo "<script>
+            alert('Email không tồn tại')
+            setTimeout(()=>{
+                window.location = '$backPage'
+            }, 100)
+        </script>";
     }
 }else{
     header("location: ../../view/layouts/Login/index.php");
