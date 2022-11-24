@@ -1,6 +1,7 @@
 <div style="overflow-x: auto">
     <div class="tool-add-form glow">
-        <span class="text"><a href="#"><i class="fa-light fa-octagon-plus"></i>&nbsp; Thêm danh mục</a></span>
+        <span class="text"><a href="<?= $_SERVER['PHP_SELF'] ?>?act=formAddCategory"><i
+                    class="fa-light fa-octagon-plus"></i>&nbsp; Thêm danh mục</a></span>
         <p class="show-option">
             <small id="shadow">
                 <small id="blink" style="font-size: 18px">Hiện: </small> </small><select name="" id="">
@@ -61,8 +62,9 @@
                                 }
                             ?>
                             </span></td>
-                        <td><a href="#"><i class="fa-solid fa-trash-can trash trash-custom-ad"></i></a>&nbsp; <a
-                                href="#"><i class="fa-solid fa-pen-to-square pen-custom-ad"></i></a></td>
+                        <td><a href="<?= $_SERVER['PHP_SELF'] ?>?act=deleteCate&idCate=<?= $value['cate_id'] ?>"><i
+                                    class="fa-solid fa-trash-can trash trash-custom-ad"></i></a>&nbsp; <a href="#"><i
+                                    class="fa-solid fa-pen-to-square pen-custom-ad"></i></a></td>
                     </tr>
                     <?php } ?>
                 </tbody>

@@ -21,7 +21,7 @@
                 <p class="price">
                     <?php if($pro[0]['prd_del'] != 0) { ?>
                     <?= $pro[0]['prd_del'] ?> <sup>đ</sup>
-                    <span class="prd_del"><?= $pro[0]['price_pro'] ?></span><sup style="text-decoration: line-through"
+                    <span class="prd_del"><?= $pro[0]['prd_price'] ?></span><sup style="text-decoration: line-through"
                         class="color-desc">đ</sup>
                     <?php } else { ?>
                     <?= $pro[0]['prd_price'] ?> <sup>đ</sup>
@@ -39,9 +39,17 @@
                     <button id="increment" onclick="stepper(this)">+</button>
                 </div>
                 <div class="cart-btns">
+                    <?php if(isset($_COOKIE['ur_id'])) { ?>
                     <button class="add-cart">
                         Thêm vào giỏ
                     </button>
+                    <button class="now-cart">Mua ngay</button>
+                    <?php } else { ?>
+                    <a class="add-cart" href="./view/layouts/Login/index.php">
+                        Thêm vào giỏ
+                    </a>
+                    <a class="now-cart" href="./view/layouts/Login/index.php">Mua ngay</a>
+                    <?php } ?>
                     <script>
                     const qtyInput = document.querySelector("#qty");
                     let prd_amount = 1
@@ -80,7 +88,6 @@
                         }
                     }
                     </script>
-                    <button class="now-cart">Mua ngay</button>
                 </div>
             </div>
         </div>

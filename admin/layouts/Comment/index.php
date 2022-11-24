@@ -38,8 +38,8 @@
                 <?php $index++ ?>
                 <tr>
                     <th><?= $index ?></th>
-                    <th><?= $value['user_name'] ?></th>
-                    <td><?= $value['name_pro'] ?></td>
+                    <th><?= $value['ur_name'] ?></th>
+                    <td><?= $value['prd_name'] ?></td>
                     <td><?= $value['cmt_content'] ?></td>
                     <td><?= $value['cmt_created_at'] ?></td>
                     <td>
