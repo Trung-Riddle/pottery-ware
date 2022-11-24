@@ -7,20 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <INPUT TYPE=TEXT NAME="ACCOUNT" ID="ACCOUNT" VALUE="">
-    <script>
-        function randomNumber(len) {
-            var randomNumber;
-            var n = '';
-
-            for (var count = 0; count < len; count++) {
-                randomNumber = Math.floor(Math.random() * 10);
-                n += randomNumber.toFixed(3);
+    <textarea name="post_content" id="test" cols="30" rows="10"></textarea>
+    <script src="../ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'post_content' );
+            document.querySelector('#test').onclick = (event) => {
+                console.log(event.target)
             }
-            return n;
-            }
-
-        document.getElementById("ACCOUNT").value = randomNumber(1);
-    </script>
+        </script>
 </body>
 </html>
