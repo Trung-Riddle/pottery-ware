@@ -22,12 +22,13 @@
             $total = 0;
             $tax = 0;
             $totalAll = 0;
-            foreach($_SESSION['carts'] as $cart) {
-            extract($cart);
-            $totalCart = $cart[3] * $cart[4];
-            $total += $totalCart;
-            $tax = $total * 5 / 100;
-            $totalAll = $total + $tax + 15000;
+            if(isset($_SESSION['carts'])){
+                foreach($_SESSION['carts'] as $cart) {
+                extract($cart);
+                $totalCart = $cart[3] * $cart[4];
+                $total += $totalCart;
+                $tax = $total * 5 / 100;
+                $totalAll = $total + $tax + 15000;
         ?>
         <div class="product">
             <div class="product-image">
@@ -39,7 +40,8 @@
             </div>
             <div class="product-price"><?= $cart[3] ?></div>
             <div class="product-quantity">
-                <input type="number" value="<?= $cart[4] ?>" min="1">
+                <!-- <input type="number" value="<?= $cart[4] ?>" min="1"> -->
+                <div style="width: 60px; text-align: center;"><?= $cart[4] ?></div>
             </div>
             <div class="product-removal">
                 <button class="remove-product"
@@ -49,7 +51,7 @@
             </div>
             <div class="product-line-price"><?= $totalCart ?></div>
         </div>
-        <?php $index++; } ?>
+        <?php $index++; } } ?>
         <div class="totals">
             <div class="totals-item">
                 <label>Tổng Giá Sản Phẩm</label>

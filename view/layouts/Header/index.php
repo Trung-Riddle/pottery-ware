@@ -127,7 +127,7 @@
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Liên hệ</a>
                         </li>
-                        <?php if(isset($_COOKIE['ur_id'])) { ?>
+                        <?php if(isset($_COOKIE['ur_id']) && ($ur_id == substr($_COOKIE['ur_id'], 4))) { ?>
                         <li id="isLogin" class="menu-item-has-children"
                             style="border: 2px solid #edb2a0; padding: 0 10px">
                             <a href="" style="color: #edb2a0; margin-right: 1rem;">
@@ -171,7 +171,7 @@
                 <a href="#"><i class="fa-light fa-heart"></i></a>
                 <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" style="position: relative;">
                     <i class="fa-light fa-cart-plus"></i>
-                    <?php if(count($_SESSION['carts']) > 0) { ?>
+                    <?php if(isset($_SESSION['carts']) && (count($_SESSION['carts']) > 0)) { ?>
                     <div class="countCarts" style="
                             position: absolute; 
                             top: -10px; 
