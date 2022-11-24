@@ -34,6 +34,14 @@
                         </div>
                     </form>
                 </div>
+                <div class="forgetPass" style="
+                        text-decoration: underline;
+                        position: absolute;
+                        bottom: 1.5rem;
+                        left: 1.2rem;
+                    ">
+                    <a href="../ForgotPass/index.php" style="font-size: 18px;">Quên mật khẩu?</a>
+                </div>
                 <button form="formLogin" class="btn login" type="submit" name="dangnhap" value="dangnhap">
                     Đăng Nhập
                 </button>

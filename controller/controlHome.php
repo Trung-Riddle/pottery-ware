@@ -128,12 +128,50 @@ if (isset($_GET["page"])) {
             //* Thông tin khách hàng
             case 'profile':
                 $ur_id = $_COOKIE['ur_id'];
-                $sql = "SELECT * FROM user INNER JOIN customer ON user.ur_id = customer.cus_id_user";
+                $sql = "SELECT * FROM user INNER JOIN customer ON user.ur_id = customer.cus_id_user WHERE ur_id = '$ur_id'";
                 $user = selectAllDataDB($sql);
                 foreach ($user as $value) {
                     extract($value);
                 }
+                if($ur_role == 0){
+                    $role = "Khách hàng";
+                }
                 require_once("./view/layouts/Profile/index.php");
+                break;
+            case 'editProfile':
+                if(isset($_POST['updateProfile']) && ($_POST['updateProfile'])){
+                    $ur_id = $_COOKIE['ur_id'];
+                    $ur_name = $_POST['ur_name'];
+                    $cus_email = $_POST['cus_email'];
+                    $cus_address = $_POST['cus_address'];
+                    $cus_name = $_POST['cus_name'];
+                    $cus_phone = $_POST['cus_phone'];
+                    
+                    $sql = "UPDATE user INNER JOIN customer ON user.ur_id = customer.cus_id_user SET ur_name = '$ur_name', cus_email = '$cus_email', cus_address = '$cus_address', cus_name = '$cus_name', cus_phone = '$cus_phone' WHERE ur_id = '$ur_id'";
+                    editDataDB($sql);
+                    $backPage = $_SERVER['HTTP_REFERER'];
+                    echo "<script>
+                        window.location = '$backPage'
+                    </script>";
+                }
+                break;
+            case 'handleChangePass':
+                if(isset($_POST['changePass']) && ($_POST['changePass'])){
+                    $ur_id = $_COOKIE['ur_id'];
+                    $oldPass = $_POST['ur_pass'];
+                    $checkPassUser = countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_pass = '$oldPass'");
+                    if($checkPassUser == 1){
+                        $newPass = $_POST['new_pass'];
+                        $confirmNewPass = $_POST['confirm_new_pass'];
+                        if($newPass == $confirmNewPass){
+                            editDataDB("UPDATE user SET ur_pass = '$confirmNewPass' WHERE ur_id = '$ur_id' AND ur_pass = '$oldPass'");
+                            $backPage = $_SERVER['PHP_SELF']."?page=profile";
+                            echo "<script>
+                                window.location = '$backPage'
+                            </script>";
+                        }
+                    }
+                }
                 break;
             default:
                 # code...

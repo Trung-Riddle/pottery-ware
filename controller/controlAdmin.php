@@ -51,8 +51,8 @@ if (isset($_GET["act"])) {
             break;
             //* COMMENT
         case 'comment':
-            $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment INNER JOIN  GROUP BY name_pro ORDER BY id DESC");
-            $cmt = selectAllDataDB("SELECT * FROM comment WHERE status_cmt = 1 ORDER BY id DESC LIMIT 0,10");
+            // $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment INNER JOIN  GROUP BY name_pro ORDER BY id DESC");
+            $cmt = selectAllDataDB("SELECT * FROM comment WHERE cmt_status = 1 ORDER BY cmt_id DESC LIMIT 0,10");
             include_once("./layouts/comment/index.php");
             break;
         case 'searchCmt':
