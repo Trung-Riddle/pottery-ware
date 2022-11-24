@@ -99,25 +99,11 @@
                     <i class="fa-light fa-arrow-right-from-bracket"></i>
                 </div>
             </div>
-            <div class="tool-add-form glow">
-                <span class="text"><a href="#"><i class="fa-light fa-octagon-plus"></i>&nbsp; Thêm Sản Phẩm</a></span>
-                <p class="show-option">
-                    <small id="shadow">
-                        <small id="blink" style="font-size: 18px">Hiện: </small> </small><select name="" id="">
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                    </select>
-                </p>
-            </div>
+
             <!-- MAIN -->
-            <div style="overflow-x: auto">
-                <?php
-                    include_once("../controller/controlAdmin.php")
-                ?>
-            </div>
+            <?php
+                include_once("../controller/controlAdmin.php")
+            ?>
         </div>
     </div>
 
