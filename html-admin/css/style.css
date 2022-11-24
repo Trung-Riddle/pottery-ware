@@ -570,8 +570,14 @@ th td:nth-child(4) {
 .container-c input:checked ~ .checkmark-c {
   background: #764ba2;
 }
-.container-c input:checked ~ .checkmark-c:after {
-  display: block;
+.name-th{
+     width: 320px !important;
+   
+}
+
+.table-products{
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .trash-custom-ad {
@@ -588,14 +594,21 @@ th td:nth-child(4) {
   color: rgb(185, 185, 27);
   box-shadow: rgba(193, 214, 3, 0.3) 0px 0px 0px 3px;
 }
-.form-addproduct {
-  width: 100%;
-  margin-top: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  color: rgba(255, 255, 255, 0.822);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(5px);
+.eye-custom-ad{
+    padding: 10px 9px 10px 10px;
+    border-radius: 4px;
+    background-color: rgba(180, 33, 33, 0.125);
+    color: rgb(92, 117, 177);
+    box-shadow: rgba(214, 154, 3, 0.3) 0px 0px 0px 3px;
+}
+.form-addproduct{
+    width: 100%;
+    margin-top: 10px;
+    background-color: rgba(0,0,0,.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.822);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(5px);
 }
 .form-addproduct h2 {
   padding: 10px;
