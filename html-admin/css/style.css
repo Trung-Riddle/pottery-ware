@@ -1,10 +1,11 @@
 body{
-    background: url('https://technext.github.io/dashtreme/assets/images/bg-themes/2.png');
-    height: 100%;
+    background: url('../../asset/image/bg_ad_1.png');
+    /* background: url('https://technext.github.io/dashtreme/assets/images/bg-themes/4.png'); */
+    height:  100vh;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    background-attachment: fixed;
     overflow-x: auto;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
@@ -19,7 +20,7 @@ body{
     top: 0;
     left: 0;
     height: 100vh;
-    transition: all 0.3s ease; 
+    transition: all 0.2s ease; 
     background-color: rgba(0,0,0,.2);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
@@ -32,6 +33,7 @@ body{
 }
 .sidebar-admin.active{
     width: 260px;
+    transition: all 0.2s ease; 
 }
 .logo-admin{
     width: 100%;
@@ -46,11 +48,13 @@ body{
     opacity: 0;
     visibility: hidden;
     white-space: nowrap;
+    transition: all 0.2s ease; 
 }
 .sidebar-admin.active .logo-admin{
     opacity: 1;
     pointer-events: none;
     visibility: visible;
+    transition: all 0.2s ease; 
 }
 #btn{
     position: absolute;
@@ -146,6 +150,7 @@ body{
 }
 .sidebar-admin.active .link_name{
     visibility: visible;
+    transition: all 0.2s ease-in-out; 
 }
 .sidebar-admin .link_name{
     visibility: hidden;
@@ -374,6 +379,29 @@ body{
     -webkit-animation: blink2 0.7s infinite alternate;
     animation: blink2 0.7s infinite alternate;
   }
+  .submitbtn-ad{
+    border-radius: 4px;
+    box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca,
+      0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
+    -webkit-animation: blink2 0.7s infinite alternate;
+    animation: blink2 0.7s infinite alternate;
+    font-size: 17px;
+    font-weight: 600;
+    display:block;
+    margin: 12px auto;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    transition: all .4s ease;
+    border: none;
+    outline: none;
+    padding: 6px 22px;
+  }
+  .submitbtn-ad:hover{
+    background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  }
   
   .glow .text {
     font-size: 16px;
@@ -455,10 +483,14 @@ th{
     height: 78px !important;
 }
 th:first-child, td:first-child{
-    min-width: 34px !important;
+    width: 38px !important;
 }
 tr td:nth-child(2), th td:nth-child(2){
-    width: 42px !important;
+    width: 48px !important;
+    text-align: center;
+}
+.name-cate{
+  width: 350px !important;
 }
 tr td:nth-child(3), th td:nth-child(3){
     width: 120px !important;
@@ -547,4 +579,221 @@ tr td:nth-child(4), th td:nth-child(4){
     background-color: rgba(255, 0, 0, 0.125);
     color: rgb(185, 185, 27);
     box-shadow: rgba(193, 214, 3, 0.3) 0px 0px 0px 3px;
+}
+.form-addproduct{
+    width: 100%;
+    margin-top: 10px;
+    background-color: rgba(0,0,0,.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.822);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.form-addproduct h2{
+    padding: 10px;
+    border-bottom: 1px solid #0ba9ca;
+}
+#trav {
+    -webkit-animation: blink3 0.09s infinite alternate;
+    -moz-animation: blink3 0.09s infinite alternate;
+    -o-animation: blink3 0.09s infinite alternate;
+    animation: blink3 0.09s infinite alternate;
+  }
+.neon-purple {
+    font-size: 21px;
+    margin: 0 auto;
+    text-align: center;
+    color: #ccf;
+    text-shadow: 2px 2px 1px rgba(21, 97, 158, 0.514), 0 0 20px #fff, 0 0 10px #7d26cd, 0 0 50px #7d26cd;
+  }
+  @-moz-keyframes blink3 {
+    70% {
+      opacity: 0.7;
+    }
+  }
+  @-webkit-keyframes blink3 {
+    45% {
+      opacity: 0.5;
+    }
+  }
+  @-o-keyframes blink3 {
+    70% {
+      opacity: 0.7;
+    }
+  }
+  @keyframes blink3 {
+    70% {
+      opacity: 0.7;
+    }
+  }
+  .form-group-ad label{
+    margin: 0;
+    padding: 0;
+    display: block;
+    padding: 4px;
+    background-color: transparent;
+
+}
+
+  .flex-form-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+  .flex-form-row-2{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  .flex-form-row-img{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .form-group-ad{
+    flex: 0 0 32%;
+    padding: 4px;
+  }
+  .form-group-ad-2{
+    flex: 0 0 66%;
+    padding: 4px;
+    height: 125px;
+  }
+  .form-group-ad-2 textarea{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.2);
+    border: none;
+    outline: none;
+    padding: 12px 10px;
+    color: white;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+  .form-group-ad input{
+    width: 100%;
+    height: 35px;
+    background-color: rgba(0,0,0,.2);
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    color: white;
+    border-radius: 4px;
+  }
+  .form-group-ad select{
+    width: 100%;
+    height: 35px;
+    background-color: rgba(0,0,0,.2);
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    color: rgba(255, 255, 255, 0.702);
+    border-radius: 4px;
+  }
+  .flex-form-row-2 .form-group-ad input{
+    margin-bottom: 15px;
+  }
+  /* upload product image */
+  .upload-icon{
+    width: 78px;
+    height: 78px;
+    opacity: 0.3;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 190px;
+    left: 180px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .form-group-ad-img{
+    width: 348px;
+  }
+  .form-upload-ad-imgs{
+    width: calc(100% - 348px);
+    padding: 26px 0 0 34px;
+  }
+  .form-upload-ad-imgs input[type="file"]{
+    display: none;
+  }
+  .form-upload-ad-imgs label{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    background-color: #228DFF;
+    font-size: 18px;
+    padding: 4px 22px;
+    text-align: center;
+    width: 350px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .form-upload-ad-imgs p{
+    text-align: center;
+    margin: 15px auto;
+    color: rgba(255, 255, 255, 0.602);
+    font-size: 14px;
+  }
+  #images-show{
+    width: 100%;
+    padding: 10px;
+    border: .5px dashed rgba(255, 255, 255, 0.622);
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  #images-show figure{
+    width: 310px;
+    height: 340px;
+  }
+  #images-show figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .upload-product-image{
+    position: relative;
+    transition: filter .4s ease;
+    width: 348px;
+  }
+  .upload-product-image:hover{
+    filter: drop-shadow(1px 1px 22px #7584bb);
+}
+#upload-product{
+  position: absolute;
+  top: 0;
+  z-index: 9;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  cursor: pointer;
+}
+#upload-product::-webkit-file-upload-button{
+  visibility: hidden;
+}
+#upload-profile::before{
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+.img-rounded-circle{
+  width: 348px;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.img-rounded-circle + small{
+  display: block;
+  color: rgba(255, 255, 255, 0.807);
+  margin-top: 20px;
+  font-size: 17px;
+ text-align: center;
 }
