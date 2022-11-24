@@ -509,6 +509,10 @@ tr td:nth-child(4), th td:nth-child(4){
     margin: 0 auto;
     line-height: 58px;
 }
+.name-th{
+     width: 320px !important;
+   
+}
 
 .table-products{
     border-radius: 8px;
@@ -579,6 +583,13 @@ tr td:nth-child(4), th td:nth-child(4){
     background-color: rgba(255, 0, 0, 0.125);
     color: rgb(185, 185, 27);
     box-shadow: rgba(193, 214, 3, 0.3) 0px 0px 0px 3px;
+}
+.eye-custom-ad{
+    padding: 10px 9px 10px 10px;
+    border-radius: 4px;
+    background-color: rgba(180, 33, 33, 0.125);
+    color: rgb(92, 117, 177);
+    box-shadow: rgba(214, 154, 3, 0.3) 0px 0px 0px 3px;
 }
 .form-addproduct{
     width: 100%;

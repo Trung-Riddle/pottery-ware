@@ -127,76 +127,102 @@
             <div class="tool-add-form glow">
 
                 <span class="text"><a href="#"><i class="fa-light fa-square-chevron-left"></i>&nbsp; Quay Lại</a></span>
-                <span class="text"><a class="trash" href="#"><i class="fa-solid fa-trash-can"></i>&nbsp; Xoá Sản Phẩm
-                        Này</a></span>
 
             </div>
-            <form action="" class="form-addproduct" method="post" enctype="multipart/form-data">
-                <h2 class="neon-purple" id="trav">Form Dữ Liệu Sản Phẩm</h2>
-                <div class="flex-form-row">
-                    <div class="form-group-ad">
-                        <label for="cate">Danh Mục *</label>
-                        <select name="" id="cate">
-                            <option value="">--Chọn Danh Mục--</option>
-                            <option value="">7845</option>
-                            <option value="">hjbdjvnb</option>
-                            <option value="">345</option>
-                        </select>
-                    </div>
-                    <div class="form-group-ad">
-                        <label for="">Tên Sản Phẩm *</label>
-                        <input id="" type="text">
-                    </div>
-                    <div class="form-group-ad">
-                        <label for="pri">Giá Sản Phẩm *</label>
-                        <input id="pri" type="Number" step="10" min="0" VALUE="" MAXLENGTH=16 SIZE=16>
-                    </div>
-                </div>
-                <div class="flex-form-row-2">
-                    <div class="form-group-ad">
-                        <label for="qty">Số Lượng *</label>
-                        <input id="qty" type="Number" step="10" min="0"> 
-                        <label for="sta">Trạng Thái *</label>
-                        <select name="" id="sta">
-                            <option value="">--Chọn Trạng Thái--</option>
-                            <option value="">Hoạt Động</option>
-                            <option value="">Không Hoạt Động</option>
-                        </select>
-                    </div>
-                    <div class="form-group-ad-2">
-                        <label for="des">Mô Tả Sản Phẩm *</label>
-                        <textarea name="" id="des" cols="" rows=""></textarea>
-                    </div>
-                </div>
-                <div class="flex-form-row-img">
-                    <div class="form-group-ad-img">
-                        <div class="upload-product-image ">     
-                                <img class="upload-icon" src="../asset/image/upload.png" alt="camera">
-                                <img class="img-rounded-circle prd" height="" src="../asset/image/background-pd.png" alt="profile">
-                                <small class="form-text mb-3"> Chọn Hình Ảnh Hiển Thị</small>
-                                <input type="file" class="form-control-file" name="profileUpload" id="upload-product">
-                        </div>
-                    </div>
-                    <div class="form-upload-ad-imgs">
-                        <input type="file" id="file-input" onchange="showImageFour()" accept="image/png, image/jpg, image/jpeg" multiple>
-                        <label for="file-input">
-                            <i class="fa-duotone fa-upload"></i>&nbsp;  Chọn 4 Hình Ảnh 
-                        </label>
-                        <p id="num-of-file">Chưa có files được chọn</p>
-                        <div id="images-show">
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><label class="container-c">
+                                    <input type="checkbox">
+                                    <span class="checkmark-c"></span>
+                                </label></th>
+                            <th class="masp" colspan="1">#</th>
+                            <th colspan="">Ảnh</th>
+                            <th colspan="">Tên Người Dùng</th>
+                            <th colspan="">Tên Đăng Nhập</th>
+                            <th colspan="" class="name-th">Email</th>
+                            <th colspan="">Điều Chỉnh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label class="container-c">
+                                    <input type="checkbox">
+                                    <span class="checkmark-c"></span>
+                                </label></td>
+                            <td colspan="1" class="masp">1</td>
+                            <td><img style="
+                                width: 56px;
+                                object-fit: cover;
+                                border-radius: 4px;
+                                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+                                    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+                                object-position: center;
+                                " src="https://i.pinimg.com/564x/7d/4a/7a/7d4a7a5366ada3a240d6bbaca867a9be.jpg" height="56px"
+                                alt="" /></td>
+                            <td>Hảo Hảo
+                            </td>
+                            <td>Goku</td>
+                            <td class="name-th">songoku@gmail.com</td>
+                            <td><a href="#"><i class="fa-solid fa-trash-can trash trash-custom-ad"></i></a>&nbsp; <a
+                                    href="#"><i class="fa-solid fa-eye pen-custom-ad"></i></a>&nbsp;
+                                    <a href="#"><i class="fa-solid fa-eye-slash eye-custom-ad"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><label class="container-c">
+                                    <input type="checkbox">
+                                    <span class="checkmark-c"></span>
+                                </label></td>
+                            <td colspan="1" class="masp">2</td>
+                            <td><img style="
+                                width: 56px;
+                                object-fit: cover;
+                                border-radius: 4px;
+                                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+                                    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+                                object-position: center;
+                                " src="https://i.pinimg.com/564x/02/38/5f/02385fe89b27ba4ba6d2790a1a3dc972.jpg" height="56px"
+                                alt="" /></td>
+                            <td>Omachi
+                            </td>
+                            <td>Omachigo</td>
+                            <td class="name-th">Omachi@gmail.com </td>
+                            <td><a href="#"><i class="fa-solid fa-trash-can trash trash-custom-ad"></i></a>&nbsp; <a
+                                    href="#"><i class="fa-solid fa-eye pen-custom-ad"></i></a>&nbsp;
+                                <a href="#"><i class="fa-solid fa-eye-slash eye-custom-ad"></i></a>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label class="container-c">
+                                    <input type="checkbox">
+                                    <span class="checkmark-c"></span>
+                                </label></td>
+                            <td colspan="1" class="masp">2</td>
+                            <td><img style="
+                                width: 56px;
+                                object-fit: cover;
+                                border-radius: 4px;
+                                box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+                                    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+                                object-position: center;
+                                " src="https://i.pinimg.com/736x/85/bb/7f/85bb7f357e2c83fa1069a097289cd5e7.jpg" height="56px"
+                                alt="" /></td>
+                            <td>GÀ NƯỚNG
+                            </td>
+                            <td>Chicken56</td>
+                            <td class="name-th">Chicken56@gmail.com
+                                 </td>
+                            <td><a href="#"><i class="fa-solid fa-trash-can trash trash-custom-ad"></i></a>&nbsp; <a
+                                    href="#"><i class="fa-solid fa-eye pen-custom-ad"></i></a>&nbsp;
+                                    <a href="#"><i class="fa-solid fa-eye-slash eye-custom-ad"></i></a></td>
+                        </tr>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group-ad ">
-                    <button class="submitbtn-ad" type="submit"> Xác Nhận Sản Phẩm</button>
-                </div>
-            </form>
-
-
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-
 
 
 
@@ -215,47 +241,9 @@
     <!-- Data table plugin-->
     <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+
     <script>
-        let pdPreview = document.querySelector('.prd');
-        let coverPD = document.getElementById('upload-product');
-        let uploadIcon = document.querySelector('.upload-icon');
 
-
-        pdPreview.addEventListener('click',_=>coverPD.click());
-
-        coverPD.addEventListener("change",_=>{
-            let filePD = coverPD.files[0];
-            let readerPD = new FileReader();
-            readerPD.onload = function (){
-                pdPreview.src = readerPD.result;
-                uploadIcon.style.display = 'none';
-            }
-            readerPD.readAsDataURL(filePD);
-        });
-let fileInputFour = document.querySelector('#file-input');
-let imageShow = document.querySelector('#images-show');
-let numOffile = document.querySelector('#num-of-file');
-function showImageFour(){
-	numOffile.textContent = `${fileInputFour.files.length} files Được chọn`;
-	for (index of fileInputFour.files) {
-		let reader = new FileReader();
-		let figure = document.createElement("figure");
-		let figcap = document.createElement("figcaption");
-		figcap.innerText = index.name;
-		figure.appendChild(figcap);
-		reader.onload = () => {
-			let img = document.createElement("img");
-			img.setAttribute("src", reader.result);
-			figure.insertBefore(img, figcap);
-		}
-		imageShow.appendChild(figure);
-		reader.readAsDataURL(index);
-	}
-}
-        function deleteRow(r) {
-            var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("myTable").deleteRow(i);
-        }
         jQuery(function () {
             jQuery(".trash").click(function () {
                 swal({
@@ -299,7 +287,7 @@ function showImageFour(){
             iconsLink.forEach(link => {
                 link.classList.remove('active');
             });
-        
+
 
         }
     </script>
