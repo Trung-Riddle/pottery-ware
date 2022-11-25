@@ -29,7 +29,7 @@
                         <th colspan="">Tên Sản Phẩm</th>
                         <th colspan="">Danh Mục</th>
                         <th colspan="">Giá</th>
-                        <th colspan="">Số lượt xem</th>
+                        <th colspan="">Giảm giá</th>
                         <th colspan="">Trạng Thái</th>
                         <th colspan="">Điều Chỉnh</th>
                     </tr>
@@ -62,8 +62,8 @@
                             </p>
                         </td>
                         <td><?= $value['cate_name'] ?></td>
-                        <td><?= $value['prd_price'] ?>đ</td>
-                        <td><?= $value['prd_view'] ?></td>
+                        <td><?= $value['prd_price'] ?> đ</td>
+                        <td><?= $value['prd_del'] ?> đ</td>
                         <td id="shadow">
                             <?php
                             if ($value['prd_status'] == 0) {

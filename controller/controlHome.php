@@ -52,7 +52,7 @@ if (isset($_GET["page"])) {
             
             case 'comment':
                 if((isset($_POST["submitCmt"])) && ($_POST["submitCmt"])){
-                    $cmt_id_user = $_POST["idUser"];
+                    $cmt_id_user = substr($_POST["idUser"], 4);
                     $cmt_id_pro = $_POST["idPro"];
                     $cmt_content = $_POST["cmtContent"];
                     $cmt_created_at = date("Y-m-d");
@@ -127,12 +127,6 @@ if (isset($_GET["page"])) {
             
             //* Thông tin khách hàng
             case 'profile':
-                $ur_id = $_COOKIE['ur_id'];
-                $sql = "SELECT * FROM user INNER JOIN customer ON user.ur_id = customer.cus_id_user WHERE ur_id = '$ur_id'";
-                $user = selectAllDataDB($sql);
-                foreach ($user as $value) {
-                    extract($value);
-                }
                 if($ur_role == 0){
                     $role = "Khách hàng";
                 }
@@ -140,7 +134,6 @@ if (isset($_GET["page"])) {
                 break;
             case 'editProfile':
                 if(isset($_POST['updateProfile']) && ($_POST['updateProfile'])){
-                    $ur_id = $_COOKIE['ur_id'];
                     $ur_name = $_POST['ur_name'];
                     $cus_email = $_POST['cus_email'];
                     $cus_address = $_POST['cus_address'];
@@ -157,7 +150,6 @@ if (isset($_GET["page"])) {
                 break;
             case 'handleChangePass':
                 if(isset($_POST['changePass']) && ($_POST['changePass'])){
-                    $ur_id = $_COOKIE['ur_id'];
                     $oldPass = $_POST['ur_pass'];
                     $checkPassUser = countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_pass = '$oldPass'");
                     if($checkPassUser == 1){
