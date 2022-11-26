@@ -17,6 +17,3 @@ if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
     }
 }
 ?>
-<script>
-
-</script>

@@ -14,20 +14,6 @@
         </p>
     </div>
     <div class="container">
-        <!-- <?php if (isset($_GET['act']) && ($_GET['act'] == "category")) {?>
-        <div class="formAddCate">
-            <form action="<?= $_SERVER['PHP_SELF'] ?>?act=addCate" method="post">
-                <label for="nameCate">Tên danh mục</label>
-                <input type="text" id="nameCate" name="nameCate" maxlength="100" required>
-                <label for="statusCate">Trạng thái</label>
-                <select name="statusCate" id="statusCate">
-                    <option value="1">Hoạt động</option>
-                    <option value="0">Không hoạt động</option>
-                </select>
-                <button type="submit" name="addCate" value="addCate">Thêm danh mục</button>
-            </form>
-        </div>
-        <?php } ?> -->
         <div class="wrapperTableCate table">
             <table>
                 <thead>
@@ -80,7 +66,7 @@
                 $selectedUnactive = "selected";
             }    
         ?>
-        <!-- <?php if (isset($_GET['act']) && ($_GET['act'] == "editCate")) {?>
+        <?php if (isset($_GET['act']) && ($_GET['act'] == "editCate")) {?>
         <div class="formEditCate">
             <form action="<?= $_SERVER['PHP_SELF'] ?>?act=editCate" method="post">
                 <input type="hidden" name="idCate" value="<?= $cate[0]['cate_id'] ?>">
@@ -95,6 +81,6 @@
                 <button type="submit" name="editCate" value="editCate">Sửa danh mục</button>
             </form>
         </div>
-        <?php } ?> -->
+        <?php } ?>
     </div>
 </div>
