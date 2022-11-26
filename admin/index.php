@@ -19,14 +19,17 @@
     <link rel="stylesheet" href="../font/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
 </head>
-<?php
-if(isset($_COOKIE['acc_allow']) && ($_COOKIE['acc_allow'] == sha1("allowacc"))){
-    include_once("../model/index.php");
-    include_once("./layouts/Dashboard/index.php");
-    include_once("./js/index.php");
-}else{
-    require_once("./layouts/LoginAdmin/index.php");
-}
-?>
+
+<body>
+    <?php
+        if(isset($_COOKIE['acc_allow']) && ($_COOKIE['acc_allow'] == sha1("allowacc"))){
+            include_once("../model/index.php");
+            include_once("./layouts/Dashboard/index.php");
+            include_once("./js/index.php");
+        }else{
+            require_once("./layouts/LoginAdmin/index.php");
+        }
+    ?>
+</body>
 
 </html>

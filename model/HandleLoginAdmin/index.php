@@ -9,6 +9,9 @@
         $admin = countDataDB("SELECT count(*) FROM user WHERE ur_name = '$userName' and ur_pass = '$password' and ur_role = 2");
         if($admin != 0){
             setcookie("acc_allow", sha1("allowacc"), time() + 43200, "/");
+            // echo "<script>
+            //     document.cookie = 'acc_allow='".sha1('allowacc')."; max-age=43200; path=/;'
+            // </script>";
             header("location: ../../admin/index.php?act=dashboard");
         }else{
             $backLogin = $_SERVER['HTTP_REFERER'];
