@@ -141,7 +141,7 @@
                                             <i class="fa-light fa-user"></i>&nbsp;
                                             Tài khoản</a></li>
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
-                                                document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+                                                document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;'
                                                 sessionStorage.clear()
                                             ">
                                             <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
