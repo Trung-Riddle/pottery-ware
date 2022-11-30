@@ -20,10 +20,25 @@
                 <div class="user_field field-2">
                     <form action="../../../model/HandleForgotPass/index.php" id="formForgot"
                         class="_details details-login" method="post">
+                        <?php if(isset($_COOKIE['codepass']) && ($_COOKIE['codepass'] != "")) { ?>
+                        <div class="textbox">
+                            <input type="password" name="ur_pass" pattern="[a-zA-z0-9!@#$%^&*?`]" required />
+                            <span class="input_detail">Mật khẩu mới</span>
+                        </div>
+                        <div class="textbox">
+                            <input type="password" name="ur_confirm_pass" pattern="[a-zA-z0-9!@#$%^&*?`]" required />
+                            <span class="input_detail">Nhập lại mật khẩu</span>
+                        </div>
+                        <div class="textbox">
+                            <input type="text" name="ur_code" required />
+                            <span class="input_detail">Mã xác nhận</span>
+                        </div>
+                        <?php } else { ?>
                         <div class="textbox">
                             <input type="text" name="ur_email" required />
                             <span class="input_detail">Email xác nhận tài khoản</span>
                         </div>
+                        <?php } ?>
                     </form>
                 </div>
                 <div class="forgetPass" style="

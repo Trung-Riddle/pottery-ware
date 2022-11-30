@@ -36,7 +36,7 @@
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" id="pass" name="ur_pass" required />
+                            <input type="password" id="pass" name="ur_pass" pattern="[a-zA-z0-9!@#$%^&*?`]" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                     </form>
@@ -78,11 +78,11 @@
                             <span class="input_detail">Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" name="ur_pass" required />
+                            <input type="password" name="ur_pass" pattern="[a-zA-z0-9!@#$%^&*?`]" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" name="forgot_pass" required />
+                            <input type="password" name="forgot_pass" pattern="[a-zA-z0-9!@#$%^&*?`]" required />
                             <span class="input_detail">Nhập lại mật khẩu</span>
                         </div>
                     </div>
