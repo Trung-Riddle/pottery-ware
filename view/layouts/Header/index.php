@@ -167,8 +167,6 @@
             </div>
             <!-- menu end here -->
             <div class="header-item item-right">
-                <a href="#"><i class="fa-light fa-magnifying-glass"></i></a>
-                <a href="#"><i class="fa-light fa-heart"></i></a>
                 <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" style="position: relative;">
                     <i class="fa-light fa-cart-plus"></i>
                     <?php if(isset($_SESSION['carts']) && (count($_SESSION['carts']) > 0)) { ?>
@@ -186,6 +184,12 @@
                     </div>
                     <?php } ?>
                 </a>
+                <a href="#"><i class="fa-light fa-heart"></i></a>
+                <label for="search-check"><i class="fa-light fa-magnifying-glass"></i></label>
+                <input type="checkbox" name="" id="search-check" hidden>
+                <div class="search-every">
+                    <input type="search" placeholder="Tìm kiếm sản phẩm..." name="" id="search-all">
+                </div>
                 <!-- mobile menu trigger -->
                 <div class="mobile-menu-trigger">
                     <i class="fa-regular fa-grid"></i>
