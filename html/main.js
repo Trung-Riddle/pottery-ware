@@ -56,24 +56,7 @@ function showSubMenu(hasChildren) {
 
  	}
  }
-const qtyInput = document.querySelectorAll(".qty");
-const aabc = document.querySelector('.text-right');
 
-qtyInput.forEach(function(btn) {
-
-})
-function stepper(btn) {
-    let id = btn.getAttribute("id");
-    let min = qtyInput.getAttribute("min");
-    let max = qtyInput.getAttribute("max");
-    let step = qtyInput.getAttribute("step");
-    let value = qtyInput.getAttribute("value");
-    let calcDesc = (id == "increment") ?  (step * 1) : (step * -1);
-    let newValue = parseInt(value) + calcDesc;
-    if (newValue >= min && newValue <= max) {
-      qtyInput.setAttribute("value", newValue);
-    }
-}
 
 // tabs
 

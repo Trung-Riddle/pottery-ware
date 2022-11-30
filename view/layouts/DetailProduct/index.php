@@ -35,7 +35,7 @@
                 </p>
                 <div class="qty-btn">
                     <button id="decrement" onclick="stepper(this)">-</button>
-                    <input type="number" min="1" max="100" step="1" value="1" id="qty" readonly />
+                    <input type="number" step="1" id="qty" readonly />
                     <button id="increment" onclick="stepper(this)">+</button>
                 </div>
                 <div class="cart-btns">
@@ -52,6 +52,22 @@
                     <?php } ?>
                     <script>
                     const qtyInput = document.querySelector("#qty");
+
+                    const numB = 1;
+                    const numM = 100;
+                    qtyInput.setAttribute("value", numB);
+                     const minnum = qtyInput.setAttribute("min", numB);
+                     let minV = qtyInput.getAttribute("min");
+                    qtyInput.setAttribute("max", numM);
+                    if(qtyInput.value < 1) {
+                        qtyInput.value = 1;
+                    }
+                    if (minV < 1) {
+                        document.querySelector('#decrement').disabled = true;
+                        qtyInput.setAttribute("min", 1);
+                    } else {
+                        document.querySelector('#decrement').disabled = false;
+                    }
                     let prd_amount = 1
 
                     document
