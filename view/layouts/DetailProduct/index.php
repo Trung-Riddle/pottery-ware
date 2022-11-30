@@ -75,6 +75,7 @@
                         .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
 
                     function addCarts(prd_id, prd_amount) {
+                        prd_amount < 1 ? prd_amount = 1 : prd_amount;
                         document.cookie = `prd_id=${prd_id}; path='/';`;
                         document.cookie = `prd_amount=${prd_amount}; path='/';`;
                         window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
