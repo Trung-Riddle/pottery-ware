@@ -1,11 +1,7 @@
 <footer class="text-center text-lg-start bg-white text-muted">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Xem shop ở các trang mạng xã hội:</span>
-        </div>
-        <!-- Left -->
+    <section class="d-flex justify-content-center p-4 border-bottom">
+
 
         <!-- Right -->
         <div>
@@ -41,11 +37,12 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <img src="./view/image/amphora_icons.png" height="34" alt=""> Pottery Ware
+                        <img src="./asset/image/amphora_icons.png" height="34" alt=""> Pottery Ware
                     </h6>
                     <p>
-                        Tên thương hiệu.
-                    </p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis quod, minus doloremque, culpa
+                        animi alias a tempore cum nesciunt sint voluptatum! Debitis laudantium doloribus quod ducimus
+                        officiis laborum vel maxime! </p>
                 </div>
                 <!-- Grid column -->
 
