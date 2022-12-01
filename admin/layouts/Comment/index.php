@@ -1,25 +1,22 @@
+<form class="tool-add-form glow d-flex" action="<?= $_SERVER['PHP_SELF'] ?>?act=searchCmt" method="post">
+    <div class="flex-search-tool">
+        <i class="fa-light fa-magnifying-glass"></i>
+        <input type="text" name="userName" placeholder="Tìm Theo Tên" class="form-search-cmt" />
+    </div>
+    <div class="flex-search-tool">
+        <i class="fa-light fa-magnifying-glass"></i>
+        <input type="text" name="namePro" placeholder="Tìm Theo Sản Phẩm" class="form-search-cmt-2" />
+    </div>
+    <input type="submit" name="searchCmt" id="" style="display: none;" value="searchCmt">
+    <?php if(isset($_GET['act']) && ($_GET['act'] == "comment")) { ?>
+    <span class="text"><a href="<?= $_SERVER['PHP_SELF'] ?>?act=showStatusCmt-0"><i
+                class="fa-solid fa-eye-slash"></i>&nbsp; Bình Luận Đã Ẩn</a></span>
+    <?php } else { ?>
+    <span class="text"><a href="<?= $_SERVER['PHP_SELF'] ?>?act=comment"><i
+                class="fa-light fa-square-chevron-left"></i>&nbsp; Quay Lại</a></span>
+    <?php } ?>
+</form>
 <div class="container">
-    <div class="showCmtHaveStatus0">
-        <?php if(isset($_GET['act']) && ($_GET['act'] == "comment")) { ?>
-        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=showStatusCmt-0" class="btnEdit">Bình luận đã ẩn</a>
-        <?php } else { ?>
-        <a href="<?= $_SERVER['PHP_SELF'] ?>?act=comment" class="btnEdit">Tất cả bình luận</a>
-        <?php } ?>
-    </div>
-    <div class="formSearchCmt">
-        <form action="<?= $_SERVER['PHP_SELF'] ?>?act=searchCmt" method="post">
-            <label for="userName">Tên khách hàng</label>
-            <input type="search" name="userName" id="userName" required>
-            <label for="namePro">Tìm theo sản phẩm</label>
-            <select name="namePro" id="namePro">
-                <option value="">Tất cả bình luận theo sản phẩm</option>
-                <?php foreach($groupByNameProCmt as $value) { ?>
-                <option value="<?= $value['name_pro'] ?>"><?= $value['name_pro'] ?></option>
-                <?php } ?>
-            </select>
-            <button type="submit" name="searchCmt" value="searchCmt">Tìm bình luận</button>
-        </form>
-    </div>
     <div class="wrapperCmt table">
         <table>
             <thead>
