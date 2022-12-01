@@ -494,6 +494,7 @@ th td:nth-child(2) {
 .name-cate {
   width: 350px !important;
 }
+
 tr td:nth-child(3),
 th td:nth-child(3) {
   width: 120px !important;
@@ -502,8 +503,15 @@ tr td:nth-child(4),
 th td:nth-child(4) {
   width: 340px !important;
 }
+tr td:nth-child(4).name-user,
+th td:nth-child(4).name-user {
+  width: 180px !important;
+}
+.control-w{
+  width: 130px !important;
+}
 .namesp {
-  width: 320px !important;
+  width: 300px !important;
   margin: 0 10px !important;
   white-space: nowrap !important;
   overflow: hidden !important;
@@ -570,8 +578,7 @@ th td:nth-child(4) {
   display:block;
 }
 .name-th{
-     width: 320px !important;
-   
+     width: 300px !important;
 }
 
 .table-products{
