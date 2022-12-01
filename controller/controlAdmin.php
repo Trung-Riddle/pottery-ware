@@ -17,6 +17,9 @@ if (isset($_GET["act"])) {
             $countPost = countPost();
             include_once("./layouts/posts/index.php");
             break;
+        case 'newPosts':
+            require_once("./layouts/NewPosts/index.php");
+            break;
         case 'deletePosts':
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
