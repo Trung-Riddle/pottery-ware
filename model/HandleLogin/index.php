@@ -13,7 +13,10 @@ if (isset($_POST['dangnhap']) && ($_POST['dangnhap'])) {
         setcookie('ur_id', $numRandom.$idUser, time() + 86400, '/');
         header("location: ../../index.php");
     } else {
-        header("location: ../../view/layouts/Login/index.php?login=FaildLogin");
+        echo "<script>
+            alert('Tài khoản hoặc mật khẩu không chính xác')
+            location.href = '../../view/layouts/Login/index.php'
+        </script>";
     }
 }
 ?>
