@@ -49,7 +49,7 @@
 .w50 p{
     padding: 0;
     margin: 0;
-    width: 100px;
+    width: 120px;
     color: var(--color-text);
     font-size: 14px;
 }
@@ -63,4 +63,18 @@
 }
 .info-product-payment{
 
+}
+.total-price-payment{
+    padding-top: 20px;
+}
+.total-payment-dp span{
+    background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.total-payment-dp{
+    font-size: 23px;
+}
+.total-payment-dp p{
+    margin-bottom: 0;
 }
