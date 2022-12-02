@@ -21,7 +21,7 @@
                 <p class="price">
                     <?php if($pro[0]['prd_del'] != 0) { ?>
                     <?= $pro[0]['prd_del'] ?> <sup>đ</sup>
-                    <span class="prd_del"><?= $pro[0]['price_pro'] ?></span><sup style="text-decoration: line-through"
+                    <span class="prd_del"><?= $pro[0]['prd_price'] ?></span><sup style="text-decoration: line-through"
                         class="color-desc">đ</sup>
                     <?php } else { ?>
                     <?= $pro[0]['prd_price'] ?> <sup>đ</sup>
@@ -39,8 +39,55 @@
                     <button id="increment" onclick="stepper(this)">+</button>
                 </div>
                 <div class="cart-btns">
-                    <button class="add-cart">Thêm vào giỏ</button>
+                    <?php if(isset($_COOKIE['ur_id'])) { ?>
+                    <button class="add-cart">
+                        Thêm vào giỏ
+                    </button>
                     <button class="now-cart">Mua ngay</button>
+                    <?php } else { ?>
+                    <a class="add-cart" href="./view/layouts/Login/index.php">
+                        Thêm vào giỏ
+                    </a>
+                    <a class="now-cart" href="./view/layouts/Login/index.php">Mua ngay</a>
+                    <?php } ?>
+                    <script>
+                    const qtyInput = document.querySelector("#qty");
+                    let prd_amount = 1
+
+                    document
+                        .querySelector(".add-cart")
+                        .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+
+                    function addCarts(prd_id, prd_amount) {
+                        document.cookie = `prd_id=${prd_id}; path='/';`;
+                        document.cookie = `prd_amount=${prd_amount}; path='/';`;
+                        window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
+                    }
+
+                    function stepper(btn) {
+                        let id = btn.getAttribute("id");
+                        let min = qtyInput.getAttribute("min");
+                        let max = qtyInput.getAttribute("max");
+                        let step = qtyInput.getAttribute("step");
+                        let value = qtyInput.getAttribute("value");
+                        let calcDesc = id == "increment" ? step * 1 : step * -1;
+                        let newValue = parseInt(value) + calcDesc;
+                        if (newValue >= min && newValue <= max) {
+                            qtyInput.setAttribute("value", newValue);
+                            prd_amount = qtyInput.value
+                        }
+
+                        document
+                            .querySelector(".add-cart")
+                            .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+
+                        function addCarts(prd_id, prd_amount) {
+                            document.cookie = `prd_id=${prd_id}; path='/';`;
+                            document.cookie = `prd_amount=${prd_amount}; path='/';`;
+                            window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
+                        }
+                    }
+                    </script>
                 </div>
             </div>
         </div>
@@ -83,12 +130,62 @@
                         <div id="haha" class="tabcontent active">
                             <h3>Bình Luận</h3>
                             <div class="contentDetail">
-                                <div class="headCmt">
-                                    <div class="amountCmt"></div>
+                                <div class="headCmt flex w-[200px] justify-content-between ml-[2rem]">
+                                    <div class="amountCmt"><?= $countCmt ?> Comments</div>
+                                    <div class="filterCmt w-[75px] flex align-items-center justify-content-between"><i
+                                            class="fa-regular fa-sliders"></i>
+                                        <div>Sort by</div>
+                                    </div>
                                 </div>
-                                <div class="formCmt">
-
+                                <?php foreach($cmt as $value) { ?>
+                                <div
+                                    class="formCmt w-100 mh-[50px] my-[2rem] shadow-xl p-[1rem] pr-[5rem] text-justify rounded-lg">
+                                    <div class="flex h-100 w-100 gap-2">
+                                        <img src="./upload/avatar/<?= $value['ur_avatar'] ?>" alt="pottery ware"
+                                            class="h-100 w-[50px] rounded-full">
+                                        <div name="" id="" class="w-100 pl-[10px]">
+                                            <div class="nameUser fw-bold text-base text-[#edb2a0]">
+                                                <?= $value['ur_name'] ?>
+                                            </div>
+                                            <div class="cmtUser">
+                                                <?= $value['cmt_content'] ?>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <?php } ?>
+                                <?php
+                                    if(isset($_COOKIE['ur_id']) && $_COOKIE['ur_id'] != json_encode(null)){                                             
+                                ?>
+                                <div
+                                    class="formCmt rounded-lg w-100 mh-[50px] mt-[20px] shadow-2xl p-[1rem] pr-[5rem] relative">
+                                    <form action="<?= $_SERVER['PHP_SELF'] ?>?page=comment"
+                                        class="flex h-100 w-100 gap-2" method="post">
+                                        <input type="hidden" name="idUser" id="" value="<?= $_COOKIE['ur_id'] ?>">
+                                        <input type="hidden" name="idPro" id="" value="<?= $_GET["idPro"] ?>">
+                                        <input type="hidden" name="backPage" id=""
+                                            value="<?= $_SERVER['REQUEST_URI'] ?>">
+                                        <?php
+                                            if(isset($_COOKIE['ur_id']) && $_COOKIE['ur_id'] != json_encode(null)){                                             
+                                        ?>
+                                        <img src="./upload/avatar/<?= $ur_avatar ?>" alt="pottery ware"
+                                            class="h-100 w-[50px] rounded-full">
+                                        <?php } else { ?>
+                                        <img src="./upload/avatar/avatar-user.png" alt="pottery ware"
+                                            class="h-100 w-[50px] rounded-full">
+                                        <?php } ?>
+                                        <input type="text" name="cmtContent" id="cmtContent"
+                                            class="w-100 outline-0 border-b-2 border-gray-400 pl-[10px]"
+                                            placeholder="Để lại bình luận...">
+                                        <button type="submit" name="submitCmt" value="submitCmt" onclick="setTimeout(() => {
+                                            window.location.reload()
+                                        }, 100)" class=" absolute top-[50%] transform translate-y-[-50%] right-[2rem]">
+                                            <i
+                                                class="fa-solid fa-paper-plane-top text-[28px] text-blue-500 hover:text-[#edb2a0] transition duration-200"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -196,3 +293,4 @@
         </div>
     </div>
 </section>
+<script src="https://cdn.tailwindcss.com"></script>

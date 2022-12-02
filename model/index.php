@@ -16,5 +16,11 @@
         include_once("./model/pdo_model/product.php");
         include_once("./model/pdo_model/posts.php");
         include_once("./model/pdo_model/user.php");
+        
+        if(isset($_COOKIE['ur_id'])){
+            if(!isset($_SESSION['carts'])) $_SESSION['carts'] = [];
+        }else{
+            if(isset($_SESSION['carts'])) unset($_SESSION['carts']);
+        }
     }
 ?>

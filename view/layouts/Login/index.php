@@ -12,6 +12,13 @@
 
 <body>
     <div class="container">
+        <div class="filterError">
+            <div class="boxError">
+                <div class="textError">
+                </div>
+                <a href="">Quay lại</a>
+            </div>
+        </div>
         <div class="app front">
             <div class="header">
                 <span class="info">Đăng Nhập</span>
@@ -22,18 +29,23 @@
             </div>
             <div class="main">
                 <div class="user_field field-2">
-                    <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login" method="post">
+                    <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login"
+                        method="post">
                         <div class="textbox">
-                            <input type="text" name="ur_name" required />
+                            <input type="text" id="userName" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" name="ur_pass" required />
+                            <input type="password" id="pass" name="ur_pass" required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                     </form>
                 </div>
-                <button form="formLogin" class="btn login" type="submit" name="dangnhap" value="dangnhap">
+                <div class="forgetPass">
+                    <a href="../ForgotPass/index.php" style="font-size: 18px;">Quên mật khẩu?</a>
+                </div>
+                <button form="formLogin" id="btnSubmitLogin" class="btn login" type="submit" name="dangnhap"
+                    value="dangnhap">
                     Đăng Nhập
                 </button>
             </div>
@@ -48,7 +60,8 @@
                 </div>
             </div>
             <div class="main">
-                <form id="formSignup" class="user_field rel" action="../../../model/handleSignup/index.php" method="post" enctype="multipart/form-data">
+                <form id="formSignup" class="user_field rel" action="../../../model/handleSignup/index.php"
+                    method="post" enctype="multipart/form-data">
                     <div class="avt">
                         <img class="camera-icon" src="../../image/camera.png" alt="camera" />
                         <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />
@@ -59,6 +72,10 @@
                         <div class="textbox">
                             <input type="text" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản</span>
+                        </div>
+                        <div class="textbox">
+                            <input type="text" name="cus_email" required />
+                            <span class="input_detail">Email</span>
                         </div>
                         <div class="textbox">
                             <input type="password" name="ur_pass" required />
@@ -77,17 +94,7 @@
         </div>
     </div>
 </body>
+<script src="../../js/checkForm.js"></script>
 <script src="../../js/login.js"></script>
-<?php
-if (isset($_GET['error']) && ($_GET['error'] == "faildSignup")) {
-    echo "<script type='text/javascript'>alert('Tài khoản đã tồn tại');</script>";
-} else if (isset($_GET['login']) && ($_GET['login'] == "FaildLogin")) {
-    echo "<script type='text/javascript'>alert('Tài khoản không chính xác');</script>";
-} else if (isset($_GET['error']) && ($_GET['error'] == "faildPass")) {
-    echo "<script type='text/javascript'>alert('Mật khẩu phải trên 8 ký tự');</script>";
-} else if (isset($_GET['error']) && ($_GET['error'] == "faildForgot")) {
-    echo "<script type='text/javascript'>alert('Mật khẩu không trùng khớp');</script>";
-}
-?>
 
 </html>

@@ -1,7 +1,6 @@
-@import "./base.css";
-@import "./header.css";
+@import "./style.css";
 @import "./Home.css";
-@import "./table.css";
+@import "./main.css";
 @import "./InfoUser.css";
 @import "./detialPost.css";
 @import "./post.css";

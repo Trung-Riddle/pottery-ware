@@ -51,8 +51,8 @@ if (isset($_GET["act"])) {
             break;
             //* COMMENT
         case 'comment':
-            $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment INNER JOIN  GROUP BY name_pro ORDER BY id DESC");
-            $cmt = selectAllDataDB("SELECT * FROM comment WHERE status_cmt = 1 ORDER BY id DESC LIMIT 0,10");
+            // $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment INNER JOIN  GROUP BY name_pro ORDER BY id DESC");
+            $cmt = selectAllDataDB("SELECT * FROM comment INNER JOIN user ON comment.cmt_id_user = user.ur_id INNER JOIN product ON comment.cmt_id_pro = product.prd_id WHERE cmt_status = 1 ORDER BY cmt_id DESC LIMIT 0,10");
             include_once("./layouts/comment/index.php");
             break;
         case 'searchCmt':
@@ -95,22 +95,31 @@ if (isset($_GET["act"])) {
             $cate = selectAllDataDB("SELECT * FROM category ORDER BY cate_id DESC");
             include_once("./layouts/category/index.php");
             break;
+        case 'formAddCategory':
+            include_once("./layouts/FormAddCategory/index.php");
+            break;
         case 'addCate':
             if (isset($_POST['addCate']) && ($_POST['addCate'])) {
-                $name_cate = $_POST['nameCate'];
-                $status_cate = $_POST['statusCate'];
-                $day_at = date("Y-m-d");
-                $sql = "INSERT INTO category (cate_name, cate_status, cate_day_at) VALUES ('$name_cate', '$status_cate', '$day_at')";
+                $cate_name = $_POST['cate_name'];
+                $cate_status = $_POST['cate_status'];
+                $day_add = date("Y-m-d");
+                $sql = "INSERT INTO category (cate_name, cate_status, cate_created_at) VALUES ('$cate_name', '$cate_status', '$day_add')";
                 addDataDB($sql);
-                header("location: {$_SERVER['PHP_SELF']}?act=category");
+                $link = $_SERVER['PHP_SELF'];
+                echo "<script>
+                    window.location = '$link?act=category'
+                </script>";
             }
             break;
         case 'deleteCate':
             if (isset($_GET['idCate'])) {
-                $id_cate = $_GET['idCate'];
-                $sql = "DELETE FROM category WHERE cate_id =" . $id_cate;
+                $cate_id = $_GET['idCate'];
+                $sql = "DELETE FROM category WHERE cate_id =" . $cate_id;
                 deleteDataDB($sql);
-                header("location: {$_SERVER['PHP_SELF']}?act=category");
+                $link = $_SERVER['PHP_SELF'];
+                echo "<script>
+                    window.location = '$link?act=category'
+                </script>";
             }
             break;
         case 'editCate':
@@ -136,25 +145,32 @@ if (isset($_GET["act"])) {
             $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id ORDER BY prd_id DESC");
             include_once("./layouts/product/index.php");
             break;
+        case 'formAddProduct':
+            $cate = selectAllDataDB("SELECT * FROM category");
+            include_once("./layouts/FormAddProduct/index.php");
+            break;
         case 'addPro':
-            if (isset($_POST['addPro']) && ($_POST['addPro'])) {
-                $name_pro = $_POST['namePro'];
-                $price_pro = $_POST['pricePro'];
-                $name_cate = $_POST['nameCate'];
-                foreach (selectOneDataDB("SELECT cate_id FROM category WHERE cate_name = '$name_cate'") as $value) {
-                    $id_cate = $value['cate_id'];
-                }
+            if (isset($_POST['addProduct']) && ($_POST['addProduct'])) {
+                $cate_id = $_POST['cate_id'];
+                $name_pro = $_POST['prd_name'];
+                $price_pro = $_POST['prd_price'];
+                $prd_del = $_POST['prd_del'];
+                $prd_status = $_POST['prd_status'];
+                $prd_description = $_POST['prd_description'];
                 $date_add = date("Y-m-d");
-                $img_pro = $_FILES['imgPro']['name'];
+                $img_pro = $_FILES['profileUpload']['name'];
                 $imgPath = "../upload/imgProduct/";
                 $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                move_uploaded_file($_FILES['imgPro']['tmp_name'], $target_file);
+                move_uploaded_file($_FILES['profileUpload']['tmp_name'], $target_file);
                 $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                 rename($target_file, $imgPath . $newImgPro);
-                $sql = "INSERT INTO product (prd_id_cate, prd_name, prd_price, prd_img, prd_day_at) VALUES ('$id_cate', '$name_pro', '$price_pro', '$newImgPro', '$date_add')";
+                $sql = "INSERT INTO product (prd_id_cate, prd_name, prd_price, prd_del, prd_status, prd_description, prd_img, prd_created_at) VALUES ('$cate_id', '$name_pro', '$price_pro', '$prd_del', '$prd_status', '$prd_description', '$newImgPro', '$date_add')";
                 addDataDB($sql);
-                header("location: {$_SERVER['PHP_SELF']}?act=product");
+                $link = $_SERVER['PHP_SELF'];
+                echo "<script>
+                    window.location = '$link?act=product'
+                </script>";
             }
             break;
         case 'editPro':
@@ -170,7 +186,6 @@ if (isset($_GET["act"])) {
                 $del = $_POST['delPro'];
                 $name_cate = $_POST['nameCate'];
                 $status_pro = $_POST['statusPro'];
-                $date_add = date("Y-m-d");
                 $detail_pro = $_POST['detailPro'];
                 $img_pro = $_FILES['imgPro']['name'];
                 if ($_FILES['imgPro']['name'] == null) {
@@ -187,7 +202,7 @@ if (isset($_GET["act"])) {
                     $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }
-                $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_day_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = " . $id_pro;
+                $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_created_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = " . $id_pro;
                 editDataDB($sqlEditPro);
                 $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
                 include_once("./layouts/product/index.php");
@@ -202,7 +217,10 @@ if (isset($_GET["act"])) {
                 if (file_exists($imgPathPro)) {
                     unlink($imgPathPro);
                 }
-                header("location: {$_SERVER['PHP_SELF']}?act=product");
+                $link = $_SERVER['PHP_SELF'];
+                echo "<script>
+                    window.location = '$link?act=product'
+                </script>";
             }
             break;
 
