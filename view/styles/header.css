@@ -429,11 +429,21 @@ a {
   flex-wrap: nowrap;
 } */
 .avt-main-menu {
-  min-width: 30px; 
+  min-width: 30px;
   min-height: 30px;
   width: 30px;
   height: 30px;
-  border-radius: 50%; 
-  object-fit:cover; 
+  border-radius: 50%;
+  object-fit: cover;
   display: inline !important;
+}
+.countCarts {
+  position: absolute;
+  top: -8px;
+  left: -13px;
+  background-color: red;
+  padding: 0 6px;
+  border-radius: 50%;
+  color: white;
+  font-size: 13px;
 }
