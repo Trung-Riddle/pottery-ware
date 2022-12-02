@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <div class="loading">
+        <img src="../../../asset/svg/pottery-1.1s-200px.svg" alt="">
+        <h3>Loading...</h3>
+    </div>
     <div class="filterError">
         <div class="boxError">
             <div class="textError">

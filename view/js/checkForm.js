@@ -106,6 +106,9 @@ if (document.getElementById("btnSubmitSignUp")) {
     if (error == true) {
       document.querySelector(".textError").innerHTML =
         checkUserName + checkEmail + checkPass + checkForgotPass;
+    } else {
+      var loading = document.querySelector(".loading");
+      loading.style.visibility = "visible";
     }
   };
 }
@@ -166,11 +169,14 @@ if (document.getElementById("submitForm")) {
     if (error == true) {
       document.querySelector(".textError").innerHTML =
         checkCode + checkEmail + checkPass + checkForgotPass;
+    } else {
+      var loading = document.querySelector(".loading");
+      loading.style.visibility = "visible";
     }
   };
 }
 
-//* Back error
+//* Remove error
 document.getElementById("backError").onclick = (e) => {
   e.preventDefault();
   var fillterError = document.querySelector(".filterError");
