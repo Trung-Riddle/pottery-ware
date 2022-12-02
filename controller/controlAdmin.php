@@ -17,6 +17,9 @@ if (isset($_GET["act"])) {
             $countPost = countPost();
             include_once("./layouts/posts/index.php");
             break;
+        case 'newPosts':
+            require_once("./layouts/NewPosts/index.php");
+            break;
         case 'deletePosts':
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
@@ -130,9 +133,9 @@ if (isset($_GET["act"])) {
                 include_once("./layouts/Category/index.php");
             }
             if (isset($_POST['editCate']) && ($_POST['editCate'])) {
-                $name_cate = $_POST['nameCate'];
-                $status_cate = $_POST['statusCate'];
-                $id_cate = $_POST['idCate'];
+                $name_cate = $_POST['cate_name'];
+                $status_cate = $_POST['cate_status'];
+                $id_cate = $_POST['cate_id'];
                 $sql = "UPDATE category SET cate_name = '" . $name_cate . "', cate_status = '" . $status_cate . "' WHERE cate_id = " . $id_cate;
                 editDataDB($sql);
                 $cate = selectOneDataDB("SELECT * FROM category WHERE cate_id = " . $id_cate);
@@ -181,14 +184,15 @@ if (isset($_GET["act"])) {
             }
             if (isset($_POST['editPro']) && ($_POST['editPro'])) {
                 $id_pro = $_POST['idPro'];
-                $name_pro = $_POST['namePro'];
-                $price_pro = $_POST['pricePro'];
-                $del = $_POST['delPro'];
-                $name_cate = $_POST['nameCate'];
-                $status_pro = $_POST['statusPro'];
-                $detail_pro = $_POST['detailPro'];
-                $img_pro = $_FILES['imgPro']['name'];
-                if ($_FILES['imgPro']['name'] == null) {
+                $name_pro = $_POST['prd_name'];
+                $price_pro = $_POST['prd_price'];
+                $del = $_POST['prd_del'];
+                $name_cate = $_POST['cate_id'];
+                $status_pro = $_POST['prd_status'];
+                $detail_pro = $_POST['prd_description'];
+                $img_pro = $_FILES['profileUpload']['name'];
+                $date_add = date("Y-m-d");
+                if ($_FILES['profileUpload']['name'] == null) {
                     $newImgPro = $_POST['nameImgPro'];
                 } else {
                     $imgPath = "../upload/imgProduct/";
@@ -198,7 +202,7 @@ if (isset($_GET["act"])) {
                     }
                     $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
                     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    move_uploaded_file($_FILES['imgPro']['tmp_name'], $target_file);
+                    move_uploaded_file($_FILES['profileUpload']['tmp_name'], $target_file);
                     $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
                     rename($target_file, $imgPath . $newImgPro);
                 }

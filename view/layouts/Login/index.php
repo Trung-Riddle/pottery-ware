@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="filterError">
-            <div class="boxError">
-                <div class="textError">
-                </div>
-                <a href="">Quay lại</a>
+    <div class="filterError">
+        <div class="boxError">
+            <div class="textError">
             </div>
+            <a href="" id="backError">Quay lại</a>
         </div>
+    </div>
+    <div class="container">
         <div class="app front">
             <div class="header">
                 <span class="info">Đăng Nhập</span>
@@ -36,7 +36,8 @@
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" id="pass" name="ur_pass" required />
+                            <input type="password" id="pass" name="ur_pass" pattern="[A-Za-z0-9!@#$%^&*?`].{6,}"
+                                required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                     </form>
@@ -50,7 +51,6 @@
                 </button>
             </div>
         </div>
-
         <div class="app back">
             <div class="header">
                 <span class="info">Đăng Ký</span>
@@ -70,24 +70,27 @@
                     </div>
                     <div class="_details">
                         <div class="textbox">
-                            <input type="text" name="ur_name" required />
+                            <input type="text" id="ur_name" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản</span>
                         </div>
                         <div class="textbox">
-                            <input type="text" name="cus_email" required />
+                            <input type="text" id="cus_email" name="cus_email" required />
                             <span class="input_detail">Email</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" name="ur_pass" required />
+                            <input type="password" id="ur_pass" name="ur_pass" pattern="[a-zA-z0-9!@#$%^&*?`].{6,}"
+                                required />
                             <span class="input_detail">Mật Khẩu</span>
                         </div>
                         <div class="textbox">
-                            <input type="password" name="forgot_pass" required />
+                            <input type="password" id="forgot_pass" name="forgot_pass"
+                                pattern="[a-zA-z0-9!@#$%^&*?`].{6,}" required />
                             <span class="input_detail">Nhập lại mật khẩu</span>
                         </div>
                     </div>
                 </form>
-                <button form="formSignup" class="btn login" type="submit" name="dangky" value="dangky">
+                <button form="formSignup" id="btnSubmitSignUp" class="btn login" type="submit" name="dangky"
+                    value="dangky">
                     Đăng Ký
                 </button>
             </div>

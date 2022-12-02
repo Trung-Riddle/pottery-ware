@@ -40,7 +40,6 @@
             </div>
             <div class="product-price"><?= $cart[3] ?></div>
             <div class="product-quantity">
-                <!-- <input type="number" value="<?= $cart[4] ?>" min="1"> -->
                 <div style="width: 60px; text-align: center;"><?= $cart[4] ?></div>
             </div>
             <div class="product-removal">

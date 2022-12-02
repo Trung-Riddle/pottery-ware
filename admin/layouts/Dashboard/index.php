@@ -1,4 +1,3 @@
-<body>
     <nav class="sidebar-admin active">
         <div class="logo_content">
             <div class="logo-admin">
@@ -96,7 +95,15 @@
                     <i class="fa-light fa-user"></i>
                     <i class="fa-light fa-bell" id="blink"></i>
                     <i class="fa-light fa-envelope" id="blink"></i>
-                    <i class="fa-light fa-arrow-right-from-bracket"></i>
+                    <a href="/" onclick="logoutAdmin(event)"><i class="fa-light fa-arrow-right-from-bracket"></i></a>
+                    <script>
+                    function logoutAdmin() {
+                        event.preventDefault()
+                        // alert("ahihi");
+                        document.cookie = "acc_allow=; expires=Thu; 01-Jan-70 00:00:01 GMT; path=/"
+                        location.reload()
+                    }
+                    </script>
                 </div>
             </div>
 
@@ -173,4 +180,3 @@
         });
     }
     </script>
-</body>

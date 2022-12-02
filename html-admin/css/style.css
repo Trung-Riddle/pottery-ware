@@ -274,10 +274,6 @@ body {
   color: #fff;
   padding: 0 35px;
   letter-spacing: 0.5px;
-  -webkit-transition: all 0.4s ease-out;
-  -moz-transition: all 0.4s ease-out;
-  -ms-transition: all 0.4s ease-out;
-  -o-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
 }
 .box-search-header input:focus {
@@ -498,6 +494,7 @@ th td:nth-child(2) {
 .name-cate {
   width: 350px !important;
 }
+
 tr td:nth-child(3),
 th td:nth-child(3) {
   width: 120px !important;
@@ -506,8 +503,15 @@ tr td:nth-child(4),
 th td:nth-child(4) {
   width: 340px !important;
 }
+tr td:nth-child(4).name-user,
+th td:nth-child(4).name-user {
+  width: 180px !important;
+}
+.control-w{
+  width: 130px !important;
+}
 .namesp {
-  width: 320px !important;
+  width: 300px !important;
   margin: 0 10px !important;
   white-space: nowrap !important;
   overflow: hidden !important;
@@ -548,7 +552,7 @@ th td:nth-child(4) {
   width: 20px;
   height: 20px;
   background: rgba(255, 253, 253, 0.2);
-  border-radius: 4px;
+  border-radius: 4px; 
 }
 .container-c:hover .checkmark-c {
   background: rgba(255, 253, 253, 0.3);
@@ -570,9 +574,11 @@ th td:nth-child(4) {
 .container-c input:checked ~ .checkmark-c {
   background: #764ba2;
 }
+.container-c input:checked ~ .checkmark-c:after{
+  display:block;
+}
 .name-th{
-     width: 320px !important;
-   
+     width: 300px !important;
 }
 
 .table-products{
@@ -1005,4 +1011,39 @@ th td:nth-child(4) {
   margin-top: 20px;
   font-size: 17px;
   text-align: center;
+}
+
+.flex-search-tool {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  
+}
+.flex-search-tool i{
+  position: absolute;
+  left: 10px;
+
+}
+.flex-search-tool input{
+  color: #fff ;
+  width: 340px;
+  height: 32px;
+  background: rgba(255, 253, 253, 0.2);
+  border-radius: 4px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 253, 253, 0.3);
+  outline: none;
+  padding: 0 35px;
+  letter-spacing: 0.5px;
+}
+.flex-search-tool input:focus {
+  box-shadow: rgba(44, 142, 233, 0.35) 0px -43px 26px -22px inset,
+    rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+.flex-search-tool input::-webkit-input-placeholder{
+  color: rgba(255, 255, 255, 0.734);
 }

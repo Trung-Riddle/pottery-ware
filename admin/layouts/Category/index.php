@@ -14,20 +14,6 @@
         </p>
     </div>
     <div class="container">
-        <!-- <?php if (isset($_GET['act']) && ($_GET['act'] == "category")) {?>
-        <div class="formAddCate">
-            <form action="<?= $_SERVER['PHP_SELF'] ?>?act=addCate" method="post">
-                <label for="nameCate">Tên danh mục</label>
-                <input type="text" id="nameCate" name="nameCate" maxlength="100" required>
-                <label for="statusCate">Trạng thái</label>
-                <select name="statusCate" id="statusCate">
-                    <option value="1">Hoạt động</option>
-                    <option value="0">Không hoạt động</option>
-                </select>
-                <button type="submit" name="addCate" value="addCate">Thêm danh mục</button>
-            </form>
-        </div>
-        <?php } ?> -->
         <div class="wrapperTableCate table">
             <table>
                 <thead>
@@ -62,9 +48,20 @@
                                 }
                             ?>
                             </span></td>
-                        <td><a href="<?= $_SERVER['PHP_SELF'] ?>?act=deleteCate&idCate=<?= $value['cate_id'] ?>"><i
-                                    class="fa-solid fa-trash-can trash trash-custom-ad"></i></a>&nbsp; <a href="#"><i
-                                    class="fa-solid fa-pen-to-square pen-custom-ad"></i></a></td>
+                        <td>
+                            <?php if(isset($_GET['act']) && ($_GET['act'] == "editCate")) { ?>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?act=category">
+                                Xong
+                            </a>
+                            <?php } else { ?>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?act=deleteCate&idCate=<?= $value['cate_id'] ?>">
+                                <i class="fa-solid fa-trash-can trash trash-custom-ad"></i>
+                            </a>&nbsp;
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?act=editCate&idCate=<?= $value['cate_id'] ?>">
+                                <i class="fa-solid fa-pen-to-square pen-custom-ad"></i>
+                            </a>
+                            <?php } ?>
+                        </td>
                     </tr>
                     <?php } ?>
                 </tbody>
@@ -80,21 +77,31 @@
                 $selectedUnactive = "selected";
             }    
         ?>
-        <!-- <?php if (isset($_GET['act']) && ($_GET['act'] == "editCate")) {?>
-        <div class="formEditCate">
-            <form action="<?= $_SERVER['PHP_SELF'] ?>?act=editCate" method="post">
-                <input type="hidden" name="idCate" value="<?= $cate[0]['cate_id'] ?>">
-                <label for="nameCate">Tên danh mục</label>
-                <input type="text" id="nameCate" name="nameCate" maxlength="100" value="<?= $cate[0]['cate_name'] ?>"
-                    required>
-                <label for="statusCate">Trạng thái</label>
-                <select name="statusCate" id="statusCate">
-                    <option value="0" <?= $selectedUnactive ?>>Không hoạt động</option>
-                    <option value="1" <?= $selectedActive ?>>Hoạt động</option>
-                </select>
-                <button type="submit" name="editCate" value="editCate">Sửa danh mục</button>
-            </form>
-        </div>
-        <?php } ?> -->
+        <?php if (isset($_GET['act']) && ($_GET['act'] == "editCate")) {?>
+        <form action="<?= $_SERVER['PHP_SELF'] ?>?act=editCate" class="form-addproduct" method="post"
+            enctype="multipart/form-data">
+            <h2 class="neon-purple" id="trav">Sửa Danh Mục Sản Phẩm</h2>
+            <input type="hidden" name="cate_id" value="<?= $cate[0]['cate_id'] ?>">
+            <div class="flex-form-row-3">
+                <div class="form-group-ad-3">
+                    <label for="cat-sta">Trạng Thái</label>
+                    <select name="cate_status" id="cate-sta">
+                        <option value="">-- Chọn Trạng Thái --</option>
+                        <option value="1" <?= $selectedActive ?>>Còn hàng</option>
+                        <option value="0" <?= $selectedUnactive ?>>Hết hàng</option>
+                    </select>
+                </div>
+                <div class="form-group-ad-3">
+                    <label for="name-category">Tên Danh Mục *</label>
+                    <input type="text" id="name-category" name="cate_name" value="<?= $cate[0]['cate_name'] ?>" />
+                </div>
+                <div class="form-group-ad">
+                    <button class="submitbtn-ad my-5" type="submit" name="editCate" value="editCate">
+                        Sửa Danh Mục
+                    </button>
+                </div>
+            </div>
+        </form>
+        <?php } ?>
     </div>
 </div>
