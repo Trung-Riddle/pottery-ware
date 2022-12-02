@@ -48,29 +48,13 @@ if (isset($_GET["page"])) {
             include_once("./view/layouts/DetailProduct/index.php");
             break;
 
-<<<<<<< HEAD
-            case 'news':
-                echo "news";
-                break;
-            
-            case 'comment':
-                if((isset($_POST["submitCmt"])) && ($_POST["submitCmt"])){
-                    $cmt_id_user = substr($_POST["idUser"], 4);
-                    $cmt_id_pro = $_POST["idPro"];
-                    $cmt_content = $_POST["cmtContent"];
-                    $cmt_created_at = date("Y-m-d");
-                    $backPage = $_POST["backPage"];
-                    $sql = "INSERT INTO comment (cmt_id_user, cmt_id_pro, cmt_content, cmt_created_at) VALUES ($cmt_id_user, '$cmt_id_pro', '$cmt_content', '$cmt_created_at')";
-                    addDataDB($sql);
-                    echo"<script>
-=======
         case 'news':
             echo "news";
             break;
 
         case 'comment':
             if ((isset($_POST["submitCmt"])) && ($_POST["submitCmt"])) {
-                $cmt_id_user = $_POST["idUser"];
+                $cmt_id_user = substr($_POST["idUser"], 4);
                 $cmt_id_pro = $_POST["idPro"];
                 $cmt_content = $_POST["cmtContent"];
                 $cmt_created_at = date("Y-m-d");
@@ -78,7 +62,6 @@ if (isset($_GET["page"])) {
                 $sql = "INSERT INTO comment (cmt_id_user, cmt_id_pro, cmt_content, cmt_created_at) VALUES ($cmt_id_user, '$cmt_id_pro', '$cmt_content', '$cmt_created_at')";
                 addDataDB($sql);
                 echo "<script>
->>>>>>> 1afb3a987a6483f7e842fa54f0af17a83fbde3f0
                     window.history.go(-1);
                     </script>";
             }
@@ -141,55 +124,46 @@ if (isset($_GET["page"])) {
                 } else {
                     echo "<script> window.location = '" . $_SERVER['PHP_SELF'] . "?page=product' </script>";
                 }
-<<<<<<< HEAD
                 break;
-            
+            }
             //* Thông tin khách hàng
-            case 'profile':
-                if($ur_role == 0){
-                    $role = "Khách hàng";
-                }
-                require_once("./view/layouts/Profile/index.php");
-                break;
-            case 'editProfile':
-                if(isset($_POST['updateProfile']) && ($_POST['updateProfile'])){
-                    $ur_name = $_POST['ur_name'];
-                    $cus_email = $_POST['cus_email'];
-                    $cus_address = $_POST['cus_address'];
-                    $cus_name = $_POST['cus_name'];
-                    $cus_phone = $_POST['cus_phone'];
-                    
-                    $sql = "UPDATE user INNER JOIN customer ON user.ur_id = customer.cus_id_user SET ur_name = '$ur_name', cus_email = '$cus_email', cus_address = '$cus_address', cus_name = '$cus_name', cus_phone = '$cus_phone' WHERE ur_id = '$ur_id'";
-                    editDataDB($sql);
-                    $backPage = $_SERVER['HTTP_REFERER'];
-                    echo "<script>
+        case 'profile':
+            if ($ur_role == 0) {
+                $role = "Khách hàng";
+            }
+            require_once("./view/layouts/Profile/index.php");
+            break;
+        case 'editProfile':
+            if (isset($_POST['updateProfile']) && ($_POST['updateProfile'])) {
+                $ur_name = $_POST['ur_name'];
+                $cus_email = $_POST['cus_email'];
+                $cus_address = $_POST['cus_address'];
+                $cus_name = $_POST['cus_name'];
+                $cus_phone = $_POST['cus_phone'];
+
+                $sql = "UPDATE user INNER JOIN customer ON user.ur_id = customer.cus_id_user SET ur_name = '$ur_name', cus_email = '$cus_email', cus_address = '$cus_address', cus_name = '$cus_name', cus_phone = '$cus_phone' WHERE ur_id = '$ur_id'";
+                editDataDB($sql);
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
                         window.location = '$backPage'
                     </script>";
-                }
-                break;
-            case 'handleChangePass':
-                if(isset($_POST['changePass']) && ($_POST['changePass'])){
-                    $oldPass = $_POST['ur_pass'];
-                    $checkPassUser = countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_pass = '$oldPass'");
-                    if($checkPassUser == 1){
-                        $newPass = $_POST['new_pass'];
-                        $confirmNewPass = $_POST['confirm_new_pass'];
-                        if($newPass == $confirmNewPass){
-                            editDataDB("UPDATE user SET ur_pass = '$confirmNewPass' WHERE ur_id = '$ur_id' AND ur_pass = '$oldPass'");
-                            $backPage = $_SERVER['PHP_SELF']."?page=profile";
-                            echo "<script>
+            }
+            break;
+        case 'handleChangePass':
+            if (isset($_POST['changePass']) && ($_POST['changePass'])) {
+                $oldPass = $_POST['ur_pass'];
+                $checkPassUser = countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_pass = '$oldPass'");
+                if ($checkPassUser == 1) {
+                    $newPass = $_POST['new_pass'];
+                    $confirmNewPass = $_POST['confirm_new_pass'];
+                    if ($newPass == $confirmNewPass) {
+                        editDataDB("UPDATE user SET ur_pass = '$confirmNewPass' WHERE ur_id = '$ur_id' AND ur_pass = '$oldPass'");
+                        $backPage = $_SERVER['PHP_SELF'] . "?page=profile";
+                        echo "<script>
                                 window.location = '$backPage'
                             </script>";
-                        }
                     }
                 }
-                break;
-            default:
-                # code...
-                break;
-        }
-}else{
-=======
             }
             break;
         default:
@@ -197,7 +171,6 @@ if (isset($_GET["page"])) {
             break;
     }
 } else {
->>>>>>> 1afb3a987a6483f7e842fa54f0af17a83fbde3f0
     include_once("./view/layouts/Banner/index.php");
     include_once("./view/layouts/MainHome/index.php");
 }
