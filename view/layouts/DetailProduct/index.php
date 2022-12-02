@@ -109,19 +109,7 @@
             </div>
         </div>
         <div class="product-all-info">
-            <!-- about -->
-            <div class="about">
-                <a class="bg_links social portfolio" href="" target="_blank">
-                    <span class="icon"></span>
-                </a>
-                <a class="bg_links social dribbble" href="" target="_blank">
-                    <span class="icon"></span>
-                </a>
-                <a class="bg_links social linkedin" href="" target="_blank">
-                    <span class="icon"></span>
-                </a>
-                <a class="bg_links logo"></a>
-            </div>
+            
             <!-- end about -->
 
             <section id="wrapper">

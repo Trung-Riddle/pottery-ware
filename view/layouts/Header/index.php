@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row-2 v-center">
             <div class="header-item item-left">
-                <div class="logo">
+                <div class="logo1">
                     <a href="<?= $_SERVER['PHP_SELF'] ?>">
                         <img src="./view/image/amphora.png" alt="pottery ware">
                         <span>Pottery ware</span>
@@ -129,12 +129,11 @@
                         </li>
                         <?php if(isset($_COOKIE['ur_id']) && ($ur_id == substr($_COOKIE['ur_id'], 4))) { ?>
                         <li id="isLogin" class="menu-item-has-children"
-                            style="border: 2px solid #edb2a0; padding: 0 10px">
-                            <a href="" style="color: #edb2a0; margin-right: 1rem;">
+                            style="padding: 0 10px">
+                            <a href="" style="color: #edb2a0;">
                                 <?= $ur_name ?>
                             </a>
-                            <img src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar user" width="30px" height="30px"
-                                style="border-radius: 50%;">
+                            <img class="avt-main-menu" src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar" >
                             <div class="sub-menu single-column-menu">
                                 <ul>
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">

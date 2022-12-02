@@ -21,3 +21,6 @@ html, body{
     --color-tertiary : #967166;
     --bg-style: #f5efe683;
 }
+.color-text{
+    color: var(--color-text-detail);
+}
