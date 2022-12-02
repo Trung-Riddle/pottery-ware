@@ -1,0 +1,13 @@
+.containerUser
+{
+    padding: 1rem;
+}
+.containerUser span
+{
+    color: #fff;
+}
+.containerUser table tr td img
+{
+    width: 80%;
+
+}

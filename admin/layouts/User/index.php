@@ -29,6 +29,7 @@
                 $ur_role = "<p style = 'color : red;'>Quản trị</p>";
             }
             ?>
+<<<<<<< HEAD
         <?php $index++ ?>
         <tr>
             <td><?= $index ?></td>
@@ -44,6 +45,20 @@
                     tiết</a>
             </td>
         </tr>
+=======
+            <?php $index++ ?>
+            <tr>
+                <td><?= $index ?></td>
+                <td><?= $User['ur_name'] ?></td>
+                <td><img src="./.././upload/avatar/<?= $User['ur_avatar'] ?>" alt="avatar" style="border-radius: 0.3rem;"></td>
+                <td><?= $ur_status ?></td>
+                <td><?= $ur_role ?></td>
+                <td style="display: flex; justify-content: center;">
+                    <a class="btnDelete" href="<?= $_SERVER['PHP_SELF'] . "?act=deleteUser&ur_id=" . $User['ur_id'] ?>"> Xóa </a> <br>
+                    <a class="btnDetail" href="<?= $_SERVER['PHP_SELF'] . "?act=infoUser&ur_id=" . $User['ur_id'] ?>">Chi tiết</a>
+                </td>
+            </tr>
+>>>>>>> 1afb3a987a6483f7e842fa54f0af17a83fbde3f0
         <?php } ?>
     </table>
 </div>
