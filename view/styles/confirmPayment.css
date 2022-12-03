@@ -23,7 +23,7 @@
 .tick-confirm img {
   width: 120px;
   height: 120px;
-  animation: tickAround 0.5s ease-in-out 0.5s backwards;
+  animation: tickAround 0.5s ease-in-out 0.2s backwards;
 }
 @keyframes tickAround {
   0% {
