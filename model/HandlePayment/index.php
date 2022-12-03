@@ -42,6 +42,8 @@
             );
         }
 
+        unset($_SESSION['carts']);
+
         $payment = "";
         if($ord_payment == 0){
             $payment = "Thanh toán khi nhận hàng";
