@@ -20,22 +20,22 @@
                     <div class="row">
                         <div class="form-group col-12 mb-4">
                             <label for="">Họ và tên</label>
-                            <input type="text" name="ord_cus_name" class="form-control" placeholder="Họ và tên *"
-                                value="<?= $cus_name ?>">
+                            <input type="text" id="ord_cus_name" name="ord_cus_name" class="form-control"
+                                placeholder="Họ và tên *" value="<?= $cus_name ?>">
                         </div>
                         <div class="form-group col-6">
                             <label for="">Email</label>
-                            <input type="email" name="ord_email" class="form-control" placeholder="email *"
-                                value="<?= $cus_email ?>">
+                            <input type="email" id="ord_email" name="ord_email" class="form-control"
+                                placeholder="email *" value="<?= $cus_email ?>">
                         </div>
                         <div class="form-group col-6">
                             <label for="">Số điên thoại</label>
-                            <input type="text" name="ord_phone" class="form-control" placeholder="số điện thoại *"
+                            <input type="text" id="ord_phone" name="ord_phone" class="form-control" placeholder="số điện thoại *"
                                 value="<?= $cus_phone ?>">
                         </div>
                         <div class="form-group mt-4">
                             <label for="">Địa chỉ</label>
-                            <input type="text" name="ord_address" class="form-control" placeholder="Địa chỉ cụ thể *"
+                            <input type="text" id="ord_address" name="ord_address" class="form-control" placeholder="Địa chỉ cụ thể *"
                                 value="<?= $cus_address ?>">
                         </div>
                         <div class="form-group mt-4">
@@ -84,11 +84,6 @@
                                 <button type="submit" name="submitOrder" value="submitOrder" class="now-cart">Đặt hàng
                                     &nbsp;<i class="fa-light fa-chevrons-right"></i></button>
                             </div>
-                            <script>
-                            document.querySelector(".now-cart").onclick = () => {
-                                document.querySelector(".loading").style.visibility = "visible"
-                            }
-                            </script>
                         </div>
                     </div>
                 </form>
@@ -142,3 +137,4 @@
         </div>
     </div>
 </div>
+<script src="./view/js/checkForm.js"></script>
