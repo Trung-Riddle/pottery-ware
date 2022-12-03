@@ -165,6 +165,19 @@ if (isset($_GET["page"])) {
                     }
                 }
                 break;
+            case 'detailPayment':
+                $ur_id = substr($_COOKIE['ur_id'], 4);
+                $user = selectOneDataDB("SELECT * FROM user INNER JOIN customer ON user.ur_id = customer.cus_id_user WHERE ur_id = $ur_id");
+                foreach($user as $value){
+                    extract($value);
+                }
+                require_once("./view/layouts/DetailPayment/index.php");
+                break;
+            case 'order':
+                if(isset($_GET['code']) && isset($_COOKIE['ur_id'])){
+                    require_once("./view/layouts/ConfirmPayment/index.php");
+                }
+                break;
             default:
                 # code...
                 break;

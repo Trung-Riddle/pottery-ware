@@ -28,7 +28,7 @@
                 $totalCart = $cart[3] * $cart[4];
                 $total += $totalCart;
                 $tax = $total * 5 / 100;
-                $totalAll = $total + $tax + 15000;
+                $totalAll = $total + $tax + 30000;
         ?>
         <div class="product">
             <div class="product-image">
@@ -50,7 +50,7 @@
             </div>
             <div class="product-line-price"><?= $totalCart ?></div>
         </div>
-        <?php $index++; } } ?>
+        <?php $index++; } } if(isset($_COOKIE['ur_id']) && ($_COOKIE != "") && (isset($_SESSION['carts'])) && (count($_SESSION['carts']) > 0)) {?>
         <div class="totals">
             <div class="totals-item">
                 <label>Tổng Giá Sản Phẩm</label>
@@ -66,7 +66,7 @@
             </div>
             <div class="totals-item">
                 <label>Phí Ship</label>
-                <div class="totals-value" id="cart-shipping">15.000</div>
+                <div class="totals-value" id="cart-shipping">30.000 </div>
             </div>
             <div class="totals-item totals-item-total">
                 <label>Tổng Tất Cả</label>
@@ -75,8 +75,15 @@
                 </div>
             </div>
         </div>
-
         <button class="checkout"><i class="fa-duotone fa-credit-card"></i> &nbsp; Thanh Toán</button>
-
+        <script>
+        var btnCheckout = document.querySelector(".checkout")
+        btnCheckout.onclick = () => {
+            location.href = "<?= $_SERVER['PHP_SELF'] ?>?page=detailPayment"
+        }
+        </script>
+        <?php } else {?>
+        <h3 style="display: block; margin: 0 auto; width: max-content;">Không có sản phẩm</h3>
+        <?php } ?>
     </div>
 </div>

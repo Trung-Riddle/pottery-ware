@@ -16,11 +16,12 @@ a {
 .header {
   display: block;
   width: 100%;
-  position: relative;
+  position: fixed;
   top: 0;
   z-index: 9999;
   background-color: white;
   padding: 15px;
+  transition: all 0.5s;
 }
 .header .item-left {
   flex: 0 0 18%;
@@ -429,11 +430,21 @@ a {
   flex-wrap: nowrap;
 } */
 .avt-main-menu {
-  min-width: 30px; 
+  min-width: 30px;
   min-height: 30px;
   width: 30px;
   height: 30px;
-  border-radius: 50%; 
-  object-fit:cover; 
+  border-radius: 50%;
+  object-fit: cover;
   display: inline !important;
+}
+.countCarts {
+  position: absolute;
+  top: -8px;
+  left: -13px;
+  background-color: red;
+  padding: 0 6px;
+  border-radius: 50%;
+  color: white;
+  font-size: 13px;
 }
