@@ -110,9 +110,9 @@
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
-                                    <li><a href="#">Tin Mới Nhất</a></li>
-                                    <li><a href="#">Tin Nổi Bật</a></li>
-                                    <li><a href="#">Nghệ Thuật làm gốm</a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=news#New_posts">Tin Mới Nhất</a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=news#nb_posts">Tin Nổi Bật</a></li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=news#nb_posts">Nghệ Thuật làm gốm</a></li>
                                 </ul>
                             </div>
                         </li>

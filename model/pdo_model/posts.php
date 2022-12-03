@@ -23,27 +23,27 @@ function getOnePost($pts_id)
 }
 
 // Insert posts
-function addPost($pts_img, $contentSecond_post, $img_post, $imgSecond_post)
+function addPost($pts_img, $pts_title, $pts_contents)
 {
     $conn = connect_db();
-    $sql = "INSERT INTO posts (id, title_post,content_post,contentSecond_post,img_post,imgSecond_post,date_add)
-  VALUES ('$id', '$title_post', '$content_post','$contentSecond_post', '$img_post','$imgSecond_post',now()";
+    $sql = "INSERT INTO posts (pts_title,pts_contents,pts_img,pts_created_at)
+  VALUES ( '$pts_title', '$pts_contents','$pts_img',now()";
     $conn->exec($sql);
 }
 
 // Delete posts
-function deletePost($id)
+function deletePost($pts_id)
 {
     $conn = connect_db();
-    $sql = "DELETE FROM posts WHERE id =" . $id;
+    $sql = "DELETE FROM posts WHERE pts_id =" . $pts_id;
     $conn->exec($sql);
 }
 
 // Update posts
-function updatePost($id, $title_post, $content_post, $img_post)
+function updatePost($pts_id, $pts_title, $pts_contents, $pts_img)
 {
     $conn = connect_db();
-    $sql = "UPDATE posts SET id='" . $id . "', title_post='" . $title_post . "', content_post='" . $content_post . "',img_post='" . $img_post . "'WHERE id=" . $id;
+    $sql = "UPDATE posts SET pts_id='" . $pts_id . "', pts_title='" . $pts_title . "', pts_contents='" . $pts_contents . "',pts_img='" . $pts_img . "'WHERE pts_id=" . $pts_id;
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }

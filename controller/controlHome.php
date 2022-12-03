@@ -49,7 +49,7 @@ if (isset($_GET["page"])) {
             break;
 
         case 'news':
-            echo "news";
+            include_once("./view/layouts/News/index.php");
             break;
 
         case 'comment':
@@ -171,6 +171,7 @@ if (isset($_GET["page"])) {
             break;
     }
 } else {
+    $banner = getAllBanner();
     include_once("./view/layouts/Banner/index.php");
     include_once("./view/layouts/MainHome/index.php");
 }

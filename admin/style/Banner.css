@@ -1,0 +1,74 @@
+.banner_conteiner {
+    width: 80%;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 1rem;
+    margin: auto;
+}
+
+.Banner1 {
+    backdrop-filter: blur(10rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    gap: 1rem;
+    border: 0.01rem solid #fff;
+}
+
+.Banner1 h2 {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.Banner1 input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 0.01rem solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.Banner1 input::placeholder {
+    color: #fff;
+}
+
+.Banner1 label {
+    position: relative;
+    cursor: pointer;
+    height: 10rem;
+    width: 100%;
+    border: 0.01rem solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.Banner1 label img {
+    width: 100%;
+}
+
+.Banner1 label ion-icon {
+    position: absolute;
+    color: #fff;
+    font-size: 1.8rem;
+    z-index: 1;
+}
+
+.btnbanner {
+    padding: 0.3rem 1rem;
+    border: 0.01rem solid #fff;
+    background: transparent;
+    color: #fff;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.btnbanner:hover {
+    background: #fff;
+    color: #000;
+}
