@@ -16,31 +16,32 @@
                         href="#">Thông Tin Thanh Toán</a>&nbsp; <i class="fa-light fa-chevron-right"></i> &nbsp;<a
                         href="">Thanh Toán</a>
                 </div>
-                <form action="" class="form-payment">
+                <form action="./model/HandlePayment/index.php" class="form-payment" method="post">
                     <div class="row">
                         <div class="form-group col-12 mb-4">
                             <label for="">Họ và tên</label>
-                            <input type="text" class="form-control" placeholder="Họ và tên *" value="<?= $cus_name ?>">
+                            <input type="text" name="ord_cus_name" class="form-control" placeholder="Họ và tên *"
+                                value="<?= $cus_name ?>">
                         </div>
                         <div class="form-group col-6">
                             <label for="">Email</label>
-                            <input type="email" class="form-control" placeholder="email *" value="<?= $cus_email ?>">
+                            <input type="email" name="ord_email" class="form-control" placeholder="email *"
+                                value="<?= $cus_email ?>">
                         </div>
                         <div class="form-group col-6">
                             <label for="">Số điên thoại</label>
-                            <input type="text" class="form-control" placeholder="số điện thoại *"
+                            <input type="text" name="ord_phone" class="form-control" placeholder="số điện thoại *"
                                 value="<?= $cus_phone ?>">
                         </div>
                         <div class="form-group mt-4">
                             <label for="">Địa chỉ</label>
-                            <input type="text" class="form-control" placeholder="Địa chỉ cụ thể *"
+                            <input type="text" name="ord_address" class="form-control" placeholder="Địa chỉ cụ thể *"
                                 value="<?= $cus_address ?>">
                         </div>
                         <div class="form-group mt-4">
                             <label for="">Phương thức thanh toán</label>
                             <!-- <input type="text" class="form-control" placeholder="Phương thức thanh toán *"> -->
-                            <select name="" id="payment-method" class="form-control">
-                                <option value="">--- Phương thức thanh toán ---</option>
+                            <select name="ord_payment" id="payment-method" class="form-control">
                                 <option value="0">Thanh toán khi nhận hàng</option>
                                 <option value="1">Thanh toán qua MOMO</option>
                                 <option value="2">Thanh toán qua ngân hàng</option>
@@ -80,9 +81,14 @@
                                 <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" class="back-to-buy"> <i
                                         class="fa-light fa-chevrons-left"></i>&nbsp; Quay
                                     lại giỏ hàng </a>
-                                <button type="submit" class="now-cart">Đặt hàng &nbsp;<i
-                                        class="fa-light fa-chevrons-right"></i></button>
+                                <button type="submit" name="submitOrder" value="submitOrder" class="now-cart">Đặt hàng
+                                    &nbsp;<i class="fa-light fa-chevrons-right"></i></button>
                             </div>
+                            <script>
+                            document.querySelector(".now-cart").onclick = () => {
+                                document.querySelector(".loading").style.visibility = "visible"
+                            }
+                            </script>
                         </div>
                     </div>
                 </form>

@@ -95,10 +95,10 @@ function openTabs(el) {
   btnTarget.classList.add("active");
 }
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 0) {
-    document.querySelector(".header").style.position = "fixed";
-  } else {
-    document.querySelector(".header").style.position = "relative";
-  }
-});
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY > 0) {
+//     document.querySelector(".header").style.position = "fixed";
+//   } else {
+//     document.querySelector(".header").style.position = "relative";
+//   }
+// });

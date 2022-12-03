@@ -173,6 +173,11 @@ if (isset($_GET["page"])) {
                 }
                 require_once("./view/layouts/DetailPayment/index.php");
                 break;
+            case 'order':
+                if(isset($_GET['code']) && isset($_COOKIE['ur_id'])){
+                    require_once("./view/layouts/ConfirmPayment/index.php");
+                }
+                break;
             default:
                 # code...
                 break;

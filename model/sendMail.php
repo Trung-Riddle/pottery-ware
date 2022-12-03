@@ -71,4 +71,27 @@
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
+
+    function sendMail($title, $content, $email, $user_name){
+        $mail = new PHPMailer(true);
+        try {
+            $mail->SMTPDebug = 0; //SMTP::DEBUG_SERVER
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.gmail.com';
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'nhatvichung@gmail.com'; 
+            $mail->Password   = 'joczgpqkblyabbvp';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
+            $mail->setFrom('nhatvichung@gmail.com', 'Pettery Ware');
+            $mail->addAddress($email, $user_name);
+            $mail->isHTML(true);
+            $mail->Subject = $title;
+            $mail->Body    = $content;
+            $mail->send();
+            // echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
 ?>
