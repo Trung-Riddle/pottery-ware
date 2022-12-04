@@ -139,23 +139,25 @@
           </div>
         </div>
         <div class="tool-add-form glow">
-            <span class="text"
+          <span class="text"
             ><a href="./table-add-product.html"
               ><i class="fa-light fa-square-chevron-left"></i>&nbsp; Quay lại</a
-            ></span>
+            ></span
+          >
           <span class="text"
             ><a href="./table-add-product.html"
               ><i class="fa-brands fa-jedi-order"></i>&nbsp; Đơn hàng đã giao</a
-            ></span>
+            ></span
+          >
           <span class="text"
             ><a href="./table-add-product.html"
-              ><i class="fa-brands fa-first-order"></i>&nbsp; Đơn hàng đang giao</a
-            ></span>
-          
+              ><i class="fa-brands fa-first-order"></i>&nbsp; Đơn hàng đang
+              giao</a
+            ></span
+          >
         </div>
 
         <div style="overflow-x: auto">
-            
           <table>
             <thead>
               <tr>
@@ -166,7 +168,7 @@
                   </label>
                 </th>
                 <th class="masp" colspan="1">ID</th>
-                <th colspan="">Hình Ảnh</th>
+                <th colspan="">Mã đơn hàng</th>
                 <th colspan="order-th">Thông tin đơn hàng</th>
                 <th colspan="">Tổng thanh toán</th>
                 <th colspan="">Trạng Thái</th>
@@ -182,45 +184,52 @@
                   </label>
                 </td>
                 <td colspan="1" class="masp">12</td>
-                <td>
-                  <img
-                    style="
-                      width: 56px;
-                      object-fit: cover;
-                      border-radius: 4px;
-                      box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
-                        rgba(17, 17, 26, 0.1) 0px 0px 8px;
-                      object-position: center;
-                    "
-                    src="../asset/image/binhHoa/h2.jpg"
-                    height="56px"
-                    alt=""
-                  />
+                <td id="shadow">
+                  <h5 class="" id="">Ps25251</h5>
                 </td>
                 <td>
-                  <p class="order">
-                    <p>Bình hoa quý sờ tộc cao cấp balan</p>
+                  <div class="order-2">
+                    <p class="">Bình hoa quý sờ tộc cao cấp balan</p>
                     <p>Tên khách hàng: <span>hacker</span></p>
                     <p>SĐT: <span>0377663340</span></p>
                     <p>Email: <span>trung@gmail.com</span></p>
-                    <p>ĐC: <span>tổ 3, khu phố 6, thị trấn Chơn Thành, huyện Chơn Thành, tỉnh Bình Phước</span></p>
+                    <p>
+                      ĐC:
+                      <span
+                        >tổ 3, khu phố 6, thị trấn Chơn Thành, huyện Chơn Thành,
+                        tỉnh Bình Phước</span
+                      >
+                    </p>
                     <p>Thanh toán momo</p>
-                  </p>
+                  </div>
                 </td>
                 <td>920,000đ</td>
-                <td id="shadow"><span class="text-pink" id="">Chờ xác nhận</span></td>
+                <td id="">
+                  <span class="text-pink" id="">Chờ xác nhận</span>
+                </td>
                 <td>
-                  <a href="#"
-                    ><i
-                      class="fa-solid fa-trash-can trash trash-custom-ad"
-                    ></i></a
-                  >&nbsp;
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square pen-custom-ad"></i
-                  ></a>
+                  <p class="show-option">
+                    <select name="" id="">
+                      <option value="10">Chờ xác nhận</option>
+                      <option value="20">Đã xác nhận</option>
+                      <option value="30">Đang giao hàng</option>
+                      <option value="40">Giao hàng thành công</option>
+                    </select>
+                  </p>
+                  <br />
+                  <br />
+                  <span>
+                    <a href="#"
+                      ><i
+                        class="fa-solid fa-pen-to-square pen-custom-ad"
+                      ></i></a
+                    >&nbsp;
+                    <a href="#"
+                      ><i class="fa-solid fa-square-info trash-custom-ad"></i
+                    ></a>
+                  </span>
                 </td>
               </tr>
-             
             </tbody>
           </table>
         </div>
@@ -276,7 +285,6 @@
       }
     </script>
     <script>
-     
       jQuery(function () {
         jQuery(".trash").click(function () {
           swal({
@@ -299,6 +307,5 @@
         e.stopImmediatePropagation();
       });
     </script>
-    
   </body>
 </html>

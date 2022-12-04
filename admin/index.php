@@ -21,6 +21,10 @@
 </head>
 
 <body>
+    <div class="loading">
+        <img src="../asset/svg/pottery-1.1s-200px.svg" alt="">
+        <h3>Loading...</h3>
+    </div>
     <?php
         if(isset($_COOKIE['acc_allow']) && ($_COOKIE['acc_allow'] == sha1("allowacc"))){
             include_once("../model/index.php");

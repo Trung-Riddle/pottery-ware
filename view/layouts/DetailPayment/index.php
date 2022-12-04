@@ -30,13 +30,13 @@
                         </div>
                         <div class="form-group col-6">
                             <label for="">Số điên thoại</label>
-                            <input type="text" id="ord_phone" name="ord_phone" class="form-control" placeholder="số điện thoại *"
-                                value="<?= $cus_phone ?>">
+                            <input type="text" id="ord_phone" name="ord_phone" class="form-control"
+                                placeholder="số điện thoại *" value="<?= $cus_phone ?>">
                         </div>
                         <div class="form-group mt-4">
                             <label for="">Địa chỉ</label>
-                            <input type="text" id="ord_address" name="ord_address" class="form-control" placeholder="Địa chỉ cụ thể *"
-                                value="<?= $cus_address ?>">
+                            <input type="text" id="ord_address" name="ord_address" class="form-control"
+                                placeholder="Địa chỉ cụ thể *" value="<?= $cus_address ?>">
                         </div>
                         <div class="form-group mt-4">
                             <label for="">Phương thức thanh toán</label>
@@ -137,4 +137,3 @@
         </div>
     </div>
 </div>
-<script src="./view/js/checkForm.js"></script>

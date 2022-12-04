@@ -437,7 +437,7 @@ body {
   padding: 0;
 }
 .show-option select {
-  width: 120px;
+  text-align: center;
   border-radius: 8px;
   box-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 20px #0ba9ca, 0 0 30px #0ba9ca,
     0 0 40px #0ba9ca, 0 0 50px #0ba9ca;
@@ -494,6 +494,7 @@ th td:nth-child(2) {
 .name-cate {
   width: 350px !important;
 }
+
 tr td:nth-child(3),
 th td:nth-child(3) {
   width: 120px !important;
@@ -502,8 +503,15 @@ tr td:nth-child(4),
 th td:nth-child(4) {
   width: 340px !important;
 }
+tr td:nth-child(4).name-user,
+th td:nth-child(4).name-user {
+  width: 180px !important;
+}
+.control-w {
+  width: 130px !important;
+}
 .namesp {
-  width: 320px !important;
+  width: 300px !important;
   margin: 0 10px !important;
   white-space: nowrap !important;
   overflow: hidden !important;
@@ -570,7 +578,7 @@ th td:nth-child(4) {
   display: block;
 }
 .name-th {
-  width: 320px !important;
+  width: 300px !important;
 }
 
 .table-products {
@@ -1036,4 +1044,26 @@ th td:nth-child(4) {
 }
 .flex-search-tool input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.734);
+}
+
+/* order css */
+.text-pink {
+  color: pink;
+}
+.order-2 p {
+  text-align: left !important;
+  /* padding-left: 30px; */
+  border-bottom: 1px solid #0ba9ca;
+  margin-left: 30px;
+}
+.order-2 p span {
+  padding-left: 6px;
+}
+#submitConfirmOrder {
+  padding: 7px;
+  border-radius: 5px;
+  box-shadow: rgb(3 102 214 / 40%) 0px 0px 0px 3px;
+  background-color: rgba(255, 0, 0, 0.125);
+  color: #228dff;
+  border: none;
 }
