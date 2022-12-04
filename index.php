@@ -20,8 +20,20 @@ require_once("./model/HandleCompletedLogin/index.php");
 ?>
 
 <body>
+    <div class="loading">
+        <img src="./asset/svg/pottery-1.1s-200px.svg" alt="">
+        <h3>Loading...</h3>
+    </div>
+    <div class="filterError">
+        <div class="boxError">
+            <div class="textError">
+            </div>
+            <a href="" id="backError">Quay lại</a>
+        </div>
+    </div>
     <?php
     include_once("./view/layouts/Header/index.php");
+    echo "<div style='height: 90px; width: 100%;'></div>";
     include_once("./controller/controlHome.php");
     include_once("./view/layouts/Footer/index.php");
     ?>
