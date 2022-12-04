@@ -71,7 +71,7 @@
             </li>
         </ul>
         <div class="profile_content_ad">
-            <div class="profile_ad">
+            <div class="profile_ad" onclick="logoutAdmin()" style="cursor: pointer;">
                 <div class="profile_detail">
                     <img src="https://i.pinimg.com/564x/b0/4c/39/b04c39732cfefc24f9b633c9a0b8d6b3.jpg" alt="" />
                     <div class="name_job">
@@ -130,53 +130,53 @@
     <script type="text/javascript" src="./js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="./js/plugins/dataTables.bootstrap.min.js"></script>
     <script>
-    function deleteRow(r) {
-        var i = r.parentNode.parentNode.rowIndex;
-        document.getElementById("myTable").deleteRow(i);
-    }
-    jQuery(function() {
-        jQuery(".trash").click(function() {
-            swal({
-                title: "Bạn Muốn Xoá Nó ư [!]",
-                text: "Bạn có chắc chắn là muốn xóa sản phẩm này? ",
-                buttons: ["Hủy bỏ", "Đồng ý"],
-            }).then((willDelete) => {
-                if (willDelete) {
-                    swal("Đã xóa thành công.!", {});
-                }
-            });
+function deleteRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("myTable").deleteRow(i);
+}
+jQuery(function() {
+    jQuery(".trash").click(function() {
+        swal({
+            title: "Bạn Muốn Xoá Nó ư [!]",
+            text: "Bạn có chắc chắn là muốn xóa sản phẩm này? ",
+            buttons: ["Hủy bỏ", "Đồng ý"],
+        }).then((willDelete) => {
+            if (willDelete) {
+                swal("Đã xóa thành công.!", {});
+            }
         });
     });
-    oTable = $("#sampleTable").dataTable();
-    $("#all").click(function(e) {
-        $("#sampleTable tbody :checkbox").prop(
-            "checked",
-            $(this).is(":checked")
-        );
-        e.stopImmediatePropagation();
-    });
+});
+oTable = $("#sampleTable").dataTable();
+$("#all").click(function(e) {
+    $("#sampleTable tbody :checkbox").prop(
+        "checked",
+        $(this).is(":checked")
+    );
+    e.stopImmediatePropagation();
+});
     </script>
     <script>
-    let btnMenuAd = document.querySelector("#btn");
-    let sidebarAd = document.querySelector(".sidebar-admin");
-    let containerAd = document.querySelector(".tab-table-products");
-    btnMenuAd.onclick = function() {
-        sidebarAd.classList.toggle("active");
-        btnMenuAd.classList.toggle("fa-bars-filter");
-        btnMenuAd.classList.toggle("fa-bars-sort");
-        containerAd.classList.toggle("active");
-    };
-    let iconsLink = document.querySelectorAll(".icons-link");
-    iconsLink.forEach((link) => {
-        link.addEventListener("click", () => {
-            removeActiveClasses();
-            link.classList.add("active");
-        });
+let btnMenuAd = document.querySelector("#btn");
+let sidebarAd = document.querySelector(".sidebar-admin");
+let containerAd = document.querySelector(".tab-table-products");
+btnMenuAd.onclick = function() {
+    sidebarAd.classList.toggle("active");
+    btnMenuAd.classList.toggle("fa-bars-filter");
+    btnMenuAd.classList.toggle("fa-bars-sort");
+    containerAd.classList.toggle("active");
+};
+let iconsLink = document.querySelectorAll(".icons-link");
+iconsLink.forEach((link) => {
+    link.addEventListener("click", () => {
+        removeActiveClasses();
+        link.classList.add("active");
     });
+});
 
-    function removeActiveClasses() {
-        iconsLink.forEach((link) => {
-            link.classList.remove("active");
-        });
-    }
+function removeActiveClasses() {
+    iconsLink.forEach((link) => {
+        link.classList.remove("active");
+    });
+}
     </script>
