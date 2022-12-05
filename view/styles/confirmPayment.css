@@ -1,0 +1,63 @@
+.wrapperConfirmPayment {
+  height: max-content;
+  width: 80%;
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-confirm-payment {
+  color: gray;
+}
+
+.tick-confirm {
+  width: max-content;
+  height: max-content;
+  border: 5px solid #edb2a0;
+  border-radius: 50%;
+  flex-direction: column;
+  margin: 2rem auto;
+}
+
+.tick-confirm img {
+  width: 120px;
+  height: 120px;
+  animation: tickAround 0.5s ease-in-out 0.2s backwards;
+}
+@keyframes tickAround {
+  0% {
+    transform: scale(0.1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.code-payment {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.code-payment span:first-child {
+  color: gray;
+}
+
+.code-payment span:nth-child(2) {
+  font-weight: bold;
+  font-size: 24px;
+  color: #edb2a0;
+}
+.code-payment a {
+  color: gray;
+  text-decoration: underline !important;
+  margin-top: 3rem;
+}

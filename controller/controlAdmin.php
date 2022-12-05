@@ -8,7 +8,68 @@ if (isset($_GET["act"])) {
 
             //* ORDER
         case 'order':
+            $listOrder = selectAllDataDB(
+                "SELECT *, sum(c_price) as sum_price FROM `order`
+                 INNER JOIN cart ON `order`.ord_id = cart.c_id_order
+                 WHERE ord_status != 3
+                 GROUP BY c_id_order ORDER BY ord_id DESC"
+            );
             include_once("./layouts/order/index.php");
+            break;
+        case 'confirmOrder':
+            if(isset($_POST['submitConfirmOrder']) && ($_POST['submitConfirmOrder'])){
+                $ord_id = $_POST['ord_id'];
+                $confirmValue = $_POST['confirmValue'];
+                editDataDB("UPDATE `order` SET ord_status = '$confirmValue' WHERE ord_id = '$ord_id'");
+
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
+            }
+            break;
+        case 'orderDelivered':
+            $listOrder = selectAllDataDB(
+                "SELECT *, sum(c_price) as sum_price FROM `order`
+                 INNER JOIN cart ON `order`.ord_id = cart.c_id_order
+                 WHERE ord_status = 3
+                 GROUP BY c_id_order 
+                 ORDER BY ord_id DESC"
+            );
+            include_once("./layouts/order/index.php");
+            break;
+        case 'deleteOrder':
+            if(isset($_GET['idOrder'])){
+                $ord_id = $_GET['idOrder'];
+                deleteDataDB(
+                    "DELETE FROM `order` WHERE ord_id = '$ord_id'"
+                );
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
+            }
+            break;
+        case 'detailOrder':
+            if(isset($_GET['idDetailOrder'])){
+                $ord_id = $_GET['idDetailOrder'];
+                $listOrder = selectAllDataDB(
+                    "SELECT *, sum(c_price) as sum_price FROM `order`
+                     INNER JOIN cart ON `order`.ord_id = cart.c_id_order
+                     WHERE ord_id = '$ord_id'
+                     GROUP BY c_id_order"
+                );
+                include_once("./layouts/Order/index.php");
+                $pro = selectAllDataDB(
+                    "SELECT * FROM cart 
+                    INNER JOIN product
+                    ON cart.c_id_pro = product.prd_id
+                    INNER JOIN category
+                    ON product.prd_id_cate = category.cate_id
+                    WHERE c_id_order = '$ord_id'"
+                );
+                include_once("./layouts/DetailCartOrder/index.php");
+            }
             break;
 
             //* POSTS

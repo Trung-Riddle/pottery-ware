@@ -1,4 +1,5 @@
 @import "./loading.css";
+@import "./checkForm.css";
 body {
   width: 100%;
   height: 100vh;
@@ -279,47 +280,5 @@ a:hover {
   left: 1.2rem;
 }
 .forgetPass a:hover {
-  color: #edb2a0;
-}
-.filterError {
-  background-color: #00000099;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: 24px;
-  color: gray;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.25s ease-in-out;
-}
-.filterError .boxError {
-  background-color: white;
-  width: 30rem;
-  height: 20rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  position: relative;
-}
-.filterError span {
-  color: red;
-  margin-right: 10px;
-}
-.boxError a {
-  font-size: 18px;
-  text-decoration: underline !important;
-  position: absolute;
-  bottom: 1rem;
-  color: gray;
-}
-.boxError a:hover {
   color: #edb2a0;
 }

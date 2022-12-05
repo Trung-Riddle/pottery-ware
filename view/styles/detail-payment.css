@@ -3,6 +3,30 @@
   align-items: center;
   justify-content: center;
 }
+.logo-main .logo {
+  height: 60px;
+}
+.logo-main .logo a {
+  display: flex;
+  align-items: center;
+}
+.logo-main .logo img {
+  height: 50px;
+}
+.between-impo {
+  justify-content: space-between !important;
+}
+.logo-main .logo a span {
+  font-family: "Poiret One", cursive;
+  font-size: 21px;
+  text-indent: 10px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  font-weight: bold;
+  white-space: nowrap;
+}
 .content-payment-detail {
   width: 100%;
   padding-top: 50px;
@@ -77,8 +101,18 @@
 .total-payment-dp p {
   margin-bottom: 0;
 }
-.momo {
-  width: 250px;
-  height: 320px;
+.imgQR {
+  width: 100% !important;
+  height: max-content;
+  margin-top: 2rem !important;
+  display: flex;
+  justify-content: space-between;
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
+}
+.imgQR img {
+  width: 300px;
+  height: max-content;
   object-fit: cover;
 }
