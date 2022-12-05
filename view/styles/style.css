@@ -3,19 +3,19 @@
     box-shadow: 0 8px 48px 8px rgba(47, 91, 234, 0.175);
 }
 
-.logo{
+.logo1{
     height: 60px;
 }
-.logo a{
+.logo1 a{
     display: flex;
     align-items: center;
 }
-.logo img{
-    height: 50px;
+.logo1 img{
+    height: 46px;
 }
-.logo a span{
+.logo1 a span{
     font-family: 'Poiret One', cursive;
-    font-size: 21px;
+    font-size: 19px;
     text-indent: 10px;
     font-weight: bold;
     letter-spacing: 3px;
@@ -25,7 +25,7 @@
     white-space: nowrap;
 }
 @media only screen and (max-width: 768px){
-    .logo a span{
+    .logo1 a span{
         font-size: 19px;
         text-indent: 8px;
     }

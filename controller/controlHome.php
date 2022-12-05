@@ -51,7 +51,16 @@ if (isset($_GET["page"])) {
         case 'news':
             include_once("./view/layouts/News/index.php");
             break;
-
+        case 'detailpost':
+            if (isset($_GET['pts_id'])) {
+                $pts_id = $_GET['pts_id'];
+                $pts_view = $_GET['pts_view'];
+                $pts_view++;
+                editDataDB("UPDATE posts SET pts_view =  '$pts_view' WHERE pts_id = '$pts_id'");
+                $detailpost = selectOneDataDB("SELECT * FROM posts WHERE pts_id=" . $pts_id);
+                include_once("./view/layouts/News/DelitalPosts.php");
+            }
+            break;
         case 'comment':
             if ((isset($_POST["submitCmt"])) && ($_POST["submitCmt"])) {
                 $cmt_id_user = substr($_POST["idUser"], 4);

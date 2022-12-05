@@ -6,20 +6,24 @@
                 <a href="#" class="left-contents">
                     <?php $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_id DESC LIMIT 0, 1"); ?>
                     <?php foreach ($post as $Post) { ?>
-                        <img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="Ảnh tin tức" class="left-pic">
-                        <div class="flexbox444">
-                            <div class="title-content"><?= $Post['pts_title'] ?></div>
-                            <div class="date-content"><?= $Post['pts_created_at'] ?></div>
-                            <div class="about-content"><?= $Post['pts_contents'] ?></div>
-                        </div>
+                        <a href="<?= $_SERVER['PHP_SELF'] . "?page=detailpost&pts_id=" . $Post['pts_id'] . "&pts_view=" . $Post['pts_view'] ?>" class="left-contents">
+                            <img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="Ảnh tin tức" class="left-pic">
+                            <div class="flexbox444">
+                                <input type="hidden" value="<?= $Post['pts_view'] ?>" name="pts_view">
+                                <div class="title-content"><?= $Post['pts_title'] ?></div>
+                                <div class="date-content"><?= $Post['pts_created_at'] ?></div>
+                                <div class="about-content"><?= $Post['pts_contents'] ?></div>
+                            </div>
+                        </a>
                     <?php } ?>
                 </a>
                 <div class="right-contents">
                     <?php $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_id DESC LIMIT 1, 3"); ?>
                     <?php foreach ($post as $Post) { ?>
-                        <a href="#" class="box538">
+                        <a href="<?= $_SERVER['PHP_SELF'] . "?page=detailpost&pts_id=" . $Post['pts_id'] . "&pts_view=" . $Post['pts_view'] ?>" class="box538">
                             <img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="" class="img-box538">
                             <div class="flexbox-538">
+                                <input type="hidden" value="<?= $Post['pts_view'] ?>" name="pts_view">
                                 <div class="title-box538"><?= $Post['pts_title'] ?></div>
                                 <div class="date-box538"><?= $Post['pts_created_at'] ?></div>
                                 <div class="about-cnt-box538"><?= $Post['pts_contents'] ?></div>
@@ -38,9 +42,10 @@
                 <div class="box683-left">
                     <?php $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_id DESC LIMIT 0, 4"); ?>
                     <?php foreach ($post as $Post) { ?>
-                        <a href="#" class="box320">
+                        <a href="<?= $_SERVER['PHP_SELF'] . "?page=detailpost&pts_id=" . $Post['pts_id'] . "&pts_view=" . $Post['pts_view'] ?>" class="box320">
                             <div class="wrap-box320">
                                 <img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="" class="img-box320">
+                                <input type="hidden" value="<?= $Post['pts_view'] ?>" name="pts_view">
                                 <div class="title-content"><?= $Post['pts_title'] ?></div>
                                 <div class="date-content"><?= $Post['pts_created_at'] ?></div>
                                 <div class="about-content"><?= $Post['pts_contents'] ?></div>
@@ -52,7 +57,8 @@
                     <h3 class="box444-title">Tìm Kiếm Nhiều Trong Tháng</h3>
                     <?php $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_view DESC LIMIT 0, 3"); ?>
                     <?php foreach ($post as $Post) { ?>
-                        <a href="#" class="hot-search">
+                        <a href="<?= $_SERVER['PHP_SELF'] . "?page=detailpost&pts_id=" . $Post['pts_id'] . "&pts_view=" . $Post['pts_view'] ?>" class="hot-search">
+                            <input type="hidden" value="<?= $Post['pts_view'] ?>" name="pts_view">
                             <img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="" class="hotsearch-img">
                             <div class="flexbox-270px">
                                 <div class="hotsearch-title"><?= $Post['pts_title'] ?></div>

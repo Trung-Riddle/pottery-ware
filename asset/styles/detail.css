@@ -129,6 +129,9 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+.between-impo{
+  justify-content: space-between !important;
+}
 
 .cart-btns .add-cart {
   background-color: var(--color-secondary);

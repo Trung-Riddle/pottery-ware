@@ -28,6 +28,14 @@ session_start();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- ----------------- Gợi ý lên hộp tìm kiếm -----------------  -->
     <meta name="google" content="Pottery Ware" />
+    <!-- ------------------- Nhan đề webiste --------------------  -->
+    <meta property="og:title" content="Cửa hàng đồ sứ hàng đầu Việt Nam | Pottery-Ware">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Đồ sứ với thiết kế tinh sảo thu hút được mọi ánh nhìn từ ngoại hình đến chất lượng">
+    <!-- <meta property="og:url" content=""> -->
+    <!-- <meta property="og:image" content=""> -->
+    <!-- ---------------- TỪ KHóa --------------------  -->
+    <meta name="keywords" content="Đĩa sứ, Đồ sứ, Đồ sứ đẹp, Đồ sứ chất lượng cao, Đồ gốm, Đồ gốm đơn giản, Đồ sứ rẽ, Bát đĩa sang trọng, Pottery , Ware">
     <!-- ------------------------ SEO -----------------------  -->
     <link rel="stylesheet" href="./view/styles/index.css">
     <link rel="stylesheet" href="./font/css/all.min.css">
@@ -65,5 +73,7 @@ require_once("./model/HandleCompletedLogin/index.php");
         d.getElementsByTagName("head")[0].appendChild(s);
     })();
 </script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </html>
