@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+#header{
+    height: 100vh;
+    background: url(../../asset/image/info/images/background.png);
+    background-position: center;
+    background-size: cover;
+  
+}
+.containerr{
+    margin-right: 100px;
+    margin-left: 100px;
+    
+}
+.header-text h1{
+    padding-top: 150px;
+}
+.header-text{
+    max-width: 450px;
+    margin-top: 10px;
+    margin-right: 700px;
+}
+.header-text button{
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+.square{
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    background: #f67c92;
+    margin: 15px 0;
+}
+.common-btn{
+    padding: 18px 40px;
+    background: transparent;
+    outline: none;
+    border: 2px solid #f67c92;
+    font-weight: bold;
+    cursor: pointer;
+}
+p{
+    line-height: 18px;
+    color: #777;
+}
+.line-1{
+    width: 15px;
+    height: 15px;
+    background: #f67c92;
+    display: inline-block;
+}
+.line-2{
+    width: 80px;
+    height: 1px;
+    background: #f67c92;
+    display: inline-block;
+}
+.line-3{
+    width: 60px;
+    height: 1px;
+    background: #f67c92;
+    display: inline-block;
+}
+.line{
+    line-height: 8px;
+}
+#about{
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.about-left-col{
+    flex-basis: 50%;
+}
+.about-left-col img{
+    max-width: 100%;       
+}
+.about-right-col{
+    flex-basis: 50%;
+    text-align: right;
+}
+.about-text{
+    max-width: 500px;
+    margin-right: 100px;
+    display: inline-block;
+}
+/*--Start features--*/
+#features{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.feature-row{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.feature-col{
+    flex-basis: 25%;
+    text-align: center;
+
+}
+.feature-col img{
+    width: 150px;
+}
+.feature-col h4{
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+.feature-col p{
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 768px){
+    #header{
+        background-image: none; 
+    }
+    .containerr{
+        margin-right: 50px;
+        margin-left: 50px;
+        
+    }  
+    .header-text h1{
+        font-size: 25px;
+    }
+    .header-text{
+        margin: auto;
+    }
+    .common-btn{
+        padding: 10px 16px;
+        
+    }
+    .about-text h1{
+        font-size: 25px;
+    }
+    .about-right-col{
+        text-align: center;
+    }
+    .about-text{
+        margin: auto;
+    }
+    .square{
+        margin: 5px 0;
+    }
+}

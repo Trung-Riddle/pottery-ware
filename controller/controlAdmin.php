@@ -323,6 +323,39 @@ if (isset($_GET["act"])) {
                 include_once("./layouts/User/infoUser.php");
             }
             break;
+            // *BANNER
+        case 'banner':
+            $banner = getAllBanner();
+            include_once("./layouts/Banner/index.php");
+            break;
+        case 'editBanner':
+            if (isset($_POST['editBanner']) && ($_POST['editBanner'])) {
+                $bn_title = $_POST['bn_title'];
+                $bn_content = $_POST['bn_content'];
+                $bn_id = $_POST['bn_id'];
+                $bn_img = $_FILES['bn_img']['name'];
+                if ($_FILES['bn_img']['name'] == null) {
+                    $name_bn_img = $_POST['name_bn_img'];
+                } else {
+                    $imgPath = "../upload/banner/";
+                    $imgPathBanner = "../upload/banner/" . $_POST['name_bn_img'];
+                    if (file_exists($imgPathBanner)) {
+                        unlink($imgPathBanner);
+                    }
+                    $target_file = $imgPath . str_replace(" ", "-", basename($bn_img));
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                    move_uploaded_file($_FILES['bn_img']['tmp_name'], $target_file);
+                    $newImgPro = "pottery-ware-banner-" . str_replace(" ", "-", $bn_title) . ".png";
+                    rename($target_file, $imgPath . $newImgPro);
+                }
+                $sql = "UPDATE banner SET bn_title = '" . $bn_title . "', bn_content = '" . $bn_content . "', bn_img = '" . $newImgPro . "' WHERE bn_id = " . $bn_id;
+                editDataDB($sql);
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
+            }
+            break;
 
         default:
 

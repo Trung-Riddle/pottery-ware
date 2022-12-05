@@ -1,0 +1,293 @@
+.Container_Post
+{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.Container_Post--Advertisement_Week
+{
+    width: 100%;
+    background-color: var(--color-tertiary);
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Container_Post--Advertisement_Week marquee 
+{
+    color: #fff;
+}
+.Container_Post--Detail
+{
+    width: 100%;
+    display: flex;
+}
+.Container_Post--Detail--Content
+{
+    flex: 2;
+    padding: 2rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-direction: column;
+}
+.Container_Post--Detail--Content--Url
+{
+    color: gray;
+}
+.Container_Post--Detail--Content--Title
+{
+    font-size: 3rem;
+    font-weight: 800;
+}
+.Container_Post--Detail--Content--Info
+{
+    color: gray;
+}
+.Container_Post--Detail--Content--Info span
+{
+    color: black;
+}
+.Container_Post--Detail--Content--Advertisement
+{
+    width: 100%;
+    height: 5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.Container_Post--Detail--Content--image
+{
+    margin-top: 1rem;
+    height: 30rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+.Container_Post--Detail--Content--Lead
+{
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+.Container_Post--Detail--Content--Hagtag
+{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.Container_Post--Detail--Content--Hagtag--but
+{
+    background-color: var(--color-primary);
+    color: black;
+    padding: 0.5rem 2rem;
+    border-radius: 0.1rem;
+    transition: 0.1s;
+}
+.Container_Post--Detail--Content--Hagtag--but:hover
+{
+    background-color: #fff;
+    color: #000;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.Container_Post--Detail--Content--Posted
+{
+    height: 10rem;
+    border: 0.01rem solid gray;
+    margin-top: 1rem;
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+}
+.Container_Post--Detail--Content--Posted--Avatar
+{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: pink;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Container_Post--Detail--Content--Posted--Infomation--name
+{
+    font-size: 2rem;
+    font-weight: 600;
+    color:var(color-text);
+}
+.Container_Post--Detail--Content--Posted--RelatedTo
+{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--title
+{
+    padding: 0.3rem 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-bottom: 0.01rem solid var(--color-secondary);
+    position: relative;
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--title::before
+{
+    content: 'Bài viết nổi bật';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 25%;
+    background-color: var(--color-secondary);
+    bottom: 0;
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--Posts_Post
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1.5rem;
+    margin-top: 1rem;
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--Posts_Post--Post
+{
+    padding: 1rem;
+    transition: 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--Posts_Post--Post:hover
+{
+    filter: brightness(60%);
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--Posts_Post--Post--image
+{
+    width: 15rem;
+    height: 10rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--Posts_Post--Post--title
+{
+    margin-top: 1rem;
+    color: black;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+.Container_Post--Detail--Content--Posted--RelatedTo--Posts_Post--Post--Day
+{
+    color: gray;
+}
+.Container_Post--Detail--Advertisement
+{
+    flex: 1;
+    padding: 2rem 0;
+}
+
+.Container_Post--Detail--Advertisement--title
+{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.Container_Post--Detail--Advertisement--Internet
+{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    margin-right: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.Container_Post--Detail--Advertisement--Internet--Icon
+{
+    background-color: rgb(0, 0, 0);
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.Container_Post--Detail--Advertisement--Internet--Icon ion-icon
+{
+    font-size: 1.4rem;
+    color: #fff;
+}
+.Container_Post--Detail--Advertisemen--Popular
+{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.Container_Post--Detail--Advertisemen--Popular--Title
+{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.Container_Post--Detail--Advertisemen--Popular--Post
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+.Container_Post--Detail--Advertisemen--Popular--Post--Image
+{
+    width: 8rem;
+    height: 8rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Container_Post--Detail--Advertisemen--Popular--Post--Image img 
+{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.Container_Post--Detail--Advertisemen--Popular--Post--Content--Title
+{
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.Container_Post--Detail--Advertisemen--Popular--Post--Content--Date
+{
+    color: gray;
+}
+.Container_Post--Detail--Advertisemen--Catergories
+{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.Container_Post--Detail--Advertisemen--Catergories--Title
+{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.Container_Post--Detail--Advertisemen--Catergories--Text
+{
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.Container_Post--Detail--Advertisemen--Poster
+{
+    margin-top: 2rem;
+    width: 80%;
+    height: 40%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
