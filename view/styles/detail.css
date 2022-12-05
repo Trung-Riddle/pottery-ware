@@ -43,6 +43,7 @@
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 30px;
+  height: 510px;
 }
 .product-page-img img {
   object-fit: cover;
@@ -304,7 +305,7 @@
 }
 
 .content {
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
   min-width: 300px;
   transition: 0.3s ease;

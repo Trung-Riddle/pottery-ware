@@ -54,12 +54,7 @@
                                 Xong
                             </a>
                             <?php } else { ?>
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?act=deleteCate&idCate=<?= $value['cate_id'] ?>">
-                                <i class="fa-solid fa-trash-can trash trash-custom-ad"></i>
-                            </a>&nbsp;
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?act=editCate&idCate=<?= $value['cate_id'] ?>">
-                                <i class="fa-solid fa-pen-to-square pen-custom-ad"></i>
-                            </a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?act=deleteCate&idCate=<?= $value['cate_id'] ?>"><i class="fa-solid fa-trash-can trash trash-custom-ad"></i></a>&nbsp; &nbsp;<a href="<?= $_SERVER['PHP_SELF'] ?>?act=editCate&idCate=<?= $value['cate_id'] ?>"><i class="fa-solid fa-pen-to-square pen-custom-ad"></i></a>
                             <?php } ?>
                         </td>
                     </tr>
