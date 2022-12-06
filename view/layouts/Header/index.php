@@ -119,20 +119,6 @@
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=contacts">Liên hệ</a>
                         </li>
-<<<<<<< HEAD
-                        <?php if (isset($_COOKIE['ur_id']) && ($ur_id == substr($_COOKIE['ur_id'], 4))) { ?>
-                            <li id="isLogin" class="menu-item-has-children" style="border: 2px solid #edb2a0; padding: 0 10px">
-                                <a href="" style="color: #edb2a0; margin-right: 1rem;">
-                                    <?= $ur_name ?>
-                                </a>
-                                <img src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar user" width="30px" height="30px" style="border-radius: 50%;">
-                                <div class="sub-menu single-column-menu">
-                                    <ul>
-                                        <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">
-                                                <i class="fa-light fa-user"></i>&nbsp;
-                                                Tài khoản</a></li>
-                                        <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
-=======
                         <?php if(isset($_COOKIE['ur_id']) && ($ur_id == substr($_COOKIE['ur_id'], 4))) { ?>
                         <li id="isLogin" class="menu-item-has-children" style="padding: 0 10px">
                             <a href="" style="color: #edb2a0;">
@@ -145,7 +131,6 @@
                                             <i class="fa-light fa-user"></i>&nbsp;
                                             Tài khoản</a></li>
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
->>>>>>> refs/remotes/origin/main
                                                 document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;'
                                                 sessionStorage.clear()
                                             ">
@@ -173,26 +158,10 @@
             <div class="header-item item-right">
                 <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" style="position: relative;">
                     <i class="fa-light fa-cart-plus"></i>
-<<<<<<< HEAD
-                    <?php if (isset($_SESSION['carts']) && (count($_SESSION['carts']) > 0)) { ?>
-                        <div class="countCarts" style="
-                            position: absolute; 
-                            top: -10px; 
-                            right: -13px;
-                            background-color: red;
-                            padding: 0 6px;
-                            border-radius: 50%;
-                            color: white;
-                            font-size: 13px;
-                        ">
-                            <?= count($_SESSION['carts']) ?>
-                        </div>
-=======
                     <?php if(isset($_SESSION['carts']) && (count($_SESSION['carts']) > 0)) { ?>
                     <div class="countCarts">
                         <?= count($_SESSION['carts']) ?>
                     </div>
->>>>>>> refs/remotes/origin/main
                     <?php } ?>
                 </a>
                 <a href="#"><i class="fa-light fa-heart"></i></a>
