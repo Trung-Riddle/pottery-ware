@@ -14,7 +14,7 @@ if (isset($_GET["act"])) {
                  WHERE ord_status != 3
                  GROUP BY c_id_order ORDER BY ord_id DESC"
             );
-            include_once("./layouts/order/index.php");
+            include_once("./layouts/Order/index.php");
             break;
         case 'confirmOrder':
             if(isset($_POST['submitConfirmOrder']) && ($_POST['submitConfirmOrder'])){
@@ -91,7 +91,7 @@ if (isset($_GET["act"])) {
                  GROUP BY c_id_order 
                  ORDER BY ord_id DESC"
             );
-            include_once("./layouts/order/index.php");
+            include_once("./layouts/Order/index.php");
             break;
         case 'deleteOrder':
             if(isset($_GET['idOrder'])){
@@ -131,7 +131,7 @@ if (isset($_GET["act"])) {
         case 'posts':
             $listPost = getAllPost();
             $countPost = countPost();
-            include_once("./layouts/posts/index.php");
+            include_once("./layouts/Posts/index.php");
             break;
         case 'newPosts':
             require_once("./layouts/NewPosts/index.php");
@@ -147,7 +147,7 @@ if (isset($_GET["act"])) {
             if (isset($_GET['id'])) {
                 $id = $_GET['id'];
                 $detialPost = getOnePost($id);
-                include_once("./layouts/posts/detailPosts.php");
+                include_once("./layouts/Posts/detailPosts.php");
             }
             break;
         case 'addPosts':
@@ -172,7 +172,7 @@ if (isset($_GET["act"])) {
         case 'comment':
             // $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment INNER JOIN  GROUP BY name_pro ORDER BY id DESC");
             $cmt = selectAllDataDB("SELECT * FROM comment INNER JOIN user ON comment.cmt_id_user = user.ur_id INNER JOIN product ON comment.cmt_id_pro = product.prd_id WHERE cmt_status = 1 ORDER BY cmt_id DESC LIMIT 0,10");
-            include_once("./layouts/comment/index.php");
+            include_once("./layouts/Comment/index.php");
             break;
         case 'searchCmt':
             $user_name = $_POST['userName'];
@@ -185,7 +185,7 @@ if (isset($_GET["act"])) {
             $sql = "SELECT * FROM comment WHERE user_name = '$user_name' $name_pro ORDER BY id DESC";
             $cmt = selectAllDataDB($sql);
             $groupByNameProCmt = selectAllDataDB("SELECT name_pro FROM comment GROUP BY name_pro ORDER BY id DESC");
-            include_once("./layouts/comment/index.php");
+            include_once("./layouts/Comment/index.php");
             break;
         case 'delCmt':
             if (isset($_GET['idCmt'])) {
@@ -200,7 +200,7 @@ if (isset($_GET["act"])) {
             break;
         case 'showStatusCmt-0':
             $cmt = selectAllDataDB("SELECT * FROM comment INNER JOIN user ON comment.cmt_id_user = user.ur_id INNER JOIN product ON comment.cmt_id_pro = product.prd_id WHERE cmt_status = 0 ORDER BY cmt_id DESC LIMIT 0,10");
-            include_once("./layouts/comment/index.php");
+            include_once("./layouts/Comment/index.php");
             break;
         case 'updateStatusCmt':
             if (isset($_GET['status'])) {
@@ -218,7 +218,7 @@ if (isset($_GET["act"])) {
             //* CATEGORY
         case 'category':
             $cate = selectAllDataDB("SELECT * FROM category ORDER BY cate_id DESC");
-            include_once("./layouts/category/index.php");
+            include_once("./layouts/Category/index.php");
             break;
         case 'formAddCategory':
             include_once("./layouts/FormAddCategory/index.php");
@@ -286,7 +286,7 @@ if (isset($_GET["act"])) {
             //* PRODUCT
         case 'product':
             $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id ORDER BY prd_id DESC");
-            include_once("./layouts/product/index.php");
+            include_once("./layouts/Product/index.php");
             break;
         case 'formAddProduct':
             $cate = selectAllDataDB("SELECT * FROM category");
@@ -320,7 +320,7 @@ if (isset($_GET["act"])) {
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
                 $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
-                include_once("./layouts/product/index.php");
+                include_once("./layouts/Product/index.php");
             }
             if (isset($_POST['editPro']) && ($_POST['editPro'])) {
                 $name_pro = $_POST['prd_name'];
@@ -356,7 +356,7 @@ if (isset($_GET["act"])) {
                         </script>";
                 }
                 $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
-                include_once("./layouts/product/index.php");
+                include_once("./layouts/Product/index.php");
             }
             break;
         case 'deletePro':
@@ -377,7 +377,7 @@ if (isset($_GET["act"])) {
 
             //* CHARTS
         case 'charts':
-            include_once("./layouts/charts/index.php");
+            include_once("./layouts/Charts/index.php");
             break;
 
             //* CONTACTS
@@ -387,7 +387,7 @@ if (isset($_GET["act"])) {
 
             //* SENDMAIL
         case 'sendmail':
-            include_once("./layouts/sendmail/index.php");
+            include_once("./layouts/Sendmail/index.php");
             break;
             //* USER
         case 'user':
