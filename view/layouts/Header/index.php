@@ -136,9 +136,27 @@
                             <img class="avt-main-menu" src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar">
                             <div class="sub-menu single-column-menu">
                                 <ul>
-                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">
+                                    <li>
+                                        <a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">
                                             <i class="fa-light fa-user"></i>&nbsp;
-                                            Tài khoản</a></li>
+                                            Tài khoản
+                                        </a>
+                                    </li>
+                                    <?php 
+                                    $ur_id == substr($_COOKIE['ur_id'], 4);
+                                    if(countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_role = 2") != 0) 
+                                    { ?>
+                                    <li>
+                                        <a href="./admin">
+                                            <i class="fa-light fa-user-shield"></i>&nbsp;
+                                            Quản lý
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                    <li>
+                                        <a href="<?= $_SERVER['PHP_SELF'] ?>?page=managerOrder"><i
+                                                class="fa-light fa-bags-shopping"></i>&nbsp; Đơn hàng</a>
+                                    </li>
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
                                                 document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;'
                                                 sessionStorage.clear()
