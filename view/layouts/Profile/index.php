@@ -11,18 +11,19 @@
     action="<?= $_SERVER['PHP_SELF'] ?>?page=handleChangePass" method="post">
     <div class="form-group-p">
         <label class="label-name-p">Mật khẩu cũ <span>*</span></label>
-        <input type="password" name="ur_pass" />
+        <input type="password" id="old_pass" name="ur_pass" />
     </div>
     <div class="form-group-p">
         <label class="label-name-p">Mật khẩu mới <span>*</span></label>
-        <input type="password" name="new_pass" />
+        <input type="password" id="new_pass" name="new_pass" />
     </div>
     <div class="form-group-p">
         <label class="label-name-p">Xác nhận mật khẩu mới <span>*</span></label>
-        <input type="password" name="confirm_new_pass" />
+        <input type="password" id="confirm_new_pass" name="confirm_new_pass" />
     </div>
     <div class="">
-        <input type="submit" style="margin: 0 auto;" class="seemore-input" name="changePass" value="Cập nhật" />
+        <input type="submit" id="changePass" style="margin: 0 auto;" class="seemore-input" name="changePass"
+            value="Cập nhật" />
     </div>
     <div class="">
         <a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile" class="seemore">Trở lại</a>

@@ -96,6 +96,9 @@
                 <td>
                     <form action="<?= $_SERVER['PHP_SELF'] ?>?act=confirmOrder" method="post">
                         <input type="hidden" name="ord_id" value="<?= $ord_id ?>">
+                        <input type="hidden" name="ord_email" value="<?= $ord_email ?>">
+                        <input type="hidden" name="ord_cus_name" value="<?= $ord_cus_name ?>">
+                        <input type="hidden" name="ord_code" value="<?= $ord_code ?>">
                         <p class="show-option">
                             <select name="confirmValue" id="confirmValue">
                                 <option value="0" data-status="<?= $ord_status ?>">Chờ xác nhận</option>

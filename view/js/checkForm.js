@@ -8,6 +8,18 @@
 </div>
 </div> */
 }
+//* hàm check lỗi
+function checkError(textError) {
+  var error = document.querySelector(".filterError");
+  var text = `<span>!</span> ${textError} <br /><br />`;
+  error.style.visibility = "visible";
+  error.style.opacity = 1;
+  // setTimeout(() => {
+  //   error.style.visibility = "hidden";
+  //   error.style.opacity = 0;
+  // }, 3000);
+  return text;
+}
 
 //* Check form đăng nhập
 if (document.getElementById("btnSubmitLogin")) {
@@ -17,20 +29,6 @@ if (document.getElementById("btnSubmitLogin")) {
     var error = false;
     var checkUserName = "";
     var checkPass = "";
-
-    //* hàm check lỗi
-    function checkError(textError) {
-      e.preventDefault();
-      var error = document.querySelector(".filterError");
-      var text = `<span>!</span> ${textError} <br /><br />`;
-      error.style.visibility = "visible";
-      error.style.opacity = 1;
-      // setTimeout(() => {
-      //   error.style.visibility = "hidden";
-      //   error.style.opacity = 0;
-      // }, 3000);
-      return text;
-    }
 
     //* Check user name
     if (userName.value == "") {
@@ -46,6 +44,7 @@ if (document.getElementById("btnSubmitLogin")) {
 
     //* Hiển thị lỗi
     if (error == true) {
+      e.preventDefault();
       document.querySelector(".textError").innerHTML =
         checkUserName + checkPass;
     }
@@ -65,19 +64,6 @@ if (document.getElementById("btnSubmitSignUp")) {
     var checkPass = "";
     var checkForgotPass = "";
 
-    //* hàm check lỗi
-    function checkError(textError) {
-      e.preventDefault();
-      var error = document.querySelector(".filterError");
-      var text = `<span>!</span> ${textError} <br /><br />`;
-      error.style.visibility = "visible";
-      error.style.opacity = 1;
-      // setTimeout(() => {
-      //   error.style.visibility = "hidden";
-      // }, 3000);
-      return text;
-    }
-
     //* Check user name
     if (userName.value == "") {
       checkUserName = checkError("Tên đăng nhập không được bỏ trống.");
@@ -87,6 +73,13 @@ if (document.getElementById("btnSubmitSignUp")) {
     //* Check email
     if (email.value == "") {
       checkEmail = checkError("Email không được bỏ trống.");
+      error = true;
+    } else if (
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email.value
+      ) == false
+    ) {
+      checkEmail = checkError("Email không hợp lệ.");
       error = true;
     }
 
@@ -104,6 +97,7 @@ if (document.getElementById("btnSubmitSignUp")) {
 
     //* Hiển thị lỗi
     if (error == true) {
+      e.preventDefault();
       document.querySelector(".textError").innerHTML =
         checkUserName + checkEmail + checkPass + checkForgotPass;
     } else {
@@ -127,19 +121,6 @@ if (document.getElementById("submitForm")) {
     var checkEmail = "";
     var checkPass = "";
     var checkForgotPass = "";
-
-    //* hàm check lỗi
-    function checkError(textError) {
-      e.preventDefault();
-      var error = document.querySelector(".filterError");
-      var text = `<span>!</span> ${textError} <br /><br />`;
-      error.style.visibility = "visible";
-      error.style.opacity = 1;
-      // setTimeout(() => {
-      //   error.style.visibility = "hidden";
-      // }, 3000);
-      return text;
-    }
 
     //* Check code
     if (code && code.value == "") {
@@ -167,8 +148,58 @@ if (document.getElementById("submitForm")) {
 
     //* Hiển thị lỗi
     if (error == true) {
+      e.preventDefault();
       document.querySelector(".textError").innerHTML =
         checkCode + checkEmail + checkPass + checkForgotPass;
+    } else {
+      var loading = document.querySelector(".loading");
+      loading.style.visibility = "visible";
+    }
+  };
+}
+
+//* Check change pass
+if (document.getElementById("changePass")) {
+  document.getElementById("changePass").onclick = (e) => {
+    var oldPass = document.getElementById("old_pass");
+    var newPass = document.getElementById("new_pass");
+    var confirmNewPass = document.getElementById("confirm_new_pass");
+    var error = false;
+    var checkOldPass = "";
+    var checkNewPass = "";
+    var checkConfirmNewPass = "";
+    var checkMatchPass = "";
+
+    //* Check old pass
+    if (oldPass.value == "") {
+      checkOldPass = checkError("Mật khẩu cũ không được bỏ trống.");
+      error = true;
+    }
+
+    //* Check new pass
+    if (newPass.value == "") {
+      checkNewPass = checkError("Mật khẩu mới không được bỏ trống.");
+      error = true;
+    }
+
+    //* Check confirm new password
+    if (confirmNewPass.value == "") {
+      checkConfirmNewPass = checkError(
+        "Nhập lại mật khẩu không được bỏ trống."
+      );
+      error = true;
+    }
+
+    if (newPass.value != confirmNewPass.value) {
+      checkMatchPass = checkError("Mật khẩu không trùng khớp.");
+      error = true;
+    }
+
+    //* Hiển thị lỗi
+    if (error == true) {
+      e.preventDefault();
+      document.querySelector(".textError").innerHTML =
+        checkOldPass + checkNewPass + checkConfirmNewPass + checkMatchPass;
     } else {
       var loading = document.querySelector(".loading");
       loading.style.visibility = "visible";
@@ -188,19 +219,6 @@ if (document.querySelector(".now-cart")) {
     var checkEmail = "";
     var check_ord_phone = "";
     var check_ord_address = "";
-
-    //* hàm check lỗi
-    function checkError(textError) {
-      e.preventDefault();
-      var error = document.querySelector(".filterError");
-      var text = `<span>!</span> ${textError} <br /><br />`;
-      error.style.visibility = "visible";
-      error.style.opacity = 1;
-      // setTimeout(() => {
-      //   error.style.visibility = "hidden";
-      // }, 3000);
-      return text;
-    }
 
     //* Check user name
     if (userName.value == "") {
@@ -228,6 +246,7 @@ if (document.querySelector(".now-cart")) {
 
     //* Hiển thị lỗi
     if (error == true) {
+      e.preventDefault();
       document.querySelector(".textError").innerHTML =
         checkUserName + checkEmail + check_ord_phone + check_ord_address;
     } else {
