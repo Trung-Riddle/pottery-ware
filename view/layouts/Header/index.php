@@ -59,7 +59,7 @@
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i
                                     class="fa-light fa-chevron-down"></i></a>
-                            <div class="sub-menu mega-menu mega-menu-column-4">
+                            <!-- <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item">
                                     <h4 class="title">Bát đĩa</h4>
                                     <ul>
@@ -110,7 +110,7 @@
                                     <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/files/grid02_d0e5bce2-d241-4460-b467-dad5af99786e.jpg?v=1657170207"
                                         alt="shop">
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i
@@ -146,7 +146,7 @@
                                     if(countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_role = 2") != 0) 
                                     { ?>
                                     <li>
-                                        <a href="./admin">
+                                        <a href="./admin/index.php?act=dashboard">
                                             <i class="fa-light fa-user-shield"></i>&nbsp;
                                             Quản lý
                                         </a>

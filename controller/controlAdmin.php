@@ -190,22 +190,28 @@ if (isset($_GET["act"])) {
         case 'delCmt':
             if (isset($_GET['idCmt'])) {
                 $id_cmt = $_GET['idCmt'];
-                $sql = "DELETE FROM comment WHERE id =" . $id_cmt;
+                $sql = "DELETE FROM comment WHERE cmt_id =" . $id_cmt;
                 deleteDataDB($sql);
-                header("location: {$_SERVER['PHP_SELF']}?act=comment");
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
             }
             break;
         case 'showStatusCmt-0':
-            $cmt = selectAllDataDB("SELECT * FROM comment WHERE status_cmt = 0 ORDER BY id DESC LIMIT 0,10");
+            $cmt = selectAllDataDB("SELECT * FROM comment INNER JOIN user ON comment.cmt_id_user = user.ur_id INNER JOIN product ON comment.cmt_id_pro = product.prd_id WHERE cmt_status = 0 ORDER BY cmt_id DESC LIMIT 0,10");
             include_once("./layouts/comment/index.php");
             break;
         case 'updateStatusCmt':
             if (isset($_GET['status'])) {
                 $id_cmt = $_GET['idCmt'];
                 $status_cmt = $_GET['status'];
-                $sql = "UPDATE comment SET status_cmt = '" . $status_cmt . "' WHERE id = " . $id_cmt;
+                $sql = "UPDATE comment SET cmt_status = '" . $status_cmt . "' WHERE cmt_id = " . $id_cmt;
                 editDataDB($sql);
-                header("location: {$_SERVER['PHP_SELF']}?act=comment");
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
             }
             break;
 

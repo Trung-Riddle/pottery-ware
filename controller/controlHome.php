@@ -221,7 +221,8 @@ if (isset($_GET["page"])) {
                      INNER JOIN customer
                      ON `order`.ord_id_customer = customer.cus_id
                      WHERE cus_id = '$cus_id'
-                     AND ord_status = '$status'"
+                     AND ord_status = '$status'
+                     ORDER BY ord_id DESC"
                 );
                 return $listOrderUser;
             }
