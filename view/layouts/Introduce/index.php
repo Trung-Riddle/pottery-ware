@@ -29,15 +29,20 @@
     <!--Đadạngmẫu-->
     <section id="about">
         <div class="about-left-col">
-            <img src="../asset/image/info/images/about.png" alt="">
+            <img src="./asset/image/info/images/about.png" alt="">
         </div>
 
         <div class="about-right-col">
             <div class="about-text">
                 <h1>ĐA DẠNG MẪU MÃ</h1>
                 <span class="square"></span>
-                <p>Tại POTTERY WARE, bạn sẽ được chiêm ngưỡng nhiều tác phẩm bằng gốm sứ độc đáo và ấn tượng. Cung cấp đa dạng các mặt hàng gốm sứ mà chúng tôi cung cấp. Bạn có thể tìm thấy tất cả các mặt hàng cần thiết cho cuộc sống khi ghé qua cửa hàng của chúng tôi. Nó sẽ đáp ứng được nhu cầu thiết yếu của mỗi khách hàng, đồng thời mang đến trải nghiệm khác biệt mà không phải bất cứ sản phẩm nào khác có thể đem lại được.</p>
-                <button class="common-btn">Xem sản phẩm</button>
+                <p>Tại POTTERY WARE, bạn sẽ được chiêm ngưỡng nhiều tác phẩm bằng gốm sứ độc đáo và ấn tượng. Cung cấp
+                    đa dạng các mặt hàng gốm sứ mà chúng tôi cung cấp. Bạn có thể tìm thấy tất cả các mặt hàng cần thiết
+                    cho cuộc sống khi ghé qua cửa hàng của chúng tôi. Nó sẽ đáp ứng được nhu cầu thiết yếu của mỗi khách
+                    hàng, đồng thời mang đến trải nghiệm khác biệt mà không phải bất cứ sản phẩm nào khác có thể đem lại
+                    được.</p>
+                <button class="common-btn" onclick="location.href = '<?= $_SERVER['PHP_SELF'] ?>?page=product'">Xem sản
+                    phẩm</button>
                 <div class="line">
                     <br><br>
                     <span class="line-1"></span>
@@ -57,17 +62,21 @@
             <div class="feature-col">
                 <img src="asset/image/info/images/pic-1.png">
                 <h4> SẢN PHẨM & DỊCH VỤ </h4>
-                <p> POTTERY WARE xin cam kết mang đến quý khách hàng sản phẩm chính hãng đúng như thông tin của nhà sản xuất công bố, không bán hàng giả hàng nhái, hàng không rõ xuất xứ. </p>
+                <p> POTTERY WARE xin cam kết mang đến quý khách hàng sản phẩm chính hãng đúng như thông tin của nhà sản
+                    xuất công bố, không bán hàng giả hàng nhái, hàng không rõ xuất xứ. </p>
             </div>
             <div class="feature-col">
                 <img src="asset/image/info/images/pic-2.png">
                 <h4> GIÁ CẠNH TRANH NHẤT<h4>
-                        <p> POTTERY WARE xin cam kết sản phẩm bán ra cạnh tranh nhất trên thị trường khi so sánh với đơn vị khác. Hỗ trợ tối đa cước phí vận chuyển, công nợ, chiết khấu giảm trực tiếp trên giá bán</p>
+                        <p> POTTERY WARE xin cam kết sản phẩm bán ra cạnh tranh nhất trên thị trường khi so sánh với đơn
+                            vị khác. Hỗ trợ tối đa cước phí vận chuyển, công nợ, chiết khấu giảm trực tiếp trên giá bán
+                        </p>
             </div>
             <div class="feature-col">
                 <img src="asset/image/info/images/pic-3.png">
                 <h4> TẶNG VOUCHER GIẢM GIÁ </h4>
-                <p> POTTERY WARE xin cam kết tặng voucher khuyến mãi cho các đợt mua sau của các khách hàng. Nếu đăng ký vé thành viên khách hàng sẽ nhận được voucher giảm 5% mỗi tháng trong năm. </p>
+                <p> POTTERY WARE xin cam kết tặng voucher khuyến mãi cho các đợt mua sau của các khách hàng. Nếu đăng ký
+                    vé thành viên khách hàng sẽ nhận được voucher giảm 5% mỗi tháng trong năm. </p>
             </div>
         </div>
     </section>

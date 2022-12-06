@@ -34,7 +34,7 @@
             <div class="main">
                 <div class="user_field field-2">
                     <form action="../../../model/handleLogin/index.php" id="formLogin" class="_details details-login"
-                        method="post">
+                        autocomplete="off" method="post">
                         <div class="textbox">
                             <input type="text" id="userName" name="ur_name" required />
                             <span class="input_detail">Tên Tài Khoản Hoặc Email</span>
@@ -65,7 +65,7 @@
             </div>
             <div class="main">
                 <form id="formSignup" class="user_field rel" action="../../../model/handleSignup/index.php"
-                    method="post" enctype="multipart/form-data">
+                    method="post" autocomplete="off" enctype="multipart/form-data">
                     <div class="avt">
                         <img class="camera-icon" src="../../image/camera.png" alt="camera" />
                         <img class="avt-img" src="../../image/avatar-user.png" alt="avatar" />

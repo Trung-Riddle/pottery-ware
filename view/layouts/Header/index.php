@@ -24,9 +24,8 @@
                             <a href="<?= $_SERVER['PHP_SELF'] ?>">trang chủ</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Giới Thiệu <i
-                                    class="fa-light fa-chevron-down"></i></a>
-                            <div class="sub-menu mega-menu mega-menu-column-4">
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Giới Thiệu</a>
+                            <!-- <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item text-center">
                                     <a href="#">
                                         <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop04.2.jpg?v=1657181639"
@@ -55,12 +54,12 @@
                                         <h4 class="title">Bình Đất Sét</h4>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i
                                     class="fa-light fa-chevron-down"></i></a>
-                            <div class="sub-menu mega-menu mega-menu-column-4">
+                            <!-- <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item">
                                     <h4 class="title">Bát đĩa</h4>
                                     <ul>
@@ -111,7 +110,7 @@
                                     <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/files/grid02_d0e5bce2-d241-4460-b467-dad5af99786e.jpg?v=1657170207"
                                         alt="shop">
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i
@@ -147,7 +146,7 @@
                                     if(countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_role = 2") != 0) 
                                     { ?>
                                     <li>
-                                        <a href="./admin">
+                                        <a href="./admin/index.php?act=dashboard">
                                             <i class="fa-light fa-user-shield"></i>&nbsp;
                                             Quản lý
                                         </a>
@@ -192,7 +191,7 @@
                     </div>
                     <?php } ?>
                 </a>
-                <a href="#"><i class="fa-light fa-heart"></i></a>
+                <!-- <a href="#"><i class="fa-light fa-heart"></i></a> -->
                 <label for="search-check"><i class="fa-light fa-magnifying-glass"></i></label>
                 <input type="checkbox" name="" id="search-check" hidden>
                 <div class="search-every">
