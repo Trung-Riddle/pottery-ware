@@ -56,10 +56,10 @@
                     const numB = 1;
                     const numM = 100;
                     qtyInput.setAttribute("value", numB);
-                     const minnum = qtyInput.setAttribute("min", numB);
-                     let minV = qtyInput.getAttribute("min");
+                    const minnum = qtyInput.setAttribute("min", numB);
+                    let minV = qtyInput.getAttribute("min");
                     qtyInput.setAttribute("max", numM);
-                    if(qtyInput.value < 1) {
+                    if (qtyInput.value < 1) {
                         qtyInput.value = 1;
                     }
                     if (minV < 1) {
@@ -75,6 +75,17 @@
                         .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
 
                     function addCarts(prd_id, prd_amount) {
+                        prd_amount < 1 ? prd_amount = 1 : prd_amount;
+                        document.cookie = `prd_id=${prd_id}; path='/';`;
+                        document.cookie = `prd_amount=${prd_amount}; path='/';`;
+                        window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart&link=back";
+                    }
+
+                    document
+                        .querySelector(".now-cart")
+                        .setAttribute("onclick", `payNow(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+
+                    function payNow(prd_id, prd_amount) {
                         prd_amount < 1 ? prd_amount = 1 : prd_amount;
                         document.cookie = `prd_id=${prd_id}; path='/';`;
                         document.cookie = `prd_amount=${prd_amount}; path='/';`;
@@ -94,11 +105,21 @@
                             prd_amount = qtyInput.value
                         }
 
-                        document
-                            .querySelector(".add-cart")
-                            .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+                        // document
+                        //     .querySelector(".add-cart")
+                        //     .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
 
-                        function addCarts(prd_id, prd_amount) {
+                        // function addCarts(prd_id, prd_amount) {
+                        //     document.cookie = `prd_id=${prd_id}; path='/';`;
+                        //     document.cookie = `prd_amount=${prd_amount}; path='/';`;
+                        //     window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart&link=back";
+                        // }
+
+                        document
+                            .querySelector(".now-cart")
+                            .setAttribute("onclick", `payNow(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+
+                        function payNow(prd_id, prd_amount) {
                             document.cookie = `prd_id=${prd_id}; path='/';`;
                             document.cookie = `prd_amount=${prd_amount}; path='/';`;
                             window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
@@ -109,7 +130,7 @@
             </div>
         </div>
         <div class="product-all-info">
-            
+
             <!-- end about -->
 
             <section id="wrapper">

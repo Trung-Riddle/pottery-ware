@@ -4,9 +4,15 @@
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
 
-    require '../PHPMailer-master/src/Exception.php';
-    require '../PHPMailer-master/src/PHPMailer.php';
-    require '../PHPMailer-master/src/SMTP.php';
+    if(isset($_GET['act'])){
+        require '../model/PHPMailer-master/src/Exception.php';
+        require '../model/PHPMailer-master/src/PHPMailer.php';
+        require '../model/PHPMailer-master/src/SMTP.php';
+    }else{
+        require '../PHPMailer-master/src/Exception.php';
+        require '../PHPMailer-master/src/PHPMailer.php';
+        require '../PHPMailer-master/src/SMTP.php';
+    }
     // include "./PHPMailer-master/src/OAuth.php";
     // include "./PHPMailer-master/src/POP3.php";
     //* Send mail to user when sign up successfully

@@ -18,9 +18,64 @@ if (isset($_GET["act"])) {
             break;
         case 'confirmOrder':
             if(isset($_POST['submitConfirmOrder']) && ($_POST['submitConfirmOrder'])){
+                require_once("../model/sendMail.php");
                 $ord_id = $_POST['ord_id'];
                 $confirmValue = $_POST['confirmValue'];
+                $statusOrder = "";
+                if($confirmValue == 0){
+                    $statusOrder = "Chờ xác nhận";
+                }else if($confirmValue == 1){
+                    $statusOrder = "Đã xác nhận";
+                }else if($confirmValue == 2){
+                    $statusOrder = "Đang giao hàng";
+                }else if($confirmValue == 3){
+                    $statusOrder = "Giao hàng thành công";
+                }
+                $ord_email = $_POST['ord_email'];
+                $ord_code = $_POST['ord_code'];
+                $ord_cus_name = $_POST['ord_cus_name'];
+                
                 editDataDB("UPDATE `order` SET ord_status = '$confirmValue' WHERE ord_id = '$ord_id'");
+
+                $title = "Pettery Ware - Order Status";
+
+                $content = "
+                <p
+                    style='
+                    background-color: #edb2a0;
+                    color: white;
+                    display: block;
+                    padding: 30px 0;
+                    font-size: 28px;
+                    font-weight: bold;
+                    text-align: center;
+                    '
+                >
+                    Pottery Ware
+                </p>
+                <p style='display: block; width: max-content; margin: 0 auto'>
+                    Pottery Ware xin gửi thông tin đơn hàng của quý khách như sau:
+                    <br /><br />
+                    <b>Mã đơn hàng: </b>$ord_code<br />
+                    <b>Tên khách hàng: </b>$ord_cus_name<br />
+                    <b>Trạng thái: </b>$statusOrder<br /><br />
+                </p>
+                <p
+                    style='
+                    background-color: #edb2a0;
+                    color: white;
+                    display: block;
+                    padding: 30px 0;
+                    font-size: 28px;
+                    font-weight: bold;
+                    text-align: center;
+                    '
+                >
+                    Xin trân thành cảm ơn.
+                </p>
+                ";
+                
+                sendMail($title, $content, $ord_email, $ord_cus_name);
 
                 $backPage = $_SERVER['HTTP_REFERER'];
                 echo "<script>
@@ -165,14 +220,25 @@ if (isset($_GET["act"])) {
         case 'addCate':
             if (isset($_POST['addCate']) && ($_POST['addCate'])) {
                 $cate_name = $_POST['cate_name'];
-                $cate_status = $_POST['cate_status'];
-                $day_add = date("Y-m-d");
-                $sql = "INSERT INTO category (cate_name, cate_status, cate_created_at) VALUES ('$cate_name', '$cate_status', '$day_add')";
-                addDataDB($sql);
-                $link = $_SERVER['PHP_SELF'];
-                echo "<script>
-                    window.location = '$link?act=category'
-                </script>";
+                $check_name_cate = countDataDB("SELECT count(*) FROM category WHERE cate_name = '$cate_name'");
+                if($check_name_cate != 1){
+                    $cate_status = $_POST['cate_status'];
+                    $day_add = date("Y-m-d");
+                    $sql = "INSERT INTO category (cate_name, cate_status, cate_created_at) VALUES ('$cate_name', '$cate_status', '$day_add')";
+                    addDataDB($sql);
+                    $link = $_SERVER['PHP_SELF'];
+                    echo "<script>
+                        window.location = '$link?act=category'
+                    </script>";
+                }else{
+                    $backPage = $_SERVER['HTTP_REFERER'];
+                    echo "<script>
+                            alert('Tên danh mục đã tồn tại')
+                            setTimeout(() => {
+                                window.location = '$backPage'
+                            }, 100)
+                        </script>";
+                }
             }
             break;
         case 'deleteCate':
@@ -195,10 +261,17 @@ if (isset($_GET["act"])) {
             }
             if (isset($_POST['editCate']) && ($_POST['editCate'])) {
                 $name_cate = $_POST['cate_name'];
+                $check_name_cate = countDataDB("SELECT count(*) FROM category WHERE cate_name = '$name_cate'");
                 $status_cate = $_POST['cate_status'];
                 $id_cate = $_POST['cate_id'];
-                $sql = "UPDATE category SET cate_name = '" . $name_cate . "', cate_status = '" . $status_cate . "' WHERE cate_id = " . $id_cate;
-                editDataDB($sql);
+                if($check_name_cate != 1){
+                    $sql = "UPDATE category SET cate_name = '" . $name_cate . "', cate_status = '" . $status_cate . "' WHERE cate_id = " . $id_cate;
+                    editDataDB($sql);
+                }else{
+                    echo "<script>
+                            alert('Tên danh mục đã tồn tại')
+                        </script>";
+                }
                 $cate = selectOneDataDB("SELECT * FROM category WHERE cate_id = " . $id_cate);
                 include_once("./layouts/Category/index.php");
             }
@@ -244,8 +317,8 @@ if (isset($_GET["act"])) {
                 include_once("./layouts/product/index.php");
             }
             if (isset($_POST['editPro']) && ($_POST['editPro'])) {
-                $id_pro = $_POST['idPro'];
                 $name_pro = $_POST['prd_name'];
+                $id_pro = $_POST['idPro'];
                 $price_pro = $_POST['prd_price'];
                 $del = $_POST['prd_del'];
                 $name_cate = $_POST['cate_id'];
@@ -253,22 +326,29 @@ if (isset($_GET["act"])) {
                 $detail_pro = $_POST['prd_description'];
                 $img_pro = $_FILES['profileUpload']['name'];
                 $date_add = date("Y-m-d");
-                if ($_FILES['profileUpload']['name'] == null) {
-                    $newImgPro = $_POST['nameImgPro'];
-                } else {
-                    $imgPath = "../upload/imgProduct/";
-                    $imgPathPro = "../upload/imgProduct/" . $_POST['nameImgPro'];
-                    if (file_exists($imgPathPro)) {
-                        unlink($imgPathPro);
+                $check_name_product = countDataDB("SELECT count(*) FROM product WHERE prd_name = '$name_pro'");
+                if($check_name_product != 1){
+                    if ($_FILES['profileUpload']['name'] == null) {
+                        $newImgPro = $_POST['nameImgPro'];
+                    } else {
+                        $imgPath = "../upload/imgProduct/";
+                        $imgPathPro = "../upload/imgProduct/" . $_POST['nameImgPro'];
+                        if (file_exists($imgPathPro)) {
+                            unlink($imgPathPro);
+                        }
+                        $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
+                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                        move_uploaded_file($_FILES['profileUpload']['tmp_name'], $target_file);
+                        $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
+                        rename($target_file, $imgPath . $newImgPro);
                     }
-                    $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
-                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    move_uploaded_file($_FILES['profileUpload']['tmp_name'], $target_file);
-                    $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
-                    rename($target_file, $imgPath . $newImgPro);
+                    $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_created_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = " . $id_pro;
+                    editDataDB($sqlEditPro);
+                }else{
+                    echo "<script>
+                            alert('Tên sản phẩm đã tồn tại')
+                        </script>";
                 }
-                $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_created_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = " . $id_pro;
-                editDataDB($sqlEditPro);
                 $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
                 include_once("./layouts/product/index.php");
             }

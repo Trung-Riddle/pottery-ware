@@ -117,8 +117,13 @@ if (isset($_GET["page"])) {
                     <script>
                         document.cookie = 'prd_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                         document.cookie = 'prd_amount=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-                        location.reload()
                     </script>";
+                if(isset($_GET['link']) && ($_GET['link'] == "back")){
+                    $backPage = $_SERVER['HTTP_REFERER'];
+                    echo "<script>
+                        location.href = '$backPage'
+                    </script>";
+                }
             }
             require_once("./view/layouts/Cart/index.php");
             break;

@@ -24,9 +24,8 @@
                             <a href="<?= $_SERVER['PHP_SELF'] ?>">trang chủ</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Giới Thiệu <i
-                                    class="fa-light fa-chevron-down"></i></a>
-                            <div class="sub-menu mega-menu mega-menu-column-4">
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=introduce">Giới Thiệu</a>
+                            <!-- <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item text-center">
                                     <a href="#">
                                         <img src="https://cdn.shopify.com/s/files/1/0616/4833/9114/products/shop04.2.jpg?v=1657181639"
@@ -55,7 +54,7 @@
                                         <h4 class="title">Bình Đất Sét</h4>
                                     </a>
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
                         <li class="menu-item-has-children">
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i
@@ -192,7 +191,7 @@
                     </div>
                     <?php } ?>
                 </a>
-                <a href="#"><i class="fa-light fa-heart"></i></a>
+                <!-- <a href="#"><i class="fa-light fa-heart"></i></a> -->
                 <label for="search-check"><i class="fa-light fa-magnifying-glass"></i></label>
                 <input type="checkbox" name="" id="search-check" hidden>
                 <div class="search-every">
