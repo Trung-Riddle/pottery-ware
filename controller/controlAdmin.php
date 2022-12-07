@@ -17,7 +17,7 @@ if (isset($_GET["act"])) {
             include_once("./layouts/order/index.php");
             break;
         case 'confirmOrder':
-            if(isset($_POST['submitConfirmOrder']) && ($_POST['submitConfirmOrder'])){
+            if (isset($_POST['submitConfirmOrder']) && ($_POST['submitConfirmOrder'])) {
                 $ord_id = $_POST['ord_id'];
                 $confirmValue = $_POST['confirmValue'];
                 editDataDB("UPDATE `order` SET ord_status = '$confirmValue' WHERE ord_id = '$ord_id'");
@@ -39,7 +39,7 @@ if (isset($_GET["act"])) {
             include_once("./layouts/order/index.php");
             break;
         case 'deleteOrder':
-            if(isset($_GET['idOrder'])){
+            if (isset($_GET['idOrder'])) {
                 $ord_id = $_GET['idOrder'];
                 deleteDataDB(
                     "DELETE FROM `order` WHERE ord_id = '$ord_id'"
@@ -51,7 +51,7 @@ if (isset($_GET["act"])) {
             }
             break;
         case 'detailOrder':
-            if(isset($_GET['idDetailOrder'])){
+            if (isset($_GET['idDetailOrder'])) {
                 $ord_id = $_GET['idDetailOrder'];
                 $listOrder = selectAllDataDB(
                     "SELECT *, sum(c_price) as sum_price FROM `order`
@@ -82,35 +82,69 @@ if (isset($_GET["act"])) {
             require_once("./layouts/NewPosts/index.php");
             break;
         case 'deletePosts':
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
+            echo "hi";
+            if (isset($_GET['pts_id'])) {
+                $id = $_GET['pts_id'];
                 deletePost($id);
-                header("location: {$_SERVER['PHP_SELF']}?act=posts");
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                        location.href = '$backPage'
+                    </script>";
             }
             break;
         case 'detialPost':
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
+            if (isset($_GET['pts_id'])) {
+                $id = $_GET['pts_id'];
                 $detialPost = getOnePost($id);
                 include_once("./layouts/posts/detailPosts.php");
             }
             break;
         case 'addPosts':
             if (isset($_POST['addPosts']) && ($_POST['addPosts'])) {
-                $title_post = $_POST['title_post'];
-                $content_post = $_POST['content_post'];
-                $img_post = $_FILES['img_post']['name'];
+                $pts_title = $_POST['pts_title'];
+                $pts_contents = $_POST['post_content'];
+                $pts_img = $_FILES['pts_img']['name'];
                 $imgPath = "../upload/imgPosts/";
-                $target_file = $imgPath . str_replace(" ", "-", basename($title_post));
+                $target_file = $imgPath . str_replace(" ", "-", basename($pts_title));
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                move_uploaded_file($_FILES['img_post']['tmp_name'], $target_file);
-                $newPost1 = "pottery-ware1-" . str_replace(" ", "-", $title_post) . ".png";
-                rename($target_file, $imgPath . $newPost1);
-                $sql = "INSERT INTO posts (title_post, content_post,,img_post,,date_add) 
-                VALUES ('$title_post', '$content_post', '$newPost1',now())";
+                move_uploaded_file($_FILES['pts_img']['tmp_name'], $target_file);
+                $newPost = "pottery-ware-post-" . str_replace(" ", "-", $pts_title) . ".png";
+                rename($target_file, $imgPath . $newPost);
+                $sql = "INSERT INTO posts (pts_title, pts_contents,pts_img,pts_created_at) 
+                VALUES ('$pts_title', '$pts_contents', '$newPost',now())";
                 addDataDB($sql);
-                header("location: {$_SERVER['PHP_SELF']}?act=posts");
-                echo 'HI';
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                        location.href = '$backPage'
+                    </script>";
+            }
+            break;
+        case 'editPosts':
+            if (isset($_POST['editPosts']) && ($_POST['editPosts'])) {
+                $pts_id = $_POST['pts_id'];
+                $pts_title = $_POST['pts_title'];
+                $pts_contents = $_POST['pts_contents'];
+                $pts_img = $_FILES['pts_img']['name'];
+                if ($_FILES['pts_img']['name'] == null) {
+                    $name_pts_img = $_POST['name_pts_img'];
+                } else {
+                    $imgPath = "../upload/imgPosts/";
+                    $imgPathPost = "../upload/imgPosts/" . $_POST['name_pts_img'];
+                    if (file_exists($imgPathPost)) {
+                        unlink($imgPathPost);
+                    }
+                    $target_file = $imgPath . str_replace(" ", "-", basename($pts_img));
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                    move_uploaded_file($_FILES['pts_img']['tmp_name'], $target_file);
+                    $newPost = "pottery-ware-post-" . str_replace(" ", "-", $pts_title) . ".png";
+                    rename($target_file, $imgPath . $newPost);
+                }
+                $sql = "UPDATE posts SET pts_title = '" . $pts_title . "', pts_contents = '" . $pts_contents . "', pts_img = '" . $newPost . "' WHERE pts_id = " . $pts_id;
+                editDataDB($sql);
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
             }
             break;
             //* COMMENT
@@ -313,9 +347,41 @@ if (isset($_GET["act"])) {
             if (isset($_GET['ur_id'])) {
                 $ur_id = $_GET['ur_id'];
                 deleteUser($ur_id);
-                header("location: {$_SERVER['PHP_SELF']}?act=user");
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
             }
             break;
+        case 'userAdmin':
+            $listUser = getAllUser();
+            $countUser = countCustomer();
+            include_once("./layouts/UserAdmin/index.php");
+            break;
+        case 'update_role':
+            include_once("./layouts/UserAdmin/update_role.php");
+            break;
+        case 'change_role':
+            if (isset($_POST['change_role']) && ($_POST['change_role'])) {
+                $ur_role = $_POST['ur_role'];
+                echo "hello";
+                $ur_id = $_GET['ur_id'];
+                $sql = "UPDATE user SET ur_role = '" . $ur_role . "' WHERE ur_id = " . $ur_id;
+                editDataDB($sql);
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                        location.href = '$backPage'
+                    </script>";
+            }
+            echo "hi";
+            break;
+
+
+
+
+
+
+
         case 'infoUser':
             if (isset($_GET['ur_id'])) {
                 $ur_id = $_GET['ur_id'];

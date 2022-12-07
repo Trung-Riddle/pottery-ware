@@ -86,7 +86,7 @@
                 </div>
                 <div class="box-tool-admin">
                     <i class="fa-light fa-gear"></i>
-                    <i class="fa-light fa-user"></i>
+                    <a href="<?= $_SERVER["PHP_SELF"] ?>?act=userAdmin"><i class="fa-light fa-user"></i></a>
                     <i class="fa-light fa-bell" id="blink"></i>
                     <i class="fa-light fa-envelope" id="blink"></i>
                     <a href="/" onclick="logoutAdmin(event)"><i class="fa-light fa-arrow-right-from-bracket"></i></a>
@@ -103,7 +103,7 @@
 
             <!-- MAIN -->
             <?php
-            include_once("../controller/controlAdmin.php")
+            include_once("../controller/controlAdmin.php");
             ?>
         </div>
     </div>
@@ -122,7 +122,6 @@
     <script type="text/javascript" src="./js/plugins/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="./js/plugins/dataTables.bootstrap.min.js"></script>
     <script>
-<<<<<<< HEAD
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("myTable").deleteRow(i);
@@ -172,55 +171,4 @@
                 link.classList.remove("active");
             });
         }
-=======
-function deleteRow(r) {
-    var i = r.parentNode.parentNode.rowIndex;
-    document.getElementById("myTable").deleteRow(i);
-}
-jQuery(function() {
-    jQuery(".trash").click(function() {
-        swal({
-            title: "Bạn Muốn Xoá Nó ư [!]",
-            text: "Bạn có chắc chắn là muốn xóa sản phẩm này? ",
-            buttons: ["Hủy bỏ", "Đồng ý"],
-        }).then((willDelete) => {
-            if (willDelete) {
-                swal("Đã xóa thành công.!", {});
-            }
-        });
-    });
-});
-oTable = $("#sampleTable").dataTable();
-$("#all").click(function(e) {
-    $("#sampleTable tbody :checkbox").prop(
-        "checked",
-        $(this).is(":checked")
-    );
-    e.stopImmediatePropagation();
-});
-    </script>
-    <script>
-let btnMenuAd = document.querySelector("#btn");
-let sidebarAd = document.querySelector(".sidebar-admin");
-let containerAd = document.querySelector(".tab-table-products");
-btnMenuAd.onclick = function() {
-    sidebarAd.classList.toggle("active");
-    btnMenuAd.classList.toggle("fa-bars-filter");
-    btnMenuAd.classList.toggle("fa-bars-sort");
-    containerAd.classList.toggle("active");
-};
-let iconsLink = document.querySelectorAll(".icons-link");
-iconsLink.forEach((link) => {
-    link.addEventListener("click", () => {
-        removeActiveClasses();
-        link.classList.add("active");
-    });
-});
-
-function removeActiveClasses() {
-    iconsLink.forEach((link) => {
-        link.classList.remove("active");
-    });
-}
->>>>>>> refs/remotes/origin/main
     </script>
