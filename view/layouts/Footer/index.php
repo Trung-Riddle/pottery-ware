@@ -37,7 +37,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <img src="./asset/image/amphora_icons.png" height="34" alt=""> Pottery Ware
+                        <img src="./asset/image/amphora_icons.png" style="min-width: 34px; min-height: 34px;" alt=""> Pottery Ware
                     </h6>
                     <p>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis quod, minus doloremque, culpa
