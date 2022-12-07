@@ -117,8 +117,13 @@ if (isset($_GET["page"])) {
                     <script>
                         document.cookie = 'prd_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                         document.cookie = 'prd_amount=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-                        location.reload()
                     </script>";
+                if(isset($_GET['link']) && ($_GET['link'] == "back")){
+                    $backPage = $_SERVER['HTTP_REFERER'];
+                    echo "<script>
+                        location.href = '$backPage'
+                    </script>";
+                }
             }
             require_once("./view/layouts/Cart/index.php");
             break;
@@ -139,6 +144,10 @@ if (isset($_GET["page"])) {
         case 'profile':
             if ($ur_role == 0) {
                 $role = "Khách hàng";
+            }else if($ur_role == 1){
+                $role = "Nhân viên";
+            }else if($ur_role == 2){
+                $role = "Admin";
             }
             require_once("./view/layouts/Profile/index.php");
             break;
@@ -188,6 +197,60 @@ if (isset($_GET["page"])) {
                 require_once("./view/layouts/ConfirmPayment/index.php");
             }
             break;
+        
+        case 'managerOrder':
+            //* get id customer by id user
+            function getId(){
+                $ur_id = substr($_COOKIE['ur_id'], 4);
+                $customer = selectAllDataDB(
+                    "SELECT cus_id FROM customer
+                     INNER JOIN user ON customer.cus_id_user = user.ur_id
+                     WHERE ur_id = '$ur_id'"
+                ); 
+                foreach($customer as $value){
+                    extract($value);
+                }
+                return $cus_id;
+            }
+            
+            //* lấy tất cả thông tin đơn hàng theo khách hàng và trạng thái đơn hàng
+            function listOrderUser($status){
+                $cus_id = getId();
+                $listOrderUser = selectAllDataDB(
+                    "SELECT * FROM `order`
+                     INNER JOIN customer
+                     ON `order`.ord_id_customer = customer.cus_id
+                     WHERE cus_id = '$cus_id'
+                     AND ord_status = '$status'
+                     ORDER BY ord_id DESC"
+                );
+                return $listOrderUser;
+            }
+
+            //* lấy thông tin tất cả sản phẩm đã mua của user
+            function listCartOrderUser($ord_id){
+                $selectCartOrderUser = selectAllDataDB(
+                    "SELECT * FROM cart
+                     INNER JOIN product
+                     ON cart.c_id_pro = product.prd_id
+                    WHERE c_id_order = '$ord_id'"
+                );
+                return $selectCartOrderUser;
+            };
+
+            require_once("./view/layouts/ManagerOrder/index.php");
+            break;
+
+            case 'deleteCartOrderUser':
+                if(isset($_GET['idOrder']) && ($_GET['idOrder'] != null)){
+                    $ord_id = $_GET['idOrder'];
+                    deleteDataDB("DELETE FROM `order` WHERE ord_id = '$ord_id'");
+                    $backPage = $_SERVER['HTTP_REFERER'];
+                    echo "<script>
+                        location.href = '$backPage'
+                    </script>";
+                }
+                break;
         default:
             # code...
             break;

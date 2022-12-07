@@ -20,7 +20,7 @@
             <a href="" class="me-4 link-secondary">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="" class="me-4 link-secondary">
+            <a href="https://github.com/Trung-Riddle/pottery-ware" class="me-4 link-secondary">
                 <i class="fab fa-github"></i>
             </a>
         </div>
@@ -52,18 +52,19 @@
                     <h6 class="text-uppercase fw-bold mb-4">
                         Sản Phẩm
                     </h6>
+                    <?php 
+                        foreach(
+                            selectAllDataDB(
+                                "SELECT * FROM category LIMIT 0, 4"
+                                )
+                            as $value
+                        ){
+                    ?>
                     <p>
-                        <a href="#!" class="text-reset">Bát đĩa</a>
+                        <a href="<?= $_SERVER['PHP_SELF'] ?>?page=searchProByCate&nameCate=<?= $value['cate_id'] ?>"
+                            class="text-reset"><?= $value['cate_name'] ?></a>
                     </p>
-                    <p>
-                        <a href="#!" class="text-reset">Bình đất</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Nồi Đất</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Tên sản phẩm</a>
-                    </p>
+                    <?php } ?>
                 </div>
                 <!-- Grid column -->
 

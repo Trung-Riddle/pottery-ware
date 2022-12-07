@@ -19,7 +19,7 @@
             <input type="text" id="name-category" name="cate_name" />
         </div>
         <div class="form-group-ad">
-            <button class="submitbtn-ad my-5" type="submit" name="addCate" value="addCate">
+            <button class="submitbtn-ad my-5" id="addCate" type="submit" name="addCate" value="addCate">
                 Thêm Danh Mục
             </button>
         </div>

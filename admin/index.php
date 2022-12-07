@@ -25,6 +25,13 @@
         <img src="../asset/svg/pottery-1.1s-200px.svg" alt="">
         <h3>Loading...</h3>
     </div>
+    <div class="filterError">
+        <div class="boxError">
+            <div class="textError">
+            </div>
+            <a href="" id="backError">Quay lại</a>
+        </div>
+    </div>
     <?php
         if(isset($_COOKIE['acc_allow']) && ($_COOKIE['acc_allow'] == sha1("allowacc"))){
             include_once("../model/index.php");
@@ -35,5 +42,6 @@
         }
     ?>
 </body>
+<script src="./js/checkForm.js"></script>
 
 </html>

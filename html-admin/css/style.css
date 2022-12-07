@@ -1059,3 +1059,32 @@ th td:nth-child(4).name-user {
 .order-2 p span {
   padding-left: 6px;
 }
+
+
+.statistical-system{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+}
+.statistical-system > div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 23.2%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.724);
+  padding: 10px;
+  font-size: 18px;
+}
+.statistical-system i{
+  font-size: 24px;
+  padding: 12px;
+  border: 1px solid white;
+  border-radius: 29px;
+}

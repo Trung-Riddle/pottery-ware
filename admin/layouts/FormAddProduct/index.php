@@ -19,7 +19,7 @@
         </div>
         <div class="form-group-ad">
             <label for="">Tên Sản Phẩm *</label>
-            <input id="" type="text" name="prd_name">
+            <input id="prd_name" type="text" name="prd_name">
         </div>
         <div class="form-group-ad">
             <label for="pri">Giá Sản Phẩm *</label>
@@ -64,7 +64,8 @@
         </div>
     </div>
     <div class="form-group-ad ">
-        <button name="addProduct" class="submitbtn-ad" type="submit" value="addProduct"> Thêm Sản Phẩm</button>
+        <button name="addProduct" id="addProduct" class="submitbtn-ad" type="submit" value="addProduct"> Thêm Sản
+            Phẩm</button>
     </div>
 </form>
 <script>
