@@ -270,14 +270,8 @@ if (isset($_GET["act"])) {
                 $check_name_cate = countDataDB("SELECT count(*) FROM category WHERE cate_name = '$name_cate'");
                 $status_cate = $_POST['cate_status'];
                 $id_cate = $_POST['cate_id'];
-                if($check_name_cate != 1){
-                    $sql = "UPDATE category SET cate_name = '" . $name_cate . "', cate_status = '" . $status_cate . "' WHERE cate_id = " . $id_cate;
-                    editDataDB($sql);
-                }else{
-                    echo "<script>
-                            alert('Tên danh mục đã tồn tại')
-                        </script>";
-                }
+                $sql = "UPDATE category SET cate_name = '" . $name_cate . "', cate_status = '" . $status_cate . "' WHERE cate_id = " . $id_cate;
+                editDataDB($sql);
                 $cate = selectOneDataDB("SELECT * FROM category WHERE cate_id = " . $id_cate);
                 include_once("./layouts/Category/index.php");
             }
@@ -319,6 +313,7 @@ if (isset($_GET["act"])) {
         case 'editPro':
             if (isset($_GET['idPro'])) {
                 $id_pro = $_GET['idPro'];
+                $cate = selectAllDataDB("SELECT * FROM category");
                 $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
                 include_once("./layouts/Product/index.php");
             }
@@ -332,31 +327,28 @@ if (isset($_GET["act"])) {
                 $detail_pro = $_POST['prd_description'];
                 $img_pro = $_FILES['profileUpload']['name'];
                 $date_add = date("Y-m-d");
-                $check_name_product = countDataDB("SELECT count(*) FROM product WHERE prd_name = '$name_pro'");
-                if($check_name_product != 1){
-                    if ($_FILES['profileUpload']['name'] == null) {
-                        $newImgPro = $_POST['nameImgPro'];
-                    } else {
-                        $imgPath = "../upload/imgProduct/";
-                        $imgPathPro = "../upload/imgProduct/" . $_POST['nameImgPro'];
-                        if (file_exists($imgPathPro)) {
-                            unlink($imgPathPro);
-                        }
-                        $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
-                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                        move_uploaded_file($_FILES['profileUpload']['tmp_name'], $target_file);
-                        $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
-                        rename($target_file, $imgPath . $newImgPro);
+                if ($_FILES['profileUpload']['name'] == null) {
+                    $newImgPro = $_POST['nameImgPro'];
+                } else {
+                    $imgPath = "../upload/imgProduct/";
+                    $imgPathPro = "../upload/imgProduct/" . $_POST['nameImgPro'];
+                    if (file_exists($imgPathPro)) {
+                        unlink($imgPathPro);
                     }
-                    $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_created_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = " . $id_pro;
-                    editDataDB($sqlEditPro);
-                }else{
-                    echo "<script>
-                            alert('Tên sản phẩm đã tồn tại')
-                        </script>";
+                    $target_file = $imgPath . str_replace(" ", "-", basename($img_pro));
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                    move_uploaded_file($_FILES['profileUpload']['tmp_name'], $target_file);
+                    $newImgPro = "pottery-ware-" . str_replace(" ", "-", $name_pro) . ".png";
+                    rename($target_file, $imgPath . $newImgPro);
                 }
+                $sqlEditPro = "UPDATE product SET prd_id_cate = '$name_cate', prd_name ='$name_pro', prd_price = '$price_pro', prd_del = '$del', prd_img = '$newImgPro', prd_status = '$status_pro', prd_created_at = '$date_add', prd_description = '$detail_pro' WHERE prd_id = " . $id_pro;
+                editDataDB($sqlEditPro);
                 $pro = selectAllDataDB("SELECT * FROM product INNER JOIN category ON product.prd_id_cate = category.cate_id WHERE prd_id = '$id_pro' ORDER BY prd_id DESC");
-                include_once("./layouts/Product/index.php");
+                // include_once("./layouts/Product/index.php");
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                    location.href = '$backPage'
+                </script>";
             }
             break;
         case 'deletePro':
