@@ -43,7 +43,7 @@
                     <button class="add-cart">
                         Thêm vào giỏ
                     </button>
-                    <button class="now-cart">Mua ngay</button>
+                    <button class="now-add-cart">Mua ngay</button>
                     <?php } else { ?>
                     <a class="add-cart" href="./view/layouts/Login/index.php">
                         Thêm vào giỏ
@@ -51,79 +51,35 @@
                     <a class="now-cart" href="./view/layouts/Login/index.php">Mua ngay</a>
                     <?php } ?>
                     <script>
-                    const qtyInput = document.querySelector("#qty");
+                    let prd_amount = 1;
 
-                    const numB = 1;
-                    const numM = 100;
-                    qtyInput.setAttribute("value", numB);
-                    const minnum = qtyInput.setAttribute("min", numB);
-                    let minV = qtyInput.getAttribute("min");
-                    qtyInput.setAttribute("max", numM);
-                    if (qtyInput.value < 1) {
-                        qtyInput.value = 1;
-                    }
-                    if (minV < 1) {
-                        document.querySelector('#decrement').disabled = true;
-                        qtyInput.setAttribute("min", 1);
-                    } else {
-                        document.querySelector('#decrement').disabled = false;
-                    }
-                    let prd_amount = 1
+                    //* bắt sự kiện onclick cho 2 nút thêm vào giỏ hàng và mua hàng
+                    const payBtn = () => {
+                        document
+                            .querySelector(".add-cart")
+                            .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
 
-                    document
-                        .querySelector(".add-cart")
-                        .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+                        document
+                            .querySelector(".now-add-cart")
+                            .setAttribute("onclick", `payNow(<?= $_GET['idPro'] ?>, ${prd_amount})`);
+                    };
 
+                    payBtn();
+
+                    //* thêm sản phẩm vào giỏ hàng
                     function addCarts(prd_id, prd_amount) {
-                        prd_amount < 1 ? prd_amount = 1 : prd_amount;
+                        prd_amount < 1 ? (prd_amount = 1) : prd_amount;
                         document.cookie = `prd_id=${prd_id}; path='/';`;
                         document.cookie = `prd_amount=${prd_amount}; path='/';`;
                         window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart&link=back";
                     }
 
-                    document
-                        .querySelector(".now-cart")
-                        .setAttribute("onclick", `payNow(<?= $_GET['idPro'] ?>, ${prd_amount})`);
-
+                    //* mua sản phẩm nhanh
                     function payNow(prd_id, prd_amount) {
-                        prd_amount < 1 ? prd_amount = 1 : prd_amount;
+                        prd_amount < 1 ? (prd_amount = 1) : prd_amount;
                         document.cookie = `prd_id=${prd_id}; path='/';`;
                         document.cookie = `prd_amount=${prd_amount}; path='/';`;
                         window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
-                    }
-
-                    function stepper(btn) {
-                        let id = btn.getAttribute("id");
-                        let min = qtyInput.getAttribute("min");
-                        let max = qtyInput.getAttribute("max");
-                        let step = qtyInput.getAttribute("step");
-                        let value = qtyInput.getAttribute("value");
-                        let calcDesc = id == "increment" ? step * 1 : step * -1;
-                        let newValue = parseInt(value) + calcDesc;
-                        if (newValue >= min && newValue <= max) {
-                            qtyInput.setAttribute("value", newValue);
-                            prd_amount = qtyInput.value
-                        }
-
-                        // document
-                        //     .querySelector(".add-cart")
-                        //     .setAttribute("onclick", `addCarts(<?= $_GET['idPro'] ?>, ${prd_amount})`);
-
-                        // function addCarts(prd_id, prd_amount) {
-                        //     document.cookie = `prd_id=${prd_id}; path='/';`;
-                        //     document.cookie = `prd_amount=${prd_amount}; path='/';`;
-                        //     window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart&link=back";
-                        // }
-
-                        document
-                            .querySelector(".now-cart")
-                            .setAttribute("onclick", `payNow(<?= $_GET['idPro'] ?>, ${prd_amount})`);
-
-                        function payNow(prd_id, prd_amount) {
-                            document.cookie = `prd_id=${prd_id}; path='/';`;
-                            document.cookie = `prd_amount=${prd_amount}; path='/';`;
-                            window.location = "<?= $_SERVER['PHP_SELF'] ?>?page=addCart";
-                        }
                     }
                     </script>
                 </div>

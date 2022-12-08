@@ -55,21 +55,6 @@ window.onresize = function () {
     }
   }
 };
-// const qtyInput = document.querySelector("#qty");
-// function stepper(btn) {
-//   let id = btn.getAttribute("id");
-//   let min = qtyInput.getAttribute("min");
-//   let max = qtyInput.getAttribute("max");
-//   let step = qtyInput.getAttribute("step");
-//   let value = qtyInput.getAttribute("value");
-//   let calcDesc = id == "increment" ? step * 1 : step * -1;
-//   let newValue = parseInt(value) + calcDesc;
-//   if (newValue >= min && newValue <= max) {
-//     qtyInput.setAttribute("value", newValue);
-//   }
-// }
-
-// tabs
 
 var tabLinks = document.querySelectorAll(".tablinks");
 var tabContent = document.querySelectorAll(".tabcontent");
@@ -95,10 +80,38 @@ function openTabs(el) {
   btnTarget.classList.add("active");
 }
 
-// window.addEventListener("scroll", () => {
-//   if (window.scrollY > 0) {
-//     document.querySelector(".header").style.position = "fixed";
-//   } else {
-//     document.querySelector(".header").style.position = "relative";
-//   }
-// });
+const qtyInput = document.querySelector("#qty");
+
+const numB = 1;
+const numM = 100;
+qtyInput.setAttribute("value", numB);
+const minnum = qtyInput.setAttribute("min", numB);
+let minV = qtyInput.getAttribute("min");
+qtyInput.setAttribute("max", numM);
+if (qtyInput.value < 1) {
+  qtyInput.value = 1;
+}
+if (minV < 1) {
+  document.querySelector("#decrement").disabled = true;
+  qtyInput.setAttribute("min", 1);
+} else {
+  document.querySelector("#decrement").disabled = false;
+}
+
+//* set lại value cho số lượng sản phẩm
+function stepper(btn) {
+  let id = btn.getAttribute("id");
+  let min = qtyInput.getAttribute("min");
+  let max = qtyInput.getAttribute("max");
+  let step = qtyInput.getAttribute("step");
+  let value = qtyInput.getAttribute("value");
+  let calcDesc = id == "increment" ? step * 1 : step * -1;
+  let newValue = parseInt(value) + calcDesc;
+  if (newValue >= min && newValue <= max) {
+    qtyInput.setAttribute("value", newValue);
+    prd_amount = qtyInput.value;
+  }
+
+  //* gọi lại để set lại giá trị trong onclick
+  payBtn();
+}
