@@ -17,7 +17,14 @@ if (isset($_POST['dangky']) && ($_POST['dangky'])) {
         rename($target_file, $imgPath . $newAva);
     }
     // $checkUser = checkuser($ur_name, $ur_pass);
-    $checkUser2 = countDataDB("SELECT count(*) FROM user WHERE ur_name = '$ur_name'");
+    $checkUser2 = countDataDB(
+        "SELECT count(*) FROM user
+         INNER JOIN customer 
+         ON user.ur_id = customer.cus_id_user
+         WHERE ur_name = '$ur_name'
+         OR
+         cus_email = '$cus_email'"
+    );
     if ($checkUser2 != 0) {
         header("location: ../../view/layouts/login/index.php?error=faildSignup");
     } else {
