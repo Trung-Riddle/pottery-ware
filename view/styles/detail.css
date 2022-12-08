@@ -142,7 +142,8 @@
   cursor: pointer;
   user-select: none;
 }
-.cart-btns .now-cart {
+.cart-btns .now-cart,
+.cart-btns .now-add-cart {
   background-color: white;
   color: var(--color-secondary);
   padding: 6px 20px;

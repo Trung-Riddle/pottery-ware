@@ -100,8 +100,35 @@
             </div>
         </div>
     </div>
+    <script src="../../js/checkForm.js"></script>
+    <script src="../../js/login.js"></script>
+    <?php if(isset($_GET['error']) && ($_GET['error'] == "faildSignup")) { ?>
+    <script>
+    document.querySelector(".textError").innerHTML = checkError("Tài khoản đã tồn tại");
+    document.getElementById("backError").onclick = (e) => {
+        e.preventDefault();
+        location.href = "<?= $_SERVER['PHP_SELF'] ?>"
+    };
+    document.querySelector(".filterError").onclick = () => {
+        location.href = "<?= $_SERVER['PHP_SELF'] ?>"
+    };
+    </script>
+    <?php } ?>
+    <?php if(isset($_GET['confirmSignup']) && ($_GET['confirmSignup'] == 1)) ?>
+    <script>
+    var alert = document.querySelector(".filterError")
+    document.querySelector(".textError") = "Tạo tài khoản thành công"
+    alert.style.visibility = "visible"
+    alert.style.opacity = 1
+    document.getElementById("backError").onclick = (e) => {
+        e.preventDefault();
+        location.href = "<?= $_SERVER['PHP_SELF'] ?>"
+    };
+    document.querySelector(".filterError").onclick = () => {
+        location.href = "<?= $_SERVER['PHP_SELF'] ?>"
+    };
+    </script>
+    <?php ?>
 </body>
-<script src="../../js/checkForm.js"></script>
-<script src="../../js/login.js"></script>
 
 </html>

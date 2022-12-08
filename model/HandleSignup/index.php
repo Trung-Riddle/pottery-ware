@@ -40,63 +40,6 @@ if (isset($_POST['dangky']) && ($_POST['dangky'])) {
             // Append the requested resource location to the URL   
             $url.= $_SERVER['REQUEST_URI'];    
             
-            $title = "Pettery Ware - Create Account Success";
-
-            $content = "
-            <p
-                style='
-                background-color: #edb2a0;
-                color: white;
-                display: block;
-                padding: 30px 0;
-                font-size: 28px;
-                font-weight: bold;
-                text-align: center;
-                '
-            >
-                Pottery Ware
-            </p>
-            <p style='display: block; width: max-content; margin: 0 auto'>
-                Cảm ơn Quý khách đã sử dụng dịch vụ của Pottery Ware. <br />
-                Pottery Ware xin gửi thông tin tài khoản của quý khách như sau:
-                <br /><br />
-                <b>Tài khoản đăng nhập: </b>$ur_name<br />
-                <b>Email đã đăng ký: </b>$cus_email<br />
-                <b>Tình trạng: </b> Thành công <br /><br />
-                <a
-                href='$url'
-                style='
-                    padding: 1rem 2rem;
-                    background-color: #edb2a0;
-                    border-radius: 10px;
-                    text-decoration: none;
-                    color: white;
-                    font-size: 18px;
-                    font-weight: bold;
-                    display: block;
-                    width: max-content;
-                '
-                >Đăng nhập</a
-                >
-            </p>
-            <p
-                style='
-                background-color: #edb2a0;
-                color: white;
-                display: block;
-                padding: 30px 0;
-                font-size: 28px;
-                font-weight: bold;
-                text-align: center;
-                '
-            >
-                Xin trân thành cảm ơn.
-            </p>
-            ";
-            
-            $email = $cus_email;
-            $user_name = $ur_name;
-            signUp($title, $content, $email, $user_name);
             addUser($ur_name, $ur_pass, $newAva);
             $sql = "SELECT ur_id FROM user WHERE ur_name = '$ur_name' AND ur_pass = '$ur_pass'";
             $idUser = null;
@@ -106,7 +49,7 @@ if (isset($_POST['dangky']) && ($_POST['dangky'])) {
             }
             $addIdUser = "INSERT INTO customer (cus_id_user, cus_email) VALUES ('$idUser', '$cus_email')";
             addDataDB($addIdUser);
-            header("location: {$_SERVER['HTTP_REFERER']}");
+            header("location: {$_SERVER['HTTP_REFERER']}?confirmSignup=1");
         }
     }
 }else{

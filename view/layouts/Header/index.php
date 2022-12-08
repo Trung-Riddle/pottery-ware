@@ -57,7 +57,8 @@
                             </div> -->
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product">Sản Phẩm <i
+                                    class="fa-light fa-chevron-down"></i></a>
                             <!-- <div class="sub-menu mega-menu mega-menu-column-4">
                                 <div class="list-item">
                                     <h4 class="title">Bát đĩa</h4>
@@ -112,7 +113,8 @@
                             </div> -->
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i class="fa-light fa-chevron-down"></i></a>
+                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=news">Tin Tức <i
+                                    class="fa-light fa-chevron-down"></i></a>
                             <div class="sub-menu single-column-menu">
                                 <ul>
                                     <li><a href="<?= $_SERVER['PHP_SELF'] ?>?page=news#New_posts">Tin Mới Nhất</a></li>
@@ -126,52 +128,56 @@
                             <a href="<?= $_SERVER['PHP_SELF'] ?>?page=contacts">Liên hệ</a>
                         </li>
                         <?php if (isset($_COOKIE['ur_id']) && ($ur_id == substr($_COOKIE['ur_id'], 4))) { ?>
-                            <li id="isLogin" class="menu-item-has-children" style="padding: 0 10px">
-                                <a href="" style="color: #edb2a0;">
-                                    <?= $ur_name ?>
-                                </a>
-                                <img class="avt-main-menu" src="./upload/avatar/<?= $ur_avatar ?>" alt="avatar">
-                                <div class="sub-menu single-column-menu">
-                                    <ul>
-                                        <li>
-                                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">
-                                                <i class="fa-light fa-user"></i>&nbsp;
-                                                Tài khoản
-                                            </a>
-                                        </li>
-                                        <?php
+                        <li id="isLogin" class="menu-item-has-children" style="padding: 0 10px">
+                            <a href="" style="color: #edb2a0;">
+                                <?= $ur_name ?>
+                            </a>
+                            <img class="avt-main-menu"
+                                src="<?= $ur_avatar == null ? "./asset/image/avatar-user.png" : "./upload/avatar/".$ur_avatar ?>"
+                                alt="avatar">
+                            <div class="sub-menu single-column-menu">
+                                <ul>
+                                    <li>
+                                        <a href="<?= $_SERVER['PHP_SELF'] ?>?page=profile">
+                                            <i class="fa-light fa-user"></i>&nbsp;
+                                            Tài khoản
+                                        </a>
+                                    </li>
+                                    <?php
                                         $ur_id == substr($_COOKIE['ur_id'], 4);
                                         if (countDataDB("SELECT count(*) FROM user WHERE ur_id = '$ur_id' AND ur_role = 2") != 0) { ?>
-                                            <li>
-                                                <a href="./admin/index.php?act=dashboard">
-                                                    <i class="fa-light fa-user-shield"></i>&nbsp;
-                                                    Quản lý
-                                                </a>
-                                            </li>
-                                        <?php } ?>
-                                        <li>
-                                            <a href="<?= $_SERVER['PHP_SELF'] ?>?page=managerOrder"><i class="fa-light fa-bags-shopping"></i>&nbsp; Đơn hàng</a>
-                                        </li>
-                                        <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
+                                    <li>
+                                        <a href="./admin/index.php?act=dashboard">
+                                            <i class="fa-light fa-user-shield"></i>&nbsp;
+                                            Quản lý
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                    <li>
+                                        <a href="<?= $_SERVER['PHP_SELF'] ?>?page=managerOrder"><i
+                                                class="fa-light fa-bags-shopping"></i>&nbsp; Đơn hàng</a>
+                                    </li>
+                                    <li><a href="<?= $_SERVER['PHP_SELF'] ?>" onclick="
                                                 document.cookie = 'ur_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/;'
                                                 sessionStorage.clear()
                                             ">
-                                                <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
-                                                Đăng xuất</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                                            <i class="fa-light fa-arrow-right-from-bracket"></i>&nbsp;
+                                            Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <?php } else { ?>
-                            <li id="notLogin" class="menu-item-has-children">
-                                <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
-                                <div class="sub-menu single-column-menu">
-                                    <ul>
-                                        <li><a href="./view/layouts/Login/index.php"> <i class="fa-light fa-user"></i>&nbsp;
-                                                Đăng Nhập</a></li>
-                                        <li><a href="./view/layouts/Login/index.php"><i class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                        <li id="notLogin" class="menu-item-has-children">
+                            <a href="">Tài Khoản <i class="fa-light fa-chevron-down"></i></a>
+                            <div class="sub-menu single-column-menu">
+                                <ul>
+                                    <li><a href="./view/layouts/Login/index.php"> <i class="fa-light fa-user"></i>&nbsp;
+                                            Đăng Nhập</a></li>
+                                    <li><a href="./view/layouts/Login/index.php"><i
+                                                class="fa-light fa-user-plus"></i>&nbsp; Đăng ký</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <?php } ?>
                     </ul>
                 </nav>
@@ -181,9 +187,9 @@
                 <a href="<?= $_SERVER['PHP_SELF'] ?>?page=addCart" style="position: relative;">
                     <i class="fa-light fa-cart-plus"></i>
                     <?php if (isset($_SESSION['carts']) && (count($_SESSION['carts']) > 0)) { ?>
-                        <div class="countCarts">
-                            <?= count($_SESSION['carts']) ?>
-                        </div>
+                    <div class="countCarts">
+                        <?= count($_SESSION['carts']) ?>
+                    </div>
                     <?php } ?>
                 </a>
                 <!-- <a href="#"><i class="fa-light fa-heart"></i></a> -->
