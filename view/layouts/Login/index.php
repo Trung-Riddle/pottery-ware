@@ -104,7 +104,7 @@
     <script src="../../js/login.js"></script>
     <?php if(isset($_GET['error']) && ($_GET['error'] == "faildSignup")) { ?>
     <script>
-    document.querySelector(".textError").innerHTML = checkError("Tài khoản đã tồn tại");
+    document.querySelector(".textError").innerHTML = checkError("Tài khoản hoặc email đã tồn tại");
     document.getElementById("backError").onclick = (e) => {
         e.preventDefault();
         location.href = "<?= $_SERVER['PHP_SELF'] ?>"
