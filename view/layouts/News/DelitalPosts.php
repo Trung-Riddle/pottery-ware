@@ -1,4 +1,44 @@
 <?php foreach ($detailpost as $Post) { ?>
+    <div class="Container" style="
+            background: url(upload/imgPosts/<?= $Post['pts_img'] ?>) no-repeat center;
+            background-size: cover;
+            background-attachment: fixed
+    ">
+        <div class="Container-Brightness"></div>
+        <div class="Container-Content">
+            <div class="Container-Content-Title"><?= $Post['pts_title'] ?></div>
+            <div class="Container-Content-box-info">
+                <span>Date: <?= $Post['pts_created_at'] ?></span> <br>
+                <span>View: <?= $Post['pts_view'] ?></span>
+            </div>
+            <div class="Container-Content-Read">
+                <?= $Post['pts_contents'] ?>
+            </div>
+        </div>
+        <div class="Container-Image">
+            <div class="Container-Image-Box">
+                <div class="Container-Image-Box-Card">
+                    <img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="Post">
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <?php foreach ($detailpost as $Post) { ?>
     <div class="Container_Post">
         <div class="Container_Post--Advertisement_Week">
             <marquee behavior="" direction="">
@@ -117,4 +157,4 @@
             </div>
         </div>
     </div>
-<?php } ?>
+<?php } ?> -->
