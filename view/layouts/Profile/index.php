@@ -1,7 +1,7 @@
 <div class="profile-cover"></div>
 
 <div class="profile-content">
-    <img src="./upload/avatar/<?= $ur_avatar ?>" alt="" />
+    <img src="<?= $ur_avatar == null ? "./asset/image/avatar-user.png" : "./upload/avatar/".$ur_avatar ?>" alt="" />
     <small><?= $ur_name ?></small>
     <p>Hãy cập nhật đầy đủ thông tin để tiện cho việc giao hàng của bạn !</p>
 </div>

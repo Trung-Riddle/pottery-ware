@@ -157,8 +157,8 @@
                 <div class="form-group-ad-img">
                     <div class="upload-product-image ">
                         <img class="upload-icon" src="../asset/image/upload.png" alt="camera">
-                        <img class="img-rounded-circle prd" height="" src="../asset/image/background-pd.png"
-                            alt="profile">
+                        <img class="img-rounded-circle prd" height=""
+                            src="<?= "../upload/imgProduct/".$pro[0]['prd_img'] ?>" alt="profile">
                         <small class="form-text mb-3"> Chọn Hình Ảnh Hiển Thị</small>
                         <input type="file" class="form-control-file" name="profileUpload" id="upload-product">
                         <input type="hidden" name="nameImgPro" id="" value="<?= $pro[0]['prd_img'] ?>">

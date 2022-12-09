@@ -40,9 +40,8 @@
                         <img src="./asset/image/amphora_icons.png" style="width: 34px !important; height: 34px; !important" alt="">&nbsp; &nbsp; <span>Pottery Ware</span>
                     </h6>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis quod, minus doloremque, culpa
-                        animi alias a tempore cum nesciunt sint voluptatum! Debitis laudantium doloribus quod ducimus
-                        officiis laborum vel maxime! </p>
+                    Từ tâm huyết của những nhà làm gốm, chúng tôi cam kết mang lại những sản phẩm chất lượng và tuyệt đẹp. Mang lại cho bạn cảm giác cổ kính và xa xưa, hi vọng không làm bạn thất vọng </p>
+                    
                 </div>
                 <!-- Grid column -->
 
