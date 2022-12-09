@@ -26,7 +26,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    color: #fff !important;
     padding: 0 1rem ;
     margin-top: 1rem;
 }
@@ -45,16 +45,16 @@
 }
 .Container_News-View-Post a:hover
 {
-    background: #fff;
+    background: #fff !important;
     color: #000;
 }
 .Container_News-View-Post a 
 {
     display: flex;
     padding: 1rem;
-    border: 0.01rem solid #fff;
+    border: 0.01rem solid #fff !important;
     border-radius: 0.3rem;
-    color: #fff;
+    color: #fff !important;
 }
 .Container_News-Title-Text ion-icon
 {
@@ -80,14 +80,14 @@
 }
 .Container_News-Title a 
 {
-    color: #fff;
+    color: #fff !important;
     font-size: 1.4rem;
     transition: 0.5s;
     position: relative;
 }
 .Container_News-Title a:hover
 {
-    color: #fff;
+    color: #fff !important;
 }
 .Container_News-Title a::before
 {
@@ -96,7 +96,7 @@
     left: -3rem;
     width: 0.02rem;
     height: 100%;
-    background: #fff;
+    background: #fff !important;
     transform: translateX(6rem);
     opacity: 0;
 }
@@ -118,7 +118,7 @@
     right: -3rem;
     width: 0.02rem;
     height: 100%;
-    background: #fff;
+    background: #fff !important;
     transition: 0.5;
     opacity: 0;
     transform: translateX(-6rem);
@@ -144,7 +144,7 @@
 }
 .Container_News-Title-Day_Night-But
 {
-    border: 0.01rem solid #fff;
+    border: 0.01rem solid #fff !important;
     padding: 0.2rem;
     display: flex;
     align-items: center;
@@ -164,11 +164,11 @@
     font-size: 1.4rem;
     padding: 0.5rem;
     transition: 0.5s;
-    color: #fff;
+    color: #fff !important;
 }
 .Container_News-Title-Day_Night-Check:checked ~ .Container_News
 {
-    background-color: #fff;
+    background-color: #fff !important;
 }
 .Container_News-Title-Day_Night-Check:checked ~ .Container_News-Title-Day_Night-But ion-icon:nth-child(1)
 {
@@ -201,7 +201,7 @@
     width: 97%;
     height: 95%;
     border-radius: 0.3rem;
-    border: 0.02rem solid #fff;
+    border: 0.02rem solid #fff !important;
     opacity: 0;
     transition: 0.5s;
 }
@@ -237,7 +237,7 @@
 .Container_News-Posts-Icon ion-icon 
 {
     transition: 0.5s;
-    color: #fff;
+    color: #fff !important;
     font-size: 4rem;
     opacity: 0;
 }
@@ -260,7 +260,7 @@
 }
 .Container_News-Posts-Left-Content
 {
-    color: #fff;
+    color: #fff !important;
 }
 .Container_News-Posts-Right
 {
@@ -274,7 +274,7 @@
 }
 .Container_News-Posts-Title
 {
-    color: #fff;
+    color: #fff !important;
     font-size: 5rem;
     font-weight: 800;
     animation: starts_S 2s ease-in-out 1 forwards;
@@ -315,15 +315,15 @@
     padding: 0.4rem 2rem;
     border-radius: 0.2rem;
     background: transparent;
-    border: 0.01rem solid #fff;
-    color: #fff;
+    border: 0.01rem solid #fff !important;
+    color: #fff !important;
     transition: 0.5s;
     position: absolute;
 }
 .Container_News-Posts-Left-Button:hover
 {
     transform: scale(1.1);
-    background-color: #fff;
+    background-color: #fff !important;
     color: black;
 }
 @media only screen and (min-width: 1001px) and (max-width: 1500px){
