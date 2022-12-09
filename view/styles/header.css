@@ -448,3 +448,8 @@ a {
   color: white;
   font-size: 13px;
 }
+@media (max-width: 539px) {
+  .none-539{
+    display: none;
+  }
+}

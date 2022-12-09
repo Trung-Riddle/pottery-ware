@@ -5,7 +5,7 @@
                 <div class="logo1">
                     <a href="<?= $_SERVER['PHP_SELF'] ?>">
                         <img src="./view/image/amphora.png" alt="pottery ware">
-                        <span>Pottery ware</span>
+                        <span class="none-539">Pottery ware</span>
                     </a>
                 </div>
             </div>
@@ -194,7 +194,7 @@
                 </div>
                 <!-- mobile menu trigger -->
                 <div class="mobile-menu-trigger">
-                    <i class="fa-regular fa-grid"></i>
+                <i class="fa-light fa-bars"></i>
                 </div>
             </div>
         </div>
