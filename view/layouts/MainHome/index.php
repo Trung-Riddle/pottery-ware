@@ -9,19 +9,18 @@ $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_view DESC LIMIT 0, 3")
         <div class="row">
             <?php foreach ($pro as $value) {
                 extract($value) ?>
-            <div class="col-6 col-lg-2  col-md-3">
-                <div class="product-img-pot">
-                    <a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>">
-                        <img src="./upload/imgProduct/<?= $prd_img ?>" alt="">
-                    </a>
-                </div>
-                <div class="text-center content-pd">
-                    <div class="name-pd"><a
-                            href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>"><?= $prd_name ?></a>
+                <div class="col-6 col-lg-2  col-md-3">
+                    <div class="product-img-pot">
+                        <a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>">
+                            <img src="./upload/imgProduct/<?= $prd_img ?>" alt="">
+                        </a>
                     </div>
-                    <div class="price-pd"><?= $prd_price ?> VND</div>
+                    <div class="text-center content-pd">
+                        <div class="name-pd"><a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>"><?= $prd_name ?></a>
+                        </div>
+                        <div class="price-pd"><?= $prd_price ?> VND</div>
+                    </div>
                 </div>
-            </div>
             <?php } ?>
         </div>
         <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product" class="seemore">Xem Thêm</a>
@@ -41,22 +40,20 @@ $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_view DESC LIMIT 0, 3")
                     <p style="line-height: 1.6; font-size: 15px; " class="text-center"> Nếu bạn quan tâm những mẫu sản phẩm đặc biệt và nổi bật nhất với nhiều lượt xem nhất</p>
                     <div class="container">
                         <div class="row">
-                            <?php 
-                            foreach(
-                                selectAllDataDB("SELECT * FROM product ORDER BY prd_view DESC LIMIT 0, 2")
+                            <?php
+                            foreach (selectAllDataDB("SELECT * FROM product ORDER BY prd_view DESC LIMIT 0, 2")
                                 as
-                                $value
-                                ) { 
+                                $value) {
                             ?>
-                            <div class="col-6">
-                                <div class="product-img-top">
-                                    <img src="./upload/imgProduct/<?= $value['prd_img'] ?>" alt="Pottery Ware">
+                                <div class="col-6">
+                                    <div class="product-img-top">
+                                        <img src="./upload/imgProduct/<?= $value['prd_img'] ?>" alt="Pottery Ware">
+                                    </div>
+                                    <div class="content-top mt-3">
+                                        <div class="text-center name-pd"><a href=""><?= $value['prd_name'] ?></a></div>
+                                        <p class="text-center"><?= $value['prd_price'] ?> đ</p>
+                                    </div>
                                 </div>
-                                <div class="content-top mt-3">
-                                    <div class="text-center name-pd"><a href=""><?= $value['prd_name'] ?></a></div>
-                                    <p class="text-center mt-2"><?= $value['prd_price'] ?> đ</p>
-                                </div>
-                            </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -72,19 +69,18 @@ $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_view DESC LIMIT 0, 3")
         <div class="row">
             <?php foreach ($proView as $value) {
                 extract($value) ?>
-            <div class="col-6 col-lg-2  col-md-3">
-                <div class="product-img-pot">
-                    <a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>">
-                        <img src="./upload/imgProduct/<?= $prd_img ?>" alt="">
-                    </a>
-                </div>
-                <div class="text-center content-pd">
-                    <div class="name-pd"><a
-                            href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>"><?= $prd_name ?></a>
+                <div class="col-6 col-lg-2  col-md-3">
+                    <div class="product-img-pot">
+                        <a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>">
+                            <img src="./upload/imgProduct/<?= $prd_img ?>" alt="">
+                        </a>
                     </div>
-                    <div class="price-pd"><?= $prd_price ?> VND</div>
+                    <div class="text-center content-pd">
+                        <div class="name-pd"><a href="<?= $_SERVER['PHP_SELF'] ?>?page=detailProduct&idPro=<?= $prd_id ?>"><?= $prd_name ?></a>
+                        </div>
+                        <div class="price-pd"><?= $prd_price ?> VND</div>
+                    </div>
                 </div>
-            </div>
             <?php } ?>
         </div>
         <a href="#" class="seemore">Xem Thêm</a>
@@ -96,17 +92,17 @@ $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_view DESC LIMIT 0, 3")
     <div class="container">
         <div class="row">
             <?php foreach ($post as $Post) { ?>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="blog-single">
-                    <div class="blog-single-img">
-                        <a href=""><img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="Tin tức Pottery Ware"></a>
-                    </div>
-                    <div class="blog-contents">
-                        <h4><a href=""><?= $Post['pts_title'] ?>"</a></h4>
-                        <p><?= $Post['pts_contents'] ?>"</p>
-                    </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="#" class="blog-single">
+                        <div class="blog-single-img">
+                            <a href="<?= $_SERVER['PHP_SELF'] . "?page=detailpost&pts_id=" . $Post['pts_id'] . "&pts_view=" . $Post['pts_view'] ?>"><img src="upload/imgPosts/<?= $Post['pts_img'] ?>" alt="Tin tức Pottery Ware"></a>
+                        </div>
+                        <div class="blog-contents">
+                            <h4><a href="<?= $_SERVER['PHP_SELF'] . "?page=detailpost&pts_id=" . $Post['pts_id'] . "&pts_view=" . $Post['pts_view'] ?>"><?= $Post['pts_title'] ?>"</a></h4>
+                            <p><?= $Post['pts_contents'] ?>"</p>
+                        </div>
+                    </a>
                 </div>
-            </div>
             <?php } ?>
         </div>
         <a href="#" class="seemore">Xem Thêm</a>
