@@ -12,7 +12,10 @@
   margin-top: -60px;
 }
 .profile-content img {
-  height: 120px;
+  height: 120px !important;
+  width: 120px !important;
+  object-fit: cover;
+  object-position: center center;
   display: block;
   margin: 0 auto;
   border-radius: 50%;
