@@ -5,8 +5,8 @@
                 <div class="carousel-item" data-bs-interval="4000">
                     <img src="upload/banner/<?= $Banner['bn_img'] ?>" class="d-block w-100" alt="Banner Pottery-Ware">
                     <div class="carousel-caption d-md-block gl-content">
-                        <h5><?= $Banner['bn_title']  ?></h5>
-                        <p><?= $Banner['bn_content'] ?></p>
+                        <h5 style="font-size: 24px;" class="caption-bn"><?= $Banner['bn_title']  ?></h5>
+                        <p class="desc-bn"><?= $Banner['bn_content'] ?></p>
                     </div>
                 </div>
             <?php } ?>
