@@ -64,12 +64,10 @@
 @keyframes tranAni {
     from{
         opacity: 0.2;
-        margin-left: 430px;
-        transform: rotateY(122deg) perspective(600px);
+        transform: rotateY(122deg) perspective(1000px);
     }
     to {
         opacity: 1;
-        margin-left: 0;
         transform: rotateY(0deg) perspective(0);
     }
 }

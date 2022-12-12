@@ -2,7 +2,7 @@
     <a href="<?= $_SERVER['PHP_SELF'] ?>?page=product" class="back-goshopping"><i class="fa-light fa-chevrons-left"></i>
         Tiếp Tục Mua Hàng</a>
     <h1>
-        <p>Giỏ Hàng Của Bạn</p>
+        <p class="fix-lh">Giỏ Hàng Của Bạn</p>
     </h1>
 
     <div class="shopping-cart">
@@ -36,7 +36,7 @@
             </div>
             <div class="product-details">
                 <div class="product-title"><?= $cart[2] ?></div>
-                <p class="product-description color-desc">Mô tả ở dây: Mô tả Ngắn Thôi Nhé</p>
+                <p class="product-description color-desc"></p>
             </div>
             <div class="product-price"><?= $cart[3] ?></div>
             <div class="product-quantity">
@@ -83,7 +83,7 @@
         }
         </script>
         <?php } else {?>
-        <h3 style="display: block; margin: 0 auto; width: max-content;">Không có sản phẩm</h3>
+        <h3 style="display: block; margin: 50px auto; width: max-content;">Không có sản phẩm</h3>
         <?php } ?>
     </div>
 </div>

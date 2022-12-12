@@ -37,9 +37,7 @@ $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_view DESC LIMIT 0, 3")
             <div class="col-12 col-md-12 col-lg-6">
                 <div class="product-top-col2">
                     <h2 class="text-center py-3">Sản Phẩm Nổi Bật</h2>
-                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis aliquam
-                        fugiat ipsa. Eius magni alias consequuntur pariatur totam voluptate explicabo reiciendis
-                        possimus architecto sit doloremque unde veritatis, deleniti dolorum magnam!</p>
+                    <p style="line-height: 1.6; font-size: 15px; " class="text-center"> Nếu bạn quan tâm những mẫu sản phẩm đặc biệt và nổi bật nhất với nhiều lượt xem nhất</p>
                     <div class="container">
                         <div class="row">
                             <?php
@@ -51,8 +49,8 @@ $post = selectAllDataDB("SELECT * FROM posts ORDER BY pts_view DESC LIMIT 0, 3")
                                     <div class="product-img-top">
                                         <img src="./upload/imgProduct/<?= $value['prd_img'] ?>" alt="Pottery Ware">
                                     </div>
-                                    <div class="content-top">
-                                        <p class="text-center"><?= $value['prd_name'] ?></p>
+                                    <div class="content-top mt-3">
+                                        <div class="text-center name-pd"><a href=""><?= $value['prd_name'] ?></a></div>
                                         <p class="text-center"><?= $value['prd_price'] ?> đ</p>
                                     </div>
                                 </div>

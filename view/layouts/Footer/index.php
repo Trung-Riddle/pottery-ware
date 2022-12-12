@@ -34,14 +34,14 @@
             <!-- Grid row -->
             <div class="row mt-3">
                 <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 col-1-ft">
                     <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4 d-flex align-items-center">
+                    <h6 class="text-uppercase fw-bold mb-4 d-flex align-items-center logo-h6-ft">
                         <img src="./asset/image/amphora_icons.png" style="width: 34px !important; height: 34px; !important" alt="">&nbsp; &nbsp; <span>Pottery Ware</span>
                     </h6>
-                    <p>
-                    Từ tâm huyết của những nhà làm gốm, chúng tôi cam kết mang lại những sản phẩm chất lượng và tuyệt đẹp. Mang lại cho bạn cảm giác cổ kính và xa xưa, hi vọng không làm bạn thất vọng </p>
-                    
+                    <p class="">
+                    Từ tâm huyết của những nhà làm gốm, chúng tôi cam kết mang lại những sản phẩm chất lượng và tuyệt đẹp. </p>
+
                 </div>
                 <!-- Grid column -->
 

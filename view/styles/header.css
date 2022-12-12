@@ -22,6 +22,7 @@ a {
   background-color: white;
   padding: 15px;
   transition: all 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .header .item-left {
   flex: 0 0 18%;
@@ -393,15 +394,15 @@ a {
   right: 0;
   max-width: 100%;
   width: 950px;
-  box-shadow: rgba(104, 49, 9, 0.15) 0px 5px 15px 0px,
+  /* box-shadow: rgba(104, 49, 9, 0.15) 0px 5px 15px 0px,
     rgba(220, 102, 78, 0.4) 0px 2px 4px,
     rgba(220, 55, 22, 0.3) 0px 7px 13px -3px,
-    rgba(208, 40, 40, 0.2) 0px -3px 0px inset;
-  transform: translateY(-45%) rotateX(-90deg) perspective(400px);
+    rgba(208, 40, 40, 0.2) 0px -3px 0px inset; */
+  transform: translateY(-45%) rotateX(-90deg) perspective(800px);
   transition: all 0.3s ease;
   visibility: hidden;
 }
-.search-every::before {
+/* .search-every::before {
   content: "";
   width: 25px;
   height: 25px;
@@ -409,20 +410,24 @@ a {
   right: 110px;
   position: absolute;
   transform: translateY(-50%) rotateZ(45deg);
-  border-top: 2px solid var(--color-secondary);
-  border-left: 2px solid var(--color-secondary);
-}
+  border-top: 1px solid var(--color-secondary);
+  border-left: 1px solid var(--color-secondary);
+} */
 .search-every input {
   width: 100%;
   padding: 8px 25px;
   border-radius: 6px;
-  border: 2px solid var(--color-secondary);
+  border: 1px solid var(--color-secondary);
   outline: none;
   font-size: 18px;
 }
 #search-check:checked ~ .search-every {
   visibility: visible;
   transform: translateY(0) rotateX(0) perspective(0);
+} 
+#search-check:checked ~ label i.check-gl{
+  color: var(--color-secondary) !important;
+  font-size: 19px;
 }
 /* #isLogin{
   display: flex;
@@ -448,8 +453,13 @@ a {
   color: white;
   font-size: 13px;
 }
-@media (max-width: 539px) {
+@media (max-width: 575px) {
   .none-539{
+    font-size: 14px;
     display: none;
   }
+  .logo1 img {
+    height: 42px;
+  }
 }
+

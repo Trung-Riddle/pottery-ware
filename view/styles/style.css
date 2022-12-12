@@ -47,10 +47,10 @@
 .gl-content{
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    backdrop-filter: blur( 9px );
+    -webkit-backdrop-filter: blur( 9px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.589);
 }
 .color-desc{
     color: var(--color-text-detail);
@@ -89,5 +89,21 @@
 }
 .seemore:hover::after{
     width: 100%;
+}
+
+
+
+/* footer */
+.col-1-ft p{
+    line-height: 1.5;
+    font-size: 14px;
+
+}
+
+@media (max-width: 758px) {
+    .logo-h6-ft{
+        margin-left: 55%;
+        transform: translateX(-50%);
+    }
 }
 
