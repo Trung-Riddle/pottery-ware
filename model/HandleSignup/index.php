@@ -26,14 +26,14 @@ if (isset($_POST['dangky']) && ($_POST['dangky'])) {
          cus_email = '$cus_email'"
     );
     if ($checkUser2 != 0) {
-        header("location: ../../view/layouts/login/index.php?error=faildSignup");
+        header("location: ../../view/layouts/Login/index.php?error=faildSignup");
     } else {
         if (strlen($ur_pass) < 8) {
-            header("location: ../../view/layouts/login/index.php?error=faildPass");
+            header("location: ../../view/layouts/Login/index.php?error=faildPass");
             // echo "<script type='text/javascript'>alert('Mật khẩu phải trên 8 ký tự');</script>";
             // header('Location: ' . $_SERVER['HTTP_REFERER']);
         } else if ($forgot_pass != $ur_pass) {
-            header("location: ../../view/layouts/login/index.php?error=faildForgot");
+            header("location: ../../view/layouts/Login/index.php?error=faildForgot");
         } else {
             if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'){
                 $url = "https://";   
