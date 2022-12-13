@@ -7,20 +7,20 @@
         hay việc trải nghiệm thì quý khách hãy ý kiến vào form bên dưới "Chúng tôi không thèm trả lời đâu"
     </p>
     <div class="Container_Introduce--Content">
-        <form action="#" class="Container_Introduce--Content--form">
+        <form action="<?= $_SERVER['PHP_SELF'] ?>?page=contacts_success" class="Container_Introduce--Content--form" method="post">
             <div class="Container_Introduce--Content--form--box">
-                <input type="text" require placeholder="Họ">
-                <input type="text" require placeholder="Tên">
+                <input type="text" require placeholder="Tiêu đề" name="title">
+                <input type="text" require placeholder="Họ và tên" name="user_name">
             </div>
             <div class="Container_Introduce--Content--form--box">
-                <input type="text" require placeholder="Email">
+                <input type="text" require placeholder="Email" name="email">
                 <input type="text" require placeholder="Số điện thoại">
             </div>
             <div class="Container_Introduce--Content--form--box">
-                <textarea require placeholder="Nội dung"></textarea>
+                <textarea require placeholder="Nội dung" name="content"></textarea>
             </div>
             <div class="Container_Introduce--Content--form--box">
-                <button>Gửi</button>
+                <button type="submit" name="contacts_success" value="Gửi">Gửi</button>
             </div>
         </form>
     </div>

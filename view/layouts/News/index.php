@@ -28,9 +28,6 @@
         </div>
         <a id="Texts" class="Container_News-Title-Notice" href="#">
             <ion-icon name="notifications-outline" id="Notice"></ion-icon>
-            <div class="Container_News-Title-Text-Notice" id="Tab_Notice">
-                Hư nhá ! Hư nhá
-            </div>
         </a>
 
     </div>
@@ -42,7 +39,6 @@
         Tab_view.style = `
             transition: 0.5s;
             position: absolute;
-            width: 20%;
             height: 90vh;
             position: fixed;
             top: 90px;
@@ -59,11 +55,10 @@
         Tab_view.style = `
             transition: 0.5s;
             position: absolute;
-            width: 20%;
             height: 90vh;
             position: fixed;
             top: 90px;
-            left: -30rem;
+            left: -100rem;
             background-color: rgb(32, 32, 32);
             z-index: 9999;
             border-top-right-radius: 0.3rem ;
