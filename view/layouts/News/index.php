@@ -27,9 +27,6 @@
         </div>
         <a id="Texts" class="Container_News-Title-Notice" href="#">
             <ion-icon name="notifications-outline" id="Notice"></ion-icon>
-            <div class="Container_News-Title-Text-Notice" id="Tab_Notice">
-                Hư nhá ! Hư nhá
-            </div>
         </a>
 
     </div>
@@ -41,7 +38,6 @@
             Tab_view.style = `
             transition: 0.5s;
             position: absolute;
-            width: 20%;
             height: 90vh;
             position: fixed;
             top: 90px;
@@ -58,46 +54,16 @@
             Tab_view.style = `
             transition: 0.5s;
             position: absolute;
-            width: 20%;
             height: 90vh;
             position: fixed;
             top: 90px;
-            left: -30rem;
+            left: -100rem;
             background-color: rgb(32, 32, 32);
             z-index: 9999;
             border-top-right-radius: 0.3rem ;
             border-bottom-right-radius: 0.3rem ;
             box-shadow: rgba(236, 228, 228, 0.07) 0px 1px 2px, rgba(243, 237, 237, 0.07) 0px 2px 4px, rgba(255, 255, 255, 0.07) 0px 4px 8px, rgba(255, 255, 255, 0.07) 0px 8px 16px, rgba(255, 255, 255, 0.07) 0px 16px 32px, rgba(240, 240, 240, 0.07) 0px 32px 64px;
             `;
-        }
-
-        var Notice = document.getElementById('Notice');
-        var Tab_Notice = document.getElementById('Tab_Notice');
-        var indexs = 1;
-        Notice.onclick = () => {
-            if (indexs == 1) {
-                Tab_Notice.style = `
-                display: block;
-                position: absolute;
-                width: 20rem;
-                height: 3rem;
-                background-color: rgb(32, 32, 32);
-                z-index: 9999;
-                border-radius: 0.3rem ;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 1rem;
-                box-shadow: rgba(236, 228, 228, 0.07) 0px 1px 2px, rgba(243, 237, 237, 0.07) 0px 2px 4px, rgba(255, 255, 255, 0.07) 0px 4px 8px, rgba(255, 255, 255, 0.07) 0px 8px 16px, rgba(255, 255, 255, 0.07) 0px 16px 32px, rgba(240, 240, 240, 0.07) 0px 32px 64px;
-            `;
-                indexs++;
-            } else {
-                Tab_Notice.style = `
-                display: none;
-            `;
-                indexs--;
-            }
-
         }
     </script>
     <?php $post = selectAllDataDB("SELECT * FROM posts"); ?>
@@ -106,7 +72,7 @@
             <div class="Container_News-Posts-Left">
                 <span class="Container_News-Posts-Left-Date"><?= $Post['pts_created_at'] ?></span> <br> <br>
                 <div class="Container_News-Posts_Box">
-                    <i class="Container_News-Posts-Left-Content"><?= $Post['pts_contents'] ?></i>
+                    <p class="Container_News-Posts-Left-Content"><?= $Post['pts_contents'] ?></p>
                 </div> <br> <br> <br>
                 <a class="Container_News-Posts-Left-Button" href="<?= $_SERVER['PHP_SELF'] . "?page=detailpost&pts_id=" . $Post['pts_id'] . "&pts_view=" . $Post['pts_view'] ?>">Đọc</a>
             </div>
