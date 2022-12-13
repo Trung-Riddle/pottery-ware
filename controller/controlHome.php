@@ -8,6 +8,19 @@ if (isset($_GET["page"])) {
         case 'contacts':
             include_once("./view/layouts/Contacts/index.php");
             break;
+        case 'contacts_success':
+            if ((isset($_POST["contacts_success"])) && ($_POST["contacts_success"])) {
+                $title = $_POST['title'];
+                $user_name = $_POST['user_name'];
+                $email = $_POST['email'];
+                $content = $_POST['content'];
+                sendMail($title, $content, $email, $user_name);
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
+                            location.href = '$backPage'
+                        </script>";
+            }
+            break;
             //* Handle Product
         case 'product':
             $pro = selectAllDataDB("SELECT * FROM product WHERE prd_status = 1");
@@ -118,7 +131,7 @@ if (isset($_GET["page"])) {
                         document.cookie = 'prd_id=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                         document.cookie = 'prd_amount=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
                     </script>";
-                if(isset($_GET['link']) && ($_GET['link'] == "back")){
+                if (isset($_GET['link']) && ($_GET['link'] == "back")) {
                     $backPage = $_SERVER['HTTP_REFERER'];
                     echo "<script>
                         location.href = '$backPage'
@@ -144,9 +157,9 @@ if (isset($_GET["page"])) {
         case 'profile':
             if ($ur_role == 0) {
                 $role = "Khách hàng";
-            }else if($ur_role == 1){
+            } else if ($ur_role == 1) {
                 $role = "Nhân viên";
-            }else if($ur_role == 2){
+            } else if ($ur_role == 2) {
                 $role = "Admin";
             }
             require_once("./view/layouts/Profile/index.php");
@@ -197,24 +210,26 @@ if (isset($_GET["page"])) {
                 require_once("./view/layouts/ConfirmPayment/index.php");
             }
             break;
-        
+
         case 'managerOrder':
             //* get id customer by id user
-            function getId(){
+            function getId()
+            {
                 $ur_id = substr($_COOKIE['ur_id'], 4);
                 $customer = selectAllDataDB(
                     "SELECT cus_id FROM customer
                      INNER JOIN user ON customer.cus_id_user = user.ur_id
                      WHERE ur_id = '$ur_id'"
-                ); 
-                foreach($customer as $value){
+                );
+                foreach ($customer as $value) {
                     extract($value);
                 }
                 return $cus_id;
             }
-            
+
             //* lấy tất cả thông tin đơn hàng theo khách hàng và trạng thái đơn hàng
-            function listOrderUser($status){
+            function listOrderUser($status)
+            {
                 $cus_id = getId();
                 $listOrderUser = selectAllDataDB(
                     "SELECT * FROM `order`
@@ -228,7 +243,8 @@ if (isset($_GET["page"])) {
             }
 
             //* lấy thông tin tất cả sản phẩm đã mua của user
-            function listCartOrderUser($ord_id){
+            function listCartOrderUser($ord_id)
+            {
                 $selectCartOrderUser = selectAllDataDB(
                     "SELECT * FROM cart
                      INNER JOIN product
@@ -241,16 +257,16 @@ if (isset($_GET["page"])) {
             require_once("./view/layouts/ManagerOrder/index.php");
             break;
 
-            case 'deleteCartOrderUser':
-                if(isset($_GET['idOrder']) && ($_GET['idOrder'] != null)){
-                    $ord_id = $_GET['idOrder'];
-                    deleteDataDB("DELETE FROM `order` WHERE ord_id = '$ord_id'");
-                    $backPage = $_SERVER['HTTP_REFERER'];
-                    echo "<script>
+        case 'deleteCartOrderUser':
+            if (isset($_GET['idOrder']) && ($_GET['idOrder'] != null)) {
+                $ord_id = $_GET['idOrder'];
+                deleteDataDB("DELETE FROM `order` WHERE ord_id = '$ord_id'");
+                $backPage = $_SERVER['HTTP_REFERER'];
+                echo "<script>
                         location.href = '$backPage'
                     </script>";
-                }
-                break;
+            }
+            break;
         default:
             # code...
             break;
